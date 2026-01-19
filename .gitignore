@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Environment
+.env
+.env.local
+*.env
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Private data (keep your edge private!)
+private/
+!private/.gitkeep
+
+# API keys and secrets
+*_key.txt
+*_secret.txt
+credentials.json
+
+# Large data files (if needed)
+*.zip
+*.tar.gz
+
+# Logs
+*.log
+logs/
+
+# Cache
+.cache/
+*.cache

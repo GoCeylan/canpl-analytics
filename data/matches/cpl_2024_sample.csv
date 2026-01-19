@@ -1,0 +1,17 @@
+season,date,home_team,away_team,home_goals,away_goals,ht_home_goals,ht_away_goals,venue,attendance,referee,is_playoff,weather_temp_c,weather_conditions,wind_speed_kmh
+2024,2024-04-13,Forge FC,Cavalry FC,2,1,1,0,Tim Hortons Field,6521,Pierre-Luc Lauziere,False,12.5,Clear,15.2
+2024,2024-04-13,Pacific FC,Vancouver FC,1,1,0,1,Starlight Stadium,5234,David Gantar,False,14.2,Cloudy,8.5
+2024,2024-04-14,Valour FC,York United FC,3,0,1,0,IG Field,4812,Marcus Chicken,False,8.3,Clear,22.1
+2024,2024-04-14,HFX Wanderers FC,Atletico Ottawa,2,2,1,1,Wanderers Grounds,5502,Yusri Rudolf,False,11.0,Cloudy,12.3
+2024,2024-04-20,Cavalry FC,Pacific FC,2,0,1,0,ATCO Field,4231,Reggie Fafard,False,6.8,Clear,18.5
+2024,2024-04-20,Atletico Ottawa,Forge FC,1,2,0,1,TD Place Stadium,6234,Dave Gantar,False,15.2,Rain,9.2
+2024,2024-04-21,York United FC,HFX Wanderers FC,1,1,0,0,York Lions Stadium,3567,Pierre-Luc Lauziere,False,18.3,Clear,7.8
+2024,2024-04-21,Vancouver FC,Valour FC,0,2,0,1,Willoughby Community Park,4102,Marcus Chicken,False,16.5,Cloudy,11.2
+2024,2024-04-27,Forge FC,Pacific FC,3,1,2,0,Tim Hortons Field,6892,Yusri Rudolf,False,14.8,Clear,10.5
+2024,2024-04-27,Cavalry FC,Atletico Ottawa,1,0,0,0,ATCO Field,4456,Reggie Fafard,False,9.2,Cloudy,20.3
+2024,2024-04-28,HFX Wanderers FC,Vancouver FC,2,1,1,0,Wanderers Grounds,5123,David Gantar,False,12.1,Clear,8.9
+2024,2024-04-28,Valour FC,York United FC,2,2,1,1,IG Field,4789,Pierre-Luc Lauziere,False,11.5,Clear,15.6
+2024,2024-05-04,Pacific FC,Cavalry FC,1,2,0,1,Starlight Stadium,5456,Marcus Chicken,False,15.3,Cloudy,6.2
+2024,2024-05-04,York United FC,Forge FC,0,1,0,0,York Lions Stadium,4234,Yusri Rudolf,False,17.8,Clear,9.1
+2024,2024-05-05,Atletico Ottawa,Valour FC,2,1,1,0,TD Place Stadium,5892,Reggie Fafard,False,16.2,Clear,12.4
+2024,2024-05-05,Vancouver FC,HFX Wanderers FC,1,1,1,0,Willoughby Community Park,4567,David Gantar,False,14.5,Cloudy,8.3
