@@ -50,3 +50,4 @@ logs/
 # Cache
 .cache/
 *.cache
+.vercel
