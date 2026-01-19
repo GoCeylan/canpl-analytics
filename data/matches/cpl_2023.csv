@@ -2,16 +2,32 @@ date,home_team,away_team,home_goals,away_goals,season,venue
 2023-04-15,Forge FC,Valour FC,2,0,2023,Tim Hortons Field
 2023-04-15,Cavalry FC,Pacific FC,1,1,2023,ATCO Field
 2023-04-16,Atletico Ottawa,HFX Wanderers FC,2,1,2023,TD Place Stadium
-2023-04-16,Vancouver FC,York United FC,0,2,2023,Willoughby Community Park
+2023-04-16,York United FC,FC Edmonton,2,0,2023,York Lions Stadium
 2023-04-22,Pacific FC,Forge FC,1,3,2023,Starlight Stadium
 2023-04-22,HFX Wanderers FC,Cavalry FC,0,2,2023,Wanderers Grounds
-2023-04-23,York United FC,Atletico Ottawa,1,1,2023,York Lions Stadium
-2023-04-23,Valour FC,Vancouver FC,3,1,2023,IG Field
+2023-04-23,Valour FC,Atletico Ottawa,1,1,2023,IG Field
+2023-04-23,FC Edmonton,Pacific FC,0,2,2023,Clarke Stadium
 2023-04-29,Forge FC,York United FC,2,0,2023,Tim Hortons Field
 2023-04-29,Cavalry FC,Atletico Ottawa,2,1,2023,ATCO Field
 2023-05-06,HFX Wanderers FC,Valour FC,1,2,2023,Wanderers Grounds
-2023-05-06,Pacific FC,Vancouver FC,2,0,2023,Starlight Stadium
+2023-05-06,Pacific FC,FC Edmonton,3,0,2023,Starlight Stadium
 2023-05-13,Forge FC,Cavalry FC,1,1,2023,Tim Hortons Field
 2023-05-13,Atletico Ottawa,Pacific FC,0,1,2023,TD Place Stadium
 2023-05-20,York United FC,HFX Wanderers FC,2,1,2023,York Lions Stadium
 2023-05-20,Valour FC,Cavalry FC,0,3,2023,IG Field
+2023-05-27,FC Edmonton,Forge FC,1,4,2023,Clarke Stadium
+2023-05-27,Pacific FC,HFX Wanderers FC,2,1,2023,Starlight Stadium
+2023-06-03,Cavalry FC,Valour FC,2,0,2023,ATCO Field
+2023-06-03,Atletico Ottawa,York United FC,1,0,2023,TD Place Stadium
+2023-06-10,Forge FC,HFX Wanderers FC,3,1,2023,Tim Hortons Field
+2023-06-10,FC Edmonton,Cavalry FC,0,2,2023,Clarke Stadium
+2023-06-17,Pacific FC,Atletico Ottawa,2,2,2023,Starlight Stadium
+2023-06-17,Valour FC,York United FC,1,1,2023,IG Field
+2023-06-24,HFX Wanderers FC,FC Edmonton,3,0,2023,Wanderers Grounds
+2023-06-24,Cavalry FC,Forge FC,0,1,2023,ATCO Field
+2023-07-01,York United FC,Pacific FC,1,2,2023,York Lions Stadium
+2023-07-01,Atletico Ottawa,Valour FC,2,1,2023,TD Place Stadium
+2023-07-08,Forge FC,FC Edmonton,5,0,2023,Tim Hortons Field
+2023-07-08,HFX Wanderers FC,Atletico Ottawa,0,1,2023,Wanderers Grounds
+2023-07-15,Cavalry FC,York United FC,3,1,2023,ATCO Field
+2023-07-15,Valour FC,Pacific FC,2,2,2023,IG Field
