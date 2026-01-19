@@ -8,7 +8,11 @@ import numpy as np
 from scipy.stats import poisson
 from typing import Dict, Tuple, Optional
 import sys
-sys.path.append('../scripts')
+import os
+
+# Add scripts directory to path
+script_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(script_dir, '..', 'scripts'))
 
 from data_loader import CPLDataLoader
 
@@ -258,7 +262,8 @@ def main():
     print("=" * 60)
 
     # Load data
-    loader = CPLDataLoader('../data')
+    data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data')
+    loader = CPLDataLoader(data_dir)
     matches = loader.load_matches()
 
     if matches.empty:
