@@ -2,7 +2,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 
 export const config = {
-  runtime: 'nodejs18.x',
+  runtime: 'nodejs',
 };
 
 export default function handler(req, res) {
