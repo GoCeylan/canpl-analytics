@@ -2,6 +2,10 @@
   "version": 2,
   "builds": [
     {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
       "src": "public/**",
       "use": "@vercel/static"
     }
@@ -9,19 +13,15 @@
   "routes": [
     {
       "src": "/api/matches",
-      "dest": "/public/data/matches.json",
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Cache-Control": "s-maxage=3600"
-      }
+      "dest": "/api/matches/route.js"
     },
     {
       "src": "/api/standings",
-      "dest": "/public/data/standings.json",
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Cache-Control": "s-maxage=3600"
-      }
+      "dest": "/api/standings/route.js"
+    },
+    {
+      "src": "/api/teams",
+      "dest": "/api/teams/route.js"
     },
     {
       "src": "/(.*)",

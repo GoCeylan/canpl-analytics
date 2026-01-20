@@ -174,11 +174,11 @@
 
         <div class="stats">
             <div class="stat-card">
-                <div class="number">192</div>
+                <div class="number">304</div>
                 <div class="label">Matches</div>
             </div>
             <div class="stat-card">
-                <div class="number">6</div>
+                <div class="number">7</div>
                 <div class="label">Seasons</div>
             </div>
             <div class="stat-card">
@@ -186,7 +186,7 @@
                 <div class="label">Teams</div>
             </div>
             <div class="stat-card">
-                <div class="number">2019-24</div>
+                <div class="number">2019-25</div>
                 <div class="label">Coverage</div>
             </div>
         </div>
@@ -223,7 +223,7 @@
                 <div class="params">
                     <div class="param">
                         <span class="param-name">season</span>
-                        <span>Season year (default: <code>2024</code>)</span>
+                        <span>Season year (default: <code>2025</code>)</span>
                     </div>
                 </div>
                 <button class="try-btn" onclick="tryStandings()">Try it</button>
@@ -234,7 +234,7 @@
         </section>
 
         <section>
-            <h2>2024 Standings</h2>
+            <h2>2025 Standings</h2>
             <table id="standings-table">
                 <thead>
                     <tr>
@@ -293,7 +293,7 @@
             try {
                 const res = await fetch('/api/standings');
                 const data = await res.json();
-                const standings = data['2024'];
+                const standings = data['2025'];
                 const tbody = document.getElementById('standings-body');
                 tbody.innerHTML = standings.map(t => `
                     <tr>
