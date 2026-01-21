@@ -174,7 +174,7 @@
 
         <div class="stats">
             <div class="stat-card">
-                <div class="number">304</div>
+                <div class="number">309</div>
                 <div class="label">Matches</div>
             </div>
             <div class="stat-card">
@@ -182,7 +182,7 @@
                 <div class="label">Seasons</div>
             </div>
             <div class="stat-card">
-                <div class="number">9</div>
+                <div class="number">8</div>
                 <div class="label">Teams</div>
             </div>
             <div class="stat-card">
@@ -281,9 +281,9 @@
             el.style.display = 'block';
             el.querySelector('pre').textContent = 'Loading...';
             try {
-                const res = await fetch('/api/standings');
+                const res = await fetch('/api/standings?season=2025');
                 const data = await res.json();
-                el.querySelector('pre').textContent = JSON.stringify({season: 2024, standings: data['2024']}, null, 2);
+                el.querySelector('pre').textContent = JSON.stringify(data, null, 2);
             } catch (e) {
                 el.querySelector('pre').textContent = 'Error: ' + e.message;
             }
@@ -291,9 +291,9 @@
 
         async function loadStandings() {
             try {
-                const res = await fetch('/api/standings');
+                const res = await fetch('/api/standings?season=2025');
                 const data = await res.json();
-                const standings = data['2025'];
+                const standings = data.standings;
                 const tbody = document.getElementById('standings-body');
                 tbody.innerHTML = standings.map(t => `
                     <tr>

@@ -1,116 +1,156 @@
 date,home_team,away_team,home_goals,away_goals,season,venue
-2025-04-12,Forge FC,Vancouver FC,3,0,2025,Tim Hortons Field
-2025-04-12,Cavalry FC,York United FC,2,1,2025,ATCO Field
-2025-04-13,Pacific FC,Atletico Ottawa,1,1,2025,Starlight Stadium
-2025-04-13,Valour FC,HFX Wanderers FC,2,0,2025,IG Field
-2025-04-19,Vancouver FC,Cavalry FC,0,3,2025,Willoughby Community Park
-2025-04-19,York United FC,Pacific FC,1,2,2025,York Lions Stadium
-2025-04-20,Atletico Ottawa,Forge FC,0,2,2025,TD Place Stadium
-2025-04-20,HFX Wanderers FC,Valour FC,1,1,2025,Wanderers Grounds
-2025-04-26,Forge FC,York United FC,2,0,2025,Tim Hortons Field
-2025-04-26,Cavalry FC,Atletico Ottawa,1,0,2025,ATCO Field
-2025-04-27,Pacific FC,HFX Wanderers FC,3,1,2025,Starlight Stadium
-2025-04-27,Valour FC,Vancouver FC,4,0,2025,IG Field
-2025-05-03,York United FC,Valour FC,0,2,2025,York Lions Stadium
-2025-05-03,Atletico Ottawa,Pacific FC,2,2,2025,TD Place Stadium
-2025-05-04,HFX Wanderers FC,Forge FC,0,3,2025,Wanderers Grounds
-2025-05-04,Vancouver FC,Cavalry FC,1,4,2025,Willoughby Community Park
-2025-05-10,Forge FC,Cavalry FC,1,1,2025,Tim Hortons Field
-2025-05-10,Pacific FC,Valour FC,2,1,2025,Starlight Stadium
-2025-05-11,Atletico Ottawa,HFX Wanderers FC,3,0,2025,TD Place Stadium
-2025-05-11,York United FC,Vancouver FC,2,0,2025,York Lions Stadium
-2025-05-17,Cavalry FC,Pacific FC,2,1,2025,ATCO Field
-2025-05-17,Valour FC,Atletico Ottawa,1,0,2025,IG Field
-2025-05-18,HFX Wanderers FC,York United FC,2,2,2025,Wanderers Grounds
-2025-05-18,Vancouver FC,Forge FC,0,4,2025,Willoughby Community Park
-2025-05-24,Forge FC,Pacific FC,2,0,2025,Tim Hortons Field
-2025-05-24,Cavalry FC,HFX Wanderers FC,3,1,2025,ATCO Field
-2025-05-25,Atletico Ottawa,Vancouver FC,2,0,2025,TD Place Stadium
-2025-05-25,Valour FC,York United FC,1,0,2025,IG Field
-2025-05-31,Pacific FC,Forge FC,1,2,2025,Starlight Stadium
-2025-05-31,HFX Wanderers FC,Cavalry FC,0,2,2025,Wanderers Grounds
-2025-06-01,York United FC,Atletico Ottawa,1,3,2025,York Lions Stadium
-2025-06-01,Vancouver FC,Valour FC,1,2,2025,Willoughby Community Park
-2025-06-07,Forge FC,Valour FC,2,1,2025,Tim Hortons Field
-2025-06-07,Cavalry FC,Vancouver FC,5,0,2025,ATCO Field
-2025-06-08,Pacific FC,York United FC,2,0,2025,Starlight Stadium
-2025-06-08,Atletico Ottawa,HFX Wanderers FC,1,1,2025,TD Place Stadium
-2025-06-14,Valour FC,Forge FC,0,1,2025,IG Field
-2025-06-14,HFX Wanderers FC,Pacific FC,1,3,2025,Wanderers Grounds
-2025-06-15,York United FC,Cavalry FC,0,2,2025,York Lions Stadium
-2025-06-15,Vancouver FC,Atletico Ottawa,0,1,2025,Willoughby Community Park
-2025-06-21,Forge FC,Atletico Ottawa,3,1,2025,Tim Hortons Field
-2025-06-21,Cavalry FC,Valour FC,2,0,2025,ATCO Field
-2025-06-22,Pacific FC,Vancouver FC,4,1,2025,Starlight Stadium
-2025-06-22,HFX Wanderers FC,York United FC,1,1,2025,Wanderers Grounds
-2025-06-28,Atletico Ottawa,Cavalry FC,1,2,2025,TD Place Stadium
-2025-06-28,Valour FC,Pacific FC,2,2,2025,IG Field
-2025-06-29,York United FC,Forge FC,0,2,2025,York Lions Stadium
-2025-06-29,Vancouver FC,HFX Wanderers FC,1,2,2025,Willoughby Community Park
-2025-07-05,Forge FC,HFX Wanderers FC,4,0,2025,Tim Hortons Field
-2025-07-05,Cavalry FC,Pacific FC,1,1,2025,ATCO Field
-2025-07-06,Atletico Ottawa,Valour FC,2,1,2025,TD Place Stadium
-2025-07-06,York United FC,Vancouver FC,3,0,2025,York Lions Stadium
-2025-07-12,Pacific FC,Cavalry FC,0,1,2025,Starlight Stadium
-2025-07-12,HFX Wanderers FC,Atletico Ottawa,1,2,2025,Wanderers Grounds
-2025-07-13,Valour FC,Forge FC,1,3,2025,IG Field
-2025-07-13,Vancouver FC,York United FC,0,1,2025,Willoughby Community Park
-2025-07-19,Forge FC,Pacific FC,2,1,2025,Tim Hortons Field
-2025-07-19,Cavalry FC,York United FC,3,0,2025,ATCO Field
-2025-07-20,Atletico Ottawa,Vancouver FC,2,1,2025,TD Place Stadium
-2025-07-20,HFX Wanderers FC,Valour FC,0,2,2025,Wanderers Grounds
-2025-07-26,Pacific FC,Atletico Ottawa,3,2,2025,Starlight Stadium
-2025-07-26,Valour FC,Cavalry FC,0,2,2025,IG Field
-2025-07-27,York United FC,HFX Wanderers FC,2,1,2025,York Lions Stadium
-2025-07-27,Vancouver FC,Forge FC,0,3,2025,Willoughby Community Park
-2025-08-02,Forge FC,Cavalry FC,2,2,2025,Tim Hortons Field
-2025-08-02,Atletico Ottawa,York United FC,1,0,2025,TD Place Stadium
-2025-08-03,HFX Wanderers FC,Vancouver FC,3,1,2025,Wanderers Grounds
-2025-08-03,Pacific FC,Valour FC,2,0,2025,Starlight Stadium
-2025-08-09,Cavalry FC,Forge FC,1,2,2025,ATCO Field
-2025-08-09,Valour FC,Atletico Ottawa,2,2,2025,IG Field
-2025-08-10,York United FC,Pacific FC,1,2,2025,York Lions Stadium
-2025-08-10,Vancouver FC,HFX Wanderers FC,0,1,2025,Willoughby Community Park
-2025-08-16,Forge FC,York United FC,3,1,2025,Tim Hortons Field
-2025-08-16,Pacific FC,HFX Wanderers FC,2,0,2025,Starlight Stadium
-2025-08-17,Atletico Ottawa,Cavalry FC,0,1,2025,TD Place Stadium
-2025-08-17,Valour FC,Vancouver FC,3,0,2025,IG Field
-2025-08-23,Cavalry FC,Atletico Ottawa,2,1,2025,ATCO Field
-2025-08-23,HFX Wanderers FC,Forge FC,0,2,2025,Wanderers Grounds
-2025-08-24,York United FC,Valour FC,1,2,2025,York Lions Stadium
-2025-08-24,Vancouver FC,Pacific FC,0,3,2025,Willoughby Community Park
-2025-08-30,Forge FC,Atletico Ottawa,2,0,2025,Tim Hortons Field
-2025-08-30,Pacific FC,Cavalry FC,1,2,2025,Starlight Stadium
-2025-08-31,Valour FC,HFX Wanderers FC,2,1,2025,IG Field
-2025-08-31,York United FC,Vancouver FC,2,0,2025,York Lions Stadium
-2025-09-06,Atletico Ottawa,Pacific FC,1,1,2025,TD Place Stadium
-2025-09-06,Cavalry FC,Valour FC,3,1,2025,ATCO Field
-2025-09-07,HFX Wanderers FC,York United FC,0,0,2025,Wanderers Grounds
-2025-09-07,Vancouver FC,Forge FC,0,4,2025,Willoughby Community Park
-2025-09-13,Forge FC,Valour FC,3,0,2025,Tim Hortons Field
-2025-09-13,Pacific FC,Vancouver FC,2,0,2025,Starlight Stadium
-2025-09-14,Cavalry FC,HFX Wanderers FC,2,0,2025,ATCO Field
-2025-09-14,Atletico Ottawa,York United FC,2,1,2025,TD Place Stadium
-2025-09-20,Valour FC,Pacific FC,1,2,2025,IG Field
-2025-09-20,HFX Wanderers FC,Atletico Ottawa,0,1,2025,Wanderers Grounds
-2025-09-21,York United FC,Forge FC,0,2,2025,York Lions Stadium
-2025-09-21,Vancouver FC,Cavalry FC,1,3,2025,Willoughby Community Park
-2025-09-27,Forge FC,HFX Wanderers FC,3,0,2025,Tim Hortons Field
-2025-09-27,Cavalry FC,Vancouver FC,4,0,2025,ATCO Field
-2025-09-28,Pacific FC,York United FC,2,1,2025,Starlight Stadium
-2025-09-28,Atletico Ottawa,Valour FC,1,1,2025,TD Place Stadium
-2025-10-04,HFX Wanderers FC,Cavalry FC,1,2,2025,Wanderers Grounds
-2025-10-04,Valour FC,York United FC,2,0,2025,IG Field
-2025-10-05,Vancouver FC,Atletico Ottawa,0,2,2025,Willoughby Community Park
-2025-10-05,Pacific FC,Forge FC,0,1,2025,Starlight Stadium
-2025-10-11,Forge FC,Vancouver FC,5,0,2025,Tim Hortons Field
-2025-10-11,Cavalry FC,Atletico Ottawa,2,0,2025,ATCO Field
-2025-10-12,York United FC,HFX Wanderers FC,1,1,2025,York Lions Stadium
-2025-10-12,Valour FC,Pacific FC,0,1,2025,IG Field
-2025-10-18,Atletico Ottawa,Forge FC,1,2,2025,TD Place Stadium
-2025-10-18,Pacific FC,Valour FC,3,1,2025,Starlight Stadium
-2025-10-19,HFX Wanderers FC,Vancouver FC,2,0,2025,Wanderers Grounds
-2025-10-19,York United FC,Cavalry FC,1,3,2025,York Lions Stadium
+2019-04-27,Forge FC,York United FC,1,1,2019,Tim Hortons Field
+2019-04-28,Cavalry FC,Pacific FC,1,0,2019,ATCO Field
+2019-04-28,Valour FC,FC Edmonton,2,1,2019,IG Field
+2019-05-01,HFX Wanderers FC,Forge FC,1,2,2019,Wanderers Grounds
+2019-05-04,York United FC,Cavalry FC,2,2,2019,York Lions Stadium
+2019-05-04,Pacific FC,Valour FC,1,1,2019,Starlight Stadium
+2019-05-05,FC Edmonton,HFX Wanderers FC,0,0,2019,Clarke Stadium
+2019-05-11,Forge FC,Pacific FC,3,1,2019,Tim Hortons Field
+2019-05-11,Cavalry FC,Valour FC,2,0,2019,ATCO Field
+2019-05-12,HFX Wanderers FC,York United FC,2,1,2019,Wanderers Grounds
+2019-05-15,FC Edmonton,Forge FC,1,2,2019,Clarke Stadium
+2019-05-18,Valour FC,HFX Wanderers FC,1,0,2019,IG Field
+2019-05-18,Pacific FC,York United FC,0,2,2019,Starlight Stadium
+2019-05-19,Cavalry FC,FC Edmonton,3,0,2019,ATCO Field
+2019-05-25,Forge FC,Valour FC,1,0,2019,Tim Hortons Field
+2019-05-25,York United FC,Pacific FC,1,1,2019,York Lions Stadium
+2019-05-26,HFX Wanderers FC,Cavalry FC,1,2,2019,Wanderers Grounds
+2019-06-01,FC Edmonton,York United FC,0,0,2019,Clarke Stadium
+2019-06-01,Pacific FC,HFX Wanderers FC,1,0,2019,Starlight Stadium
+2019-06-02,Valour FC,Cavalry FC,1,3,2019,IG Field
+2019-06-08,Cavalry FC,Forge FC,1,1,2019,ATCO Field
+2019-06-08,York United FC,Valour FC,2,1,2019,York Lions Stadium
+2019-06-09,HFX Wanderers FC,Pacific FC,2,2,2019,Wanderers Grounds
+2019-06-15,Forge FC,FC Edmonton,4,0,2019,Tim Hortons Field
+2019-06-15,Valour FC,Pacific FC,0,1,2019,IG Field
+2019-06-16,Cavalry FC,HFX Wanderers FC,1,0,2019,ATCO Field
+2019-06-22,Pacific FC,Cavalry FC,0,2,2019,Starlight Stadium
+2019-06-22,FC Edmonton,Valour FC,2,2,2019,Clarke Stadium
+2019-06-23,York United FC,HFX Wanderers FC,1,0,2019,York Lions Stadium
+2019-06-26,HFX Wanderers FC,FC Edmonton,1,1,2019,Wanderers Grounds
+2019-06-29,Forge FC,Cavalry FC,2,1,2019,Tim Hortons Field
+2019-06-29,Valour FC,York United FC,1,0,2019,IG Field
+2020-08-13,Forge FC,Cavalry FC,2,0,2020,Tim Hortons Field
+2020-08-13,Pacific FC,FC Edmonton,1,0,2020,Starlight Stadium
+2020-08-15,York United FC,HFX Wanderers FC,2,1,2020,York Lions Stadium
+2020-08-15,Valour FC,Atletico Ottawa,0,1,2020,IG Field
+2020-08-16,Cavalry FC,Pacific FC,3,0,2020,ATCO Field
+2020-08-16,HFX Wanderers FC,Forge FC,1,2,2020,Wanderers Grounds
+2020-08-19,Atletico Ottawa,York United FC,1,1,2020,TD Place Stadium
+2020-08-19,FC Edmonton,Valour FC,0,0,2020,Clarke Stadium
+2020-08-20,Forge FC,Pacific FC,1,0,2020,Tim Hortons Field
+2020-08-20,Cavalry FC,HFX Wanderers FC,2,1,2020,ATCO Field
+2020-08-22,York United FC,Valour FC,1,0,2020,York Lions Stadium
+2020-08-22,Atletico Ottawa,FC Edmonton,2,0,2020,TD Place Stadium
+2020-08-23,HFX Wanderers FC,Pacific FC,1,1,2020,Wanderers Grounds
+2020-08-23,Forge FC,Cavalry FC,0,0,2020,Tim Hortons Field
+2020-08-25,Valour FC,York United FC,2,3,2020,IG Field
+2020-08-25,FC Edmonton,Atletico Ottawa,1,2,2020,Clarke Stadium
+2020-08-27,Pacific FC,Forge FC,0,1,2020,Starlight Stadium
+2020-08-27,HFX Wanderers FC,Cavalry FC,0,2,2020,Wanderers Grounds
+2020-08-29,York United FC,FC Edmonton,1,0,2020,York Lions Stadium
+2020-08-29,Valour FC,Atletico Ottawa,1,1,2020,IG Field
+2020-08-30,Cavalry FC,Pacific FC,2,1,2020,ATCO Field
+2020-08-30,Forge FC,HFX Wanderers FC,3,0,2020,Tim Hortons Field
+2020-09-01,Atletico Ottawa,Valour FC,0,0,2020,TD Place Stadium
+2020-09-01,FC Edmonton,York United FC,1,2,2020,Clarke Stadium
+2021-06-26,Forge FC,HFX Wanderers FC,2,1,2021,Tim Hortons Field
+2021-06-26,Valour FC,Pacific FC,0,2,2021,IG Field
+2021-06-27,Cavalry FC,Atletico Ottawa,1,0,2021,ATCO Field
+2021-06-27,York United FC,FC Edmonton,2,2,2021,York Lions Stadium
+2021-07-03,Pacific FC,Forge FC,1,1,2021,Starlight Stadium
+2021-07-03,HFX Wanderers FC,Cavalry FC,0,2,2021,Wanderers Grounds
+2021-07-04,FC Edmonton,Valour FC,1,3,2021,Clarke Stadium
+2021-07-04,Atletico Ottawa,York United FC,2,0,2021,TD Place Stadium
+2021-07-10,Forge FC,Atletico Ottawa,3,0,2021,Tim Hortons Field
+2021-07-10,Cavalry FC,Valour FC,2,1,2021,ATCO Field
+2021-07-11,Pacific FC,FC Edmonton,4,0,2021,Starlight Stadium
+2021-07-11,York United FC,HFX Wanderers FC,1,1,2021,York Lions Stadium
+2021-07-17,Valour FC,Forge FC,0,2,2021,IG Field
+2021-07-17,HFX Wanderers FC,Pacific FC,1,3,2021,Wanderers Grounds
+2021-07-18,Atletico Ottawa,Cavalry FC,1,1,2021,TD Place Stadium
+2021-07-18,FC Edmonton,York United FC,0,1,2021,Clarke Stadium
+2021-07-24,Forge FC,FC Edmonton,5,1,2021,Tim Hortons Field
+2021-07-24,Pacific FC,Atletico Ottawa,2,0,2021,Starlight Stadium
+2021-07-25,Cavalry FC,York United FC,3,0,2021,ATCO Field
+2021-07-25,Valour FC,HFX Wanderers FC,2,2,2021,IG Field
+2021-07-31,York United FC,Forge FC,0,2,2021,York Lions Stadium
+2021-07-31,Atletico Ottawa,Valour FC,1,1,2021,TD Place Stadium
+2021-08-01,HFX Wanderers FC,FC Edmonton,2,0,2021,Wanderers Grounds
+2021-08-01,Pacific FC,Cavalry FC,2,1,2021,Starlight Stadium
+2021-08-07,Forge FC,Cavalry FC,1,0,2021,Tim Hortons Field
+2021-08-07,FC Edmonton,Atletico Ottawa,1,2,2021,Clarke Stadium
+2021-08-08,Valour FC,York United FC,3,1,2021,IG Field
+2021-08-08,HFX Wanderers FC,Pacific FC,0,1,2021,Wanderers Grounds
+2021-08-14,Cavalry FC,Forge FC,1,2,2021,ATCO Field
+2021-08-14,York United FC,Pacific FC,1,3,2021,York Lions Stadium
+2021-08-15,Atletico Ottawa,HFX Wanderers FC,2,1,2021,TD Place Stadium
+2021-08-15,FC Edmonton,Valour FC,0,2,2021,Clarke Stadium
+2022-04-07,Forge FC,Cavalry FC,2,0,2022,Tim Hortons Field
+2022-04-09,Pacific FC,HFX Wanderers FC,1,0,2022,Starlight Stadium
+2022-04-10,York United FC,Atletico Ottawa,0,1,2022,York Lions Stadium
+2022-04-10,Valour FC,FC Edmonton,2,1,2022,IG Field
+2022-04-16,Cavalry FC,Pacific FC,3,1,2022,ATCO Field
+2022-04-16,HFX Wanderers FC,York United FC,2,2,2022,Wanderers Grounds
+2022-04-17,FC Edmonton,Forge FC,0,3,2022,Clarke Stadium
+2022-04-17,Atletico Ottawa,Valour FC,1,0,2022,TD Place Stadium
+2022-04-23,Forge FC,Pacific FC,2,1,2022,Tim Hortons Field
+2022-04-23,York United FC,Cavalry FC,1,2,2022,York Lions Stadium
+2022-04-24,Valour FC,HFX Wanderers FC,1,1,2022,IG Field
+2022-04-24,FC Edmonton,Atletico Ottawa,0,2,2022,Clarke Stadium
+2022-04-30,Cavalry FC,Valour FC,4,0,2022,ATCO Field
+2022-04-30,Pacific FC,York United FC,2,0,2022,Starlight Stadium
+2022-05-01,HFX Wanderers FC,Forge FC,1,2,2022,Wanderers Grounds
+2022-05-01,Atletico Ottawa,FC Edmonton,3,1,2022,TD Place Stadium
+2022-05-07,Forge FC,Valour FC,1,0,2022,Tim Hortons Field
+2022-05-07,York United FC,FC Edmonton,2,0,2022,York Lions Stadium
+2022-05-08,Cavalry FC,HFX Wanderers FC,2,1,2022,ATCO Field
+2022-05-08,Pacific FC,Atletico Ottawa,1,1,2022,Starlight Stadium
+2022-05-14,Valour FC,Cavalry FC,0,1,2022,IG Field
+2022-05-14,HFX Wanderers FC,Pacific FC,0,2,2022,Wanderers Grounds
+2022-05-15,FC Edmonton,York United FC,1,3,2022,Clarke Stadium
+2022-05-15,Atletico Ottawa,Forge FC,0,2,2022,TD Place Stadium
+2022-05-21,Cavalry FC,Atletico Ottawa,2,0,2022,ATCO Field
+2022-05-21,Pacific FC,Valour FC,3,2,2022,Starlight Stadium
+2022-05-22,Forge FC,York United FC,2,1,2022,Tim Hortons Field
+2022-05-22,HFX Wanderers FC,FC Edmonton,4,0,2022,Wanderers Grounds
+2022-05-28,York United FC,Valour FC,1,2,2022,York Lions Stadium
+2022-05-28,Atletico Ottawa,Pacific FC,2,2,2022,TD Place Stadium
+2022-05-29,FC Edmonton,Cavalry FC,0,3,2022,Clarke Stadium
+2022-05-29,Valour FC,Forge FC,1,1,2022,IG Field
+2023-04-15,Forge FC,Valour FC,2,0,2023,Tim Hortons Field
+2023-04-15,Cavalry FC,Pacific FC,1,1,2023,ATCO Field
+2023-04-16,Atletico Ottawa,HFX Wanderers FC,2,1,2023,TD Place Stadium
+2023-04-16,York United FC,FC Edmonton,2,0,2023,York Lions Stadium
+2023-04-22,Pacific FC,Forge FC,1,3,2023,Starlight Stadium
+2023-04-22,HFX Wanderers FC,Cavalry FC,0,2,2023,Wanderers Grounds
+2023-04-23,Valour FC,Atletico Ottawa,1,1,2023,IG Field
+2023-04-23,FC Edmonton,Pacific FC,0,2,2023,Clarke Stadium
+2023-04-29,Forge FC,York United FC,2,0,2023,Tim Hortons Field
+2023-04-29,Cavalry FC,Atletico Ottawa,2,1,2023,ATCO Field
+2023-05-06,HFX Wanderers FC,Valour FC,1,2,2023,Wanderers Grounds
+2023-05-06,Pacific FC,FC Edmonton,3,0,2023,Starlight Stadium
+2023-05-13,Forge FC,Cavalry FC,1,1,2023,Tim Hortons Field
+2023-05-13,Atletico Ottawa,Pacific FC,0,1,2023,TD Place Stadium
+2023-05-20,York United FC,HFX Wanderers FC,2,1,2023,York Lions Stadium
+2023-05-20,Valour FC,Cavalry FC,0,3,2023,IG Field
+2023-05-27,FC Edmonton,Forge FC,1,4,2023,Clarke Stadium
+2023-05-27,Pacific FC,HFX Wanderers FC,2,1,2023,Starlight Stadium
+2023-06-03,Cavalry FC,Valour FC,2,0,2023,ATCO Field
+2023-06-03,Atletico Ottawa,York United FC,1,0,2023,TD Place Stadium
+2023-06-10,Forge FC,HFX Wanderers FC,3,1,2023,Tim Hortons Field
+2023-06-10,FC Edmonton,Cavalry FC,0,2,2023,Clarke Stadium
+2023-06-17,Pacific FC,Atletico Ottawa,2,2,2023,Starlight Stadium
+2023-06-17,Valour FC,York United FC,1,1,2023,IG Field
+2023-06-24,HFX Wanderers FC,FC Edmonton,3,0,2023,Wanderers Grounds
+2023-06-24,Cavalry FC,Forge FC,0,1,2023,ATCO Field
+2023-07-01,York United FC,Pacific FC,1,2,2023,York Lions Stadium
+2023-07-01,Atletico Ottawa,Valour FC,2,1,2023,TD Place Stadium
+2023-07-08,Forge FC,FC Edmonton,5,0,2023,Tim Hortons Field
+2023-07-08,HFX Wanderers FC,Atletico Ottawa,0,1,2023,Wanderers Grounds
+2023-07-15,Cavalry FC,York United FC,3,1,2023,ATCO Field
+2023-07-15,Valour FC,Pacific FC,2,2,2023,IG Field
 2024-04-13,Forge FC,Atletico Ottawa,1,0,2024,Tim Hortons Field
 2024-04-13,Cavalry FC,Pacific FC,2,1,2024,ATCO Field
 2024-04-14,Valour FC,Vancouver FC,2,0,2024,IG Field
@@ -151,155 +191,120 @@ date,home_team,away_team,home_goals,away_goals,season,venue
 2024-07-13,Cavalry FC,Vancouver FC,4,0,2024,ATCO Field
 2024-07-20,Pacific FC,Atletico Ottawa,2,1,2024,Starlight Stadium
 2024-07-27,York United FC,Forge FC,1,2,2024,York Lions Stadium
-2023-04-15,Forge FC,Valour FC,2,0,2023,Tim Hortons Field
-2023-04-15,Cavalry FC,Pacific FC,1,1,2023,ATCO Field
-2023-04-16,Atletico Ottawa,HFX Wanderers FC,2,1,2023,TD Place Stadium
-2023-04-16,York United FC,FC Edmonton,2,0,2023,York Lions Stadium
-2023-04-22,Pacific FC,Forge FC,1,3,2023,Starlight Stadium
-2023-04-22,HFX Wanderers FC,Cavalry FC,0,2,2023,Wanderers Grounds
-2023-04-23,Valour FC,Atletico Ottawa,1,1,2023,IG Field
-2023-04-23,FC Edmonton,Pacific FC,0,2,2023,Clarke Stadium
-2023-04-29,Forge FC,York United FC,2,0,2023,Tim Hortons Field
-2023-04-29,Cavalry FC,Atletico Ottawa,2,1,2023,ATCO Field
-2023-05-06,HFX Wanderers FC,Valour FC,1,2,2023,Wanderers Grounds
-2023-05-06,Pacific FC,FC Edmonton,3,0,2023,Starlight Stadium
-2023-05-13,Forge FC,Cavalry FC,1,1,2023,Tim Hortons Field
-2023-05-13,Atletico Ottawa,Pacific FC,0,1,2023,TD Place Stadium
-2023-05-20,York United FC,HFX Wanderers FC,2,1,2023,York Lions Stadium
-2023-05-20,Valour FC,Cavalry FC,0,3,2023,IG Field
-2023-05-27,FC Edmonton,Forge FC,1,4,2023,Clarke Stadium
-2023-05-27,Pacific FC,HFX Wanderers FC,2,1,2023,Starlight Stadium
-2023-06-03,Cavalry FC,Valour FC,2,0,2023,ATCO Field
-2023-06-03,Atletico Ottawa,York United FC,1,0,2023,TD Place Stadium
-2023-06-10,Forge FC,HFX Wanderers FC,3,1,2023,Tim Hortons Field
-2023-06-10,FC Edmonton,Cavalry FC,0,2,2023,Clarke Stadium
-2023-06-17,Pacific FC,Atletico Ottawa,2,2,2023,Starlight Stadium
-2023-06-17,Valour FC,York United FC,1,1,2023,IG Field
-2023-06-24,HFX Wanderers FC,FC Edmonton,3,0,2023,Wanderers Grounds
-2023-06-24,Cavalry FC,Forge FC,0,1,2023,ATCO Field
-2023-07-01,York United FC,Pacific FC,1,2,2023,York Lions Stadium
-2023-07-01,Atletico Ottawa,Valour FC,2,1,2023,TD Place Stadium
-2023-07-08,Forge FC,FC Edmonton,5,0,2023,Tim Hortons Field
-2023-07-08,HFX Wanderers FC,Atletico Ottawa,0,1,2023,Wanderers Grounds
-2023-07-15,Cavalry FC,York United FC,3,1,2023,ATCO Field
-2023-07-15,Valour FC,Pacific FC,2,2,2023,IG Field
-2022-04-07,Forge FC,Cavalry FC,2,0,2022,Tim Hortons Field
-2022-04-09,Pacific FC,HFX Wanderers FC,1,0,2022,Starlight Stadium
-2022-04-10,York United FC,Atletico Ottawa,0,1,2022,York Lions Stadium
-2022-04-10,Valour FC,FC Edmonton,2,1,2022,IG Field
-2022-04-16,Cavalry FC,Pacific FC,3,1,2022,ATCO Field
-2022-04-16,HFX Wanderers FC,York United FC,2,2,2022,Wanderers Grounds
-2022-04-17,FC Edmonton,Forge FC,0,3,2022,Clarke Stadium
-2022-04-17,Atletico Ottawa,Valour FC,1,0,2022,TD Place Stadium
-2022-04-23,Forge FC,Pacific FC,2,1,2022,Tim Hortons Field
-2022-04-23,York United FC,Cavalry FC,1,2,2022,York Lions Stadium
-2022-04-24,Valour FC,HFX Wanderers FC,1,1,2022,IG Field
-2022-04-24,FC Edmonton,Atletico Ottawa,0,2,2022,Clarke Stadium
-2022-04-30,Cavalry FC,Valour FC,4,0,2022,ATCO Field
-2022-04-30,Pacific FC,York United FC,2,0,2022,Starlight Stadium
-2022-05-01,HFX Wanderers FC,Forge FC,1,2,2022,Wanderers Grounds
-2022-05-01,Atletico Ottawa,FC Edmonton,3,1,2022,TD Place Stadium
-2022-05-07,Forge FC,Valour FC,1,0,2022,Tim Hortons Field
-2022-05-07,York United FC,FC Edmonton,2,0,2022,York Lions Stadium
-2022-05-08,Cavalry FC,HFX Wanderers FC,2,1,2022,ATCO Field
-2022-05-08,Pacific FC,Atletico Ottawa,1,1,2022,Starlight Stadium
-2022-05-14,Valour FC,Cavalry FC,0,1,2022,IG Field
-2022-05-14,HFX Wanderers FC,Pacific FC,0,2,2022,Wanderers Grounds
-2022-05-15,FC Edmonton,York United FC,1,3,2022,Clarke Stadium
-2022-05-15,Atletico Ottawa,Forge FC,0,2,2022,TD Place Stadium
-2022-05-21,Cavalry FC,Atletico Ottawa,2,0,2022,ATCO Field
-2022-05-21,Pacific FC,Valour FC,3,2,2022,Starlight Stadium
-2022-05-22,Forge FC,York United FC,2,1,2022,Tim Hortons Field
-2022-05-22,HFX Wanderers FC,FC Edmonton,4,0,2022,Wanderers Grounds
-2022-05-28,York United FC,Valour FC,1,2,2022,York Lions Stadium
-2022-05-28,Atletico Ottawa,Pacific FC,2,2,2022,TD Place Stadium
-2022-05-29,FC Edmonton,Cavalry FC,0,3,2022,Clarke Stadium
-2022-05-29,Valour FC,Forge FC,1,1,2022,IG Field
-2021-06-26,Forge FC,HFX Wanderers FC,2,1,2021,Tim Hortons Field
-2021-06-26,Valour FC,Pacific FC,0,2,2021,IG Field
-2021-06-27,Cavalry FC,Atletico Ottawa,1,0,2021,ATCO Field
-2021-06-27,York United FC,FC Edmonton,2,2,2021,York Lions Stadium
-2021-07-03,Pacific FC,Forge FC,1,1,2021,Starlight Stadium
-2021-07-03,HFX Wanderers FC,Cavalry FC,0,2,2021,Wanderers Grounds
-2021-07-04,FC Edmonton,Valour FC,1,3,2021,Clarke Stadium
-2021-07-04,Atletico Ottawa,York United FC,2,0,2021,TD Place Stadium
-2021-07-10,Forge FC,Atletico Ottawa,3,0,2021,Tim Hortons Field
-2021-07-10,Cavalry FC,Valour FC,2,1,2021,ATCO Field
-2021-07-11,Pacific FC,FC Edmonton,4,0,2021,Starlight Stadium
-2021-07-11,York United FC,HFX Wanderers FC,1,1,2021,York Lions Stadium
-2021-07-17,Valour FC,Forge FC,0,2,2021,IG Field
-2021-07-17,HFX Wanderers FC,Pacific FC,1,3,2021,Wanderers Grounds
-2021-07-18,Atletico Ottawa,Cavalry FC,1,1,2021,TD Place Stadium
-2021-07-18,FC Edmonton,York United FC,0,1,2021,Clarke Stadium
-2021-07-24,Forge FC,FC Edmonton,5,1,2021,Tim Hortons Field
-2021-07-24,Pacific FC,Atletico Ottawa,2,0,2021,Starlight Stadium
-2021-07-25,Cavalry FC,York United FC,3,0,2021,ATCO Field
-2021-07-25,Valour FC,HFX Wanderers FC,2,2,2021,IG Field
-2021-07-31,York United FC,Forge FC,0,2,2021,York Lions Stadium
-2021-07-31,Atletico Ottawa,Valour FC,1,1,2021,TD Place Stadium
-2021-08-01,HFX Wanderers FC,FC Edmonton,2,0,2021,Wanderers Grounds
-2021-08-01,Pacific FC,Cavalry FC,2,1,2021,Starlight Stadium
-2021-08-07,Forge FC,Cavalry FC,1,0,2021,Tim Hortons Field
-2021-08-07,FC Edmonton,Atletico Ottawa,1,2,2021,Clarke Stadium
-2021-08-08,Valour FC,York United FC,3,1,2021,IG Field
-2021-08-08,HFX Wanderers FC,Pacific FC,0,1,2021,Wanderers Grounds
-2021-08-14,Cavalry FC,Forge FC,1,2,2021,ATCO Field
-2021-08-14,York United FC,Pacific FC,1,3,2021,York Lions Stadium
-2021-08-15,Atletico Ottawa,HFX Wanderers FC,2,1,2021,TD Place Stadium
-2021-08-15,FC Edmonton,Valour FC,0,2,2021,Clarke Stadium
-2020-08-13,Forge FC,Cavalry FC,2,0,2020,Tim Hortons Field
-2020-08-13,Pacific FC,FC Edmonton,1,0,2020,Starlight Stadium
-2020-08-15,York United FC,HFX Wanderers FC,2,1,2020,York Lions Stadium
-2020-08-15,Valour FC,Atletico Ottawa,0,1,2020,IG Field
-2020-08-16,Cavalry FC,Pacific FC,3,0,2020,ATCO Field
-2020-08-16,HFX Wanderers FC,Forge FC,1,2,2020,Wanderers Grounds
-2020-08-19,Atletico Ottawa,York United FC,1,1,2020,TD Place Stadium
-2020-08-19,FC Edmonton,Valour FC,0,0,2020,Clarke Stadium
-2020-08-20,Forge FC,Pacific FC,1,0,2020,Tim Hortons Field
-2020-08-20,Cavalry FC,HFX Wanderers FC,2,1,2020,ATCO Field
-2020-08-22,York United FC,Valour FC,1,0,2020,York Lions Stadium
-2020-08-22,Atletico Ottawa,FC Edmonton,2,0,2020,TD Place Stadium
-2020-08-23,HFX Wanderers FC,Pacific FC,1,1,2020,Wanderers Grounds
-2020-08-23,Forge FC,Cavalry FC,0,0,2020,Tim Hortons Field
-2020-08-25,Valour FC,York United FC,2,3,2020,IG Field
-2020-08-25,FC Edmonton,Atletico Ottawa,1,2,2020,Clarke Stadium
-2020-08-27,Pacific FC,Forge FC,0,1,2020,Starlight Stadium
-2020-08-27,HFX Wanderers FC,Cavalry FC,0,2,2020,Wanderers Grounds
-2020-08-29,York United FC,FC Edmonton,1,0,2020,York Lions Stadium
-2020-08-29,Valour FC,Atletico Ottawa,1,1,2020,IG Field
-2020-08-30,Cavalry FC,Pacific FC,2,1,2020,ATCO Field
-2020-08-30,Forge FC,HFX Wanderers FC,3,0,2020,Tim Hortons Field
-2020-09-01,Atletico Ottawa,Valour FC,0,0,2020,TD Place Stadium
-2020-09-01,FC Edmonton,York United FC,1,2,2020,Clarke Stadium
-2019-04-27,Forge FC,York United FC,1,1,2019,Tim Hortons Field
-2019-04-28,Cavalry FC,Pacific FC,1,0,2019,ATCO Field
-2019-04-28,Valour FC,FC Edmonton,2,1,2019,IG Field
-2019-05-01,HFX Wanderers FC,Forge FC,1,2,2019,Wanderers Grounds
-2019-05-04,York United FC,Cavalry FC,2,2,2019,York Lions Stadium
-2019-05-04,Pacific FC,Valour FC,1,1,2019,Starlight Stadium
-2019-05-05,FC Edmonton,HFX Wanderers FC,0,0,2019,Clarke Stadium
-2019-05-11,Forge FC,Pacific FC,3,1,2019,Tim Hortons Field
-2019-05-11,Cavalry FC,Valour FC,2,0,2019,ATCO Field
-2019-05-12,HFX Wanderers FC,York United FC,2,1,2019,Wanderers Grounds
-2019-05-15,FC Edmonton,Forge FC,1,2,2019,Clarke Stadium
-2019-05-18,Valour FC,HFX Wanderers FC,1,0,2019,IG Field
-2019-05-18,Pacific FC,York United FC,0,2,2019,Starlight Stadium
-2019-05-19,Cavalry FC,FC Edmonton,3,0,2019,ATCO Field
-2019-05-25,Forge FC,Valour FC,1,0,2019,Tim Hortons Field
-2019-05-25,York United FC,Pacific FC,1,1,2019,York Lions Stadium
-2019-05-26,HFX Wanderers FC,Cavalry FC,1,2,2019,Wanderers Grounds
-2019-06-01,FC Edmonton,York United FC,0,0,2019,Clarke Stadium
-2019-06-01,Pacific FC,HFX Wanderers FC,1,0,2019,Starlight Stadium
-2019-06-02,Valour FC,Cavalry FC,1,3,2019,IG Field
-2019-06-08,Cavalry FC,Forge FC,1,1,2019,ATCO Field
-2019-06-08,York United FC,Valour FC,2,1,2019,York Lions Stadium
-2019-06-09,HFX Wanderers FC,Pacific FC,2,2,2019,Wanderers Grounds
-2019-06-15,Forge FC,FC Edmonton,4,0,2019,Tim Hortons Field
-2019-06-15,Valour FC,Pacific FC,0,1,2019,IG Field
-2019-06-16,Cavalry FC,HFX Wanderers FC,1,0,2019,ATCO Field
-2019-06-22,Pacific FC,Cavalry FC,0,2,2019,Starlight Stadium
-2019-06-22,FC Edmonton,Valour FC,2,2,2019,Clarke Stadium
-2019-06-23,York United FC,HFX Wanderers FC,1,0,2019,York Lions Stadium
-2019-06-26,HFX Wanderers FC,FC Edmonton,1,1,2019,Wanderers Grounds
-2019-06-29,Forge FC,Cavalry FC,2,1,2019,Tim Hortons Field
-2019-06-29,Valour FC,York United FC,1,0,2019,IG Field
+2025-04-05,Atlético Ottawa,HFX Wanderers,2,2,2025,TD Place Stadium
+2025-04-05,Forge,Cavalry,1,0,2025,Hamilton Stadium
+2025-04-06,Pacific,Valour,2,0,2025,Starlight Stadium
+2025-04-06,Vancouver FC,Inter Toronto,0,2,2025,Willoughby Community Park at the Langley Events Centre
+2025-04-12,Pacific,Forge,0,2,2025,Starlight Stadium
+2025-04-13,Inter Toronto,HFX Wanderers,1,2,2025,York Lions Stadium
+2025-04-13,Vancouver FC,Atlético Ottawa,1,4,2025,Willoughby Community Park at the Langley Events Centre
+2025-04-18,Cavalry,Vancouver FC,1,1,2025,ATCO Field
+2025-04-19,Atlético Ottawa,Inter Toronto,3,2,2025,TD Place Stadium
+2025-04-19,HFX Wanderers,Pacific,3,1,2025,Wanderers Grounds
+2025-04-19,Forge,Valour,1,1,2025,Hamilton Stadium
+2025-04-26,Valour,HFX Wanderers,0,1,2025,Princess Auto Stadium
+2025-04-26,Cavalry,Atlético Ottawa,1,3,2025,ATCO Field
+2025-04-27,Inter Toronto,Forge,2,2,2025,York Lions Stadium
+2025-04-27,Vancouver FC,Pacific,1,1,2025,Willoughby Community Park at the Langley Events Centre
+2025-05-03,Inter Toronto,Cavalry,1,2,2025,York Lions Stadium
+2025-05-03,Atlético Ottawa,Pacific,3,1,2025,TD Place Stadium
+2025-05-03,HFX Wanderers,Forge,0,0,2025,Wanderers Grounds
+2025-05-03,Valour,Vancouver FC,1,3,2025,Princess Auto Stadium
+2025-05-10,Atlético Ottawa,Valour,5,2,2025,TD Place Stadium
+2025-05-10,HFX Wanderers,Cavalry,0,3,2025,Wanderers Grounds
+2025-05-11,Pacific,Inter Toronto,2,1,2025,Starlight Stadium
+2025-05-13,Forge,Atlético Ottawa,2,2,2025,Hamilton Stadium
+2025-05-17,Valour,Inter Toronto,2,1,2025,Princess Auto Stadium
+2025-05-17,Cavalry,Pacific,4,0,2025,ATCO Field
+2025-05-18,Vancouver FC,HFX Wanderers,0,2,2025,Willoughby Community Park at the Langley Events Centre
+2025-05-24,Pacific,Forge,0,1,2025,Starlight Stadium
+2025-05-24,HFX Wanderers,Atlético Ottawa,2,0,2025,Wanderers Grounds
+2025-05-25,Cavalry,Valour,4,0,2025,ATCO Field
+2025-05-25,Inter Toronto,Vancouver FC,1,0,2025,York Lions Stadium
+2025-05-31,Vancouver FC,Atlético Ottawa,2,2,2025,Willoughby Community Park at the Langley Events Centre
+2025-05-31,Forge,Cavalry,1,1,2025,Hamilton Stadium
+2025-05-31,Inter Toronto,HFX Wanderers,2,0,2025,Telus Stadium at Laval University
+2025-06-01,Valour,Pacific,0,0,2025,Princess Auto Stadium
+2025-06-04,Valour,Vancouver FC,3,1,2025,Princess Auto Stadium
+2025-06-07,Pacific,Atlético Ottawa,0,1,2025,Starlight Stadium
+2025-06-08,Forge,HFX Wanderers,2,1,2025,Hamilton Stadium
+2025-06-08,Cavalry,Inter Toronto,2,1,2025,ATCO Field
+2025-06-14,HFX Wanderers,Cavalry,1,1,2025,Wanderers Grounds
+2025-06-14,Pacific,Inter Toronto,1,3,2025,Starlight Stadium
+2025-06-15,Vancouver FC,Forge,0,2,2025,Willoughby Community Park at the Langley Events Centre
+2025-06-15,Atlético Ottawa,Valour,3,0,2025,TD Place Stadium
+2025-06-21,HFX Wanderers,Vancouver FC,1,0,2025,Wanderers Grounds
+2025-06-22,Cavalry,Pacific,1,0,2025,ATCO Field
+2025-06-22,Inter Toronto,Atlético Ottawa,0,0,2025,York Lions Stadium
+2025-06-22,Valour,Forge,0,5,2025,Princess Auto Stadium
+2025-06-28,Pacific,Vancouver FC,4,4,2025,Starlight Stadium
+2025-06-28,Cavalry,Atlético Ottawa,0,2,2025,ATCO Field
+2025-06-29,Forge,Inter Toronto,2,2,2025,Hamilton Stadium
+2025-07-01,HFX Wanderers,Valour,3,1,2025,Wanderers Grounds
+2025-07-05,Forge,Vancouver FC,2,1,2025,Hamilton Stadium
+2025-07-12,Atlético Ottawa,Forge,1,1,2025,TD Place Stadium
+2025-07-12,Pacific,HFX Wanderers,3,2,2025,Starlight Stadium
+2025-07-13,Inter Toronto,Valour,3,2,2025,York Lions Stadium
+2025-07-14,Vancouver FC,Cavalry,0,0,2025,Willoughby Community Park at the Langley Events Centre
+2025-07-18,Atlético Ottawa,HFX Wanderers,2,0,2025,TD Place Stadium
+2025-07-18,Forge,Pacific,2,0,2025,Hamilton Stadium
+2025-07-19,Inter Toronto,Vancouver FC,4,0,2025,York Lions Stadium
+2025-07-20,Valour,Cavalry,1,2,2025,Princess Auto Stadium
+2025-07-25,HFX Wanderers,Forge,1,2,2025,Wanderers Grounds
+2025-07-26,Vancouver FC,Valour,1,3,2025,Willoughby Community Park at the Langley Events Centre
+2025-07-26,Cavalry,Inter Toronto,0,1,2025,ATCO Field
+2025-07-27,Pacific,Atlético Ottawa,0,2,2025,Starlight Stadium
+2025-07-30,Valour,Cavalry,2,1,2025,Princess Auto Stadium
+2025-08-02,Forge,Valour,5,0,2025,Hamilton Stadium
+2025-08-03,Atlético Ottawa,Inter Toronto,0,0,2025,TD Place Stadium
+2025-08-04,HFX Wanderers,Vancouver FC,1,2,2025,Wanderers Grounds
+2025-08-04,Pacific,Cavalry,1,0,2025,Starlight Stadium
+2025-08-09,Inter Toronto,Forge,1,2,2025,York Lions Stadium
+2025-08-09,Cavalry,HFX Wanderers,0,0,2025,ATCO Field
+2025-08-10,Valour,Atlético Ottawa,1,2,2025,Princess Auto Stadium
+2025-08-10,Vancouver FC,Pacific,2,3,2025,Willoughby Community Park at the Langley Events Centre
+2025-08-16,Pacific,HFX Wanderers,2,2,2025,Starlight Stadium
+2025-08-17,Valour,Inter Toronto,0,0,2025,Princess Auto Stadium
+2025-08-17,Forge,Atlético Ottawa,2,0,2025,Hamilton Stadium
+2025-08-17,Cavalry,Vancouver FC,5,4,2025,ATCO Field
+2025-08-22,HFX Wanderers,Valour,4,1,2025,Wanderers Grounds
+2025-08-23,Vancouver FC,Forge,0,1,2025,Willoughby Community Park at the Langley Events Centre
+2025-08-23,Atlético Ottawa,Cavalry,2,2,2025,TD Place Stadium
+2025-08-24,Inter Toronto,Pacific,5,1,2025,York Lions Stadium
+2025-08-30,Cavalry,Forge,4,1,2025,ATCO Field
+2025-08-30,Atlético Ottawa,Vancouver FC,3,1,2025,TD Place Stadium
+2025-08-31,Valour,Pacific,1,1,2025,Princess Auto Stadium
+2025-09-01,HFX Wanderers,Inter Toronto,4,0,2025,Wanderers Grounds
+2025-09-05,Inter Toronto,Cavalry,3,1,2025,York Lions Stadium
+2025-09-06,Forge,HFX Wanderers,1,0,2025,Hamilton Stadium
+2025-09-06,Atlético Ottawa,Pacific,2,0,2025,TD Place Stadium
+2025-09-06,Vancouver FC,Valour,2,5,2025,Willoughby Community Park at the Langley Events Centre
+2025-09-12,Valour,Forge,2,1,2025,Princess Auto Stadium
+2025-09-13,Cavalry,HFX Wanderers,3,1,2025,ATCO Field
+2025-09-13,Pacific,Vancouver FC,1,1,2025,Royal Athletic Park
+2025-09-14,Inter Toronto,Atlético Ottawa,2,2,2025,York Lions Stadium
+2025-09-20,HFX Wanderers,Pacific,3,0,2025,Wanderers Grounds
+2025-09-20,Cavalry,Valour,3,0,2025,ATCO Field
+2025-09-21,Atlético Ottawa,Forge,1,1,2025,TD Place Stadium
+2025-09-21,Vancouver FC,Inter Toronto,2,1,2025,Willoughby Community Park at the Langley Events Centre
+2025-09-27,Atlético Ottawa,Cavalry,3,0,2025,TD Place Stadium
+2025-09-27,Forge,Pacific,4,0,2025,Hamilton Stadium
+2025-09-28,Inter Toronto,Valour,1,0,2025,York Lions Stadium
+2025-09-28,Vancouver FC,HFX Wanderers,3,1,2025,Willoughby Community Park at the Langley Events Centre
+2025-10-04,Forge,Vancouver FC,1,1,2025,Hamilton Stadium
+2025-10-04,HFX Wanderers,Inter Toronto,1,1,2025,Wanderers Grounds
+2025-10-05,Valour,Atlético Ottawa,3,3,2025,Princess Auto Stadium
+2025-10-05,Pacific,Cavalry,3,3,2025,Starlight Stadium
+2025-10-09,Inter Toronto,Pacific,2,2,2025,York Lions Stadium
+2025-10-11,Cavalry,Forge,1,1,2025,ATCO Field
+2025-10-11,Valour,HFX Wanderers,0,3,2025,Princess Auto Stadium
+2025-10-12,Atlético Ottawa,Vancouver FC,0,0,2025,TD Place Stadium
+2025-10-18,Pacific,Valour,1,4,2025,Starlight Stadium
+2025-10-18,Vancouver FC,Cavalry,2,2,2025,Willoughby Community Park at the Langley Events Centre
+2025-10-18,Forge,Inter Toronto,3,0,2025,Hamilton Stadium
+2025-10-18,HFX Wanderers,Atlético Ottawa,0,1,2025,Wanderers Grounds
+2025-10-22,HFX Wanderers,Inter Toronto,2,2,2025,Wanderers Grounds
+2025-10-26,Forge,Atlético Ottawa,1,2,2025,Hamilton Stadium
+2025-10-26,Cavalry,Inter Toronto,4,1,2025,ATCO Field
+2025-11-02,Forge,Cavalry,0,1,2025,Hamilton Stadium
+2025-11-09,Atlético Ottawa,Cavalry,2,1,2025,TD Place Stadium

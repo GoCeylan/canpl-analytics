@@ -5,9 +5,17 @@ export const config = {
   runtime: 'nodejs',
 };
 
-// CPL team information
+// CPL team information (supports both full names and short names from API)
 const TEAM_INFO = {
   'Forge FC': {
+    city: 'Hamilton',
+    stadium: 'Tim Hortons Field',
+    founded: 2018,
+    latitude: 43.2557,
+    longitude: -79.8711,
+    surface: 'grass'
+  },
+  'Forge': {
     city: 'Hamilton',
     stadium: 'Tim Hortons Field',
     founded: 2018,
@@ -23,7 +31,23 @@ const TEAM_INFO = {
     longitude: -114.0060,
     surface: 'grass'
   },
+  'Cavalry': {
+    city: 'Calgary',
+    stadium: 'ATCO Field',
+    founded: 2018,
+    latitude: 50.9900,
+    longitude: -114.0060,
+    surface: 'grass'
+  },
   'Pacific FC': {
+    city: 'Langford',
+    stadium: 'Starlight Stadium',
+    founded: 2018,
+    latitude: 48.4500,
+    longitude: -123.4960,
+    surface: 'turf'
+  },
+  'Pacific': {
     city: 'Langford',
     stadium: 'Starlight Stadium',
     founded: 2018,
@@ -39,15 +63,32 @@ const TEAM_INFO = {
     longitude: -97.1445,
     surface: 'turf'
   },
+  'Valour': {
+    city: 'Winnipeg',
+    stadium: 'IG Field',
+    founded: 2018,
+    latitude: 49.8076,
+    longitude: -97.1445,
+    surface: 'turf'
+  },
   'York United FC': {
     city: 'Toronto',
     stadium: 'York Lions Stadium',
     founded: 2018,
     latitude: 43.7735,
     longitude: -79.4992,
-    surface: 'turf'
+    surface: 'turf',
+    status: 'inactive'
   },
   'HFX Wanderers FC': {
+    city: 'Halifax',
+    stadium: 'Wanderers Grounds',
+    founded: 2018,
+    latitude: 44.6488,
+    longitude: -63.5752,
+    surface: 'grass'
+  },
+  'HFX Wanderers': {
     city: 'Halifax',
     stadium: 'Wanderers Grounds',
     founded: 2018,
@@ -72,12 +113,28 @@ const TEAM_INFO = {
     longitude: -75.6825,
     surface: 'turf'
   },
+  'Atlético Ottawa': {
+    city: 'Ottawa',
+    stadium: 'TD Place Stadium',
+    founded: 2020,
+    latitude: 45.3985,
+    longitude: -75.6825,
+    surface: 'turf'
+  },
   'Vancouver FC': {
     city: 'Langley',
     stadium: 'Willoughby Community Park',
     founded: 2022,
     latitude: 49.0197,
     longitude: -122.6465,
+    surface: 'turf'
+  },
+  'Inter Toronto': {
+    city: 'Toronto',
+    stadium: 'York Lions Stadium',
+    founded: 2024,
+    latitude: 43.7735,
+    longitude: -79.4992,
     surface: 'turf'
   }
 };

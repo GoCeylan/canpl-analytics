@@ -1,113 +1,118 @@
-date,home_team,away_team,home_goals,away_goals,season,venue
-2025-04-12,Forge FC,Vancouver FC,3,0,2025,Tim Hortons Field
-2025-04-12,Cavalry FC,York United FC,2,1,2025,ATCO Field
-2025-04-13,Pacific FC,Atletico Ottawa,1,1,2025,Starlight Stadium
-2025-04-13,Valour FC,HFX Wanderers FC,2,0,2025,IG Field
-2025-04-19,Vancouver FC,Cavalry FC,0,3,2025,Willoughby Community Park
-2025-04-19,York United FC,Pacific FC,1,2,2025,York Lions Stadium
-2025-04-20,Atletico Ottawa,Forge FC,0,2,2025,TD Place Stadium
-2025-04-20,HFX Wanderers FC,Valour FC,1,1,2025,Wanderers Grounds
-2025-04-26,Forge FC,York United FC,2,0,2025,Tim Hortons Field
-2025-04-26,Cavalry FC,Atletico Ottawa,1,0,2025,ATCO Field
-2025-04-27,Pacific FC,HFX Wanderers FC,3,1,2025,Starlight Stadium
-2025-04-27,Valour FC,Vancouver FC,4,0,2025,IG Field
-2025-05-03,York United FC,Valour FC,0,2,2025,York Lions Stadium
-2025-05-03,Atletico Ottawa,Pacific FC,2,2,2025,TD Place Stadium
-2025-05-04,HFX Wanderers FC,Forge FC,0,3,2025,Wanderers Grounds
-2025-05-04,Vancouver FC,Cavalry FC,1,4,2025,Willoughby Community Park
-2025-05-10,Forge FC,Cavalry FC,1,1,2025,Tim Hortons Field
-2025-05-10,Pacific FC,Valour FC,2,1,2025,Starlight Stadium
-2025-05-11,Atletico Ottawa,HFX Wanderers FC,3,0,2025,TD Place Stadium
-2025-05-11,York United FC,Vancouver FC,2,0,2025,York Lions Stadium
-2025-05-17,Cavalry FC,Pacific FC,2,1,2025,ATCO Field
-2025-05-17,Valour FC,Atletico Ottawa,1,0,2025,IG Field
-2025-05-18,HFX Wanderers FC,York United FC,2,2,2025,Wanderers Grounds
-2025-05-18,Vancouver FC,Forge FC,0,4,2025,Willoughby Community Park
-2025-05-24,Forge FC,Pacific FC,2,0,2025,Tim Hortons Field
-2025-05-24,Cavalry FC,HFX Wanderers FC,3,1,2025,ATCO Field
-2025-05-25,Atletico Ottawa,Vancouver FC,2,0,2025,TD Place Stadium
-2025-05-25,Valour FC,York United FC,1,0,2025,IG Field
-2025-05-31,Pacific FC,Forge FC,1,2,2025,Starlight Stadium
-2025-05-31,HFX Wanderers FC,Cavalry FC,0,2,2025,Wanderers Grounds
-2025-06-01,York United FC,Atletico Ottawa,1,3,2025,York Lions Stadium
-2025-06-01,Vancouver FC,Valour FC,1,2,2025,Willoughby Community Park
-2025-06-07,Forge FC,Valour FC,2,1,2025,Tim Hortons Field
-2025-06-07,Cavalry FC,Vancouver FC,5,0,2025,ATCO Field
-2025-06-08,Pacific FC,York United FC,2,0,2025,Starlight Stadium
-2025-06-08,Atletico Ottawa,HFX Wanderers FC,1,1,2025,TD Place Stadium
-2025-06-14,Valour FC,Forge FC,0,1,2025,IG Field
-2025-06-14,HFX Wanderers FC,Pacific FC,1,3,2025,Wanderers Grounds
-2025-06-15,York United FC,Cavalry FC,0,2,2025,York Lions Stadium
-2025-06-15,Vancouver FC,Atletico Ottawa,0,1,2025,Willoughby Community Park
-2025-06-21,Forge FC,Atletico Ottawa,3,1,2025,Tim Hortons Field
-2025-06-21,Cavalry FC,Valour FC,2,0,2025,ATCO Field
-2025-06-22,Pacific FC,Vancouver FC,4,1,2025,Starlight Stadium
-2025-06-22,HFX Wanderers FC,York United FC,1,1,2025,Wanderers Grounds
-2025-06-28,Atletico Ottawa,Cavalry FC,1,2,2025,TD Place Stadium
-2025-06-28,Valour FC,Pacific FC,2,2,2025,IG Field
-2025-06-29,York United FC,Forge FC,0,2,2025,York Lions Stadium
-2025-06-29,Vancouver FC,HFX Wanderers FC,1,2,2025,Willoughby Community Park
-2025-07-05,Forge FC,HFX Wanderers FC,4,0,2025,Tim Hortons Field
-2025-07-05,Cavalry FC,Pacific FC,1,1,2025,ATCO Field
-2025-07-06,Atletico Ottawa,Valour FC,2,1,2025,TD Place Stadium
-2025-07-06,York United FC,Vancouver FC,3,0,2025,York Lions Stadium
-2025-07-12,Pacific FC,Cavalry FC,0,1,2025,Starlight Stadium
-2025-07-12,HFX Wanderers FC,Atletico Ottawa,1,2,2025,Wanderers Grounds
-2025-07-13,Valour FC,Forge FC,1,3,2025,IG Field
-2025-07-13,Vancouver FC,York United FC,0,1,2025,Willoughby Community Park
-2025-07-19,Forge FC,Pacific FC,2,1,2025,Tim Hortons Field
-2025-07-19,Cavalry FC,York United FC,3,0,2025,ATCO Field
-2025-07-20,Atletico Ottawa,Vancouver FC,2,1,2025,TD Place Stadium
-2025-07-20,HFX Wanderers FC,Valour FC,0,2,2025,Wanderers Grounds
-2025-07-26,Pacific FC,Atletico Ottawa,3,2,2025,Starlight Stadium
-2025-07-26,Valour FC,Cavalry FC,0,2,2025,IG Field
-2025-07-27,York United FC,HFX Wanderers FC,2,1,2025,York Lions Stadium
-2025-07-27,Vancouver FC,Forge FC,0,3,2025,Willoughby Community Park
-2025-08-02,Forge FC,Cavalry FC,2,2,2025,Tim Hortons Field
-2025-08-02,Atletico Ottawa,York United FC,1,0,2025,TD Place Stadium
-2025-08-03,HFX Wanderers FC,Vancouver FC,3,1,2025,Wanderers Grounds
-2025-08-03,Pacific FC,Valour FC,2,0,2025,Starlight Stadium
-2025-08-09,Cavalry FC,Forge FC,1,2,2025,ATCO Field
-2025-08-09,Valour FC,Atletico Ottawa,2,2,2025,IG Field
-2025-08-10,York United FC,Pacific FC,1,2,2025,York Lions Stadium
-2025-08-10,Vancouver FC,HFX Wanderers FC,0,1,2025,Willoughby Community Park
-2025-08-16,Forge FC,York United FC,3,1,2025,Tim Hortons Field
-2025-08-16,Pacific FC,HFX Wanderers FC,2,0,2025,Starlight Stadium
-2025-08-17,Atletico Ottawa,Cavalry FC,0,1,2025,TD Place Stadium
-2025-08-17,Valour FC,Vancouver FC,3,0,2025,IG Field
-2025-08-23,Cavalry FC,Atletico Ottawa,2,1,2025,ATCO Field
-2025-08-23,HFX Wanderers FC,Forge FC,0,2,2025,Wanderers Grounds
-2025-08-24,York United FC,Valour FC,1,2,2025,York Lions Stadium
-2025-08-24,Vancouver FC,Pacific FC,0,3,2025,Willoughby Community Park
-2025-08-30,Forge FC,Atletico Ottawa,2,0,2025,Tim Hortons Field
-2025-08-30,Pacific FC,Cavalry FC,1,2,2025,Starlight Stadium
-2025-08-31,Valour FC,HFX Wanderers FC,2,1,2025,IG Field
-2025-08-31,York United FC,Vancouver FC,2,0,2025,York Lions Stadium
-2025-09-06,Atletico Ottawa,Pacific FC,1,1,2025,TD Place Stadium
-2025-09-06,Cavalry FC,Valour FC,3,1,2025,ATCO Field
-2025-09-07,HFX Wanderers FC,York United FC,0,0,2025,Wanderers Grounds
-2025-09-07,Vancouver FC,Forge FC,0,4,2025,Willoughby Community Park
-2025-09-13,Forge FC,Valour FC,3,0,2025,Tim Hortons Field
-2025-09-13,Pacific FC,Vancouver FC,2,0,2025,Starlight Stadium
-2025-09-14,Cavalry FC,HFX Wanderers FC,2,0,2025,ATCO Field
-2025-09-14,Atletico Ottawa,York United FC,2,1,2025,TD Place Stadium
-2025-09-20,Valour FC,Pacific FC,1,2,2025,IG Field
-2025-09-20,HFX Wanderers FC,Atletico Ottawa,0,1,2025,Wanderers Grounds
-2025-09-21,York United FC,Forge FC,0,2,2025,York Lions Stadium
-2025-09-21,Vancouver FC,Cavalry FC,1,3,2025,Willoughby Community Park
-2025-09-27,Forge FC,HFX Wanderers FC,3,0,2025,Tim Hortons Field
-2025-09-27,Cavalry FC,Vancouver FC,4,0,2025,ATCO Field
-2025-09-28,Pacific FC,York United FC,2,1,2025,Starlight Stadium
-2025-09-28,Atletico Ottawa,Valour FC,1,1,2025,TD Place Stadium
-2025-10-04,HFX Wanderers FC,Cavalry FC,1,2,2025,Wanderers Grounds
-2025-10-04,Valour FC,York United FC,2,0,2025,IG Field
-2025-10-05,Vancouver FC,Atletico Ottawa,0,2,2025,Willoughby Community Park
-2025-10-05,Pacific FC,Forge FC,0,1,2025,Starlight Stadium
-2025-10-11,Forge FC,Vancouver FC,5,0,2025,Tim Hortons Field
-2025-10-11,Cavalry FC,Atletico Ottawa,2,0,2025,ATCO Field
-2025-10-12,York United FC,HFX Wanderers FC,1,1,2025,York Lions Stadium
-2025-10-12,Valour FC,Pacific FC,0,1,2025,IG Field
-2025-10-18,Atletico Ottawa,Forge FC,1,2,2025,TD Place Stadium
-2025-10-18,Pacific FC,Valour FC,3,1,2025,Starlight Stadium
-2025-10-19,HFX Wanderers FC,Vancouver FC,2,0,2025,Wanderers Grounds
-2025-10-19,York United FC,Cavalry FC,1,3,2025,York Lions Stadium
+date,season,home_team,away_team,home_goals,away_goals,venue
+2025-04-05,2025,Atlético Ottawa,HFX Wanderers,2,2,TD Place Stadium
+2025-04-05,2025,Forge,Cavalry,1,0,Hamilton Stadium
+2025-04-06,2025,Pacific,Valour,2,0,Starlight Stadium
+2025-04-06,2025,Vancouver FC,Inter Toronto,0,2,Willoughby Community Park at the Langley Events Centre
+2025-04-12,2025,Pacific,Forge,0,2,Starlight Stadium
+2025-04-13,2025,Inter Toronto,HFX Wanderers,1,2,York Lions Stadium
+2025-04-13,2025,Vancouver FC,Atlético Ottawa,1,4,Willoughby Community Park at the Langley Events Centre
+2025-04-18,2025,Cavalry,Vancouver FC,1,1,ATCO Field
+2025-04-19,2025,Atlético Ottawa,Inter Toronto,3,2,TD Place Stadium
+2025-04-19,2025,HFX Wanderers,Pacific,3,1,Wanderers Grounds
+2025-04-19,2025,Forge,Valour,1,1,Hamilton Stadium
+2025-04-26,2025,Valour,HFX Wanderers,0,1,Princess Auto Stadium
+2025-04-26,2025,Cavalry,Atlético Ottawa,1,3,ATCO Field
+2025-04-27,2025,Inter Toronto,Forge,2,2,York Lions Stadium
+2025-04-27,2025,Vancouver FC,Pacific,1,1,Willoughby Community Park at the Langley Events Centre
+2025-05-03,2025,Inter Toronto,Cavalry,1,2,York Lions Stadium
+2025-05-03,2025,Atlético Ottawa,Pacific,3,1,TD Place Stadium
+2025-05-03,2025,HFX Wanderers,Forge,0,0,Wanderers Grounds
+2025-05-03,2025,Valour,Vancouver FC,1,3,Princess Auto Stadium
+2025-05-10,2025,Atlético Ottawa,Valour,5,2,TD Place Stadium
+2025-05-10,2025,HFX Wanderers,Cavalry,0,3,Wanderers Grounds
+2025-05-11,2025,Pacific,Inter Toronto,2,1,Starlight Stadium
+2025-05-13,2025,Forge,Atlético Ottawa,2,2,Hamilton Stadium
+2025-05-17,2025,Valour,Inter Toronto,2,1,Princess Auto Stadium
+2025-05-17,2025,Cavalry,Pacific,4,0,ATCO Field
+2025-05-18,2025,Vancouver FC,HFX Wanderers,0,2,Willoughby Community Park at the Langley Events Centre
+2025-05-24,2025,Pacific,Forge,0,1,Starlight Stadium
+2025-05-24,2025,HFX Wanderers,Atlético Ottawa,2,0,Wanderers Grounds
+2025-05-25,2025,Cavalry,Valour,4,0,ATCO Field
+2025-05-25,2025,Inter Toronto,Vancouver FC,1,0,York Lions Stadium
+2025-05-31,2025,Vancouver FC,Atlético Ottawa,2,2,Willoughby Community Park at the Langley Events Centre
+2025-05-31,2025,Forge,Cavalry,1,1,Hamilton Stadium
+2025-05-31,2025,Inter Toronto,HFX Wanderers,2,0,Telus Stadium at Laval University
+2025-06-01,2025,Valour,Pacific,0,0,Princess Auto Stadium
+2025-06-04,2025,Valour,Vancouver FC,3,1,Princess Auto Stadium
+2025-06-07,2025,Pacific,Atlético Ottawa,0,1,Starlight Stadium
+2025-06-08,2025,Forge,HFX Wanderers,2,1,Hamilton Stadium
+2025-06-08,2025,Cavalry,Inter Toronto,2,1,ATCO Field
+2025-06-14,2025,HFX Wanderers,Cavalry,1,1,Wanderers Grounds
+2025-06-14,2025,Pacific,Inter Toronto,1,3,Starlight Stadium
+2025-06-15,2025,Vancouver FC,Forge,0,2,Willoughby Community Park at the Langley Events Centre
+2025-06-15,2025,Atlético Ottawa,Valour,3,0,TD Place Stadium
+2025-06-21,2025,HFX Wanderers,Vancouver FC,1,0,Wanderers Grounds
+2025-06-22,2025,Cavalry,Pacific,1,0,ATCO Field
+2025-06-22,2025,Inter Toronto,Atlético Ottawa,0,0,York Lions Stadium
+2025-06-22,2025,Valour,Forge,0,5,Princess Auto Stadium
+2025-06-28,2025,Pacific,Vancouver FC,4,4,Starlight Stadium
+2025-06-28,2025,Cavalry,Atlético Ottawa,0,2,ATCO Field
+2025-06-29,2025,Forge,Inter Toronto,2,2,Hamilton Stadium
+2025-07-01,2025,HFX Wanderers,Valour,3,1,Wanderers Grounds
+2025-07-05,2025,Forge,Vancouver FC,2,1,Hamilton Stadium
+2025-07-12,2025,Atlético Ottawa,Forge,1,1,TD Place Stadium
+2025-07-12,2025,Pacific,HFX Wanderers,3,2,Starlight Stadium
+2025-07-13,2025,Inter Toronto,Valour,3,2,York Lions Stadium
+2025-07-14,2025,Vancouver FC,Cavalry,0,0,Willoughby Community Park at the Langley Events Centre
+2025-07-18,2025,Atlético Ottawa,HFX Wanderers,2,0,TD Place Stadium
+2025-07-18,2025,Forge,Pacific,2,0,Hamilton Stadium
+2025-07-19,2025,Inter Toronto,Vancouver FC,4,0,York Lions Stadium
+2025-07-20,2025,Valour,Cavalry,1,2,Princess Auto Stadium
+2025-07-25,2025,HFX Wanderers,Forge,1,2,Wanderers Grounds
+2025-07-26,2025,Vancouver FC,Valour,1,3,Willoughby Community Park at the Langley Events Centre
+2025-07-26,2025,Cavalry,Inter Toronto,0,1,ATCO Field
+2025-07-27,2025,Pacific,Atlético Ottawa,0,2,Starlight Stadium
+2025-07-30,2025,Valour,Cavalry,2,1,Princess Auto Stadium
+2025-08-02,2025,Forge,Valour,5,0,Hamilton Stadium
+2025-08-03,2025,Atlético Ottawa,Inter Toronto,0,0,TD Place Stadium
+2025-08-04,2025,HFX Wanderers,Vancouver FC,1,2,Wanderers Grounds
+2025-08-04,2025,Pacific,Cavalry,1,0,Starlight Stadium
+2025-08-09,2025,Inter Toronto,Forge,1,2,York Lions Stadium
+2025-08-09,2025,Cavalry,HFX Wanderers,0,0,ATCO Field
+2025-08-10,2025,Valour,Atlético Ottawa,1,2,Princess Auto Stadium
+2025-08-10,2025,Vancouver FC,Pacific,2,3,Willoughby Community Park at the Langley Events Centre
+2025-08-16,2025,Pacific,HFX Wanderers,2,2,Starlight Stadium
+2025-08-17,2025,Valour,Inter Toronto,0,0,Princess Auto Stadium
+2025-08-17,2025,Forge,Atlético Ottawa,2,0,Hamilton Stadium
+2025-08-17,2025,Cavalry,Vancouver FC,5,4,ATCO Field
+2025-08-22,2025,HFX Wanderers,Valour,4,1,Wanderers Grounds
+2025-08-23,2025,Vancouver FC,Forge,0,1,Willoughby Community Park at the Langley Events Centre
+2025-08-23,2025,Atlético Ottawa,Cavalry,2,2,TD Place Stadium
+2025-08-24,2025,Inter Toronto,Pacific,5,1,York Lions Stadium
+2025-08-30,2025,Cavalry,Forge,4,1,ATCO Field
+2025-08-30,2025,Atlético Ottawa,Vancouver FC,3,1,TD Place Stadium
+2025-08-31,2025,Valour,Pacific,1,1,Princess Auto Stadium
+2025-09-01,2025,HFX Wanderers,Inter Toronto,4,0,Wanderers Grounds
+2025-09-05,2025,Inter Toronto,Cavalry,3,1,York Lions Stadium
+2025-09-06,2025,Forge,HFX Wanderers,1,0,Hamilton Stadium
+2025-09-06,2025,Atlético Ottawa,Pacific,2,0,TD Place Stadium
+2025-09-06,2025,Vancouver FC,Valour,2,5,Willoughby Community Park at the Langley Events Centre
+2025-09-12,2025,Valour,Forge,2,1,Princess Auto Stadium
+2025-09-13,2025,Cavalry,HFX Wanderers,3,1,ATCO Field
+2025-09-13,2025,Pacific,Vancouver FC,1,1,Royal Athletic Park
+2025-09-14,2025,Inter Toronto,Atlético Ottawa,2,2,York Lions Stadium
+2025-09-20,2025,HFX Wanderers,Pacific,3,0,Wanderers Grounds
+2025-09-20,2025,Cavalry,Valour,3,0,ATCO Field
+2025-09-21,2025,Atlético Ottawa,Forge,1,1,TD Place Stadium
+2025-09-21,2025,Vancouver FC,Inter Toronto,2,1,Willoughby Community Park at the Langley Events Centre
+2025-09-27,2025,Atlético Ottawa,Cavalry,3,0,TD Place Stadium
+2025-09-27,2025,Forge,Pacific,4,0,Hamilton Stadium
+2025-09-28,2025,Inter Toronto,Valour,1,0,York Lions Stadium
+2025-09-28,2025,Vancouver FC,HFX Wanderers,3,1,Willoughby Community Park at the Langley Events Centre
+2025-10-04,2025,Forge,Vancouver FC,1,1,Hamilton Stadium
+2025-10-04,2025,HFX Wanderers,Inter Toronto,1,1,Wanderers Grounds
+2025-10-05,2025,Valour,Atlético Ottawa,3,3,Princess Auto Stadium
+2025-10-05,2025,Pacific,Cavalry,3,3,Starlight Stadium
+2025-10-09,2025,Inter Toronto,Pacific,2,2,York Lions Stadium
+2025-10-11,2025,Cavalry,Forge,1,1,ATCO Field
+2025-10-11,2025,Valour,HFX Wanderers,0,3,Princess Auto Stadium
+2025-10-12,2025,Atlético Ottawa,Vancouver FC,0,0,TD Place Stadium
+2025-10-18,2025,Pacific,Valour,1,4,Starlight Stadium
+2025-10-18,2025,Vancouver FC,Cavalry,2,2,Willoughby Community Park at the Langley Events Centre
+2025-10-18,2025,Forge,Inter Toronto,3,0,Hamilton Stadium
+2025-10-18,2025,HFX Wanderers,Atlético Ottawa,0,1,Wanderers Grounds
+2025-10-22,2025,HFX Wanderers,Inter Toronto,2,2,Wanderers Grounds
+2025-10-26,2025,Forge,Atlético Ottawa,1,2,Hamilton Stadium
+2025-10-26,2025,Cavalry,Inter Toronto,4,1,ATCO Field
+2025-11-02,2025,Forge,Cavalry,0,1,Hamilton Stadium
+2025-11-09,2025,Atlético Ottawa,Cavalry,2,1,TD Place Stadium

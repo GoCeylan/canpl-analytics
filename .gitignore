@@ -51,3 +51,6 @@ logs/
 .cache/
 *.cache
 .vercel
+
+# Node PKG
+node_modules/
