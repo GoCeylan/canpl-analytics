@@ -1,9 +1,35 @@
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 
 export const config = {
   runtime: 'nodejs',
 };
+
+// Load pre-computed standings from official API (regular season only)
+function loadOfficialStandings(season) {
+  const standingsPath = join(process.cwd(), 'data', `standings_${season}_api.csv`);
+  if (!existsSync(standingsPath)) {
+    return null;
+  }
+
+  const csvData = readFileSync(standingsPath, 'utf-8');
+  const lines = csvData.trim().split('\n');
+  const headers = lines[0].split(',');
+
+  return lines.slice(1).map(line => {
+    const values = line.split(',');
+    const obj = {};
+    headers.forEach((header, index) => {
+      const value = values[index];
+      if (['position', 'played', 'wins', 'draws', 'losses', 'goals_for', 'goals_against', 'goal_difference', 'points'].includes(header)) {
+        obj[header] = parseInt(value, 10);
+      } else {
+        obj[header] = value;
+      }
+    });
+    return obj;
+  });
+}
 
 export default function handler(req, res) {
   // Set CORS headers
@@ -116,19 +142,38 @@ export default function handler(req, res) {
     if (season) {
       // Return standings for specific season
       const seasonNum = parseInt(season, 10);
+
+      // Try to use official standings from API (excludes playoffs)
+      const officialStandings = loadOfficialStandings(seasonNum);
+      if (officialStandings) {
+        return res.status(200).json({
+          season: seasonNum,
+          standings: officialStandings,
+          source: 'official'
+        });
+      }
+
+      // Fall back to calculating from matches
       const seasonMatches = matches.filter(m => m.season === seasonNum);
       const standings = calculateStandings(seasonMatches);
 
       return res.status(200).json({
         season: seasonNum,
-        standings
+        standings,
+        source: 'calculated'
       });
     } else {
       // Return standings for all seasons
       const allStandings = {};
       seasons.forEach(s => {
-        const seasonMatches = matches.filter(m => m.season === s);
-        allStandings[s] = calculateStandings(seasonMatches);
+        // Try official standings first
+        const officialStandings = loadOfficialStandings(s);
+        if (officialStandings) {
+          allStandings[s] = officialStandings;
+        } else {
+          const seasonMatches = matches.filter(m => m.season === s);
+          allStandings[s] = calculateStandings(seasonMatches);
+        }
       });
 
       return res.status(200).json({
