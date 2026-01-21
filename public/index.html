@@ -3,313 +3,500 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPL Analytics API</title>
+    <title>CPL Analytics API - Canadian Premier League Open Data</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cpl: {
+                            red: '#c8102e',
+                            dark: '#1a1a2e',
+                            darker: '#12121f',
+                            card: '#252540'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --primary: #c8102e;
-            --dark: #1a1a2e;
-            --light: #f5f5f5;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--dark);
-            color: var(--light);
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        header {
-            text-align: center;
-            padding: 3rem 0;
-            border-bottom: 2px solid var(--primary);
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        h1 span {
-            color: var(--primary);
-        }
-        .subtitle {
-            color: #888;
-            font-size: 1.1rem;
-        }
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        .stat-card {
-            background: rgba(200, 16, 46, 0.1);
-            border: 1px solid var(--primary);
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-        }
-        .stat-card .number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--primary);
-        }
-        .stat-card .label {
-            color: #888;
-            font-size: 0.9rem;
-        }
-        section {
-            margin: 3rem 0;
-        }
-        h2 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        .endpoint {
-            background: #252540;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        .endpoint-url {
-            font-family: 'Monaco', 'Menlo', monospace;
-            background: #1a1a2e;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 0.5rem;
-            color: #4ade80;
-        }
-        .endpoint p {
-            color: #aaa;
-            margin: 0.5rem 0;
-        }
-        .params {
-            margin-top: 1rem;
-        }
-        .param {
-            display: flex;
-            gap: 1rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #333;
-        }
-        .param-name {
-            font-family: monospace;
-            color: #60a5fa;
-            min-width: 100px;
-        }
-        code {
-            background: #1a1a2e;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-        .example {
-            background: #1a1a2e;
-            padding: 1rem;
-            border-radius: 4px;
-            overflow-x: auto;
-            margin-top: 1rem;
-        }
-        .example pre {
-            color: #4ade80;
-            font-family: 'Monaco', 'Menlo', monospace;
-            font-size: 0.85rem;
-        }
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid #333;
-            margin-top: 3rem;
-            color: #666;
-        }
-        footer a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-        .try-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-        .try-btn:hover {
-            background: #a00d25;
-        }
-        #standings-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        #standings-table th, #standings-table td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid #333;
-        }
-        #standings-table th {
-            color: var(--primary);
-        }
-        #standings-table tr:hover {
-            background: rgba(200, 16, 46, 0.1);
-        }
+        .json-key { color: #60a5fa; }
+        .json-string { color: #4ade80; }
+        .json-number { color: #f472b6; }
+        .json-boolean { color: #fbbf24; }
+        .json-null { color: #94a3b8; }
+        .code-tab.active { background: #1e1e3f; border-bottom: 2px solid #c8102e; }
+        .code-panel { display: none; }
+        .code-panel.active { display: block; }
     </style>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h1><span>CPL</span> Analytics API</h1>
-            <p class="subtitle">Canadian Premier League Open Data</p>
+<body class="bg-cpl-dark text-gray-100 min-h-screen">
+    <div class="max-w-5xl mx-auto px-4 py-8">
+
+        <!-- Header -->
+        <header class="text-center py-12 border-b-2 border-cpl-red">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">
+                <span class="text-cpl-red">CPL</span> Analytics API
+            </h1>
+            <p class="text-gray-400 text-lg">Canadian Premier League Open Data</p>
+            <p class="text-gray-500 text-sm mt-2">Free REST API - No authentication required</p>
         </header>
 
-        <div class="stats">
-            <div class="stat-card">
-                <div class="number">309</div>
-                <div class="label">Matches</div>
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+            <div class="bg-cpl-red/10 border border-cpl-red rounded-lg p-6 text-center">
+                <div class="text-3xl font-bold text-cpl-red">309</div>
+                <div class="text-gray-400 text-sm">Matches</div>
             </div>
-            <div class="stat-card">
-                <div class="number">7</div>
-                <div class="label">Seasons</div>
+            <div class="bg-cpl-red/10 border border-cpl-red rounded-lg p-6 text-center">
+                <div class="text-3xl font-bold text-cpl-red">7</div>
+                <div class="text-gray-400 text-sm">Seasons</div>
             </div>
-            <div class="stat-card">
-                <div class="number">8</div>
-                <div class="label">Teams</div>
+            <div class="bg-cpl-red/10 border border-cpl-red rounded-lg p-6 text-center">
+                <div class="text-3xl font-bold text-cpl-red">8</div>
+                <div class="text-gray-400 text-sm">Teams</div>
             </div>
-            <div class="stat-card">
-                <div class="number">2019-25</div>
-                <div class="label">Coverage</div>
+            <div class="bg-cpl-red/10 border border-cpl-red rounded-lg p-6 text-center">
+                <div class="text-3xl font-bold text-cpl-red">2019-25</div>
+                <div class="text-gray-400 text-sm">Coverage</div>
             </div>
         </div>
 
-        <section>
-            <h2>API Endpoints</h2>
-
-            <div class="endpoint">
-                <div class="endpoint-url">GET /api/matches</div>
-                <p>Get CPL match results with optional filtering.</p>
-                <div class="params">
-                    <div class="param">
-                        <span class="param-name">season</span>
-                        <span>Filter by season year (e.g., <code>2024</code>)</span>
-                    </div>
-                    <div class="param">
-                        <span class="param-name">team</span>
-                        <span>Filter by team name (e.g., <code>Forge</code>)</span>
-                    </div>
-                    <div class="param">
-                        <span class="param-name">limit</span>
-                        <span>Max results to return (default: 100)</span>
-                    </div>
+        <!-- Features Section -->
+        <section class="my-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-6">Features</h2>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <div class="text-2xl mb-2">&#128202;</div>
+                    <h3 class="font-semibold mb-1">Historical Data</h3>
+                    <p class="text-gray-400 text-sm">309+ matches from 2019-2025 with full results and venue information</p>
                 </div>
-                <button class="try-btn" onclick="tryMatches()">Try it</button>
-                <div class="example" id="matches-example" style="display:none;">
-                    <pre></pre>
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <div class="text-2xl mb-2">&#9989;</div>
+                    <h3 class="font-semibold mb-1">Official Standings</h3>
+                    <p class="text-gray-400 text-sm">2025 standings sourced directly from official CanPL API</p>
                 </div>
-            </div>
-
-            <div class="endpoint">
-                <div class="endpoint-url">GET /api/standings</div>
-                <p>Get league standings for a season.</p>
-                <div class="params">
-                    <div class="param">
-                        <span class="param-name">season</span>
-                        <span>Season year (default: <code>2025</code>)</span>
-                    </div>
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <div class="text-2xl mb-2">&#127969;</div>
+                    <h3 class="font-semibold mb-1">Team Metadata</h3>
+                    <p class="text-gray-400 text-sm">Stadium coordinates, surface type, and founding year for all teams</p>
                 </div>
-                <button class="try-btn" onclick="tryStandings()">Try it</button>
-                <div class="example" id="standings-example" style="display:none;">
-                    <pre></pre>
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <div class="text-2xl mb-2">&#128279;</div>
+                    <h3 class="font-semibold mb-1">RESTful JSON API</h3>
+                    <p class="text-gray-400 text-sm">Clean REST endpoints returning structured JSON data</p>
+                </div>
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <div class="text-2xl mb-2">&#128275;</div>
+                    <h3 class="font-semibold mb-1">No Auth Required</h3>
+                    <p class="text-gray-400 text-sm">Free and open access - no API keys or registration needed</p>
+                </div>
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <div class="text-2xl mb-2">&#128196;</div>
+                    <h3 class="font-semibold mb-1">CC-BY-4.0 License</h3>
+                    <p class="text-gray-400 text-sm">Open data license - use freely with attribution</p>
                 </div>
             </div>
         </section>
 
-        <section>
-            <h2>2025 Standings</h2>
-            <table id="standings-table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Team</th>
-                        <th>P</th>
-                        <th>W</th>
-                        <th>D</th>
-                        <th>L</th>
-                        <th>GD</th>
-                        <th>Pts</th>
-                    </tr>
-                </thead>
-                <tbody id="standings-body">
-                    <tr><td colspan="8">Loading...</td></tr>
-                </tbody>
-            </table>
+        <!-- API Endpoints Section -->
+        <section class="my-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-6">API Endpoints</h2>
+
+            <!-- /api/matches -->
+            <div class="bg-cpl-card rounded-lg mb-4 overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
+                        <code class="text-green-400 font-mono">/api/matches</code>
+                    </div>
+                    <p class="text-gray-400 mb-4">Get CPL match results with optional filtering by season, team, and pagination.</p>
+
+                    <div class="space-y-2 text-sm mb-4">
+                        <div class="flex gap-4 py-2 border-b border-gray-700">
+                            <span class="text-blue-400 font-mono w-24">season</span>
+                            <span class="text-gray-400">Filter by season year (e.g., <code class="bg-cpl-darker px-2 py-0.5 rounded">2024</code>)</span>
+                        </div>
+                        <div class="flex gap-4 py-2 border-b border-gray-700">
+                            <span class="text-blue-400 font-mono w-24">team</span>
+                            <span class="text-gray-400">Filter by team name (e.g., <code class="bg-cpl-darker px-2 py-0.5 rounded">Forge</code>)</span>
+                        </div>
+                        <div class="flex gap-4 py-2 border-b border-gray-700">
+                            <span class="text-blue-400 font-mono w-24">limit</span>
+                            <span class="text-gray-400">Max results to return (default: 100)</span>
+                        </div>
+                        <div class="flex gap-4 py-2">
+                            <span class="text-blue-400 font-mono w-24">offset</span>
+                            <span class="text-gray-400">Skip first N results for pagination (default: 0)</span>
+                        </div>
+                    </div>
+
+                    <button onclick="toggleTestPanel('matches')" class="text-cpl-red hover:text-red-400 text-sm font-medium flex items-center gap-1">
+                        <span id="matches-toggle-icon">&#9654;</span> Test this endpoint
+                    </button>
+                </div>
+
+                <!-- Test Panel -->
+                <div id="matches-test-panel" class="hidden bg-cpl-darker p-5 border-t border-gray-700">
+                    <div class="grid md:grid-cols-4 gap-4 mb-4">
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-1">Season</label>
+                            <select id="matches-season" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
+                                <option value="">All seasons</option>
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-1">Team</label>
+                            <input id="matches-team" type="text" placeholder="e.g., Forge" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-1">Limit</label>
+                            <input id="matches-limit" type="number" value="5" min="1" max="100" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-1">Offset</label>
+                            <input id="matches-offset" type="number" value="0" min="0" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
+                        </div>
+                    </div>
+                    <button onclick="testMatchesAPI()" class="bg-cpl-red hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-medium transition">
+                        Test API
+                    </button>
+                    <div id="matches-response" class="mt-4 hidden">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <span id="matches-status" class="text-sm"></span>
+                                <span id="matches-time" class="text-gray-500 text-sm"></span>
+                            </div>
+                            <button onclick="copyResponse('matches')" class="text-gray-400 hover:text-white text-sm">Copy</button>
+                        </div>
+                        <pre id="matches-json" class="bg-cpl-dark p-4 rounded text-sm font-mono overflow-x-auto max-h-96"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /api/standings -->
+            <div class="bg-cpl-card rounded-lg mb-4 overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
+                        <code class="text-green-400 font-mono">/api/standings</code>
+                    </div>
+                    <p class="text-gray-400 mb-4">Get league standings for a season. 2025 uses official CanPL data; other seasons are calculated from match results.</p>
+
+                    <div class="space-y-2 text-sm mb-4">
+                        <div class="flex gap-4 py-2">
+                            <span class="text-blue-400 font-mono w-24">season</span>
+                            <span class="text-gray-400">Season year (omit for all seasons)</span>
+                        </div>
+                    </div>
+
+                    <button onclick="toggleTestPanel('standings')" class="text-cpl-red hover:text-red-400 text-sm font-medium flex items-center gap-1">
+                        <span id="standings-toggle-icon">&#9654;</span> Test this endpoint
+                    </button>
+                </div>
+
+                <div id="standings-test-panel" class="hidden bg-cpl-darker p-5 border-t border-gray-700">
+                    <div class="mb-4">
+                        <label class="block text-gray-400 text-sm mb-1">Season</label>
+                        <select id="standings-season" class="bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                        </select>
+                    </div>
+                    <button onclick="testStandingsAPI()" class="bg-cpl-red hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-medium transition">
+                        Test API
+                    </button>
+                    <div id="standings-response" class="mt-4 hidden">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <span id="standings-status" class="text-sm"></span>
+                                <span id="standings-time" class="text-gray-500 text-sm"></span>
+                            </div>
+                            <button onclick="copyResponse('standings')" class="text-gray-400 hover:text-white text-sm">Copy</button>
+                        </div>
+                        <pre id="standings-json" class="bg-cpl-dark p-4 rounded text-sm font-mono overflow-x-auto max-h-96"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /api/teams -->
+            <div class="bg-cpl-card rounded-lg mb-4 overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
+                        <code class="text-green-400 font-mono">/api/teams</code>
+                    </div>
+                    <p class="text-gray-400 mb-4">Get all CPL teams with metadata including city, stadium, coordinates, and surface type.</p>
+
+                    <div class="space-y-2 text-sm mb-4">
+                        <div class="flex gap-4 py-2">
+                            <span class="text-blue-400 font-mono w-24">active_only</span>
+                            <span class="text-gray-400">Set to <code class="bg-cpl-darker px-2 py-0.5 rounded">true</code> to exclude inactive teams (FC Edmonton, York United)</span>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-500 text-xs mb-4">Note: Coordinates, stadium, and surface data are curated metadata, not from the official API.</p>
+
+                    <button onclick="toggleTestPanel('teams')" class="text-cpl-red hover:text-red-400 text-sm font-medium flex items-center gap-1">
+                        <span id="teams-toggle-icon">&#9654;</span> Test this endpoint
+                    </button>
+                </div>
+
+                <div id="teams-test-panel" class="hidden bg-cpl-darker p-5 border-t border-gray-700">
+                    <div class="mb-4">
+                        <label class="flex items-center gap-2 text-sm">
+                            <input id="teams-active" type="checkbox" class="rounded">
+                            <span class="text-gray-400">Active teams only</span>
+                        </label>
+                    </div>
+                    <button onclick="testTeamsAPI()" class="bg-cpl-red hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-medium transition">
+                        Test API
+                    </button>
+                    <div id="teams-response" class="mt-4 hidden">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <span id="teams-status" class="text-sm"></span>
+                                <span id="teams-time" class="text-gray-500 text-sm"></span>
+                            </div>
+                            <button onclick="copyResponse('teams')" class="text-gray-400 hover:text-white text-sm">Copy</button>
+                        </div>
+                        <pre id="teams-json" class="bg-cpl-dark p-4 rounded text-sm font-mono overflow-x-auto max-h-96"></pre>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <footer>
-            <p>
-                <a href="https://github.com/GoCeylan/canpl-analytics" target="_blank">GitHub</a> |
-                Data sourced from CanPL.ca | CC-BY-4.0 License
+        <!-- Quick Start Section -->
+        <section class="my-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-6">Quick Start</h2>
+            <div class="bg-cpl-card rounded-lg overflow-hidden">
+                <div class="flex border-b border-gray-700">
+                    <button onclick="switchCodeTab('python')" id="tab-python" class="code-tab active px-4 py-3 text-sm font-medium hover:bg-cpl-darker transition">Python</button>
+                    <button onclick="switchCodeTab('javascript')" id="tab-javascript" class="code-tab px-4 py-3 text-sm font-medium hover:bg-cpl-darker transition">JavaScript</button>
+                    <button onclick="switchCodeTab('curl')" id="tab-curl" class="code-tab px-4 py-3 text-sm font-medium hover:bg-cpl-darker transition">cURL</button>
+                </div>
+
+                <div id="code-python" class="code-panel active p-5">
+                    <pre class="text-sm font-mono text-gray-300 overflow-x-auto"><span class="text-gray-500"># Get all 2024 matches</span>
+<span class="text-blue-400">import</span> requests
+<span class="text-blue-400">import</span> pandas <span class="text-blue-400">as</span> pd
+
+response = requests.get(<span class="text-green-400">'https://canpl-analytics.vercel.app/api/matches?season=2024'</span>)
+df = pd.DataFrame(response.json()[<span class="text-green-400">'matches'</span>])
+
+<span class="text-gray-500"># Analyze home vs away performance</span>
+<span class="text-blue-400">print</span>(df.groupby(<span class="text-green-400">'home_team'</span>)[<span class="text-green-400">'home_goals'</span>].mean())</pre>
+                </div>
+
+                <div id="code-javascript" class="code-panel p-5">
+                    <pre class="text-sm font-mono text-gray-300 overflow-x-auto"><span class="text-gray-500">// Fetch current standings</span>
+<span class="text-blue-400">fetch</span>(<span class="text-green-400">'https://canpl-analytics.vercel.app/api/standings?season=2025'</span>)
+  .then(res => res.json())
+  .then(data => {
+    console.log(<span class="text-green-400">'Top team:'</span>, data.standings[<span class="text-pink-400">0</span>].team);
+    console.log(<span class="text-green-400">'Points:'</span>, data.standings[<span class="text-pink-400">0</span>].points);
+  });</pre>
+                </div>
+
+                <div id="code-curl" class="code-panel p-5">
+                    <pre class="text-sm font-mono text-gray-300 overflow-x-auto"><span class="text-gray-500"># Get Forge FC matches</span>
+curl <span class="text-green-400">"https://canpl-analytics.vercel.app/api/matches?team=Forge&limit=10"</span>
+
+<span class="text-gray-500"># Get 2025 standings</span>
+curl <span class="text-green-400">"https://canpl-analytics.vercel.app/api/standings?season=2025"</span>
+
+<span class="text-gray-500"># Get all active teams</span>
+curl <span class="text-green-400">"https://canpl-analytics.vercel.app/api/teams?active_only=true"</span></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live 2025 Standings -->
+        <section class="my-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-6">2025 Standings</h2>
+            <div class="bg-cpl-card rounded-lg overflow-hidden">
+                <table class="w-full text-sm">
+                    <thead class="bg-cpl-darker">
+                        <tr>
+                            <th class="text-left p-4 text-cpl-red font-semibold">#</th>
+                            <th class="text-left p-4 text-cpl-red font-semibold">Team</th>
+                            <th class="text-center p-4 text-cpl-red font-semibold">P</th>
+                            <th class="text-center p-4 text-cpl-red font-semibold">W</th>
+                            <th class="text-center p-4 text-cpl-red font-semibold">D</th>
+                            <th class="text-center p-4 text-cpl-red font-semibold">L</th>
+                            <th class="text-center p-4 text-cpl-red font-semibold">GD</th>
+                            <th class="text-center p-4 text-cpl-red font-semibold">Pts</th>
+                        </tr>
+                    </thead>
+                    <tbody id="standings-body">
+                        <tr><td colspan="8" class="p-4 text-center text-gray-400">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-gray-500 text-xs mt-2">Source: Official CanPL API (regular season only)</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-8 border-t border-gray-700 mt-12">
+            <p class="text-gray-400">
+                <a href="https://github.com/GoCeylan/canpl-analytics" target="_blank" class="text-cpl-red hover:underline">GitHub</a>
+                <span class="mx-2">|</span>
+                <a href="https://github.com/GoCeylan/canpl-analytics/tree/main/docs" target="_blank" class="text-cpl-red hover:underline">Documentation</a>
+                <span class="mx-2">|</span>
+                Data sourced from CanPL.ca
             </p>
+            <p class="text-gray-500 text-sm mt-2">CC-BY-4.0 License</p>
         </footer>
     </div>
 
     <script>
-        async function tryMatches() {
-            const el = document.getElementById('matches-example');
-            el.style.display = 'block';
-            el.querySelector('pre').textContent = 'Loading...';
+        // Toggle test panels
+        function toggleTestPanel(endpoint) {
+            const panel = document.getElementById(`${endpoint}-test-panel`);
+            const icon = document.getElementById(`${endpoint}-toggle-icon`);
+            panel.classList.toggle('hidden');
+            icon.textContent = panel.classList.contains('hidden') ? '\u25B6' : '\u25BC';
+        }
+
+        // Syntax highlight JSON
+        function highlightJSON(json) {
+            const str = JSON.stringify(json, null, 2);
+            return str.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+                let cls = 'json-number';
+                if (/^"/.test(match)) {
+                    if (/:$/.test(match)) {
+                        cls = 'json-key';
+                    } else {
+                        cls = 'json-string';
+                    }
+                } else if (/true|false/.test(match)) {
+                    cls = 'json-boolean';
+                } else if (/null/.test(match)) {
+                    cls = 'json-null';
+                }
+                return '<span class="' + cls + '">' + match + '</span>';
+            });
+        }
+
+        // Store raw responses for copying
+        const rawResponses = {};
+
+        // Test /api/matches
+        async function testMatchesAPI() {
+            const season = document.getElementById('matches-season').value;
+            const team = document.getElementById('matches-team').value;
+            const limit = document.getElementById('matches-limit').value;
+            const offset = document.getElementById('matches-offset').value;
+
+            let url = '/api/matches?';
+            if (season) url += `season=${season}&`;
+            if (team) url += `team=${encodeURIComponent(team)}&`;
+            url += `limit=${limit}&offset=${offset}`;
+
+            await fetchAndDisplay('matches', url);
+        }
+
+        // Test /api/standings
+        async function testStandingsAPI() {
+            const season = document.getElementById('standings-season').value;
+            await fetchAndDisplay('standings', `/api/standings?season=${season}`);
+        }
+
+        // Test /api/teams
+        async function testTeamsAPI() {
+            const activeOnly = document.getElementById('teams-active').checked;
+            const url = activeOnly ? '/api/teams?active_only=true' : '/api/teams';
+            await fetchAndDisplay('teams', url);
+        }
+
+        // Generic fetch and display
+        async function fetchAndDisplay(endpoint, url) {
+            const responseDiv = document.getElementById(`${endpoint}-response`);
+            const statusSpan = document.getElementById(`${endpoint}-status`);
+            const timeSpan = document.getElementById(`${endpoint}-time`);
+            const jsonPre = document.getElementById(`${endpoint}-json`);
+
+            responseDiv.classList.remove('hidden');
+            jsonPre.innerHTML = '<span class="text-gray-400">Loading...</span>';
+            statusSpan.textContent = '';
+            timeSpan.textContent = '';
+
+            const startTime = performance.now();
+
             try {
-                const res = await fetch('/api/matches?limit=3');
+                const res = await fetch(url);
+                const endTime = performance.now();
                 const data = await res.json();
-                el.querySelector('pre').textContent = JSON.stringify(data, null, 2);
-            } catch (e) {
-                el.querySelector('pre').textContent = 'Error: ' + e.message;
+
+                rawResponses[endpoint] = JSON.stringify(data, null, 2);
+
+                statusSpan.innerHTML = `<span class="${res.ok ? 'text-green-400' : 'text-red-400'}">${res.status} ${res.statusText}</span>`;
+                timeSpan.textContent = `${Math.round(endTime - startTime)}ms`;
+                jsonPre.innerHTML = highlightJSON(data);
+            } catch (error) {
+                const endTime = performance.now();
+                statusSpan.innerHTML = '<span class="text-red-400">Error</span>';
+                timeSpan.textContent = `${Math.round(endTime - startTime)}ms`;
+                jsonPre.innerHTML = `<span class="text-red-400">${error.message}</span>`;
+                rawResponses[endpoint] = error.message;
             }
         }
 
-        async function tryStandings() {
-            const el = document.getElementById('standings-example');
-            el.style.display = 'block';
-            el.querySelector('pre').textContent = 'Loading...';
+        // Copy response to clipboard
+        async function copyResponse(endpoint) {
+            const text = rawResponses[endpoint] || '';
             try {
-                const res = await fetch('/api/standings?season=2025');
-                const data = await res.json();
-                el.querySelector('pre').textContent = JSON.stringify(data, null, 2);
-            } catch (e) {
-                el.querySelector('pre').textContent = 'Error: ' + e.message;
+                await navigator.clipboard.writeText(text);
+                alert('Copied to clipboard!');
+            } catch (err) {
+                console.error('Failed to copy:', err);
             }
         }
 
+        // Switch code tabs
+        function switchCodeTab(tab) {
+            document.querySelectorAll('.code-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.code-panel').forEach(p => p.classList.remove('active'));
+            document.getElementById(`tab-${tab}`).classList.add('active');
+            document.getElementById(`code-${tab}`).classList.add('active');
+        }
+
+        // Load standings on page load
         async function loadStandings() {
             try {
                 const res = await fetch('/api/standings?season=2025');
                 const data = await res.json();
                 const standings = data.standings;
                 const tbody = document.getElementById('standings-body');
-                tbody.innerHTML = standings.map(t => `
-                    <tr>
-                        <td>${t.position}</td>
-                        <td>${t.team}</td>
-                        <td>${t.played}</td>
-                        <td>${t.wins}</td>
-                        <td>${t.draws}</td>
-                        <td>${t.losses}</td>
-                        <td>${t.goal_difference > 0 ? '+' : ''}${t.goal_difference}</td>
-                        <td><strong>${t.points}</strong></td>
+                tbody.innerHTML = standings.map((t, i) => `
+                    <tr class="border-t border-gray-700 hover:bg-cpl-red/5 transition">
+                        <td class="p-4 ${i === 0 ? 'text-yellow-400 font-bold' : ''}">${t.position}</td>
+                        <td class="p-4 font-medium">${t.team}</td>
+                        <td class="p-4 text-center text-gray-400">${t.played}</td>
+                        <td class="p-4 text-center text-green-400">${t.wins}</td>
+                        <td class="p-4 text-center text-gray-400">${t.draws}</td>
+                        <td class="p-4 text-center text-red-400">${t.losses}</td>
+                        <td class="p-4 text-center ${t.goal_difference > 0 ? 'text-green-400' : t.goal_difference < 0 ? 'text-red-400' : 'text-gray-400'}">${t.goal_difference > 0 ? '+' : ''}${t.goal_difference}</td>
+                        <td class="p-4 text-center font-bold">${t.points}</td>
                     </tr>
                 `).join('');
             } catch (e) {
                 document.getElementById('standings-body').innerHTML =
-                    '<tr><td colspan="8">Failed to load standings</td></tr>';
+                    '<tr><td colspan="8" class="p-4 text-center text-red-400">Failed to load standings</td></tr>';
             }
         }
 
