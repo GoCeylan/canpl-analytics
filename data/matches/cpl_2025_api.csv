@@ -1,0 +1,118 @@
+match_id,date,season,matchday,home_team,away_team,home_goals,away_goals,venue,status
+cpl::Football_Match::57a2003b9552424f888f647c0986dd36,2025-04-05,2025,Matchday 1,Atlético Ottawa,HFX Wanderers,2,2,TD Place Stadium,FINISHED
+cpl::Football_Match::87dd87a7b3164fdd9518536b8cafb318,2025-04-05,2025,Matchday 1,Forge,Cavalry,1,0,Hamilton Stadium,FINISHED
+cpl::Football_Match::720269c150254b8d9f8321645c86cd68,2025-04-06,2025,Matchday 1,Pacific,Valour,2,0,Starlight Stadium,FINISHED
+cpl::Football_Match::aa944b1d369b419297e9cd3c9289fce2,2025-04-06,2025,Matchday 1,Vancouver FC,Inter Toronto,0,2,Willoughby Community Park at the Langley Events Centre,FINISHED
+cpl::Football_Match::be615c213a734c808e58502f2771022b,2025-04-12,2025,Matchday 2,Pacific,Forge,0,2,Starlight Stadium,FINISHED
+cpl::Football_Match::2a9af9afd85e4ef8917944b634a5f0f6,2025-04-13,2025,Matchday 2,Inter Toronto,HFX Wanderers,1,2,York Lions Stadium,FINISHED
+cpl::Football_Match::c79f0372e98a4eb6aac25f8786975f40,2025-04-13,2025,Matchday 2,Vancouver FC,Atlético Ottawa,1,4,Willoughby Community Park at the Langley Events Centre,FINISHED
+cpl::Football_Match::e686a214ae124a268de0cc4c1b0b5ff7,2025-04-18,2025,Matchday 3,Cavalry,Vancouver FC,1,1,ATCO Field,FINISHED
+cpl::Football_Match::909737f046414d90bfc37e675bc642a5,2025-04-19,2025,Matchday 3,Atlético Ottawa,Inter Toronto,3,2,TD Place Stadium,FINISHED
+cpl::Football_Match::a80374a12ea54a5399d7c38f8e8e8dd3,2025-04-19,2025,Matchday 3,HFX Wanderers,Pacific,3,1,Wanderers Grounds,FINISHED
+cpl::Football_Match::637f3c1abf59440381ee886ddb1738c2,2025-04-19,2025,Matchday 3,Forge,Valour,1,1,Hamilton Stadium,FINISHED
+cpl::Football_Match::f879daee660e48d48dc1448735374bb2,2025-04-26,2025,Matchday 4,Valour,HFX Wanderers,0,1,Princess Auto Stadium,FINISHED
+cpl::Football_Match::7061d88031b54a70a9dacf31ead3bb36,2025-04-26,2025,Matchday 4,Cavalry,Atlético Ottawa,1,3,ATCO Field,FINISHED
+cpl::Football_Match::b59fc174355e4841a6ca31c12dafc775,2025-04-27,2025,Matchday 4,Inter Toronto,Forge,2,2,York Lions Stadium,FINISHED
+cpl::Football_Match::4660e23fadfc445e85a5373353aad722,2025-04-27,2025,Matchday 4,Vancouver FC,Pacific,1,1,Willoughby Community Park at the Langley Events Centre,FINISHED
+cpl::Football_Match::ea502d79da5f4bc89f4b7898cc63d2d0,2025-05-03,2025,Matchday 5,Inter Toronto,Cavalry,1,2,York Lions Stadium,FINISHED
+cpl::Football_Match::d81444f8f6104d67a4d43151beb96f08,2025-05-03,2025,Matchday 5,Atlético Ottawa,Pacific,3,1,TD Place Stadium,FINISHED
+cpl::Football_Match::4332034c6ea14248891eb3d2a2e5e741,2025-05-03,2025,Matchday 5,HFX Wanderers,Forge,0,0,Wanderers Grounds,FINISHED
+cpl::Football_Match::1a03d90233904c11a4becc2278a4c2f9,2025-05-03,2025,Matchday 5,Valour,Vancouver FC,1,3,Princess Auto Stadium,FINISHED
+cpl::Football_Match::14ef953ace194b4f8f25d94ad5010b58,2025-05-10,2025,Matchday 6,Atlético Ottawa,Valour,5,2,TD Place Stadium,FINISHED
+cpl::Football_Match::76400a77251c4b638496a3f4fa208950,2025-05-10,2025,Matchday 6,HFX Wanderers,Cavalry,0,3,Wanderers Grounds,FINISHED
+cpl::Football_Match::df264a96984c4a86b79ef7b33e82581f,2025-05-11,2025,Matchday 6,Pacific,Inter Toronto,2,1,Starlight Stadium,FINISHED
+cpl::Football_Match::48dc8887d9df4a80b810192a50d97c80,2025-05-13,2025,Matchday 7,Forge,Atlético Ottawa,2,2,Hamilton Stadium,FINISHED
+cpl::Football_Match::0dec4cd8708346878933353e41ef3fc0,2025-05-17,2025,Matchday 7,Valour,Inter Toronto,2,1,Princess Auto Stadium,FINISHED
+cpl::Football_Match::8e7970bb5475444abaf920b4c2e81afa,2025-05-17,2025,Matchday 7,Cavalry,Pacific,4,0,ATCO Field,FINISHED
+cpl::Football_Match::3d35f7a8d59c4361965cadd993746120,2025-05-18,2025,Matchday 7,Vancouver FC,HFX Wanderers,0,2,Willoughby Community Park at the Langley Events Centre,FINISHED
+cpl::Football_Match::dde57ee914d44027b08b40c7d176c94e,2025-05-24,2025,Matchday 8,Pacific,Forge,0,1,Starlight Stadium,FINISHED
+cpl::Football_Match::5fe4fe54a3ee43c58c898184639cfd90,2025-05-24,2025,Matchday 8,HFX Wanderers,Atlético Ottawa,2,0,Wanderers Grounds,FINISHED
+cpl::Football_Match::81cc4368e94c449eb7cf64fc65d8e9ac,2025-05-25,2025,Matchday 8,Cavalry,Valour,4,0,ATCO Field,FINISHED
+cpl::Football_Match::7be67341807b4468a125064cd718d506,2025-05-25,2025,Matchday 8,Inter Toronto,Vancouver FC,1,0,York Lions Stadium,FINISHED
+cpl::Football_Match::ed32a62ff47541b6b9fb9f495db81018,2025-05-31,2025,Matchday 9,Vancouver FC,Atlético Ottawa,2,2,Willoughby Community Park at the Langley Events Centre,FINISHED
+cpl::Football_Match::754500fc98d342d7a3e213614808d578,2025-05-31,2025,Matchday 9,Forge,Cavalry,1,1,Hamilton Stadium,FINISHED
+cpl::Football_Match::55dd22fb8ef748dab0589ae93045d779,2025-05-31,2025,Matchday 9,Inter Toronto,HFX Wanderers,2,0,Telus Stadium at Laval University,FINISHED
+cpl::Football_Match::12a85d73fd0a4c4c9e8844ff4d904ae1,2025-06-01,2025,Matchday 9,Valour,Pacific,0,0,Princess Auto Stadium,FINISHED
+cpl::Football_Match::c9d875067767420985a72e946a901f43,2025-06-04,2025,Matchday 10,Valour,Vancouver FC,3,1,Princess Auto Stadium,FINISHED
+cpl::Football_Match::983c8b259c9e4efbb91637ae98051ea1,2025-06-07,2025,Matchday 10,Pacific,Atlético Ottawa,0,1,Starlight Stadium,FINISHED
+cpl::Football_Match::dd64b6a6bc3a42b1afbc5c08cd5da70f,2025-06-08,2025,Matchday 10,Forge,HFX Wanderers,2,1,Hamilton Stadium,FINISHED
+cpl::Football_Match::7500d4eb3ede4754b5afd7e15465c0f6,2025-06-08,2025,Matchday 10,Cavalry,Inter Toronto,2,1,ATCO Field,FINISHED
+cpl::Football_Match::7e68584ebb7940a9ad5655efcaf03f4a,2025-06-14,2025,Matchday 11,HFX Wanderers,Cavalry,1,1,Wanderers Grounds,FINISHED
+cpl::Football_Match::8f2204b3f0ac49d49413190d45220ec0,2025-06-14,2025,Matchday 11,Pacific,Inter Toronto,1,3,Starlight Stadium,FINISHED
+cpl::Football_Match::8bbfd5e7008944b1a6cebcb5cadf939a,2025-06-15,2025,Matchday 11,Vancouver FC,Forge,0,2,Willoughby Community Park at the Langley Events Centre,FINISHED
+cpl::Football_Match::77f3a00d48ed4708ae9f81dda54fd5d4,2025-06-15,2025,Matchday 11,Atlético Ottawa,Valour,3,0,TD Place Stadium,FINISHED
+cpl::Football_Match::8f45627034b54826870e724c5e7c474f,2025-06-21,2025,Matchday 12,HFX Wanderers,Vancouver FC,1,0,Wanderers Grounds,FINISHED
+cpl::Football_Match::9831a9c602194b0ea5d12d0c55676c5b,2025-06-22,2025,Matchday 12,Cavalry,Pacific,1,0,ATCO Field,FINISHED
+cpl::Football_Match::5b4bc9e1d63d4d6bb266d64dc1affc6e,2025-06-22,2025,Matchday 12,Inter Toronto,Atlético Ottawa,0,0,York Lions Stadium,FINISHED
+cpl::Football_Match::468fbffe9ea742b1a8a234fa51816114,2025-06-22,2025,Matchday 12,Valour,Forge,0,5,Princess Auto Stadium,FINISHED
+cpl::Football_Match::e62711525fc14a54b9dc6622f46a9196,2025-06-28,2025,Matchday 13,Pacific,Vancouver FC,4,4,Starlight Stadium,FINISHED
+cpl::Football_Match::23720325de0f47829a414cda9b9c1d83,2025-06-28,2025,Matchday 13,Cavalry,Atlético Ottawa,0,2,ATCO Field,FINISHED
+cpl::Football_Match::39768efb99bb4e7e92b2e6d27cb22adc,2025-06-29,2025,Matchday 13,Forge,Inter Toronto,2,2,Hamilton Stadium,FINISHED
+cpl::Football_Match::d7aecdb8fb6244b49c2f378d791a7b61,2025-07-01,2025,Matchday 13,HFX Wanderers,Valour,3,1,Wanderers Grounds,FINISHED
+cpl::Football_Match::65a3384e77e0408182eea9f16c95a2f1,2025-07-05,2025,Matchday 14,Forge,Vancouver FC,2,1,Hamilton Stadium,FINISHED
+cpl::Football_Match::4be7486a4a4e4247989f83e0c865f323,2025-07-12,2025,Matchday 14,Atlético Ottawa,Forge,1,1,TD Place Stadium,FINISHED
+cpl::Football_Match::ad30f342a3ea4db58036ea912013ae74,2025-07-12,2025,Matchday 14,Pacific,HFX Wanderers,3,2,Starlight Stadium,FINISHED
+cpl::Football_Match::2c3f94ebd3164841a740bc12e3dbfbb3,2025-07-13,2025,Matchday 14,Inter Toronto,Valour,3,2,York Lions Stadium,FINISHED
+cpl::Football_Match::44a5285b5e1441038161fabd94a8e8a9,2025-07-14,2025,Matchday 14,Vancouver FC,Cavalry,0,0,Willoughby Community Park at the Langley Events Centre,FINISHED
+cpl::Football_Match::1ed1b2546e7c4e9cad04082afe02338a,2025-07-18,2025,Matchday 15,Atlético Ottawa,HFX Wanderers,2,0,TD Place Stadium,FINISHED
+cpl::Football_Match::78be7205bbd541ebb061d9c38ea38b6b,2025-07-18,2025,Matchday 15,Forge,Pacific,2,0,Hamilton Stadium,FINISHED
+cpl::Football_Match::e911bf4ff447499e9913f6c6db529df6,2025-07-19,2025,Matchday 15,Inter Toronto,Vancouver FC,4,0,York Lions Stadium,FINISHED
+cpl::Football_Match::1207c344e32244f381a4af0b7676935e,2025-07-20,2025,Matchday 15,Valour,Cavalry,1,2,Princess Auto Stadium,FINISHED
+cpl::Football_Match::eda7d80cbe434205b34983e9caa60e0f,2025-07-25,2025,Matchday 16,HFX Wanderers,Forge,1,2,Wanderers Grounds,FINISHED
+cpl::Football_Match::7ba79f89d2364b6ab19e6489232b21b4,2025-07-26,2025,Matchday 16,Vancouver FC,Valour,1,3,Willoughby Community Park at the Langley Events Centre,FINISHED
+cpl::Football_Match::4bafd212788c4b23897e76b06b0dd77b,2025-07-26,2025,Matchday 16,Cavalry,Inter Toronto,0,1,ATCO Field,FINISHED
+cpl::Football_Match::1bd83d3403634024be88175f9c6ecd07,2025-07-27,2025,Matchday 16,Pacific,Atlético Ottawa,0,2,Starlight Stadium,FINISHED
+cpl::Football_Match::5fa0d5cf4eb744dca97cf87ce7eed373,2025-07-30,2025,Matchday 17,Valour,Cavalry,2,1,Princess Auto Stadium,FINISHED
+cpl::Football_Match::e86b6940deef4493b7616a6fb52ce507,2025-08-02,2025,Matchday 17,Forge,Valour,5,0,Hamilton Stadium,FINISHED
+cpl::Football_Match::202a2f50150243419685b0510f686cc4,2025-08-03,2025,Matchday 17,Atlético Ottawa,Inter Toronto,0,0,TD Place Stadium,FINISHED
+cpl::Football_Match::b66ff45891ad4be6a4f78e7769cec914,2025-08-04,2025,Matchday 17,HFX Wanderers,Vancouver FC,1,2,Wanderers Grounds,FINISHED
+cpl::Football_Match::7f75cbee65ce4217848adedb9e2f7ae9,2025-08-04,2025,Matchday 17,Pacific,Cavalry,1,0,Starlight Stadium,FINISHED
+cpl::Football_Match::67c798f78dce4bd4b75194314fb6641e,2025-08-09,2025,Matchday 18,Inter Toronto,Forge,1,2,York Lions Stadium,FINISHED
+cpl::Football_Match::4fdd301f24e349fbbca777b71d9a7d52,2025-08-09,2025,Matchday 18,Cavalry,HFX Wanderers,0,0,ATCO Field,FINISHED
+cpl::Football_Match::e4f9f6a305b34950aa53a359b865dbc2,2025-08-10,2025,Matchday 18,Valour,Atlético Ottawa,1,2,Princess Auto Stadium,FINISHED
+cpl::Football_Match::5386203224ba4824ac67d391e5ec09a9,2025-08-10,2025,Matchday 18,Vancouver FC,Pacific,2,3,Willoughby Community Park at the Langley Events Centre,FINISHED
+cpl::Football_Match::b017032e619649718f7aee6cdbb87105,2025-08-16,2025,Matchday 19,Pacific,HFX Wanderers,2,2,Starlight Stadium,FINISHED
+cpl::Football_Match::daefca6e3d3d4ff09f1f9333c2634a62,2025-08-17,2025,Matchday 19,Valour,Inter Toronto,0,0,Princess Auto Stadium,FINISHED
+cpl::Football_Match::5574471150b54420826b5b103754a574,2025-08-17,2025,Matchday 19,Forge,Atlético Ottawa,2,0,Hamilton Stadium,FINISHED
+cpl::Football_Match::29c57c79d21243ff9df8b86a0235d69e,2025-08-17,2025,Matchday 19,Cavalry,Vancouver FC,5,4,ATCO Field,FINISHED
+cpl::Football_Match::262e168085ce4f1aa38c50a2082100e3,2025-08-22,2025,Matchday 20,HFX Wanderers,Valour,4,1,Wanderers Grounds,FINISHED
+cpl::Football_Match::71e2b3afea1f40f39f94b0bfd6651d8b,2025-08-23,2025,Matchday 20,Vancouver FC,Forge,0,1,Willoughby Community Park at the Langley Events Centre,FINISHED
+cpl::Football_Match::848eb239a14d4cf1ad111b1e80ed05ba,2025-08-23,2025,Matchday 20,Atlético Ottawa,Cavalry,2,2,TD Place Stadium,FINISHED
+cpl::Football_Match::194d8de719af453a8d82418bf4710247,2025-08-24,2025,Matchday 20,Inter Toronto,Pacific,5,1,York Lions Stadium,FINISHED
+cpl::Football_Match::a80193b3cc184ecb86c22f74ce0a3e5e,2025-08-30,2025,Matchday 21,Cavalry,Forge,4,1,ATCO Field,FINISHED
+cpl::Football_Match::fec7e1516aef4a37a041bb78c621568a,2025-08-30,2025,Matchday 21,Atlético Ottawa,Vancouver FC,3,1,TD Place Stadium,FINISHED
+cpl::Football_Match::fa45b0e945bc47ce8bcffa3250fa3fba,2025-08-31,2025,Matchday 21,Valour,Pacific,1,1,Princess Auto Stadium,FINISHED
+cpl::Football_Match::10e38d791cc44d7f8b5c68b638213ed2,2025-09-01,2025,Matchday 21,HFX Wanderers,Inter Toronto,4,0,Wanderers Grounds,FINISHED
+cpl::Football_Match::e70a8bd3bb5840b7bf1e46b0b149b481,2025-09-05,2025,Matchday 22,Inter Toronto,Cavalry,3,1,York Lions Stadium,FINISHED
+cpl::Football_Match::91d8f67b002e4b12b4c9542b860290d5,2025-09-06,2025,Matchday 22,Forge,HFX Wanderers,1,0,Hamilton Stadium,FINISHED
+cpl::Football_Match::9d081120cd4f4a23ac07cd56ad40c389,2025-09-06,2025,Matchday 22,Atlético Ottawa,Pacific,2,0,TD Place Stadium,FINISHED
+cpl::Football_Match::1afc287d65604dc69c10d4f36f0bbca5,2025-09-06,2025,Matchday 22,Vancouver FC,Valour,2,5,Willoughby Community Park at the Langley Events Centre,FINISHED
+cpl::Football_Match::1f81095c58ef4a02908ecc1daede0634,2025-09-12,2025,Matchday 23,Valour,Forge,2,1,Princess Auto Stadium,FINISHED
+cpl::Football_Match::cb2ba629494046199592153bd4e72f2d,2025-09-13,2025,Matchday 23,Cavalry,HFX Wanderers,3,1,ATCO Field,FINISHED
+cpl::Football_Match::3d441d7a69574f2abf05407bd169f611,2025-09-13,2025,Matchday 23,Pacific,Vancouver FC,1,1,Royal Athletic Park,FINISHED
+cpl::Football_Match::12d4cd90537e4f6d8b00341a93378f0b,2025-09-14,2025,Matchday 23,Inter Toronto,Atlético Ottawa,2,2,York Lions Stadium,FINISHED
+cpl::Football_Match::12c1a73b52f94a4b91a1cad6b17f6f4e,2025-09-20,2025,Matchday 24,HFX Wanderers,Pacific,3,0,Wanderers Grounds,FINISHED
+cpl::Football_Match::b0d7790aebdc499e9e7957910e3cf7d1,2025-09-20,2025,Matchday 24,Cavalry,Valour,3,0,ATCO Field,FINISHED
+cpl::Football_Match::f8f5b07ada7148ceadc2ad7f56d55b90,2025-09-21,2025,Matchday 24,Atlético Ottawa,Forge,1,1,TD Place Stadium,FINISHED
+cpl::Football_Match::e6dd9e2080674c4f819eaaa84f9f23d2,2025-09-21,2025,Matchday 24,Vancouver FC,Inter Toronto,2,1,Willoughby Community Park at the Langley Events Centre,FINISHED
+cpl::Football_Match::dfb6d623c65a4673bf0ed9df892497ad,2025-09-27,2025,Matchday 25,Atlético Ottawa,Cavalry,3,0,TD Place Stadium,FINISHED
+cpl::Football_Match::8e4680079fc5404292b8f8cf501a8f3c,2025-09-27,2025,Matchday 25,Forge,Pacific,4,0,Hamilton Stadium,FINISHED
+cpl::Football_Match::85519038561c4e3aa09c0dece4cac4c8,2025-09-28,2025,Matchday 25,Inter Toronto,Valour,1,0,York Lions Stadium,FINISHED
+cpl::Football_Match::404b8751f4e144958d110050552c9c7e,2025-09-28,2025,Matchday 25,Vancouver FC,HFX Wanderers,3,1,Willoughby Community Park at the Langley Events Centre,FINISHED
+cpl::Football_Match::7a32418f767742fc80e0b11a54cef777,2025-10-04,2025,Matchday 26,Forge,Vancouver FC,1,1,Hamilton Stadium,FINISHED
+cpl::Football_Match::505757a87aa34b7c97c619bbe3b3dad0,2025-10-04,2025,Matchday 26,HFX Wanderers,Inter Toronto,1,1,Wanderers Grounds,FINISHED
+cpl::Football_Match::1105b118d2b14db28c7886400f1e76fb,2025-10-05,2025,Matchday 26,Valour,Atlético Ottawa,3,3,Princess Auto Stadium,FINISHED
+cpl::Football_Match::2e35fd415fda49bba68d7fb52c5f2e2c,2025-10-05,2025,Matchday 26,Pacific,Cavalry,3,3,Starlight Stadium,FINISHED
+cpl::Football_Match::a6699c792cbc42eea970227db11ef106,2025-10-09,2025,Matchday 27,Inter Toronto,Pacific,2,2,York Lions Stadium,FINISHED
+cpl::Football_Match::bed26ccb763748fda4c206faf60eda9e,2025-10-11,2025,Matchday 27,Cavalry,Forge,1,1,ATCO Field,FINISHED
+cpl::Football_Match::f6d444edc7464e93919cd1a4dd2bd90e,2025-10-11,2025,Matchday 27,Valour,HFX Wanderers,0,3,Princess Auto Stadium,FINISHED
+cpl::Football_Match::43e957157583478598e49c0e37a3f1cf,2025-10-12,2025,Matchday 27,Atlético Ottawa,Vancouver FC,0,0,TD Place Stadium,FINISHED
+cpl::Football_Match::3ffefbe5f5c244e7844842be0c2be2b2,2025-10-18,2025,Matchday 28,Pacific,Valour,1,4,Starlight Stadium,FINISHED
+cpl::Football_Match::3d69bc7d373544d6bb2d83e084a0f588,2025-10-18,2025,Matchday 28,Vancouver FC,Cavalry,2,2,Willoughby Community Park at the Langley Events Centre,FINISHED
+cpl::Football_Match::d37b13c8fd42492c9053b7132fb2abed,2025-10-18,2025,Matchday 28,Forge,Inter Toronto,3,0,Hamilton Stadium,FINISHED
+cpl::Football_Match::3a4731f0bf9541c3854c1b1940db1fd4,2025-10-18,2025,Matchday 28,HFX Wanderers,Atlético Ottawa,0,1,Wanderers Grounds,FINISHED
+cpl::Football_Match::1dc37a9308774e8b9516a6530e641a9e,2025-10-22,2025,,HFX Wanderers,Inter Toronto,2,2,Wanderers Grounds,FINISHED
+cpl::Football_Match::de9b14df89b84c4e87701189667e49f3,2025-10-26,2025,,Forge,Atlético Ottawa,1,2,Hamilton Stadium,FINISHED
+cpl::Football_Match::a925495a372d4fe287a9da382a479506,2025-10-26,2025,,Cavalry,Inter Toronto,4,1,ATCO Field,FINISHED
+cpl::Football_Match::d8f79801f93a47bc98214e971f3c684e,2025-11-02,2025,,Forge,Cavalry,0,1,Hamilton Stadium,FINISHED
+cpl::Football_Match::c52f4791009a4c29b5ec46c3ef7b6dfd,2025-11-09,2025,,Atlético Ottawa,Cavalry,2,1,TD Place Stadium,FINISHED
