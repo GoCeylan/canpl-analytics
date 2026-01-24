@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Sources - CPL Analytics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cpl: {
+                            red: '#c8102e',
+                            dark: '#1a1a2e',
+                            darker: '#12121f',
+                            card: '#252540'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-cpl-dark text-gray-100 min-h-screen">
+    <div class="max-w-5xl mx-auto px-4 py-8">
+
+        <!-- Header -->
+        <header class="py-6 border-b border-gray-700 mb-8">
+            <a href="./index.html" class="text-gray-400 hover:text-white text-sm">&larr; Back to Docs</a>
+            <h1 class="text-3xl font-bold mt-2">Data Sources &amp; Quality</h1>
+            <p class="text-gray-400 mt-1">Information about data provenance, quality, and limitations</p>
+        </header>
+
+        <!-- Table of Contents -->
+        <nav class="bg-cpl-card rounded-lg p-5 mb-8">
+            <h2 class="font-bold text-cpl-red mb-3">Contents</h2>
+            <ul class="grid md:grid-cols-2 gap-2 text-sm">
+                <li><a href="#data-sources" class="text-gray-400 hover:text-white">Data Sources</a></li>
+                <li><a href="#update-frequency" class="text-gray-400 hover:text-white">Update Frequency</a></li>
+                <li><a href="#data-quality" class="text-gray-400 hover:text-white">Data Quality</a></li>
+                <li><a href="#known-limitations" class="text-gray-400 hover:text-white">Known Limitations</a></li>
+                <li><a href="#historical-notes" class="text-gray-400 hover:text-white">Historical Notes</a></li>
+                <li><a href="#reporting-issues" class="text-gray-400 hover:text-white">Reporting Issues</a></li>
+            </ul>
+        </nav>
+
+        <!-- Data Sources -->
+        <section id="data-sources" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Data Sources</h2>
+
+            <h3 class="font-semibold mb-3">2025 Season Data</h3>
+            <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
+                <thead class="bg-cpl-darker">
+                    <tr>
+                        <th class="text-left p-4 text-cpl-red">Data Type</th>
+                        <th class="text-left p-4 text-cpl-red">Source</th>
+                        <th class="text-left p-4 text-cpl-red">Reliability</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Match results</td>
+                        <td class="p-4 text-gray-400">Official CanPL SDP API</td>
+                        <td class="p-4 text-green-400">High</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Standings</td>
+                        <td class="p-4 text-gray-400">Official CanPL SDP API</td>
+                        <td class="p-4 text-green-400">High</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Team information</td>
+                        <td class="p-4 text-gray-400">Official CanPL sources</td>
+                        <td class="p-4 text-green-400">High</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="bg-green-900/20 border border-green-600 rounded-lg p-5 mb-6">
+                <p class="text-green-400 font-semibold">Official API Data</p>
+                <p class="text-gray-400 text-sm mt-1">The 2025 season data is sourced directly from the Canadian Premier League's official Sports Data Platform (SDP) API, providing authoritative match results and standings.</p>
+            </div>
+
+            <h3 class="font-semibold mb-3">2019-2024 Historical Data</h3>
+            <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
+                <thead class="bg-cpl-darker">
+                    <tr>
+                        <th class="text-left p-4 text-cpl-red">Data Type</th>
+                        <th class="text-left p-4 text-cpl-red">Source</th>
+                        <th class="text-left p-4 text-cpl-red">Reliability</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Match results</td>
+                        <td class="p-4 text-gray-400">Historical records + verification</td>
+                        <td class="p-4 text-green-400">High</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Standings</td>
+                        <td class="p-4 text-gray-400">Calculated from match results</td>
+                        <td class="p-4 text-green-400">High</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Team information</td>
+                        <td class="p-4 text-gray-400">Official archives</td>
+                        <td class="p-4 text-green-400">High</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="text-gray-400 text-sm">Historical data was compiled from official CPL match reports, verified third-party sports databases, and cross-referenced with multiple sources for accuracy.</p>
+        </section>
+
+        <!-- Update Frequency -->
+        <section id="update-frequency" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Update Frequency</h2>
+
+            <h3 class="font-semibold mb-3">During Season (April - November)</h3>
+            <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
+                <thead class="bg-cpl-darker">
+                    <tr>
+                        <th class="text-left p-4 text-cpl-red">Data Type</th>
+                        <th class="text-left p-4 text-cpl-red">Update Frequency</th>
+                        <th class="text-left p-4 text-cpl-red">Typical Delay</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Match results</td>
+                        <td class="p-4 text-gray-400">After each matchday</td>
+                        <td class="p-4 text-yellow-400">&lt; 24 hours</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Standings</td>
+                        <td class="p-4 text-gray-400">After each matchday</td>
+                        <td class="p-4 text-yellow-400">&lt; 24 hours</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Team info</td>
+                        <td class="p-4 text-gray-400">As changes occur</td>
+                        <td class="p-4 text-gray-400">&lt; 1 week</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="font-semibold mb-3">Off-Season (December - March)</h3>
+            <div class="bg-cpl-card rounded-lg p-5">
+                <ul class="text-gray-400 text-sm space-y-2">
+                    <li>&#8226; <strong>Match results:</strong> No updates (season complete)</li>
+                    <li>&#8226; <strong>Standings:</strong> Final standings frozen</li>
+                    <li>&#8226; <strong>Team info:</strong> Updated for roster/stadium changes</li>
+                </ul>
+            </div>
+
+            <h3 class="font-semibold mt-6 mb-3">API Cache Durations</h3>
+            <table class="w-full bg-cpl-card rounded-lg overflow-hidden">
+                <thead class="bg-cpl-darker">
+                    <tr>
+                        <th class="text-left p-4 text-cpl-red">Endpoint</th>
+                        <th class="text-left p-4 text-cpl-red">Cache Duration</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono">/api/matches</td>
+                        <td class="p-4 text-gray-400">1 hour</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono">/api/standings</td>
+                        <td class="p-4 text-gray-400">1 hour</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono">/api/teams</td>
+                        <td class="p-4 text-gray-400">24 hours</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Data Quality -->
+        <section id="data-quality" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Data Quality</h2>
+
+            <h3 class="font-semibold mb-3">Completeness by Field</h3>
+            <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
+                <thead class="bg-cpl-darker">
+                    <tr>
+                        <th class="text-left p-4 text-cpl-red">Field</th>
+                        <th class="text-left p-4 text-cpl-red">Completeness</th>
+                        <th class="text-left p-4 text-cpl-red">Notes</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono">date</td>
+                        <td class="p-4 text-green-400">100%</td>
+                        <td class="p-4 text-gray-400">All matches have dates</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono">home_team</td>
+                        <td class="p-4 text-green-400">100%</td>
+                        <td class="p-4 text-gray-400">All matches have team names</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono">away_team</td>
+                        <td class="p-4 text-green-400">100%</td>
+                        <td class="p-4 text-gray-400">All matches have team names</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono">home_goals</td>
+                        <td class="p-4 text-green-400">100%</td>
+                        <td class="p-4 text-gray-400">Final scores always recorded</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono">away_goals</td>
+                        <td class="p-4 text-green-400">100%</td>
+                        <td class="p-4 text-gray-400">Final scores always recorded</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono">season</td>
+                        <td class="p-4 text-green-400">100%</td>
+                        <td class="p-4 text-gray-400">Derived from date</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono">venue</td>
+                        <td class="p-4 text-yellow-400">98%</td>
+                        <td class="p-4 text-gray-400">Some early matches missing</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="font-semibold mb-3">Data Verification Process</h3>
+            <div class="bg-cpl-card rounded-lg p-5">
+                <ol class="text-gray-400 text-sm space-y-2 list-decimal list-inside">
+                    <li><strong>Primary source collection</strong> - Data pulled from official APIs/records</li>
+                    <li><strong>Cross-reference check</strong> - Verified against multiple sources</li>
+                    <li><strong>Automated validation</strong> - Scripts check for invalid scores, date issues, duplicates</li>
+                    <li><strong>Manual review</strong> - Spot checks on random samples</li>
+                </ol>
+            </div>
+
+            <h3 class="font-semibold mt-6 mb-3">Standings Accuracy</h3>
+            <table class="w-full bg-cpl-card rounded-lg overflow-hidden">
+                <thead class="bg-cpl-darker">
+                    <tr>
+                        <th class="text-left p-4 text-cpl-red">Source</th>
+                        <th class="text-left p-4 text-cpl-red">Accuracy Notes</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-green-400">"official"</td>
+                        <td class="p-4 text-gray-400">Directly from CanPL API, excludes playoff matches</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-yellow-400">"calculated"</td>
+                        <td class="p-4 text-gray-400">Computed from match results, may include playoff matches</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Known Limitations -->
+        <section id="known-limitations" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Known Limitations</h2>
+
+            <div class="space-y-4">
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <h3 class="font-semibold text-yellow-400 mb-2">Team Name Variations</h3>
+                    <p class="text-gray-400 text-sm mb-3">Different data sources use different team name formats:</p>
+                    <table class="w-full text-sm">
+                        <tr class="border-b border-gray-700">
+                            <td class="py-2">Forge FC</td>
+                            <td class="py-2 text-gray-500">"Forge", "Hamilton Forge"</td>
+                        </tr>
+                        <tr class="border-b border-gray-700">
+                            <td class="py-2">HFX Wanderers FC</td>
+                            <td class="py-2 text-gray-500">"HFX Wanderers", "Halifax Wanderers"</td>
+                        </tr>
+                        <tr class="border-b border-gray-700">
+                            <td class="py-2">Atletico Ottawa</td>
+                            <td class="py-2 text-gray-500">"Atlético Ottawa" (with accent)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2">York United FC</td>
+                            <td class="py-2 text-gray-500">"York9 FC" (pre-2021)</td>
+                        </tr>
+                    </table>
+                    <p class="text-gray-500 text-xs mt-2">The API normalizes to standard names shown in the first column.</p>
+                </div>
+
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <h3 class="font-semibold text-yellow-400 mb-2">Playoff vs Regular Season</h3>
+                    <ul class="text-gray-400 text-sm space-y-1">
+                        <li>&#8226; Official standings from the API exclude playoff matches</li>
+                        <li>&#8226; Calculated standings may include playoff matches</li>
+                        <li>&#8226; There is no <code class="bg-cpl-darker px-1 rounded">is_playoff</code> flag in the current API response</li>
+                        <li>&#8226; Future versions may add playoff filtering</li>
+                    </ul>
+                </div>
+
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <h3 class="font-semibold text-yellow-400 mb-2">Inactive Teams</h3>
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-gray-700">
+                                <th class="text-left py-2 text-gray-400">Team</th>
+                                <th class="text-left py-2 text-gray-400">Seasons Active</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-2">FC Edmonton</td>
+                                <td class="py-2 text-gray-500">2019-2023</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2">York United FC</td>
+                                <td class="py-2 text-gray-500">2019-2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="text-gray-500 text-xs mt-2">These teams appear in historical data but not in current season matches.</p>
+                </div>
+
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <h3 class="font-semibold text-yellow-400 mb-2">Coordinate Precision</h3>
+                    <ul class="text-gray-400 text-sm space-y-1">
+                        <li>&#8226; Manually geocoded to stadium center points</li>
+                        <li>&#8226; Accurate to approximately 50 meters</li>
+                        <li>&#8226; May not reflect exact pitch center</li>
+                        <li>&#8226; Subject to change if teams relocate</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historical Notes -->
+        <section id="historical-notes" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Historical Notes</h2>
+
+            <div class="space-y-4">
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <h3 class="font-semibold mb-2">2019 - Inaugural Season</h3>
+                    <ul class="text-gray-400 text-sm space-y-1">
+                        <li>&#8226; 7 teams competed</li>
+                        <li>&#8226; Spring and Fall split season format</li>
+                        <li>&#8226; Some early attendance figures missing</li>
+                    </ul>
+                </div>
+
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <h3 class="font-semibold mb-2">2020 - COVID-19 Impact</h3>
+                    <ul class="text-gray-400 text-sm space-y-1">
+                        <li>&#8226; "Island Games" format in PEI</li>
+                        <li>&#8226; Shortened season (8 matches per team)</li>
+                        <li>&#8226; No attendance data (closed doors)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <h3 class="font-semibold mb-2">2021 - Hybrid Format</h3>
+                    <ul class="text-gray-400 text-sm space-y-1">
+                        <li>&#8226; Bubble phases with gradual return</li>
+                        <li>&#8226; York9 FC renamed to York United FC</li>
+                    </ul>
+                </div>
+
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <h3 class="font-semibold mb-2">2022-2024 - Normal Operations</h3>
+                    <ul class="text-gray-400 text-sm space-y-1">
+                        <li>&#8226; Return to home-and-away format (28 matches)</li>
+                        <li>&#8226; FC Edmonton final season (2023)</li>
+                        <li>&#8226; York United FC final season (2024)</li>
+                        <li>&#8226; Vancouver FC joined (2023)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <h3 class="font-semibold mb-2">2025 - Current Season</h3>
+                    <ul class="text-gray-400 text-sm space-y-1">
+                        <li>&#8226; Inter Toronto begins play</li>
+                        <li>&#8226; 8 active teams</li>
+                        <li>&#8226; Data sourced from official SDP API</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reporting Issues -->
+        <section id="reporting-issues" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Reporting Issues</h2>
+
+            <div class="bg-cpl-card rounded-lg p-5 mb-6">
+                <h3 class="font-semibold mb-3">How to Report Data Errors</h3>
+                <p class="text-gray-400 text-sm mb-4">If you find incorrect or missing data, please report it via GitHub Issues:</p>
+                <a href="https://github.com/GoCeylan/canpl-analytics/issues" target="_blank" class="inline-block bg-cpl-red hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-medium transition">
+                    Open GitHub Issues &rarr;
+                </a>
+            </div>
+
+            <div class="bg-cpl-darker rounded-lg p-5 mb-6">
+                <h3 class="font-semibold mb-3">Required Information</h3>
+                <pre class="text-sm text-gray-400 overflow-x-auto"><code>## Data Error Report
+
+**Endpoint:** /api/matches
+**Date/Match:** 2024-05-15, Forge FC vs Cavalry FC
+**Current Value:** home_goals: 2
+**Correct Value:** home_goals: 3
+**Source:** [Official CPL match report](link)</code></pre>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-green-900/20 border border-green-600 rounded-lg p-5">
+                    <h3 class="font-semibold text-green-400 mb-2">Report These</h3>
+                    <ul class="text-gray-400 text-sm space-y-1">
+                        <li>&#8226; Incorrect match scores</li>
+                        <li>&#8226; Wrong dates</li>
+                        <li>&#8226; Missing matches</li>
+                        <li>&#8226; Team name typos</li>
+                        <li>&#8226; Incorrect stadium names</li>
+                    </ul>
+                </div>
+                <div class="bg-red-900/20 border border-red-600 rounded-lg p-5">
+                    <h3 class="font-semibold text-red-400 mb-2">Don't Report These</h3>
+                    <ul class="text-gray-400 text-sm space-y-1">
+                        <li>&#8226; Feature requests (use template)</li>
+                        <li>&#8226; API performance issues</li>
+                        <li>&#8226; Questions (use discussions)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-cpl-card rounded-lg p-5 mt-6">
+                <h3 class="font-semibold mb-2">Response Time</h3>
+                <ul class="text-gray-400 text-sm space-y-1">
+                    <li>&#8226; <strong>Critical errors</strong> (wrong scores): &lt; 24 hours</li>
+                    <li>&#8226; <strong>Minor issues</strong> (spelling, metadata): &lt; 1 week</li>
+                    <li>&#8226; <strong>Feature requests</strong>: Reviewed monthly</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Data License -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Data License</h2>
+            <div class="bg-cpl-card rounded-lg p-5">
+                <p class="text-gray-300 mb-4">The match data in this API is provided for:</p>
+                <ul class="text-gray-400 text-sm space-y-1 mb-4">
+                    <li>&#8226; Educational purposes</li>
+                    <li>&#8226; Personal projects</li>
+                    <li>&#8226; Research and analysis</li>
+                    <li>&#8226; Non-commercial use</li>
+                </ul>
+                <p class="text-gray-500 text-sm">For commercial use, please contact the Canadian Premier League directly for official data licensing.</p>
+            </div>
+        </section>
+
+        <!-- Related Docs -->
+        <section class="bg-cpl-card rounded-lg p-6">
+            <h3 class="font-bold text-cpl-red mb-4">Related Documentation</h3>
+            <div class="grid md:grid-cols-3 gap-4">
+                <a href="./api-reference.html" class="text-gray-400 hover:text-white">API Reference &rarr;</a>
+                <a href="./data-dictionary.html" class="text-gray-400 hover:text-white">Data Dictionary &rarr;</a>
+                <a href="./use-cases.html" class="text-gray-400 hover:text-white">Use Cases &rarr;</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-8 border-t border-gray-700 mt-12">
+            <p class="text-gray-400">
+                <a href="/" class="text-cpl-red hover:underline">API Home</a>
+                <span class="mx-2">|</span>
+                <a href="./index.html" class="text-cpl-red hover:underline">Docs Index</a>
+                <span class="mx-2">|</span>
+                <a href="https://github.com/GoCeylan/canpl-analytics" target="_blank" class="text-cpl-red hover:underline">GitHub</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

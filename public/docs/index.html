@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - CPL Analytics API</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cpl: {
+                            red: '#c8102e',
+                            dark: '#1a1a2e',
+                            darker: '#12121f',
+                            card: '#252540'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cpl-dark text-gray-100 min-h-screen">
+    <div class="max-w-5xl mx-auto px-4 py-8">
+
+        <!-- Header -->
+        <header class="py-8 border-b border-gray-700 mb-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a href="/" class="text-gray-400 hover:text-white text-sm">&larr; Back to API</a>
+                    <h1 class="text-3xl font-bold mt-2">
+                        <span class="text-cpl-red">CPL Analytics</span> Documentation
+                    </h1>
+                </div>
+            </div>
+        </header>
+
+        <!-- Documentation Cards -->
+        <div class="grid md:grid-cols-2 gap-6">
+
+            <!-- API Reference -->
+            <a href="./api-reference.html" class="bg-cpl-card rounded-lg p-6 hover:bg-cpl-card/80 transition border border-transparent hover:border-cpl-red">
+                <div class="text-3xl mb-3">&#128214;</div>
+                <h2 class="text-xl font-bold text-cpl-red mb-2">API Reference</h2>
+                <p class="text-gray-400 text-sm mb-4">Complete endpoint documentation with parameters, example requests, responses, error handling, and rate limits.</p>
+                <ul class="text-gray-500 text-xs space-y-1">
+                    <li>&#8226; Base URL &amp; Authentication</li>
+                    <li>&#8226; All endpoints with parameters</li>
+                    <li>&#8226; Example requests &amp; responses</li>
+                    <li>&#8226; Error codes &amp; CORS</li>
+                </ul>
+            </a>
+
+            <!-- Data Dictionary -->
+            <a href="./data-dictionary.html" class="bg-cpl-card rounded-lg p-6 hover:bg-cpl-card/80 transition border border-transparent hover:border-cpl-red">
+                <div class="text-3xl mb-3">&#128209;</div>
+                <h2 class="text-xl font-bold text-cpl-red mb-2">Data Dictionary</h2>
+                <p class="text-gray-400 text-sm mb-4">Detailed field definitions for all API response objects including types, formats, and example values.</p>
+                <ul class="text-gray-500 text-xs space-y-1">
+                    <li>&#8226; Match object fields</li>
+                    <li>&#8226; Standings object fields</li>
+                    <li>&#8226; Team object fields</li>
+                    <li>&#8226; Data types reference</li>
+                </ul>
+            </a>
+
+            <!-- Use Cases -->
+            <a href="./use-cases.html" class="bg-cpl-card rounded-lg p-6 hover:bg-cpl-card/80 transition border border-transparent hover:border-cpl-red">
+                <div class="text-3xl mb-3">&#128187;</div>
+                <h2 class="text-xl font-bold text-cpl-red mb-2">Use Cases &amp; Examples</h2>
+                <p class="text-gray-400 text-sm mb-4">Practical code examples in Python and JavaScript for common analysis tasks and queries.</p>
+                <ul class="text-gray-500 text-xs space-y-1">
+                    <li>&#8226; Finding team results</li>
+                    <li>&#8226; Head-to-head analysis</li>
+                    <li>&#8226; Geographic mapping</li>
+                    <li>&#8226; Performance trends</li>
+                </ul>
+            </a>
+
+            <!-- Data Sources -->
+            <a href="./data-sources.html" class="bg-cpl-card rounded-lg p-6 hover:bg-cpl-card/80 transition border border-transparent hover:border-cpl-red">
+                <div class="text-3xl mb-3">&#128202;</div>
+                <h2 class="text-xl font-bold text-cpl-red mb-2">Data Sources &amp; Quality</h2>
+                <p class="text-gray-400 text-sm mb-4">Information about data provenance, update frequency, quality metrics, and known limitations.</p>
+                <ul class="text-gray-500 text-xs space-y-1">
+                    <li>&#8226; Official vs calculated data</li>
+                    <li>&#8226; Update frequency</li>
+                    <li>&#8226; Known limitations</li>
+                    <li>&#8226; Reporting issues</li>
+                </ul>
+            </a>
+
+        </div>
+
+        <!-- Quick Links -->
+        <section class="mt-12 bg-cpl-card rounded-lg p-6">
+            <h3 class="text-lg font-bold text-cpl-red mb-4">Quick Links</h3>
+            <div class="grid md:grid-cols-3 gap-4 text-sm">
+                <div>
+                    <h4 class="font-semibold mb-2">Endpoints</h4>
+                    <ul class="space-y-1 text-gray-400">
+                        <li><a href="./api-reference.html#get-apimatches" class="hover:text-cpl-red">GET /api/matches</a></li>
+                        <li><a href="./api-reference.html#get-apistandings" class="hover:text-cpl-red">GET /api/standings</a></li>
+                        <li><a href="./api-reference.html#get-apiteams" class="hover:text-cpl-red">GET /api/teams</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-2">Examples</h4>
+                    <ul class="space-y-1 text-gray-400">
+                        <li><a href="./use-cases.html#find-all-forge-fc-home-wins-in-2024" class="hover:text-cpl-red">Find team home wins</a></li>
+                        <li><a href="./use-cases.html#calculate-head-to-head-records" class="hover:text-cpl-red">Head-to-head records</a></li>
+                        <li><a href="./use-cases.html#map-team-locations" class="hover:text-cpl-red">Map team locations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-2">Resources</h4>
+                    <ul class="space-y-1 text-gray-400">
+                        <li><a href="https://github.com/GoCeylan/canpl-analytics" target="_blank" class="hover:text-cpl-red">GitHub Repository</a></li>
+                        <li><a href="https://github.com/GoCeylan/canpl-analytics/issues" target="_blank" class="hover:text-cpl-red">Report Issues</a></li>
+                        <li><a href="/" class="hover:text-cpl-red">Try the API</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-8 border-t border-gray-700 mt-12">
+            <p class="text-gray-400">
+                <a href="/" class="text-cpl-red hover:underline">API Home</a>
+                <span class="mx-2">|</span>
+                <a href="https://github.com/GoCeylan/canpl-analytics" target="_blank" class="text-cpl-red hover:underline">GitHub</a>
+            </p>
+            <p class="text-gray-500 text-sm mt-2">CC-BY-4.0 License</p>
+        </footer>
+    </div>
+</body>
+</html>

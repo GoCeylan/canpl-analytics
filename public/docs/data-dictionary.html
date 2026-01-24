@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Dictionary - CPL Analytics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cpl: {
+                            red: '#c8102e',
+                            dark: '#1a1a2e',
+                            darker: '#12121f',
+                            card: '#252540'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-cpl-dark text-gray-100 min-h-screen">
+    <div class="max-w-5xl mx-auto px-4 py-8">
+
+        <!-- Header -->
+        <header class="py-6 border-b border-gray-700 mb-8">
+            <a href="./index.html" class="text-gray-400 hover:text-white text-sm">&larr; Back to Docs</a>
+            <h1 class="text-3xl font-bold mt-2">Data Dictionary</h1>
+            <p class="text-gray-400 mt-1">Field definitions for all API response objects</p>
+        </header>
+
+        <!-- Table of Contents -->
+        <nav class="bg-cpl-card rounded-lg p-5 mb-8">
+            <h2 class="font-bold text-cpl-red mb-3">Contents</h2>
+            <ul class="grid md:grid-cols-2 gap-2 text-sm">
+                <li><a href="#matches-response" class="text-gray-400 hover:text-white">/api/matches Response</a></li>
+                <li><a href="#standings-response" class="text-gray-400 hover:text-white">/api/standings Response</a></li>
+                <li><a href="#teams-response" class="text-gray-400 hover:text-white">/api/teams Response</a></li>
+                <li><a href="#data-types" class="text-gray-400 hover:text-white">Data Types Reference</a></li>
+            </ul>
+        </nav>
+
+        <!-- /api/matches Response -->
+        <section id="matches-response" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">/api/matches Response</h2>
+            <p class="text-gray-300 mb-6">Returns paginated match data with filtering support.</p>
+
+            <h3 class="font-semibold mb-3">Response Envelope</h3>
+            <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
+                <thead class="bg-cpl-darker">
+                    <tr>
+                        <th class="text-left p-4 text-cpl-red">Field</th>
+                        <th class="text-left p-4 text-cpl-red">Type</th>
+                        <th class="text-left p-4 text-cpl-red">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">total</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-gray-400">Total number of matches matching filters</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">count</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-gray-400">Number of matches in current page</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">offset</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-gray-400">Current pagination offset</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">limit</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-gray-400">Current page size limit</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">matches</td>
+                        <td class="p-4">Array</td>
+                        <td class="p-4 text-gray-400">Array of match objects</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="font-semibold mb-3">Match Object Fields</h3>
+            <table class="w-full bg-cpl-card rounded-lg overflow-hidden">
+                <thead class="bg-cpl-darker">
+                    <tr>
+                        <th class="text-left p-4 text-cpl-red">Field</th>
+                        <th class="text-left p-4 text-cpl-red">Type</th>
+                        <th class="text-left p-4 text-cpl-red">Example</th>
+                        <th class="text-left p-4 text-cpl-red">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">date</td>
+                        <td class="p-4">String</td>
+                        <td class="p-4 text-green-400">"2024-04-15"</td>
+                        <td class="p-4 text-gray-400">Match date in YYYY-MM-DD format</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">home_team</td>
+                        <td class="p-4">String</td>
+                        <td class="p-4 text-green-400">"Forge FC"</td>
+                        <td class="p-4 text-gray-400">Full name of home team</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">away_team</td>
+                        <td class="p-4">String</td>
+                        <td class="p-4 text-green-400">"Cavalry FC"</td>
+                        <td class="p-4 text-gray-400">Full name of away team</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">home_goals</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-pink-400">2</td>
+                        <td class="p-4 text-gray-400">Goals scored by home team</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">away_goals</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-pink-400">1</td>
+                        <td class="p-4 text-gray-400">Goals scored by away team</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">season</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-pink-400">2024</td>
+                        <td class="p-4 text-gray-400">Season year (2019-2025)</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">venue</td>
+                        <td class="p-4">String</td>
+                        <td class="p-4 text-green-400">"Tim Hortons Field"</td>
+                        <td class="p-4 text-gray-400">Stadium where match was played</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- /api/standings Response -->
+        <section id="standings-response" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">/api/standings Response</h2>
+            <p class="text-gray-300 mb-6">Returns league standings calculated from match results or official API data.</p>
+
+            <h3 class="font-semibold mb-3">Single Season Response Envelope</h3>
+            <p class="text-gray-400 text-sm mb-3">When <code class="bg-cpl-darker px-2 py-0.5 rounded">?season=YYYY</code> is provided:</p>
+            <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
+                <thead class="bg-cpl-darker">
+                    <tr>
+                        <th class="text-left p-4 text-cpl-red">Field</th>
+                        <th class="text-left p-4 text-cpl-red">Type</th>
+                        <th class="text-left p-4 text-cpl-red">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">season</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-gray-400">The requested season year</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">standings</td>
+                        <td class="p-4">Array</td>
+                        <td class="p-4 text-gray-400">Array of team standing objects</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">source</td>
+                        <td class="p-4">String</td>
+                        <td class="p-4 text-gray-400">"official" or "calculated"</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="font-semibold mb-3">Standing Object Fields</h3>
+            <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
+                <thead class="bg-cpl-darker">
+                    <tr>
+                        <th class="text-left p-4 text-cpl-red">Field</th>
+                        <th class="text-left p-4 text-cpl-red">Type</th>
+                        <th class="text-left p-4 text-cpl-red">Example</th>
+                        <th class="text-left p-4 text-cpl-red">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">position</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-pink-400">1</td>
+                        <td class="p-4 text-gray-400">League rank (1-8, 1 being top)</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">team</td>
+                        <td class="p-4">String</td>
+                        <td class="p-4 text-green-400">"Forge FC"</td>
+                        <td class="p-4 text-gray-400">Team name</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">played</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-pink-400">28</td>
+                        <td class="p-4 text-gray-400">Total matches played</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">wins</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-pink-400">18</td>
+                        <td class="p-4 text-gray-400">Number of wins</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">draws</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-pink-400">5</td>
+                        <td class="p-4 text-gray-400">Number of draws</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">losses</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-pink-400">5</td>
+                        <td class="p-4 text-gray-400">Number of losses</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">goals_for</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-pink-400">52</td>
+                        <td class="p-4 text-gray-400">Total goals scored</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">goals_against</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-pink-400">28</td>
+                        <td class="p-4 text-gray-400">Total goals conceded</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">goal_difference</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-pink-400">24</td>
+                        <td class="p-4 text-gray-400">goals_for minus goals_against</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">points</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-pink-400">59</td>
+                        <td class="p-4 text-gray-400">League points (3 per win, 1 per draw)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="bg-cpl-card rounded-lg p-5">
+                <h4 class="font-semibold mb-2">Points Calculation</h4>
+                <code class="text-green-400">points = (wins × 3) + (draws × 1) + (losses × 0)</code>
+                <h4 class="font-semibold mt-4 mb-2">Tiebreaker Rules</h4>
+                <ol class="text-gray-400 text-sm list-decimal list-inside space-y-1">
+                    <li>Points (descending)</li>
+                    <li>Goal difference (descending)</li>
+                    <li>Goals scored (descending)</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- /api/teams Response -->
+        <section id="teams-response" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">/api/teams Response</h2>
+            <p class="text-gray-300 mb-6">Returns information about CPL teams.</p>
+
+            <h3 class="font-semibold mb-3">Response Envelope</h3>
+            <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
+                <thead class="bg-cpl-darker">
+                    <tr>
+                        <th class="text-left p-4 text-cpl-red">Field</th>
+                        <th class="text-left p-4 text-cpl-red">Type</th>
+                        <th class="text-left p-4 text-cpl-red">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">count</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-gray-400">Number of teams returned</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">teams</td>
+                        <td class="p-4">Array</td>
+                        <td class="p-4 text-gray-400">Array of team objects</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="font-semibold mb-3">Team Object Fields</h3>
+            <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
+                <thead class="bg-cpl-darker">
+                    <tr>
+                        <th class="text-left p-4 text-cpl-red">Field</th>
+                        <th class="text-left p-4 text-cpl-red">Type</th>
+                        <th class="text-left p-4 text-cpl-red">Example</th>
+                        <th class="text-left p-4 text-cpl-red">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">name</td>
+                        <td class="p-4">String</td>
+                        <td class="p-4 text-green-400">"Forge FC"</td>
+                        <td class="p-4 text-gray-400">Official team name</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">city</td>
+                        <td class="p-4">String</td>
+                        <td class="p-4 text-green-400">"Hamilton"</td>
+                        <td class="p-4 text-gray-400">Home city</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">stadium</td>
+                        <td class="p-4">String</td>
+                        <td class="p-4 text-green-400">"Tim Hortons Field"</td>
+                        <td class="p-4 text-gray-400">Home stadium name</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">founded</td>
+                        <td class="p-4">Integer</td>
+                        <td class="p-4 text-pink-400">2018</td>
+                        <td class="p-4 text-gray-400">Year team was founded</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">latitude</td>
+                        <td class="p-4">Float</td>
+                        <td class="p-4 text-pink-400">43.2557</td>
+                        <td class="p-4 text-gray-400">Stadium latitude (hardcoded)</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">longitude</td>
+                        <td class="p-4">Float</td>
+                        <td class="p-4 text-pink-400">-79.8711</td>
+                        <td class="p-4 text-gray-400">Stadium longitude (hardcoded)</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">surface</td>
+                        <td class="p-4">String</td>
+                        <td class="p-4 text-green-400">"grass"</td>
+                        <td class="p-4 text-gray-400">Playing surface type</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono text-blue-400">status</td>
+                        <td class="p-4">String</td>
+                        <td class="p-4 text-green-400">"active"</td>
+                        <td class="p-4 text-gray-400">Team activity status</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <h4 class="font-semibold mb-2">surface Values</h4>
+                    <table class="w-full text-sm">
+                        <tr class="border-b border-gray-700">
+                            <td class="py-2 font-mono text-green-400">"grass"</td>
+                            <td class="py-2 text-gray-400">Natural grass surface</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 font-mono text-green-400">"turf"</td>
+                            <td class="py-2 text-gray-400">Artificial turf surface</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <h4 class="font-semibold mb-2">status Values</h4>
+                    <table class="w-full text-sm">
+                        <tr class="border-b border-gray-700">
+                            <td class="py-2 font-mono text-green-400">"active"</td>
+                            <td class="py-2 text-gray-400">Currently competing</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 font-mono text-yellow-400">"inactive"</td>
+                            <td class="py-2 text-gray-400">No longer competing</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current CPL Teams -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Current CPL Teams (2025)</h2>
+            <table class="w-full bg-cpl-card rounded-lg overflow-hidden">
+                <thead class="bg-cpl-darker">
+                    <tr>
+                        <th class="text-left p-4 text-cpl-red">Team</th>
+                        <th class="text-left p-4 text-cpl-red">City</th>
+                        <th class="text-left p-4 text-cpl-red">Surface</th>
+                        <th class="text-left p-4 text-cpl-red">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Atletico Ottawa</td>
+                        <td class="p-4 text-gray-400">Ottawa</td>
+                        <td class="p-4 text-gray-400">turf</td>
+                        <td class="p-4 text-green-400">active</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Cavalry FC</td>
+                        <td class="p-4 text-gray-400">Calgary</td>
+                        <td class="p-4 text-gray-400">grass</td>
+                        <td class="p-4 text-green-400">active</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Forge FC</td>
+                        <td class="p-4 text-gray-400">Hamilton</td>
+                        <td class="p-4 text-gray-400">grass</td>
+                        <td class="p-4 text-green-400">active</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">HFX Wanderers FC</td>
+                        <td class="p-4 text-gray-400">Halifax</td>
+                        <td class="p-4 text-gray-400">grass</td>
+                        <td class="p-4 text-green-400">active</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Inter Toronto</td>
+                        <td class="p-4 text-gray-400">Toronto</td>
+                        <td class="p-4 text-gray-400">turf</td>
+                        <td class="p-4 text-green-400">active</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Pacific FC</td>
+                        <td class="p-4 text-gray-400">Langford</td>
+                        <td class="p-4 text-gray-400">turf</td>
+                        <td class="p-4 text-green-400">active</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Valour FC</td>
+                        <td class="p-4 text-gray-400">Winnipeg</td>
+                        <td class="p-4 text-gray-400">turf</td>
+                        <td class="p-4 text-green-400">active</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Vancouver FC</td>
+                        <td class="p-4 text-gray-400">Langley</td>
+                        <td class="p-4 text-gray-400">turf</td>
+                        <td class="p-4 text-green-400">active</td>
+                    </tr>
+                    <tr class="border-t border-gray-700 bg-cpl-darker/50">
+                        <td class="p-4 text-gray-500">FC Edmonton</td>
+                        <td class="p-4 text-gray-500">Edmonton</td>
+                        <td class="p-4 text-gray-500">turf</td>
+                        <td class="p-4 text-yellow-400">inactive</td>
+                    </tr>
+                    <tr class="border-t border-gray-700 bg-cpl-darker/50">
+                        <td class="p-4 text-gray-500">York United FC</td>
+                        <td class="p-4 text-gray-500">Toronto</td>
+                        <td class="p-4 text-gray-500">turf</td>
+                        <td class="p-4 text-yellow-400">inactive</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Data Types Reference -->
+        <section id="data-types" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Data Types Reference</h2>
+            <table class="w-full bg-cpl-card rounded-lg overflow-hidden">
+                <thead class="bg-cpl-darker">
+                    <tr>
+                        <th class="text-left p-4 text-cpl-red">Type</th>
+                        <th class="text-left p-4 text-cpl-red">Format</th>
+                        <th class="text-left p-4 text-cpl-red">Notes</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono">String</td>
+                        <td class="p-4 text-gray-400">UTF-8</td>
+                        <td class="p-4 text-gray-400">May include accented characters (e.g., "Atlético Ottawa")</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono">Integer</td>
+                        <td class="p-4 text-gray-400">32-bit signed</td>
+                        <td class="p-4 text-gray-400">Numeric IDs, counts, scores</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono">Float</td>
+                        <td class="p-4 text-gray-400">64-bit double</td>
+                        <td class="p-4 text-gray-400">Coordinates to 4 decimal places</td>
+                    </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4 font-mono">Date String</td>
+                        <td class="p-4 text-gray-400">YYYY-MM-DD</td>
+                        <td class="p-4 text-gray-400">ISO 8601 date format</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Related Docs -->
+        <section class="bg-cpl-card rounded-lg p-6">
+            <h3 class="font-bold text-cpl-red mb-4">Related Documentation</h3>
+            <div class="grid md:grid-cols-3 gap-4">
+                <a href="./api-reference.html" class="text-gray-400 hover:text-white">API Reference &rarr;</a>
+                <a href="./use-cases.html" class="text-gray-400 hover:text-white">Use Cases &rarr;</a>
+                <a href="./data-sources.html" class="text-gray-400 hover:text-white">Data Sources &rarr;</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-8 border-t border-gray-700 mt-12">
+            <p class="text-gray-400">
+                <a href="/" class="text-cpl-red hover:underline">API Home</a>
+                <span class="mx-2">|</span>
+                <a href="./index.html" class="text-cpl-red hover:underline">Docs Index</a>
+                <span class="mx-2">|</span>
+                <a href="https://github.com/GoCeylan/canpl-analytics" target="_blank" class="text-cpl-red hover:underline">GitHub</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

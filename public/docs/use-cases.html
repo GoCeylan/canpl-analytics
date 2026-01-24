@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Cases - CPL Analytics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cpl: {
+                            red: '#c8102e',
+                            dark: '#1a1a2e',
+                            darker: '#12121f',
+                            card: '#252540'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .code-tab.active { background: #1e1e3f; border-bottom: 2px solid #c8102e; }
+        .code-panel { display: none; }
+        .code-panel.active { display: block; }
+        html { scroll-behavior: smooth; }
+        .keyword { color: #60a5fa; }
+        .string { color: #4ade80; }
+        .comment { color: #6b7280; }
+        .function { color: #c084fc; }
+    </style>
+</head>
+<body class="bg-cpl-dark text-gray-100 min-h-screen">
+    <div class="max-w-5xl mx-auto px-4 py-8">
+
+        <!-- Header -->
+        <header class="py-6 border-b border-gray-700 mb-8">
+            <a href="./index.html" class="text-gray-400 hover:text-white text-sm">&larr; Back to Docs</a>
+            <h1 class="text-3xl font-bold mt-2">Use Cases &amp; Examples</h1>
+            <p class="text-gray-400 mt-1">Practical code examples for common analysis tasks</p>
+        </header>
+
+        <!-- Table of Contents -->
+        <nav class="bg-cpl-card rounded-lg p-5 mb-8">
+            <h2 class="font-bold text-cpl-red mb-3">Use Cases</h2>
+            <ul class="grid md:grid-cols-2 gap-2 text-sm">
+                <li><a href="#find-all-forge-fc-home-wins-in-2024" class="text-gray-400 hover:text-white">Find team home wins</a></li>
+                <li><a href="#calculate-head-to-head-records" class="text-gray-400 hover:text-white">Head-to-head records</a></li>
+                <li><a href="#track-goal-difference-trends" class="text-gray-400 hover:text-white">Goal difference trends</a></li>
+                <li><a href="#map-team-locations" class="text-gray-400 hover:text-white">Map team locations</a></li>
+                <li><a href="#home-vs-away-performance" class="text-gray-400 hover:text-white">Home vs away analysis</a></li>
+                <li><a href="#highest-scoring-matches" class="text-gray-400 hover:text-white">Highest-scoring matches</a></li>
+            </ul>
+        </nav>
+
+        <!-- Use Case 1: Forge FC Home Wins -->
+        <section id="find-all-forge-fc-home-wins-in-2024" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Find All Forge FC Home Wins in 2024</h2>
+            <p class="text-gray-300 mb-4">Filter matches to find a specific team's home victories in a season.</p>
+
+            <div class="bg-cpl-card rounded-lg p-4 mb-4">
+                <h3 class="font-semibold mb-2">Query</h3>
+                <code class="text-green-400">GET /api/matches?season=2024&team=Forge</code>
+            </div>
+
+            <!-- Code Tabs -->
+            <div class="bg-cpl-card rounded-lg overflow-hidden mb-4">
+                <div class="flex border-b border-gray-700">
+                    <button onclick="switchTab('forge', 'python')" class="code-tab active px-4 py-2 text-sm" data-group="forge" id="forge-tab-python">Python</button>
+                    <button onclick="switchTab('forge', 'javascript')" class="code-tab px-4 py-2 text-sm" data-group="forge" id="forge-tab-javascript">JavaScript</button>
+                </div>
+
+                <div id="forge-python" class="code-panel active p-4">
+                    <pre class="text-sm overflow-x-auto"><code><span class="keyword">import</span> requests
+
+<span class="keyword">def</span> <span class="function">get_forge_home_wins_2024</span>():
+    <span class="string">"""Find all Forge FC home wins in the 2024 season."""</span>
+    url = <span class="string">"https://canpl-analytics.vercel.app/api/matches"</span>
+    params = {<span class="string">"season"</span>: 2024, <span class="string">"team"</span>: <span class="string">"Forge"</span>, <span class="string">"limit"</span>: 500}
+
+    response = requests.get(url, params=params)
+    data = response.json()
+
+    <span class="comment"># Filter for home wins</span>
+    home_wins = [
+        match <span class="keyword">for</span> match <span class="keyword">in</span> data[<span class="string">"matches"</span>]
+        <span class="keyword">if</span> match[<span class="string">"home_team"</span>] == <span class="string">"Forge FC"</span>
+        <span class="keyword">and</span> match[<span class="string">"home_goals"</span>] > match[<span class="string">"away_goals"</span>]
+    ]
+
+    <span class="keyword">print</span>(<span class="string">f"Forge FC Home Wins in 2024: {len(home_wins)}"</span>)
+    <span class="keyword">for</span> match <span class="keyword">in</span> home_wins:
+        <span class="keyword">print</span>(<span class="string">f"  {match['date']}: Forge FC {match['home_goals']} - "</span>
+              <span class="string">f"{match['away_goals']} {match['away_team']}"</span>)
+
+    <span class="keyword">return</span> home_wins
+
+<span class="comment"># Execute</span>
+wins = get_forge_home_wins_2024()</code></pre>
+                </div>
+
+                <div id="forge-javascript" class="code-panel p-4">
+                    <pre class="text-sm overflow-x-auto"><code><span class="keyword">async function</span> <span class="function">getForgeHomeWins2024</span>() {
+  <span class="keyword">const</span> url = <span class="string">'https://canpl-analytics.vercel.app/api/matches?season=2024&team=Forge&limit=500'</span>;
+
+  <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(url);
+  <span class="keyword">const</span> data = <span class="keyword">await</span> response.json();
+
+  <span class="comment">// Filter for home wins</span>
+  <span class="keyword">const</span> homeWins = data.matches.filter(match =>
+    match.home_team === <span class="string">'Forge FC'</span> &&
+    match.home_goals > match.away_goals
+  );
+
+  console.log(<span class="string">`Forge FC Home Wins in 2024: ${homeWins.length}`</span>);
+  homeWins.forEach(match => {
+    console.log(<span class="string">`  ${match.date}: Forge FC ${match.home_goals} - ${match.away_goals} ${match.away_team}`</span>);
+  });
+
+  <span class="keyword">return</span> homeWins;
+}
+
+<span class="comment">// Execute</span>
+getForgeHomeWins2024();</code></pre>
+                </div>
+            </div>
+
+            <div class="bg-cpl-darker rounded-lg p-4 mb-4">
+                <h3 class="font-semibold text-gray-300 mb-2">Expected Output</h3>
+                <pre class="text-sm text-gray-400"><code>Forge FC Home Wins in 2024: 11
+  2024-04-13: Forge FC 3 - 1 Atletico Ottawa
+  2024-04-27: Forge FC 2 - 0 Valour FC
+  2024-05-11: Forge FC 4 - 2 Pacific FC
+  ...</code></pre>
+            </div>
+
+            <div class="bg-blue-900/20 border border-blue-600 rounded-lg p-4">
+                <h3 class="font-semibold text-blue-400 mb-2">Analysis Insights</h3>
+                <ul class="text-gray-400 text-sm space-y-1">
+                    <li>&#8226; Forge FC typically has strong home form due to passionate local support</li>
+                    <li>&#8226; Tim Hortons Field's grass surface suits their playing style</li>
+                    <li>&#8226; Compare home win percentage to league average to assess home advantage</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Use Case 2: Head-to-Head -->
+        <section id="calculate-head-to-head-records" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Calculate Head-to-Head Records Between Teams</h2>
+            <p class="text-gray-300 mb-4">Analyze historical matchups between two specific teams.</p>
+
+            <div class="bg-cpl-card rounded-lg overflow-hidden mb-4">
+                <div class="flex border-b border-gray-700">
+                    <button onclick="switchTab('h2h', 'python')" class="code-tab active px-4 py-2 text-sm" data-group="h2h" id="h2h-tab-python">Python</button>
+                    <button onclick="switchTab('h2h', 'javascript')" class="code-tab px-4 py-2 text-sm" data-group="h2h" id="h2h-tab-javascript">JavaScript</button>
+                </div>
+
+                <div id="h2h-python" class="code-panel active p-4">
+                    <pre class="text-sm overflow-x-auto"><code><span class="keyword">import</span> requests
+
+<span class="keyword">def</span> <span class="function">head_to_head</span>(team1: str, team2: str):
+    <span class="string">"""Calculate head-to-head record between two teams."""</span>
+    url = <span class="string">"https://canpl-analytics.vercel.app/api/matches"</span>
+    response = requests.get(url, params={<span class="string">"team"</span>: team1, <span class="string">"limit"</span>: 500})
+    matches = response.json()[<span class="string">"matches"</span>]
+
+    <span class="comment"># Filter to matches between the two teams</span>
+    h2h_matches = [
+        m <span class="keyword">for</span> m <span class="keyword">in</span> matches
+        <span class="keyword">if</span> (team1.lower() <span class="keyword">in</span> m[<span class="string">"home_team"</span>].lower() <span class="keyword">or</span> team1.lower() <span class="keyword">in</span> m[<span class="string">"away_team"</span>].lower())
+        <span class="keyword">and</span> (team2.lower() <span class="keyword">in</span> m[<span class="string">"home_team"</span>].lower() <span class="keyword">or</span> team2.lower() <span class="keyword">in</span> m[<span class="string">"away_team"</span>].lower())
+    ]
+
+    team1_wins, team2_wins, draws = 0, 0, 0
+
+    <span class="keyword">for</span> match <span class="keyword">in</span> h2h_matches:
+        is_team1_home = team1.lower() <span class="keyword">in</span> match[<span class="string">"home_team"</span>].lower()
+        team1_goals = match[<span class="string">"home_goals"</span>] <span class="keyword">if</span> is_team1_home <span class="keyword">else</span> match[<span class="string">"away_goals"</span>]
+        team2_goals = match[<span class="string">"away_goals"</span>] <span class="keyword">if</span> is_team1_home <span class="keyword">else</span> match[<span class="string">"home_goals"</span>]
+
+        <span class="keyword">if</span> team1_goals > team2_goals:
+            team1_wins += 1
+        <span class="keyword">elif</span> team2_goals > team1_goals:
+            team2_wins += 1
+        <span class="keyword">else</span>:
+            draws += 1
+
+    <span class="keyword">print</span>(<span class="string">f"\n=== {team1} vs {team2} Head-to-Head ==="</span>)
+    <span class="keyword">print</span>(<span class="string">f"Total matches: {len(h2h_matches)}"</span>)
+    <span class="keyword">print</span>(<span class="string">f"{team1} wins: {team1_wins}"</span>)
+    <span class="keyword">print</span>(<span class="string">f"{team2} wins: {team2_wins}"</span>)
+    <span class="keyword">print</span>(<span class="string">f"Draws: {draws}"</span>)
+
+    <span class="keyword">return</span> {<span class="string">"team1_wins"</span>: team1_wins, <span class="string">"team2_wins"</span>: team2_wins, <span class="string">"draws"</span>: draws}
+
+<span class="comment"># Execute</span>
+head_to_head(<span class="string">"Forge"</span>, <span class="string">"Cavalry"</span>)</code></pre>
+                </div>
+
+                <div id="h2h-javascript" class="code-panel p-4">
+                    <pre class="text-sm overflow-x-auto"><code><span class="keyword">async function</span> <span class="function">headToHead</span>(team1, team2) {
+  <span class="keyword">const</span> url = <span class="string">`https://canpl-analytics.vercel.app/api/matches?team=${team1}&limit=500`</span>;
+  <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(url);
+  <span class="keyword">const</span> data = <span class="keyword">await</span> response.json();
+
+  <span class="comment">// Filter to head-to-head matches</span>
+  <span class="keyword">const</span> h2hMatches = data.matches.filter(m =>
+    (m.home_team.toLowerCase().includes(team1.toLowerCase()) ||
+     m.away_team.toLowerCase().includes(team1.toLowerCase())) &&
+    (m.home_team.toLowerCase().includes(team2.toLowerCase()) ||
+     m.away_team.toLowerCase().includes(team2.toLowerCase()))
+  );
+
+  <span class="keyword">let</span> team1Wins = 0, team2Wins = 0, draws = 0;
+
+  h2hMatches.forEach(match => {
+    <span class="keyword">const</span> isTeam1Home = match.home_team.toLowerCase().includes(team1.toLowerCase());
+    <span class="keyword">const</span> team1Goals = isTeam1Home ? match.home_goals : match.away_goals;
+    <span class="keyword">const</span> team2Goals = isTeam1Home ? match.away_goals : match.home_goals;
+
+    <span class="keyword">if</span> (team1Goals > team2Goals) team1Wins++;
+    <span class="keyword">else if</span> (team2Goals > team1Goals) team2Wins++;
+    <span class="keyword">else</span> draws++;
+  });
+
+  console.log(<span class="string">`\n=== ${team1} vs ${team2} Head-to-Head ===`</span>);
+  console.log(<span class="string">`Total matches: ${h2hMatches.length}`</span>);
+  console.log(<span class="string">`${team1} wins: ${team1Wins}`</span>);
+  console.log(<span class="string">`${team2} wins: ${team2Wins}`</span>);
+  console.log(<span class="string">`Draws: ${draws}`</span>);
+
+  <span class="keyword">return</span> { team1Wins, team2Wins, draws };
+}
+
+headToHead(<span class="string">'Forge'</span>, <span class="string">'Cavalry'</span>);</code></pre>
+                </div>
+            </div>
+
+            <div class="bg-cpl-darker rounded-lg p-4 mb-4">
+                <h3 class="font-semibold text-gray-300 mb-2">Expected Output</h3>
+                <pre class="text-sm text-gray-400"><code>=== Forge vs Cavalry Head-to-Head ===
+Total matches: 24
+Forge wins: 10
+Cavalry wins: 8
+Draws: 6</code></pre>
+            </div>
+
+            <div class="bg-blue-900/20 border border-blue-600 rounded-lg p-4">
+                <h3 class="font-semibold text-blue-400 mb-2">Analysis Insights</h3>
+                <ul class="text-gray-400 text-sm space-y-1">
+                    <li>&#8226; Forge vs Cavalry is known as the "Battle of the Shields"</li>
+                    <li>&#8226; These are the two most successful CPL teams historically</li>
+                    <li>&#8226; Home venue plays a significant role in these matchups</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Use Case 3: Goal Difference Trends -->
+        <section id="track-goal-difference-trends" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Track Goal Difference Trends Over Seasons</h2>
+            <p class="text-gray-300 mb-4">Monitor team performance evolution using standings data.</p>
+
+            <div class="bg-cpl-card rounded-lg p-4 mb-4">
+                <h3 class="font-semibold mb-2">Query</h3>
+                <code class="text-green-400">GET /api/standings</code>
+            </div>
+
+            <div class="bg-cpl-card rounded-lg overflow-hidden mb-4">
+                <div class="flex border-b border-gray-700">
+                    <button onclick="switchTab('gd', 'python')" class="code-tab active px-4 py-2 text-sm" data-group="gd" id="gd-tab-python">Python</button>
+                    <button onclick="switchTab('gd', 'javascript')" class="code-tab px-4 py-2 text-sm" data-group="gd" id="gd-tab-javascript">JavaScript</button>
+                </div>
+
+                <div id="gd-python" class="code-panel active p-4">
+                    <pre class="text-sm overflow-x-auto"><code><span class="keyword">import</span> requests
+
+<span class="keyword">def</span> <span class="function">goal_difference_trends</span>(team_name: str):
+    <span class="string">"""Track a team's goal difference across all seasons."""</span>
+    url = <span class="string">"https://canpl-analytics.vercel.app/api/standings"</span>
+    response = requests.get(url)
+    data = response.json()
+
+    <span class="keyword">print</span>(<span class="string">f"\n=== {team_name} Goal Difference Trend ===\n"</span>)
+    <span class="keyword">print</span>(<span class="string">f"{'Season':<8} {'GF':<5} {'GA':<5} {'GD':<6} {'Position'}"</span>)
+    <span class="keyword">print</span>(<span class="string">"-"</span> * 35)
+
+    <span class="keyword">for</span> season <span class="keyword">in</span> sorted(data[<span class="string">"seasons"</span>]):
+        standings = data[<span class="string">"standings"</span>][str(season)]
+        team_data = next(
+            (t <span class="keyword">for</span> t <span class="keyword">in</span> standings <span class="keyword">if</span> team_name.lower() <span class="keyword">in</span> t[<span class="string">"team"</span>].lower()),
+            <span class="keyword">None</span>
+        )
+        <span class="keyword">if</span> team_data:
+            gd = team_data[<span class="string">'goal_difference'</span>]
+            gd_str = <span class="string">f"+{gd}"</span> <span class="keyword">if</span> gd > 0 <span class="keyword">else</span> str(gd)
+            <span class="keyword">print</span>(<span class="string">f"{season:<8} {team_data['goals_for']:<5} "</span>
+                  <span class="string">f"{team_data['goals_against']:<5} "</span>
+                  <span class="string">f"{gd_str:<6} #{team_data['position']}"</span>)
+
+<span class="comment"># Execute</span>
+goal_difference_trends(<span class="string">"Forge"</span>)</code></pre>
+                </div>
+
+                <div id="gd-javascript" class="code-panel p-4">
+                    <pre class="text-sm overflow-x-auto"><code><span class="keyword">async function</span> <span class="function">goalDifferenceTrends</span>(teamName) {
+  <span class="keyword">const</span> url = <span class="string">'https://canpl-analytics.vercel.app/api/standings'</span>;
+  <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(url);
+  <span class="keyword">const</span> data = <span class="keyword">await</span> response.json();
+
+  console.log(<span class="string">`\n=== ${teamName} Goal Difference Trend ===\n`</span>);
+  console.log(<span class="string">'Season  GF    GA    GD     Position'</span>);
+  console.log(<span class="string">'-'</span>.repeat(35));
+
+  data.seasons.sort().forEach(season => {
+    <span class="keyword">const</span> standings = data.standings[season];
+    <span class="keyword">const</span> teamData = standings.find(t =>
+      t.team.toLowerCase().includes(teamName.toLowerCase())
+    );
+
+    <span class="keyword">if</span> (teamData) {
+      <span class="keyword">const</span> gdStr = teamData.goal_difference >= 0 ?
+        <span class="string">`+${teamData.goal_difference}`</span> : <span class="string">`${teamData.goal_difference}`</span>;
+      console.log(<span class="string">`${season}    ${teamData.goals_for}     ${teamData.goals_against}     ${gdStr}    #${teamData.position}`</span>);
+    }
+  });
+}
+
+goalDifferenceTrends(<span class="string">'Forge'</span>);</code></pre>
+                </div>
+            </div>
+
+            <div class="bg-cpl-darker rounded-lg p-4 mb-4">
+                <h3 class="font-semibold text-gray-300 mb-2">Expected Output</h3>
+                <pre class="text-sm text-gray-400"><code>=== Forge Goal Difference Trend ===
+
+Season  GF    GA    GD     Position
+-----------------------------------
+2019    50    29    +21    #1
+2020    25    14    +11    #1
+2021    42    28    +14    #1
+2022    45    32    +13    #2
+2023    48    30    +18    #1
+2024    52    28    +24    #1</code></pre>
+            </div>
+        </section>
+
+        <!-- Use Case 4: Map Team Locations -->
+        <section id="map-team-locations" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Map Team Locations Geographically</h2>
+            <p class="text-gray-300 mb-4">Generate GeoJSON data for mapping CPL team locations.</p>
+
+            <div class="bg-cpl-card rounded-lg p-4 mb-4">
+                <h3 class="font-semibold mb-2">Query</h3>
+                <code class="text-green-400">GET /api/teams?active_only=true</code>
+            </div>
+
+            <div class="bg-cpl-card rounded-lg overflow-hidden mb-4">
+                <div class="flex border-b border-gray-700">
+                    <button onclick="switchTab('map', 'python')" class="code-tab active px-4 py-2 text-sm" data-group="map" id="map-tab-python">Python</button>
+                    <button onclick="switchTab('map', 'javascript')" class="code-tab px-4 py-2 text-sm" data-group="map" id="map-tab-javascript">JavaScript</button>
+                </div>
+
+                <div id="map-python" class="code-panel active p-4">
+                    <pre class="text-sm overflow-x-auto"><code><span class="keyword">import</span> requests
+<span class="keyword">import</span> json
+
+<span class="keyword">def</span> <span class="function">map_team_locations</span>():
+    <span class="string">"""Generate GeoJSON for mapping CPL team locations."""</span>
+    url = <span class="string">"https://canpl-analytics.vercel.app/api/teams?active_only=true"</span>
+    response = requests.get(url)
+    data = response.json()
+
+    <span class="comment"># Generate GeoJSON</span>
+    geojson = {
+        <span class="string">"type"</span>: <span class="string">"FeatureCollection"</span>,
+        <span class="string">"features"</span>: []
+    }
+
+    <span class="keyword">for</span> team <span class="keyword">in</span> data[<span class="string">"teams"</span>]:
+        <span class="keyword">if</span> team.get(<span class="string">"latitude"</span>) <span class="keyword">and</span> team.get(<span class="string">"longitude"</span>):
+            feature = {
+                <span class="string">"type"</span>: <span class="string">"Feature"</span>,
+                <span class="string">"geometry"</span>: {
+                    <span class="string">"type"</span>: <span class="string">"Point"</span>,
+                    <span class="string">"coordinates"</span>: [team[<span class="string">"longitude"</span>], team[<span class="string">"latitude"</span>]]
+                },
+                <span class="string">"properties"</span>: {
+                    <span class="string">"name"</span>: team[<span class="string">"name"</span>],
+                    <span class="string">"city"</span>: team[<span class="string">"city"</span>],
+                    <span class="string">"stadium"</span>: team[<span class="string">"stadium"</span>],
+                    <span class="string">"surface"</span>: team[<span class="string">"surface"</span>]
+                }
+            }
+            geojson[<span class="string">"features"</span>].append(feature)
+
+    <span class="keyword">print</span>(<span class="string">f"Generated GeoJSON with {len(geojson['features'])} team locations"</span>)
+
+    <span class="comment"># Save to file for use with Leaflet/Mapbox</span>
+    <span class="keyword">with</span> open(<span class="string">"cpl_teams.geojson"</span>, <span class="string">"w"</span>) <span class="keyword">as</span> f:
+        json.dump(geojson, f, indent=2)
+
+    <span class="keyword">return</span> geojson
+
+map_team_locations()</code></pre>
+                </div>
+
+                <div id="map-javascript" class="code-panel p-4">
+                    <pre class="text-sm overflow-x-auto"><code><span class="keyword">async function</span> <span class="function">mapTeamLocations</span>() {
+  <span class="keyword">const</span> url = <span class="string">'https://canpl-analytics.vercel.app/api/teams?active_only=true'</span>;
+  <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(url);
+  <span class="keyword">const</span> data = <span class="keyword">await</span> response.json();
+
+  <span class="comment">// Generate GeoJSON</span>
+  <span class="keyword">const</span> geojson = {
+    type: <span class="string">'FeatureCollection'</span>,
+    features: data.teams
+      .filter(team => team.latitude && team.longitude)
+      .map(team => ({
+        type: <span class="string">'Feature'</span>,
+        geometry: {
+          type: <span class="string">'Point'</span>,
+          coordinates: [team.longitude, team.latitude]
+        },
+        properties: {
+          name: team.name,
+          city: team.city,
+          stadium: team.stadium,
+          surface: team.surface
+        }
+      }))
+  };
+
+  console.log(<span class="string">`Generated GeoJSON with ${geojson.features.length} team locations`</span>);
+
+  <span class="comment">// Can be used with Leaflet, Mapbox, etc.</span>
+  <span class="keyword">return</span> geojson;
+}
+
+mapTeamLocations();</code></pre>
+                </div>
+            </div>
+
+            <div class="bg-blue-900/20 border border-blue-600 rounded-lg p-4">
+                <h3 class="font-semibold text-blue-400 mb-2">Analysis Insights</h3>
+                <ul class="text-gray-400 text-sm space-y-1">
+                    <li>&#8226; CPL spans 5,000+ km from Halifax to Vancouver</li>
+                    <li>&#8226; Travel distances significantly impact player fatigue</li>
+                    <li>&#8226; Use with mapping libraries (Leaflet, Mapbox) for visualization</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Use Case 5: Home vs Away -->
+        <section id="home-vs-away-performance" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Analyze Home vs Away Performance</h2>
+            <p class="text-gray-300 mb-4">Compare team performance at home versus on the road.</p>
+
+            <div class="bg-cpl-card rounded-lg p-4 mb-4">
+                <h3 class="font-semibold mb-2">Query</h3>
+                <code class="text-green-400">GET /api/matches?season=2024&limit=500</code>
+            </div>
+
+            <div class="bg-cpl-card rounded-lg overflow-hidden mb-4">
+                <div class="p-4">
+                    <pre class="text-sm overflow-x-auto"><code><span class="keyword">import</span> requests
+<span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict
+
+<span class="keyword">def</span> <span class="function">home_vs_away_analysis</span>(season: int):
+    <span class="string">"""Analyze home vs away performance for all teams."""</span>
+    url = <span class="string">"https://canpl-analytics.vercel.app/api/matches"</span>
+    response = requests.get(url, params={<span class="string">"season"</span>: season, <span class="string">"limit"</span>: 500})
+    matches = response.json()[<span class="string">"matches"</span>]
+
+    stats = defaultdict(<span class="keyword">lambda</span>: {
+        <span class="string">"home"</span>: {<span class="string">"played"</span>: 0, <span class="string">"wins"</span>: 0, <span class="string">"draws"</span>: 0, <span class="string">"losses"</span>: 0},
+        <span class="string">"away"</span>: {<span class="string">"played"</span>: 0, <span class="string">"wins"</span>: 0, <span class="string">"draws"</span>: 0, <span class="string">"losses"</span>: 0}
+    })
+
+    <span class="keyword">for</span> match <span class="keyword">in</span> matches:
+        home, away = match[<span class="string">"home_team"</span>], match[<span class="string">"away_team"</span>]
+        hg, ag = match[<span class="string">"home_goals"</span>], match[<span class="string">"away_goals"</span>]
+
+        stats[home][<span class="string">"home"</span>][<span class="string">"played"</span>] += 1
+        stats[away][<span class="string">"away"</span>][<span class="string">"played"</span>] += 1
+
+        <span class="keyword">if</span> hg > ag:
+            stats[home][<span class="string">"home"</span>][<span class="string">"wins"</span>] += 1
+            stats[away][<span class="string">"away"</span>][<span class="string">"losses"</span>] += 1
+        <span class="keyword">elif</span> ag > hg:
+            stats[home][<span class="string">"home"</span>][<span class="string">"losses"</span>] += 1
+            stats[away][<span class="string">"away"</span>][<span class="string">"wins"</span>] += 1
+        <span class="keyword">else</span>:
+            stats[home][<span class="string">"home"</span>][<span class="string">"draws"</span>] += 1
+            stats[away][<span class="string">"away"</span>][<span class="string">"draws"</span>] += 1
+
+    <span class="keyword">print</span>(<span class="string">f"\n=== {season} Home vs Away Performance ===\n"</span>)
+    <span class="keyword">for</span> team, data <span class="keyword">in</span> sorted(stats.items()):
+        h, a = data[<span class="string">"home"</span>], data[<span class="string">"away"</span>]
+        home_pts = h[<span class="string">"wins"</span>] * 3 + h[<span class="string">"draws"</span>]
+        away_pts = a[<span class="string">"wins"</span>] * 3 + a[<span class="string">"draws"</span>]
+        <span class="keyword">print</span>(<span class="string">f"{team}: Home {h['wins']}-{h['draws']}-{h['losses']} ({home_pts}pts) | "</span>
+              <span class="string">f"Away {a['wins']}-{a['draws']}-{a['losses']} ({away_pts}pts)"</span>)
+
+home_vs_away_analysis(2024)</code></pre>
+                </div>
+            </div>
+
+            <div class="bg-cpl-darker rounded-lg p-4">
+                <h3 class="font-semibold text-gray-300 mb-2">Key Metric: Home Advantage</h3>
+                <p class="text-gray-400 text-sm">CPL typically shows ~15% higher win rate at home. Factors include travel distances, altitude (Calgary), and surface type familiarity.</p>
+            </div>
+        </section>
+
+        <!-- Use Case 6: Highest Scoring -->
+        <section id="highest-scoring-matches" class="mb-12">
+            <h2 class="text-2xl font-bold text-cpl-red mb-4">Find Highest-Scoring Matches</h2>
+            <p class="text-gray-300 mb-4">Identify the most entertaining high-scoring games.</p>
+
+            <div class="bg-cpl-card rounded-lg overflow-hidden mb-4">
+                <div class="p-4">
+                    <pre class="text-sm overflow-x-auto"><code><span class="keyword">import</span> requests
+
+<span class="keyword">def</span> <span class="function">find_highest_scoring_matches</span>(top_n=10):
+    <span class="string">"""Find the highest-scoring matches in CPL history."""</span>
+    url = <span class="string">"https://canpl-analytics.vercel.app/api/matches"</span>
+    all_matches = []
+    offset = 0
+
+    <span class="comment"># Paginate to get all matches</span>
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        response = requests.get(url, params={<span class="string">"limit"</span>: 500, <span class="string">"offset"</span>: offset})
+        data = response.json()
+        all_matches.extend(data[<span class="string">"matches"</span>])
+        <span class="keyword">if</span> offset + data[<span class="string">"count"</span>] >= data[<span class="string">"total"</span>]:
+            <span class="keyword">break</span>
+        offset += 500
+
+    <span class="comment"># Sort by total goals</span>
+    all_matches.sort(key=<span class="keyword">lambda</span> m: m[<span class="string">"home_goals"</span>] + m[<span class="string">"away_goals"</span>], reverse=<span class="keyword">True</span>)
+
+    <span class="keyword">print</span>(<span class="string">f"\n=== Top {top_n} Highest-Scoring Matches ===\n"</span>)
+    <span class="keyword">for</span> match <span class="keyword">in</span> all_matches[:top_n]:
+        total = match[<span class="string">"home_goals"</span>] + match[<span class="string">"away_goals"</span>]
+        <span class="keyword">print</span>(<span class="string">f"{match['date']}: {match['home_team']} {match['home_goals']}-"</span>
+              <span class="string">f"{match['away_goals']} {match['away_team']} ({total} goals)"</span>)
+
+    avg = sum(m[<span class="string">"home_goals"</span>] + m[<span class="string">"away_goals"</span>] <span class="keyword">for</span> m <span class="keyword">in</span> all_matches) / len(all_matches)
+    <span class="keyword">print</span>(<span class="string">f"\nAverage goals per match: {avg:.2f}"</span>)
+
+find_highest_scoring_matches(10)</code></pre>
+                </div>
+            </div>
+
+            <div class="bg-cpl-darker rounded-lg p-4">
+                <h3 class="font-semibold text-gray-300 mb-2">Expected Output</h3>
+                <pre class="text-sm text-gray-400"><code>=== Top 10 Highest-Scoring Matches ===
+
+2019-08-28: Pacific FC 5-4 HFX Wanderers FC (9 goals)
+2021-07-17: Valour FC 6-2 FC Edmonton (8 goals)
+2022-06-04: Forge FC 5-3 Pacific FC (8 goals)
+...
+
+Average goals per match: 2.73</code></pre>
+            </div>
+        </section>
+
+        <!-- Related Docs -->
+        <section class="bg-cpl-card rounded-lg p-6">
+            <h3 class="font-bold text-cpl-red mb-4">Related Documentation</h3>
+            <div class="grid md:grid-cols-3 gap-4">
+                <a href="./api-reference.html" class="text-gray-400 hover:text-white">API Reference &rarr;</a>
+                <a href="./data-dictionary.html" class="text-gray-400 hover:text-white">Data Dictionary &rarr;</a>
+                <a href="./data-sources.html" class="text-gray-400 hover:text-white">Data Sources &rarr;</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-8 border-t border-gray-700 mt-12">
+            <p class="text-gray-400">
+                <a href="/" class="text-cpl-red hover:underline">API Home</a>
+                <span class="mx-2">|</span>
+                <a href="./index.html" class="text-cpl-red hover:underline">Docs Index</a>
+                <span class="mx-2">|</span>
+                <a href="https://github.com/GoCeylan/canpl-analytics" target="_blank" class="text-cpl-red hover:underline">GitHub</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function switchTab(group, tab) {
+            // Deactivate all tabs in group
+            document.querySelectorAll(`[data-group="${group}"]`).forEach(t => t.classList.remove('active'));
+            // Hide all panels in group
+            document.querySelectorAll(`[id^="${group}-"]`).forEach(p => {
+                if (!p.id.includes('tab')) p.classList.remove('active');
+            });
+            // Activate selected tab and panel
+            document.getElementById(`${group}-tab-${tab}`).classList.add('active');
+            document.getElementById(`${group}-${tab}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
