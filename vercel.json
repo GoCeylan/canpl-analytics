@@ -24,8 +24,26 @@
       "dest": "/api/teams/route.js"
     },
     {
+      "src": "/api/analytics",
+      "dest": "/api/analytics/route.js"
+    },
+    {
+      "src": "/api/health",
+      "dest": "/api/health/route.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "/public/$1"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
+      ]
     }
   ],
   "github": {

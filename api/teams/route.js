@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { withMiddleware } from '../lib/middleware.js';
 
 export const config = {
   runtime: 'nodejs',
@@ -139,67 +140,64 @@ const TEAM_INFO = {
   }
 };
 
-export default function handler(req, res) {
-  // Set CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+async function teamsHandler(req, res, { track, errors }) {
+  const { active_only } = req.query;
+
+  // Validate active_only parameter
+  if (active_only !== undefined && active_only !== 'true' && active_only !== 'false') {
+    track(400);
+    return errors.badRequest(res, 'active_only must be "true" or "false"');
+  }
+
+  // Read matches to get actual team names from data
+  const dataPath = join(process.cwd(), 'data', 'matches', 'cpl_all.csv');
+  const csvData = readFileSync(dataPath, 'utf-8');
+
+  const lines = csvData.trim().split('\n');
+  const headers = lines[0].split(',');
+
+  const matches = lines.slice(1).map(line => {
+    const values = line.split(',');
+    const obj = {};
+    headers.forEach((header, index) => {
+      obj[header] = values[index];
+    });
+    return obj;
+  }).filter(m => m.date);
+
+  // Get unique teams from data
+  const teamsFromData = new Set();
+  matches.forEach(m => {
+    teamsFromData.add(m.home_team);
+    teamsFromData.add(m.away_team);
+  });
+
+  // Build team list with info
+  let teams = Array.from(teamsFromData).map(name => {
+    const info = TEAM_INFO[name] || {};
+    return {
+      name,
+      ...info,
+      status: info.status || 'active'
+    };
+  });
+
+  // Filter active only if requested
+  if (active_only === 'true') {
+    teams = teams.filter(t => t.status === 'active');
+  }
+
+  // Sort alphabetically
+  teams.sort((a, b) => a.name.localeCompare(b.name));
+
+  // Use longer cache for teams (data changes infrequently)
   res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
-  try {
-    const { active_only } = req.query;
-
-    // Read matches to get actual team names from data
-    const dataPath = join(process.cwd(), 'data', 'matches', 'cpl_all.csv');
-    const csvData = readFileSync(dataPath, 'utf-8');
-
-    const lines = csvData.trim().split('\n');
-    const headers = lines[0].split(',');
-
-    const matches = lines.slice(1).map(line => {
-      const values = line.split(',');
-      const obj = {};
-      headers.forEach((header, index) => {
-        obj[header] = values[index];
-      });
-      return obj;
-    }).filter(m => m.date);
-
-    // Get unique teams from data
-    const teamsFromData = new Set();
-    matches.forEach(m => {
-      teamsFromData.add(m.home_team);
-      teamsFromData.add(m.away_team);
-    });
-
-    // Build team list with info
-    let teams = Array.from(teamsFromData).map(name => {
-      const info = TEAM_INFO[name] || {};
-      return {
-        name,
-        ...info,
-        status: info.status || 'active'
-      };
-    });
-
-    // Filter active only if requested
-    if (active_only === 'true') {
-      teams = teams.filter(t => t.status === 'active');
-    }
-
-    // Sort alphabetically
-    teams.sort((a, b) => a.name.localeCompare(b.name));
-
-    return res.status(200).json({
-      count: teams.length,
-      teams
-    });
-  } catch (error) {
-    console.error('Error loading teams:', error);
-    return res.status(500).json({ error: 'Failed to load teams data' });
-  }
+  track(200);
+  return res.status(200).json({
+    count: teams.length,
+    teams
+  });
 }
+
+export default withMiddleware(teamsHandler, { endpoint: '/api/teams' });
