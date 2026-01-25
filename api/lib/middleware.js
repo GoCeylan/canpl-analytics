@@ -3,13 +3,13 @@
  * Provides CORS, rate limiting, analytics, and error handling
  */
 
-import { getClientIP, checkRateLimit, setRateLimitHeaders, sendRateLimitExceeded } from './rateLimit.js';
-import { createTracker } from './analytics.js';
+const { getClientIP, checkRateLimit, setRateLimitHeaders, sendRateLimitExceeded } = require('./rateLimit.js');
+const { createTracker } = require('./analytics.js');
 
 /**
  * Standard CORS headers for public API
  */
-export function setCorsHeaders(res) {
+function setCorsHeaders(res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
@@ -19,7 +19,7 @@ export function setCorsHeaders(res) {
 /**
  * Handle OPTIONS preflight request
  */
-export function handlePreflight(req, res) {
+function handlePreflight(req, res) {
   if (req.method === 'OPTIONS') {
     setCorsHeaders(res);
     res.status(200).end();
@@ -31,8 +31,9 @@ export function handlePreflight(req, res) {
 /**
  * Standard error responses
  */
-export const errors = {
-  badRequest: (res, message = 'Bad request') => {
+const errors = {
+  badRequest: (res, message) => {
+    message = message || 'Bad request';
     return res.status(400).json({
       error: 'Bad Request',
       message,
@@ -40,7 +41,8 @@ export const errors = {
     });
   },
 
-  notFound: (res, message = 'Resource not found') => {
+  notFound: (res, message) => {
+    message = message || 'Resource not found';
     return res.status(404).json({
       error: 'Not Found',
       message,
@@ -48,16 +50,18 @@ export const errors = {
     });
   },
 
-  methodNotAllowed: (res, allowed = ['GET']) => {
+  methodNotAllowed: (res, allowed) => {
+    allowed = allowed || ['GET'];
     res.setHeader('Allow', allowed.join(', '));
     return res.status(405).json({
       error: 'Method Not Allowed',
-      message: `Only ${allowed.join(', ')} methods are allowed`,
+      message: 'Only ' + allowed.join(', ') + ' methods are allowed',
       status: 405,
     });
   },
 
-  serverError: (res, message = 'Internal server error') => {
+  serverError: (res, message) => {
+    message = message || 'Internal server error';
     return res.status(500).json({
       error: 'Internal Server Error',
       message,
@@ -69,18 +73,21 @@ export const errors = {
 /**
  * Validate numeric parameter
  */
-export function validateNumber(value, name, min = 0, max = Infinity) {
+function validateNumber(value, name, min, max) {
+  min = min || 0;
+  max = max || Infinity;
+
   if (value === undefined || value === '') return { valid: true, value: undefined };
 
   const num = parseInt(value, 10);
   if (isNaN(num)) {
-    return { valid: false, error: `${name} must be a valid number` };
+    return { valid: false, error: name + ' must be a valid number' };
   }
   if (num < min) {
-    return { valid: false, error: `${name} must be at least ${min}` };
+    return { valid: false, error: name + ' must be at least ' + min };
   }
   if (num > max) {
-    return { valid: false, error: `${name} must be at most ${max}` };
+    return { valid: false, error: name + ' must be at most ' + max };
   }
   return { valid: true, value: num };
 }
@@ -93,8 +100,10 @@ export function validateNumber(value, name, min = 0, max = Infinity) {
  * @param {boolean} options.rateLimit - Whether to apply rate limiting (default: true)
  * @returns {Function} Wrapped handler
  */
-export function withMiddleware(handler, options = {}) {
-  const { endpoint = '/api/unknown', rateLimit = true } = options;
+function withMiddleware(handler, options) {
+  options = options || {};
+  const endpoint = options.endpoint || '/api/unknown';
+  const rateLimit = options.rateLimit !== false;
 
   return async (req, res) => {
     // Set CORS headers
@@ -139,9 +148,17 @@ export function withMiddleware(handler, options = {}) {
 
       return result;
     } catch (error) {
-      console.error(`Error in ${endpoint}:`, error);
+      console.error('Error in ' + endpoint + ':', error);
       track(500);
       return errors.serverError(res, 'An unexpected error occurred');
     }
   };
 }
+
+module.exports = {
+  withMiddleware,
+  setCorsHeaders,
+  handlePreflight,
+  errors,
+  validateNumber,
+};

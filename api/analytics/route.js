@@ -1,15 +1,11 @@
-import { getAnalytics } from '../lib/analytics.js';
-import { setCorsHeaders, handlePreflight, errors } from '../lib/middleware.js';
-
-export const config = {
-  runtime: 'nodejs',
-};
+const { getAnalytics } = require('../lib/analytics.js');
+const { setCorsHeaders, handlePreflight } = require('../lib/middleware.js');
 
 /**
  * Analytics endpoint - returns API usage statistics
  * This endpoint is not rate limited to allow monitoring
  */
-export default function handler(req, res) {
+function handler(req, res) {
   // Set CORS headers
   setCorsHeaders(res);
 
@@ -55,3 +51,5 @@ export default function handler(req, res) {
     });
   }
 }
+
+module.exports = handler;

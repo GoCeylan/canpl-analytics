@@ -1,10 +1,6 @@
-import { readFileSync, existsSync } from 'fs';
-import { join } from 'path';
-import { withMiddleware } from '../lib/middleware.js';
-
-export const config = {
-  runtime: 'nodejs',
-};
+const { readFileSync, existsSync } = require('fs');
+const { join } = require('path');
+const { withMiddleware } = require('../lib/middleware.js');
 
 // Load pre-computed standings from official API (regular season only)
 function loadOfficialStandings(season) {
@@ -189,4 +185,4 @@ async function standingsHandler(req, res, { track, errors, validateNumber }) {
   }
 }
 
-export default withMiddleware(standingsHandler, { endpoint: '/api/standings' });
+module.exports = withMiddleware(standingsHandler, { endpoint: '/api/standings' });

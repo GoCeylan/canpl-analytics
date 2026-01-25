@@ -1,16 +1,12 @@
-import { existsSync } from 'fs';
-import { join } from 'path';
-import { setCorsHeaders, handlePreflight } from '../lib/middleware.js';
-
-export const config = {
-  runtime: 'nodejs',
-};
+const { existsSync } = require('fs');
+const { join } = require('path');
+const { setCorsHeaders, handlePreflight } = require('../lib/middleware.js');
 
 /**
  * Health check endpoint for monitoring
  * Returns API status and basic diagnostics
  */
-export default function handler(req, res) {
+function handler(req, res) {
   // Set CORS headers
   setCorsHeaders(res);
 
@@ -76,3 +72,5 @@ export default function handler(req, res) {
     });
   }
 }
+
+module.exports = handler;

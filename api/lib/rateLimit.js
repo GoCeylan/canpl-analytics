@@ -27,7 +27,7 @@ function cleanupExpiredEntries() {
 /**
  * Rate limit configuration
  */
-export const RATE_LIMIT = {
+const RATE_LIMIT = {
   windowMs: 60 * 60 * 1000, // 1 hour
   maxRequests: 20,          // 20 requests per hour
 };
@@ -35,14 +35,14 @@ export const RATE_LIMIT = {
 /**
  * Get client IP from request
  */
-export function getClientIP(req) {
+function getClientIP(req) {
   // Vercel provides the real IP in x-forwarded-for or x-real-ip
   const forwarded = req.headers['x-forwarded-for'];
   if (forwarded) {
     return forwarded.split(',')[0].trim();
   }
   return req.headers['x-real-ip'] ||
-         req.socket?.remoteAddress ||
+         (req.socket && req.socket.remoteAddress) ||
          'unknown';
 }
 
@@ -51,7 +51,7 @@ export function getClientIP(req) {
  * @param {string} ip - Client IP address
  * @returns {{ allowed: boolean, remaining: number, resetTime: number, limit: number }}
  */
-export function checkRateLimit(ip) {
+function checkRateLimit(ip) {
   cleanupExpiredEntries();
 
   const now = Date.now();
@@ -102,7 +102,7 @@ export function checkRateLimit(ip) {
  * @param {Object} res - Response object
  * @param {Object} rateLimitInfo - Rate limit status from checkRateLimit
  */
-export function setRateLimitHeaders(res, rateLimitInfo) {
+function setRateLimitHeaders(res, rateLimitInfo) {
   res.setHeader('X-RateLimit-Limit', rateLimitInfo.limit);
   res.setHeader('X-RateLimit-Remaining', rateLimitInfo.remaining);
   res.setHeader('X-RateLimit-Reset', Math.ceil(rateLimitInfo.resetTime / 1000));
@@ -113,7 +113,7 @@ export function setRateLimitHeaders(res, rateLimitInfo) {
  * @param {Object} res - Response object
  * @param {Object} rateLimitInfo - Rate limit status
  */
-export function sendRateLimitExceeded(res, rateLimitInfo) {
+function sendRateLimitExceeded(res, rateLimitInfo) {
   const resetDate = new Date(rateLimitInfo.resetTime);
   const retryAfter = Math.ceil((rateLimitInfo.resetTime - Date.now()) / 1000);
 
@@ -127,3 +127,11 @@ export function sendRateLimitExceeded(res, rateLimitInfo) {
     resetTime: resetDate.toISOString(),
   });
 }
+
+module.exports = {
+  RATE_LIMIT,
+  getClientIP,
+  checkRateLimit,
+  setRateLimitHeaders,
+  sendRateLimitExceeded,
+};

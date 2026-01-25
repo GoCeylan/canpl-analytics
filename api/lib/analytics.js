@@ -4,6 +4,18 @@
  * Note: Data is lost on cold starts. For persistence, use Vercel KV or external DB.
  */
 
+/**
+ * Get the start of the current week (Monday)
+ */
+function getWeekStart() {
+  const now = new Date();
+  const day = now.getDay();
+  const diff = now.getDate() - day + (day === 0 ? -6 : 1);
+  const weekStart = new Date(now);
+  weekStart.setDate(diff);
+  return weekStart.toISOString().split('T')[0];
+}
+
 // In-memory analytics store
 const analyticsStore = {
   // Endpoint statistics
@@ -33,16 +45,6 @@ const analyticsStore = {
   // Geographic distribution (if available)
   countries: new Map(),
 };
-
-/**
- * Get the start of the current week (Monday)
- */
-function getWeekStart() {
-  const now = new Date();
-  const day = now.getDay();
-  const diff = now.getDate() - day + (day === 0 ? -6 : 1);
-  return new Date(now.setDate(diff)).toISOString().split('T')[0];
-}
 
 /**
  * Get current hour key for time-series data
@@ -83,7 +85,7 @@ function resetCountersIfNeeded() {
  * @param {string} params.country - Country code (if available)
  * @param {Object} params.query - Query parameters
  */
-export function trackRequest({ endpoint, ip, responseTime, statusCode, country, query }) {
+function trackRequest({ endpoint, ip, responseTime, statusCode, country, query }) {
   resetCountersIfNeeded();
 
   // Update endpoint stats
@@ -134,7 +136,7 @@ export function trackRequest({ endpoint, ip, responseTime, statusCode, country, 
 
   // Clean up old hourly data (keep last 24 hours)
   const cutoff = Date.now() - (24 * 60 * 60 * 1000);
-  for (const [key, _] of analyticsStore.hourly) {
+  for (const [key] of analyticsStore.hourly) {
     if (new Date(key).getTime() < cutoff) {
       analyticsStore.hourly.delete(key);
     }
@@ -145,7 +147,7 @@ export function trackRequest({ endpoint, ip, responseTime, statusCode, country, 
  * Get analytics summary
  * @returns {Object} Analytics data
  */
-export function getAnalytics() {
+function getAnalytics() {
   resetCountersIfNeeded();
 
   // Calculate endpoint statistics
@@ -200,12 +202,13 @@ export function getAnalytics() {
  * @param {string} endpoint - Endpoint name
  * @returns {Function} Function to call after response is sent
  */
-export function createTracker(req, endpoint) {
+function createTracker(req, endpoint) {
   const startTime = Date.now();
 
   return (statusCode) => {
     const responseTime = Date.now() - startTime;
-    const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() ||
+    const forwarded = req.headers['x-forwarded-for'];
+    const ip = (forwarded && forwarded.split(',')[0].trim()) ||
                req.headers['x-real-ip'] ||
                'unknown';
     const country = req.headers['x-vercel-ip-country'] || 'unknown';
@@ -220,3 +223,9 @@ export function createTracker(req, endpoint) {
     });
   };
 }
+
+module.exports = {
+  trackRequest,
+  getAnalytics,
+  createTracker,
+};

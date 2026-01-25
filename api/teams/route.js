@@ -1,10 +1,6 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
-import { withMiddleware } from '../lib/middleware.js';
-
-export const config = {
-  runtime: 'nodejs',
-};
+const { readFileSync } = require('fs');
+const { join } = require('path');
+const { withMiddleware } = require('../lib/middleware.js');
 
 // CPL team information (supports both full names and short names from API)
 const TEAM_INFO = {
@@ -200,4 +196,4 @@ async function teamsHandler(req, res, { track, errors }) {
   });
 }
 
-export default withMiddleware(teamsHandler, { endpoint: '/api/teams' });
+module.exports = withMiddleware(teamsHandler, { endpoint: '/api/teams' });

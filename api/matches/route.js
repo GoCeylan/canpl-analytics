@@ -1,10 +1,6 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
-import { withMiddleware } from '../lib/middleware.js';
-
-export const config = {
-  runtime: 'nodejs',
-};
+const { readFileSync } = require('fs');
+const { join } = require('path');
+const { withMiddleware } = require('../lib/middleware.js');
 
 async function matchesHandler(req, res, { track, errors, validateNumber }) {
   const { season, team, limit = '100', offset = '0' } = req.query;
@@ -80,4 +76,4 @@ async function matchesHandler(req, res, { track, errors, validateNumber }) {
   });
 }
 
-export default withMiddleware(matchesHandler, { endpoint: '/api/matches' });
+module.exports = withMiddleware(matchesHandler, { endpoint: '/api/matches' });
