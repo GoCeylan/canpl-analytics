@@ -2,6 +2,20 @@
 
 The most comprehensive open dataset for the Canadian Premier League (CPL).
 
+## Features
+
+- 309+ historical matches (2019-2025)
+- Official 2025 standings from CanPL API
+- ~~Historical closing odds from major bookmakers~~ *(Coming Soon)*
+- Team metadata with stadium coordinates
+- RESTful JSON API
+- Free, open data (CC-BY-4.0)
+
+## What Makes This Unique?
+
+The most comprehensive open dataset for Canadian Premier League analysis.
+Perfect for building prediction models, tracking team performance, and research.
+
 ## What's Included
 
 - Complete match results (2019-2026)
@@ -9,7 +23,7 @@ The most comprehensive open dataset for the Canadian Premier League (CPL).
 - Historical lineups
 - Weather data for every match
 - Travel distance calculations
-- Historical betting odds (Bet365, Sports Interaction)
+- Historical closing odds *(Preview - full data coming soon)*
 
 ## Data Coverage
 
@@ -54,6 +68,31 @@ form = loader.get_recent_form('Forge FC', n_matches=5)
 h2h = loader.get_head_to_head('Forge FC', 'Cavalry FC')
 ```
 
+## API Endpoints
+
+Base URL: `https://canpl-analytics.vercel.app`
+
+| Endpoint | Description |
+|----------|-------------|
+| `/api/matches` | Match results with filtering |
+| `/api/standings` | League standings by season |
+| `/api/teams` | Team metadata and coordinates |
+| `/api/odds` | Historical closing odds *(Preview - limited data)* |
+
+### Closing Odds API *(Preview)*
+
+> **Note:** Historical odds scraping is in development. Currently only 5 matches from the 2024 CPL playoffs are available. Full historical data will be added in a future update.
+
+```bash
+# Get available 2024 playoff odds (limited)
+curl "https://canpl-analytics.vercel.app/api/odds?season=2024"
+```
+
+Response includes:
+- `closing_home`, `closing_draw`, `closing_away` - Match result odds
+- `bookmaker` - Currently only `betexplorer_avg`
+- `scraped_at` - When odds were captured
+
 ## Project Structure
 
 ```
@@ -65,8 +104,12 @@ canpl-analytics/
 │   │   ├── cpl_2019.csv
 │   │   ├── cpl_2020.csv
 │   │   └── ...
+│   ├── closing_odds/            # Weekly closing odds
+│   │   ├── cpl_2024_closing_odds.csv
+│   │   ├── cpl_2025_closing_odds.csv
+│   │   └── README.md
 │   ├── team_stats/              # Team statistics
-│   ├── historical_odds/         # Betting odds history
+│   ├── historical_odds/         # Betting odds history (legacy)
 │   └── README.md                # Data dictionary
 ├── scripts/
 │   ├── data_loader.py           # Helper to load data
@@ -86,10 +129,38 @@ canpl-analytics/
 ## Example Use Cases
 
 1. **Betting Models** - Build Poisson regression models for match predictions
-2. **Performance Analysis** - Track team form and trends over time
-3. **Travel Impact Studies** - Quantify away travel disadvantage
-4. **Weather Effects** - Analyze how temperature/rain affects scoring
-5. **Playoff Predictions** - ML models for championship odds
+2. **Market Efficiency Analysis** - Compare predictions to closing odds
+3. **Closing Line Value (CLV)** - Measure edge by comparing bet prices to closing
+4. **Performance Analysis** - Track team form and trends over time
+5. **Travel Impact Studies** - Quantify away travel disadvantage
+6. **Weather Effects** - Analyze how temperature/rain affects scoring
+7. **Playoff Predictions** - ML models for championship odds
+
+## Example: Analyze Closing Odds *(Preview)*
+
+> **Note:** This example uses limited sample data from 2024 playoffs only.
+
+```python
+import pandas as pd
+import requests
+
+# Fetch closing odds from API (limited to 2024 playoff data)
+response = requests.get('https://canpl-analytics.vercel.app/api/odds?season=2024')
+odds = pd.DataFrame(response.json()['odds'])
+
+# Only 5 matches currently available
+print(f"Available matches: {len(odds)}")
+
+# Calculate implied probabilities
+odds['implied_home'] = 1 / odds['closing_home']
+odds['implied_draw'] = 1 / odds['closing_draw']
+odds['implied_away'] = 1 / odds['closing_away']
+
+# Calculate bookmaker margin (overround)
+odds['margin'] = odds['implied_home'] + odds['implied_draw'] + odds['implied_away'] - 1
+
+print(f"Average margin: {odds['margin'].mean():.1%}")
+```
 
 ## Example: Simple Prediction Model
 

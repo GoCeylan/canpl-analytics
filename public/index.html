@@ -45,7 +45,7 @@
         </header>
 
         <!-- Stats Cards -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 my-8">
             <div class="bg-cpl-red/10 border border-cpl-red rounded-lg p-6 text-center">
                 <div class="text-3xl font-bold text-cpl-red">309</div>
                 <div class="text-gray-400 text-sm">Matches</div>
@@ -57,6 +57,10 @@
             <div class="bg-cpl-red/10 border border-cpl-red rounded-lg p-6 text-center">
                 <div class="text-3xl font-bold text-cpl-red">8</div>
                 <div class="text-gray-400 text-sm">Teams</div>
+            </div>
+            <div class="bg-gray-700/30 border border-gray-600 rounded-lg p-6 text-center opacity-60">
+                <div class="text-3xl font-bold text-gray-400">--</div>
+                <div class="text-gray-500 text-sm">Odds (Coming Soon)</div>
             </div>
             <div class="bg-cpl-red/10 border border-cpl-red rounded-lg p-6 text-center">
                 <div class="text-3xl font-bold text-cpl-red">2019-25</div>
@@ -72,6 +76,11 @@
                     <div class="text-2xl mb-2">&#128202;</div>
                     <h3 class="font-semibold mb-1">Historical Data</h3>
                     <p class="text-gray-400 text-sm">309+ matches from 2019-2025 with full results and venue information</p>
+                </div>
+                <div class="bg-cpl-card rounded-lg p-5 border border-dashed border-gray-600">
+                    <div class="text-2xl mb-2">&#128176;</div>
+                    <h3 class="font-semibold mb-1">Closing Odds <span class="text-xs bg-yellow-600/30 text-yellow-400 px-2 py-0.5 rounded ml-1">Coming Soon</span></h3>
+                    <p class="text-gray-500 text-sm">Historical betting odds - currently in development. Sample data available for 2024 playoffs.</p>
                 </div>
                 <div class="bg-cpl-card rounded-lg p-5">
                     <div class="text-2xl mb-2">&#9989;</div>
@@ -278,6 +287,99 @@
                     </div>
                 </div>
             </div>
+
+            <!-- /api/odds -->
+            <div class="bg-cpl-card rounded-lg mb-4 overflow-hidden border border-dashed border-yellow-600/50">
+                <div class="p-5">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-gray-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
+                        <code class="text-gray-400 font-mono">/api/odds</code>
+                        <span class="bg-yellow-600/30 text-yellow-400 text-xs font-medium px-2 py-1 rounded">PREVIEW</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Historical closing odds for CPL matches. <strong class="text-yellow-400">Currently limited to 2024 playoff matches only.</strong></p>
+
+                    <div class="bg-yellow-900/20 border border-yellow-600/30 rounded p-3 mb-4">
+                        <p class="text-yellow-400 text-sm font-medium mb-1">&#9888; Limited Data Available</p>
+                        <p class="text-gray-400 text-xs">Historical odds scraping is in development. Currently only 5 matches from the 2024 CPL playoffs are available as sample data. Full historical odds (2019-2024) will be added in a future update.</p>
+                    </div>
+
+                    <div class="space-y-2 text-sm mb-4">
+                        <div class="flex gap-4 py-2 border-b border-gray-700">
+                            <span class="text-blue-400 font-mono w-24">season</span>
+                            <span class="text-gray-400">Filter by season year (only <code class="bg-cpl-darker px-2 py-0.5 rounded">2024</code> has data)</span>
+                        </div>
+                        <div class="flex gap-4 py-2 border-b border-gray-700">
+                            <span class="text-blue-400 font-mono w-24">team</span>
+                            <span class="text-gray-400">Filter by team name (e.g., <code class="bg-cpl-darker px-2 py-0.5 rounded">Forge</code>)</span>
+                        </div>
+                        <div class="flex gap-4 py-2 border-b border-gray-700">
+                            <span class="text-blue-400 font-mono w-24">bookmaker</span>
+                            <span class="text-gray-400">Filter by bookmaker (currently only <code class="bg-cpl-darker px-2 py-0.5 rounded">betexplorer_avg</code>)</span>
+                        </div>
+                        <div class="flex gap-4 py-2 border-b border-gray-700">
+                            <span class="text-blue-400 font-mono w-24">limit</span>
+                            <span class="text-gray-400">Max results to return (default: 100)</span>
+                        </div>
+                        <div class="flex gap-4 py-2">
+                            <span class="text-blue-400 font-mono w-24">offset</span>
+                            <span class="text-gray-400">Skip first N results for pagination (default: 0)</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-cpl-darker/50 border border-gray-700 rounded p-3 mb-4">
+                        <p class="text-gray-400 text-xs"><strong class="text-yellow-400">Note:</strong> These are <em>closing odds</em> only (final odds before kickoff). Full historical data coming soon.</p>
+                    </div>
+
+                    <button onclick="toggleTestPanel('odds')" class="text-cpl-red hover:text-red-400 text-sm font-medium flex items-center gap-1">
+                        <span id="odds-toggle-icon">&#9654;</span> Test this endpoint
+                    </button>
+                </div>
+
+                <div id="odds-test-panel" class="hidden bg-cpl-darker p-5 border-t border-gray-700">
+                    <div class="grid md:grid-cols-4 gap-4 mb-4">
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-1">Season</label>
+                            <select id="odds-season" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-1">Team</label>
+                            <input id="odds-team" type="text" placeholder="e.g., Forge" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-1">Bookmaker</label>
+                            <select id="odds-bookmaker" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
+                                <option value="">All</option>
+                                <option value="bet365">Bet365</option>
+                                <option value="sportsinteraction">Sports Interaction</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-sm mb-1">Limit</label>
+                            <input id="odds-limit" type="number" value="10" min="1" max="100" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
+                        </div>
+                    </div>
+                    <button onclick="testOddsAPI()" class="bg-cpl-red hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-medium transition">
+                        Test API
+                    </button>
+                    <div id="odds-response" class="mt-4 hidden">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <span id="odds-status" class="text-sm"></span>
+                                <span id="odds-time" class="text-gray-500 text-sm"></span>
+                            </div>
+                            <button onclick="copyResponse('odds')" class="text-gray-400 hover:text-white text-sm">Copy</button>
+                        </div>
+                        <pre id="odds-json" class="bg-cpl-dark p-4 rounded text-sm font-mono overflow-x-auto max-h-96"></pre>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Quick Start Section -->
@@ -448,6 +550,20 @@ curl <span class="text-green-400">"https://canpl-analytics.vercel.app/api/teams?
             const activeOnly = document.getElementById('teams-active').checked;
             const url = activeOnly ? '/api/teams?active_only=true' : '/api/teams';
             await fetchAndDisplay('teams', url);
+        }
+
+        // Test /api/odds
+        async function testOddsAPI() {
+            const season = document.getElementById('odds-season').value;
+            const team = document.getElementById('odds-team').value;
+            const bookmaker = document.getElementById('odds-bookmaker').value;
+            const limit = document.getElementById('odds-limit').value;
+
+            let url = `/api/odds?season=${season}&limit=${limit}`;
+            if (team) url += `&team=${encodeURIComponent(team)}`;
+            if (bookmaker) url += `&bookmaker=${encodeURIComponent(bookmaker)}`;
+
+            await fetchAndDisplay('odds', url);
         }
 
         // Generic fetch and display

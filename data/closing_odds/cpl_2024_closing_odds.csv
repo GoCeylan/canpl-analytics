@@ -1,0 +1,6 @@
+match_id,date,home_team,away_team,bookmaker,closing_home,closing_draw,closing_away,closing_over_2.5,closing_under_2.5,scraped_at
+cavalry_vs_forge_20241109,2024-11-09,Cavalry FC,Forge FC,betexplorer_avg,1.89,3.23,3.97,,,2026-01-25T18:04:36Z
+forge_vs_atletico_ottawa_20241102,2024-11-02,Forge FC,Atletico Ottawa,betexplorer_avg,2.31,3.16,2.89,,,2026-01-25T18:04:36Z
+forge_vs_cavalry_20241027,2024-10-27,Forge FC,Cavalry FC,betexplorer_avg,2.61,2.92,2.72,,,2026-01-25T18:04:36Z
+atletico_ottawa_vs_inter_toronto_20241027,2024-10-27,Atletico Ottawa,Inter Toronto FC,betexplorer_avg,1.68,3.52,4.48,,,2026-01-25T18:04:36Z
+inter_toronto_vs_pacific_20241023,2024-10-23,Inter Toronto FC,Pacific FC,betexplorer_avg,2.35,3.18,2.82,,,2026-01-25T18:04:36Z
