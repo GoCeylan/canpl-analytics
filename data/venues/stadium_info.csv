@@ -1,0 +1,12 @@
+team,city,stadium,capacity,latitude,longitude,surface,founded,status,notes
+Forge FC,Hamilton,Tim Hortons Field,24000,43.2557,-79.8711,grass,2018,active,
+Cavalry FC,Calgary,ATCO Field,6000,50.9900,-114.0060,grass,2018,active,Located at Spruce Meadows
+Pacific FC,Langford,Starlight Stadium,6500,48.4500,-123.4960,turf,2018,active,
+Valour FC,Winnipeg,IG Field,33500,49.8076,-97.1445,turf,2018,inactive,Shared with Winnipeg Blue Bombers; left CPL after 2024 season
+HFX Wanderers FC,Halifax,Wanderers Grounds,6200,44.6488,-63.5752,grass,2018,active,
+Atletico Ottawa,Ottawa,TD Place Stadium,24000,45.3985,-75.6825,turf,2020,active,Shared with Ottawa Redblacks
+Vancouver FC,Langley,Willoughby Community Park,5500,49.0197,-122.6465,turf,2023,active,
+Inter Toronto,Toronto,York Lions Stadium,3000,43.7735,-79.4992,turf,2024,active,Formerly York United FC (2019-2024)
+FC Edmonton,Edmonton,Clarke Stadium,5100,53.5722,-113.4557,turf,2010,inactive,Left CPL after 2023 season
+York United FC,Toronto,York Lions Stadium,3000,43.7735,-79.4992,turf,2018,inactive,Rebranded to Inter Toronto in 2024
+FC Supra,Laval,Stade Boréale,5581,45.5740,-73.7045,turf,2026,active,First Quebec-based CPL team; shares stadium with Montreal Roses FC (NSL)

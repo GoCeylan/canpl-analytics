@@ -58,7 +58,8 @@ const TEAM_INFO = {
     founded: 2018,
     latitude: 49.8076,
     longitude: -97.1445,
-    surface: 'turf'
+    surface: 'turf',
+    status: 'inactive'
   },
   'Valour': {
     city: 'Winnipeg',
@@ -66,7 +67,8 @@ const TEAM_INFO = {
     founded: 2018,
     latitude: 49.8076,
     longitude: -97.1445,
-    surface: 'turf'
+    surface: 'turf',
+    status: 'inactive'
   },
   'York United FC': {
     city: 'Toronto',
@@ -76,6 +78,14 @@ const TEAM_INFO = {
     longitude: -79.4992,
     surface: 'turf',
     status: 'inactive'
+  },
+  'Inter Toronto FC': {
+    city: 'Toronto',
+    stadium: 'York Lions Stadium',
+    founded: 2018,
+    latitude: 43.7735,
+    longitude: -79.4992,
+    surface: 'turf',
   },
   'HFX Wanderers FC': {
     city: 'Halifax',
@@ -132,6 +142,14 @@ const TEAM_INFO = {
     founded: 2024,
     latitude: 43.7735,
     longitude: -79.4992,
+    surface: 'turf'
+  },
+  'FC Supra': {
+    city: 'Laval',
+    stadium: 'Stade Boréale',
+    founded: 2026,
+    latitude: 45.5740,
+    longitude: -73.7045,
     surface: 'turf'
   }
 };
