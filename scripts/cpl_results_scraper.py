@@ -1,13 +1,18 @@
 """
 CPL Match Results Scraper
-Scrapes historical and current match data from Wikipedia and other sources.
 
-This scraper fetches REAL match data from:
-1. Wikipedia (primary source - has structured tables)
-2. Transfermarkt (backup source)
-3. Official CPL API (if available)
+Collects match results from publicly accessible web sources.
+Primary/backup sources may include:
+- FBref (tables)
+- Wikipedia (season pages)
+- Transfermarkt / Soccerway (backup)
 
-Run with: python cpl_results_scraper.py --mode scrape
+Notes:
+- Be respectful: rate-limit requests and cache outputs.
+- Data quality can vary by source; verify important records.
+
+Run:
+  python cpl_results_scraper.py --mode api --start-year 2019 --end-year 2025
 """
 
 import requests

@@ -2,7 +2,7 @@
 
 > **⚠️ PREVIEW - LIMITED DATA AVAILABLE**
 >
-> Historical odds scraping is currently in development. Only **5 matches from the 2024 CPL playoffs** are available as sample data. Full historical odds (2019-2024) will be added in a future update once a reliable data source is secured.
+> Only **5 matches from the 2024 CPL playoffs** are available as sample data. Full historical odds (2019-2025) will be added in a future update once a reliable data source is secured.
 
 Historical closing odds for Canadian Premier League matches.
 
@@ -101,10 +101,7 @@ margin = (1/1.75 + 1/3.60 + 1/4.20) - 1
 
 ## Current Data Source
 
-The 5 available matches are from BetExplorer average odds, scraped from the 2024 CPL playoff results page. Full historical data is not yet available due to:
-
-- **OddsPortal**: JavaScript-heavy site, difficult to scrape
-- **BetExplorer**: Only shows recent/playoff matches without pagination to historical data
+The 5 available matches are a limited sample from the 2024 CPL playoffs. Full historical data is not yet available.
 
 ## Future Plans
 
