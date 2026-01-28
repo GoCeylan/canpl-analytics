@@ -1,0 +1,310 @@
+date,home_team,away_team,temp_c,wind_kmh,precip_mm
+2019-04-27,Forge FC,York United FC,4.9,32.9,0.0
+2019-04-28,Cavalry FC,Pacific FC,-1.6,27.4,4.1
+2019-04-28,Valour FC,FC Edmonton,3.9,25.0,0.8
+2019-05-01,HFX Wanderers FC,Forge FC,6.5,21.4,0.0
+2019-05-04,York United FC,Cavalry FC,8.9,11.6,1.1
+2019-05-04,Pacific FC,Valour FC,10.5,12.2,0.0
+2019-05-05,FC Edmonton,HFX Wanderers FC,2.3,12.5,0.0
+2019-05-11,Forge FC,Pacific FC,7.6,15.0,0.1
+2019-05-11,Cavalry FC,Valour FC,12.1,17.7,0.0
+2019-05-12,HFX Wanderers FC,York United FC,8.3,23.2,0.0
+2019-05-15,FC Edmonton,Forge FC,7.6,18.8,11.9
+2019-05-18,Valour FC,HFX Wanderers FC,7.4,28.1,0.0
+2019-05-18,Pacific FC,York United FC,13.2,19.1,0.0
+2019-05-19,Cavalry FC,FC Edmonton,4.4,19.9,0.0
+2019-05-25,Forge FC,Valour FC,18.5,25.0,5.4
+2019-05-25,York United FC,Pacific FC,15.2,19.4,16.4
+2019-05-26,HFX Wanderers FC,Cavalry FC,7.9,14.0,6.0
+2019-06-01,FC Edmonton,York United FC,18.0,14.8,0.0
+2019-06-01,Pacific FC,HFX Wanderers FC,14.8,26.9,0.0
+2019-06-02,Valour FC,Cavalry FC,11.8,13.1,0.0
+2019-06-08,Cavalry FC,Forge FC,8.3,16.5,1.2
+2019-06-08,York United FC,Valour FC,17.7,20.4,0.0
+2019-06-09,HFX Wanderers FC,Pacific FC,14.7,14.1,0.0
+2019-06-15,Forge FC,FC Edmonton,18.5,32.6,3.8
+2019-06-15,Valour FC,Pacific FC,15.7,22.3,0.7
+2019-06-16,Cavalry FC,HFX Wanderers FC,15.6,12.5,0.0
+2019-06-22,Pacific FC,Cavalry FC,13.5,32.1,0.0
+2019-06-22,FC Edmonton,Valour FC,14.3,19.4,1.1
+2019-06-23,York United FC,HFX Wanderers FC,19.2,17.3,0.0
+2019-06-26,HFX Wanderers FC,FC Edmonton,13.5,13.2,2.9
+2019-06-29,Forge FC,Cavalry FC,23.9,18.9,4.2
+2019-06-29,Valour FC,York United FC,23.4,24.9,6.2
+2020-08-13,Forge FC,Cavalry FC,22.9,12.3,0.0
+2020-08-13,Pacific FC,FC Edmonton,14.8,23.1,0.0
+2020-08-15,York United FC,HFX Wanderers FC,22.8,14.4,1.0
+2020-08-15,Valour FC,Atletico Ottawa,18.8,22.5,0.8
+2020-08-16,Cavalry FC,Pacific FC,19.1,14.3,0.0
+2020-08-16,HFX Wanderers FC,Forge FC,18.3,13.9,0.0
+2020-08-19,Atletico Ottawa,York United FC,16.7,16.7,0.3
+2020-08-19,FC Edmonton,Valour FC,19.9,20.3,0.0
+2020-08-20,Forge FC,Pacific FC,19.5,21.9,0.0
+2020-08-20,Cavalry FC,HFX Wanderers FC,19.8,14.2,0.4
+2020-08-22,York United FC,Valour FC,23.2,10.1,1.1
+2020-08-22,Atletico Ottawa,FC Edmonton,21.1,10.6,0.0
+2020-08-23,HFX Wanderers FC,Pacific FC,19.9,19.2,0.0
+2020-08-23,Forge FC,Cavalry FC,24.5,14.8,0.3
+2020-08-25,Valour FC,York United FC,21.6,19.2,0.1
+2020-08-25,FC Edmonton,Atletico Ottawa,14.4,15.6,0.0
+2020-08-27,Pacific FC,Forge FC,16.0,19.6,0.0
+2020-08-27,HFX Wanderers FC,Cavalry FC,15.6,23.7,0.0
+2020-08-29,York United FC,FC Edmonton,22.0,29.2,10.8
+2020-08-29,Valour FC,Atletico Ottawa,17.7,16.9,0.0
+2020-08-30,Cavalry FC,Pacific FC,11.9,17.6,1.4
+2020-08-30,Forge FC,HFX Wanderers FC,18.5,17.4,0.5
+2020-09-01,Atletico Ottawa,Valour FC,20.1,20.5,2.3
+2020-09-01,FC Edmonton,York United FC,16.2,37.3,0.2
+2021-06-26,Forge FC,HFX Wanderers FC,23.8,31.4,22.7
+2021-06-26,Valour FC,Pacific FC,20.8,14.5,0.8
+2021-06-27,Cavalry FC,Atletico Ottawa,22.8,14.1,0.0
+2021-06-27,York United FC,FC Edmonton,26.9,24.7,0.4
+2021-07-03,Pacific FC,Forge FC,18.1,23.6,0.0
+2021-07-03,HFX Wanderers FC,Cavalry FC,13.3,19.2,2.1
+2021-07-04,FC Edmonton,Valour FC,18.5,20.3,0.3
+2021-07-04,Atletico Ottawa,York United FC,18.6,11.0,0.0
+2021-07-10,Forge FC,Atletico Ottawa,19.1,11.0,0.0
+2021-07-10,Cavalry FC,Valour FC,20.8,11.0,0.0
+2021-07-11,Pacific FC,FC Edmonton,16.3,28.0,0.0
+2021-07-11,York United FC,HFX Wanderers FC,18.0,15.1,7.4
+2021-07-17,Valour FC,Forge FC,26.5,21.0,0.0
+2021-07-17,HFX Wanderers FC,Pacific FC,21.3,14.0,1.7
+2021-07-18,Atletico Ottawa,Cavalry FC,23.1,7.7,0.1
+2021-07-18,FC Edmonton,York United FC,14.7,13.1,0.9
+2021-07-24,Forge FC,FC Edmonton,20.2,25.0,14.7
+2021-07-24,Pacific FC,Atletico Ottawa,18.2,25.1,0.0
+2021-07-25,Cavalry FC,York United FC,18.3,11.5,0.0
+2021-07-25,Valour FC,HFX Wanderers FC,24.1,20.0,0.0
+2021-07-31,York United FC,Forge FC,16.8,18.7,1.5
+2021-07-31,Atletico Ottawa,Valour FC,16.9,14.4,0.3
+2021-08-01,HFX Wanderers FC,FC Edmonton,17.2,17.4,0.0
+2021-08-01,Pacific FC,Cavalry FC,20.2,26.6,0.0
+2021-08-07,Forge FC,Cavalry FC,23.5,17.3,5.5
+2021-08-07,FC Edmonton,Atletico Ottawa,16.5,25.4,10.5
+2021-08-08,Valour FC,York United FC,25.2,26.3,0.0
+2021-08-08,HFX Wanderers FC,Pacific FC,20.2,14.1,5.9
+2021-08-14,Cavalry FC,Forge FC,24.0,16.6,0.0
+2021-08-14,York United FC,Pacific FC,19.8,18.1,0.0
+2021-08-15,Atletico Ottawa,HFX Wanderers FC,18.8,9.3,0.0
+2021-08-15,FC Edmonton,Valour FC,22.5,22.8,0.0
+2022-04-07,Forge FC,Cavalry FC,9.9,21.2,0.6
+2022-04-09,Pacific FC,HFX Wanderers FC,5.6,32.0,1.7
+2022-04-10,York United FC,Atletico Ottawa,3.1,23.9,0.0
+2022-04-10,Valour FC,FC Edmonton,5.5,21.0,0.0
+2022-04-16,Cavalry FC,Pacific FC,-3.6,16.5,0.0
+2022-04-16,HFX Wanderers FC,York United FC,7.5,26.5,0.0
+2022-04-17,FC Edmonton,Forge FC,-1.1,10.5,0.8
+2022-04-17,Atletico Ottawa,Valour FC,2.6,23.5,0.4
+2022-04-23,Forge FC,Pacific FC,6.1,20.0,0.3
+2022-04-23,York United FC,Cavalry FC,6.8,22.4,0.6
+2022-04-24,Valour FC,HFX Wanderers FC,0.4,41.9,11.5
+2022-04-24,FC Edmonton,Atletico Ottawa,6.2,21.2,0.0
+2022-04-30,Cavalry FC,Valour FC,6.3,16.6,0.0
+2022-04-30,Pacific FC,York United FC,9.4,20.5,8.0
+2022-05-01,HFX Wanderers FC,Forge FC,3.8,21.6,0.0
+2022-05-01,Atletico Ottawa,FC Edmonton,10.9,18.0,0.0
+2022-05-07,Forge FC,Valour FC,8.5,25.3,0.0
+2022-05-07,York United FC,FC Edmonton,10.0,18.8,0.0
+2022-05-08,Cavalry FC,HFX Wanderers FC,4.9,18.2,2.9
+2022-05-08,Pacific FC,Atletico Ottawa,7.0,22.9,2.3
+2022-05-14,Valour FC,Cavalry FC,10.1,36.7,0.3
+2022-05-14,HFX Wanderers FC,Pacific FC,17.6,23.7,0.0
+2022-05-15,FC Edmonton,York United FC,11.5,19.2,0.0
+2022-05-15,Atletico Ottawa,Forge FC,19.1,9.0,7.0
+2022-05-21,Cavalry FC,Atletico Ottawa,5.5,10.5,0.0
+2022-05-21,Pacific FC,Valour FC,11.0,17.3,0.0
+2022-05-22,Forge FC,York United FC,15.5,19.5,1.8
+2022-05-22,HFX Wanderers FC,FC Edmonton,12.4,16.1,0.5
+2022-05-28,York United FC,Valour FC,17.1,17.9,0.0
+2022-05-28,Atletico Ottawa,Pacific FC,17.4,16.3,1.9
+2022-05-29,FC Edmonton,Cavalry FC,11.3,25.7,0.1
+2022-05-29,Valour FC,Forge FC,15.7,19.4,7.4
+2023-04-15,Forge FC,Valour FC,14.8,13.8,0.0
+2023-04-15,Cavalry FC,Pacific FC,3.5,13.8,0.0
+2023-04-16,Atletico Ottawa,HFX Wanderers FC,15.5,14.1,0.0
+2023-04-16,York United FC,FC Edmonton,15.8,21.9,9.2
+2023-04-22,Pacific FC,Forge FC,7.7,16.5,3.4
+2023-04-22,HFX Wanderers FC,Cavalry FC,6.8,15.9,0.0
+2023-04-23,Valour FC,Atletico Ottawa,0.3,13.8,0.3
+2023-04-23,FC Edmonton,Pacific FC,6.9,29.9,0.0
+2023-04-29,Forge FC,York United FC,8.3,18.3,1.7
+2023-04-29,Cavalry FC,Atletico Ottawa,11.7,18.9,0.0
+2023-05-06,HFX Wanderers FC,Valour FC,8.8,22.8,0.0
+2023-05-06,Pacific FC,FC Edmonton,10.2,19.0,0.0
+2023-05-13,Forge FC,Cavalry FC,16.4,18.2,0.0
+2023-05-13,Atletico Ottawa,Pacific FC,13.8,21.9,0.0
+2023-05-20,York United FC,HFX Wanderers FC,14.6,23.8,21.7
+2023-05-20,Valour FC,Cavalry FC,17.4,24.2,0.0
+2023-05-27,FC Edmonton,Forge FC,18.3,17.8,0.0
+2023-05-27,Pacific FC,HFX Wanderers FC,14.7,28.2,0.0
+2023-06-03,Cavalry FC,Valour FC,17.1,13.1,0.0
+2023-06-03,Atletico Ottawa,York United FC,17.1,22.5,0.0
+2023-06-10,Forge FC,HFX Wanderers FC,19.7,15.3,0.0
+2023-06-10,FC Edmonton,Cavalry FC,23.0,29.0,0.0
+2023-06-17,Pacific FC,Atletico Ottawa,11.7,32.2,0.0
+2023-06-17,Valour FC,York United FC,19.8,14.6,0.1
+2023-06-24,HFX Wanderers FC,FC Edmonton,17.7,18.8,0.7
+2023-06-24,Cavalry FC,Forge FC,16.3,14.6,0.2
+2023-07-01,York United FC,Pacific FC,23.2,10.0,4.9
+2023-07-01,Atletico Ottawa,Valour FC,20.9,17.9,35.9
+2023-07-08,Forge FC,FC Edmonton,19.6,11.1,3.9
+2023-07-08,HFX Wanderers FC,Atletico Ottawa,19.3,14.1,0.0
+2023-07-15,Cavalry FC,York United FC,17.8,9.8,2.8
+2023-07-15,Valour FC,Pacific FC,16.3,23.7,0.5
+2024-04-13,Forge FC,Atletico Ottawa,7.2,36.1,2.3
+2024-04-13,Cavalry FC,Pacific FC,6.7,13.8,0.0
+2024-04-14,Valour FC,Vancouver FC,8.1,23.8,0.0
+2024-04-14,York United FC,HFX Wanderers FC,9.8,15.1,7.3
+2024-04-20,Pacific FC,Forge FC,10.1,31.9,0.9
+2024-04-20,HFX Wanderers FC,Cavalry FC,5.0,19.8,12.1
+2024-04-21,Atletico Ottawa,Valour FC,4.5,23.1,3.8
+2024-04-21,Vancouver FC,York United FC,8.9,16.2,2.6
+2024-04-27,Forge FC,Vancouver FC,13.1,26.5,9.2
+2024-04-27,Cavalry FC,Atletico Ottawa,7.3,19.3,0.0
+2024-04-28,York United FC,Pacific FC,16.5,17.6,2.9
+2024-04-28,Valour FC,HFX Wanderers FC,4.6,19.8,0.0
+2024-05-04,HFX Wanderers FC,Forge FC,7.8,15.9,0.2
+2024-05-04,Atletico Ottawa,York United FC,16.3,12.8,0.1
+2024-05-05,Pacific FC,Valour FC,10.0,28.3,1.8
+2024-05-05,Vancouver FC,Cavalry FC,10.8,16.9,4.1
+2024-05-11,Forge FC,Cavalry FC,10.6,21.9,8.3
+2024-05-11,York United FC,Valour FC,10.6,19.3,3.1
+2024-05-12,HFX Wanderers FC,Vancouver FC,8.2,20.2,0.1
+2024-05-12,Atletico Ottawa,Pacific FC,12.0,14.1,3.8
+2024-05-18,Cavalry FC,Valour FC,6.4,13.6,0.1
+2024-05-18,Pacific FC,HFX Wanderers FC,9.5,23.6,0.4
+2024-05-19,Vancouver FC,Atletico Ottawa,10.5,11.9,1.2
+2024-05-19,Forge FC,York United FC,17.7,12.8,0.1
+2024-05-25,Valour FC,Forge FC,7.5,31.9,1.8
+2024-05-25,HFX Wanderers FC,Atletico Ottawa,16.2,18.5,0.0
+2024-05-26,York United FC,Cavalry FC,16.9,27.1,0.0
+2024-05-26,Pacific FC,Vancouver FC,9.9,20.6,9.2
+2024-06-01,Atletico Ottawa,Forge FC,19.0,14.7,0.0
+2024-06-01,Cavalry FC,HFX Wanderers FC,11.1,15.8,0.1
+2024-06-02,Vancouver FC,Valour FC,12.0,18.9,26.9
+2024-06-02,York United FC,Pacific FC,16.0,9.5,5.4
+2024-06-08,Forge FC,Pacific FC,16.6,24.5,7.2
+2024-06-15,Cavalry FC,York United FC,11.5,19.8,13.6
+2024-06-22,Valour FC,Atletico Ottawa,19.1,14.0,8.4
+2024-06-29,HFX Wanderers FC,Pacific FC,15.9,18.0,0.0
+2024-07-06,Forge FC,HFX Wanderers FC,22.7,19.1,3.3
+2024-07-13,Cavalry FC,Vancouver FC,19.9,26.3,0.0
+2024-07-20,Pacific FC,Atletico Ottawa,19.6,18.5,0.0
+2024-07-27,York United FC,Forge FC,21.1,10.5,0.0
+2025-04-05,Atlético Ottawa,HFX Wanderers,3.9,18.7,11.9
+2025-04-05,Forge,Cavalry,7.5,24.4,2.0
+2025-04-06,Pacific,Valour,9.7,27.1,8.3
+2025-04-06,Vancouver FC,Inter Toronto,10.8,23.9,16.2
+2025-04-12,Pacific,Forge,7.2,25.1,1.1
+2025-04-13,Inter Toronto,HFX Wanderers,7.2,9.6,0.0
+2025-04-13,Vancouver FC,Atlético Ottawa,7.0,8.8,0.0
+2025-04-18,Cavalry,Vancouver FC,5.3,11.4,0.0
+2025-04-19,Atlético Ottawa,Inter Toronto,13.9,23.1,2.8
+2025-04-19,HFX Wanderers,Pacific,7.6,29.7,1.2
+2025-04-19,Forge,Valour,14.9,30.7,2.2
+2025-04-26,Valour,HFX Wanderers,9.8,21.3,0.1
+2025-04-26,Cavalry,Atlético Ottawa,10.5,8.9,0.0
+2025-04-27,Inter Toronto,Forge,9.9,18.7,0.0
+2025-04-27,Vancouver FC,Pacific,10.3,14.3,0.9
+2025-05-03,Inter Toronto,Cavalry,8.7,13.6,0.5
+2025-05-03,Atlético Ottawa,Pacific,10.0,10.9,0.2
+2025-05-03,HFX Wanderers,Forge,10.2,22.8,23.8
+2025-05-03,Valour,Vancouver FC,13.6,19.6,0.0
+2025-05-10,Atlético Ottawa,Valour,12.7,20.4,0.0
+2025-05-10,HFX Wanderers,Cavalry,8.0,24.0,11.0
+2025-05-11,Pacific,Inter Toronto,11.5,11.5,0.2
+2025-05-13,Forge,Atlético Ottawa,14.7,13.4,3.6
+2025-05-17,Valour,Inter Toronto,4.1,23.2,1.0
+2025-05-17,Cavalry,Pacific,8.4,11.8,0.5
+2025-05-18,Vancouver FC,HFX Wanderers,10.8,14.3,8.4
+2025-05-24,Pacific,Forge,12.8,12.8,0.0
+2025-05-24,HFX Wanderers,Atlético Ottawa,9.0,18.9,0.5
+2025-05-25,Cavalry,Valour,15.1,20.5,0.0
+2025-05-25,Inter Toronto,Vancouver FC,11.4,13.6,6.9
+2025-05-31,Vancouver FC,Atlético Ottawa,13.5,15.2,8.0
+2025-05-31,Forge,Cavalry,10.8,27.1,1.7
+2025-05-31,Inter Toronto,HFX Wanderers,10.2,29.7,0.0
+2025-06-01,Valour,Pacific,25.0,20.0,0.0
+2025-06-04,Valour,Vancouver FC,16.2,23.6,0.1
+2025-06-07,Pacific,Atlético Ottawa,18.3,12.2,0.0
+2025-06-08,Forge,HFX Wanderers,15.4,15.6,0.0
+2025-06-08,Cavalry,Inter Toronto,18.2,15.8,0.0
+2025-06-14,HFX Wanderers,Cavalry,13.4,12.7,0.2
+2025-06-14,Pacific,Inter Toronto,12.9,20.9,0.0
+2025-06-15,Vancouver FC,Forge,14.2,9.8,0.0
+2025-06-15,Atlético Ottawa,Valour,19.2,9.3,0.0
+2025-06-21,HFX Wanderers,Vancouver FC,19.9,25.1,0.0
+2025-06-22,Cavalry,Pacific,9.7,16.2,0.1
+2025-06-22,Inter Toronto,Atlético Ottawa,29.6,21.1,1.7
+2025-06-22,Valour,Forge,18.4,20.4,7.7
+2025-06-28,Pacific,Vancouver FC,15.9,13.8,0.0
+2025-06-28,Cavalry,Atlético Ottawa,14.4,14.6,6.2
+2025-06-29,Forge,Inter Toronto,21.5,11.3,0.0
+2025-07-01,HFX Wanderers,Valour,17.7,17.0,7.5
+2025-07-05,Forge,Vancouver FC,25.6,18.4,0.4
+2025-07-12,Atlético Ottawa,Forge,26.0,12.5,0.5
+2025-07-12,Pacific,HFX Wanderers,18.3,20.1,0.0
+2025-07-13,Inter Toronto,Valour,28.0,16.4,1.3
+2025-07-14,Vancouver FC,Cavalry,19.9,15.5,0.0
+2025-07-18,Atlético Ottawa,HFX Wanderers,19.7,17.9,0.0
+2025-07-18,Forge,Pacific,18.5,12.8,0.0
+2025-07-19,Inter Toronto,Vancouver FC,22.6,13.0,0.6
+2025-07-20,Valour,Cavalry,18.4,15.3,0.4
+2025-07-25,HFX Wanderers,Forge,19.2,23.3,20.7
+2025-07-26,Vancouver FC,Valour,16.1,12.6,0.0
+2025-07-26,Cavalry,Inter Toronto,14.1,10.7,3.0
+2025-07-27,Pacific,Atlético Ottawa,16.0,20.1,0.0
+2025-07-30,Valour,Cavalry,18.2,10.2,0.0
+2025-08-02,Forge,Valour,19.9,12.6,0.0
+2025-08-03,Atlético Ottawa,Inter Toronto,23.8,15.5,0.0
+2025-08-04,HFX Wanderers,Vancouver FC,19.6,14.4,0.0
+2025-08-04,Pacific,Cavalry,17.2,23.3,0.0
+2025-08-09,Inter Toronto,Forge,26.7,14.0,0.0
+2025-08-09,Cavalry,HFX Wanderers,16.8,13.3,0.0
+2025-08-10,Valour,Atlético Ottawa,19.1,18.0,0.1
+2025-08-10,Vancouver FC,Pacific,20.5,11.3,0.0
+2025-08-16,Pacific,HFX Wanderers,16.8,22.4,1.3
+2025-08-17,Valour,Inter Toronto,17.2,18.4,4.8
+2025-08-17,Forge,Atlético Ottawa,22.7,23.3,3.9
+2025-08-17,Cavalry,Vancouver FC,17.7,10.5,0.0
+2025-08-22,HFX Wanderers,Valour,17.5,26.8,0.0
+2025-08-23,Vancouver FC,Forge,21.9,5.5,0.0
+2025-08-23,Atlético Ottawa,Cavalry,23.3,21.1,0.0
+2025-08-24,Inter Toronto,Pacific,19.6,14.7,1.1
+2025-08-30,Cavalry,Forge,18.2,12.3,0.0
+2025-08-30,Atlético Ottawa,Vancouver FC,14.8,20.5,3.4
+2025-08-31,Valour,Pacific,23.9,16.5,0.0
+2025-09-01,HFX Wanderers,Inter Toronto,18.3,9.3,0.0
+2025-09-05,Inter Toronto,Cavalry,16.4,28.7,1.0
+2025-09-06,Forge,HFX Wanderers,14.5,19.3,0.0
+2025-09-06,Atlético Ottawa,Pacific,15.4,19.1,0.0
+2025-09-06,Vancouver FC,Valour,16.9,14.7,0.0
+2025-09-12,Valour,Forge,19.8,15.9,4.4
+2025-09-13,Cavalry,HFX Wanderers,17.0,8.2,0.0
+2025-09-13,Pacific,Vancouver FC,15.5,11.9,0.0
+2025-09-14,Inter Toronto,Atlético Ottawa,20.3,11.0,0.0
+2025-09-20,HFX Wanderers,Pacific,12.0,19.5,0.0
+2025-09-20,Cavalry,Valour,17.7,12.6,0.0
+2025-09-21,Atlético Ottawa,Forge,14.4,11.1,0.0
+2025-09-21,Vancouver FC,Inter Toronto,15.5,26.0,14.2
+2025-09-27,Atlético Ottawa,Cavalry,16.2,11.3,0.0
+2025-09-27,Forge,Pacific,19.0,14.9,0.0
+2025-09-28,Inter Toronto,Valour,18.4,12.4,0.0
+2025-09-28,Vancouver FC,HFX Wanderers,15.2,11.3,0.0
+2025-10-04,Forge,Vancouver FC,19.6,13.2,0.0
+2025-10-04,HFX Wanderers,Inter Toronto,15.1,15.6,0.0
+2025-10-05,Valour,Atlético Ottawa,11.0,35.0,24.3
+2025-10-05,Pacific,Cavalry,12.1,14.0,0.0
+2025-10-09,Inter Toronto,Pacific,7.3,9.1,0.0
+2025-10-11,Cavalry,Forge,10.4,27.1,2.3
+2025-10-11,Valour,HFX Wanderers,11.7,29.6,11.3
+2025-10-12,Atlético Ottawa,Vancouver FC,12.2,15.4,0.0
+2025-10-18,Pacific,Valour,8.1,11.1,17.4
+2025-10-18,Vancouver FC,Cavalry,7.9,12.4,9.4
+2025-10-18,Forge,Inter Toronto,16.9,20.9,0.0
+2025-10-18,HFX Wanderers,Atlético Ottawa,11.6,27.7,0.1
+2025-10-22,HFX Wanderers,Inter Toronto,14.6,26.1,11.2
+2025-10-26,Forge,Atlético Ottawa,4.5,13.3,0.0
+2025-10-26,Cavalry,Inter Toronto,5.7,15.7,0.0
+2025-11-02,Forge,Cavalry,6.0,13.1,0.0
+2025-11-09,Atlético Ottawa,Cavalry,-1.4,18.4,13.5
