@@ -288,6 +288,52 @@
                 </div>
             </div>
 
+            <!-- /api/match-stats -->
+            <div class="bg-cpl-card rounded-lg mb-4 overflow-hidden">
+                <div class="p-5">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
+                        <code class="text-green-400 font-mono">/api/match-stats</code>
+                    </div>
+                    <p class="text-gray-400 mb-4">Get detailed statistics for a specific match including shots, possession, xG estimates, and referee data.</p>
+
+                    <div class="space-y-2 text-sm mb-4">
+                        <div class="flex gap-4 py-2 border-b border-gray-700">
+                            <span class="text-blue-400 font-mono w-24">match_id</span>
+                            <span class="text-gray-400"><span class="text-red-400">*required</span> Full CPL match ID (get from <code class="bg-cpl-darker px-2 py-0.5 rounded">/api/matches</code>)</span>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-500 text-xs mb-4">Returns: score, shots, shots on target, possession, estimated xG, referee info. Stats available for finished matches 2019-2025.</p>
+
+                    <button onclick="toggleTestPanel('match-stats')" class="text-cpl-red hover:text-red-400 text-sm font-medium flex items-center gap-1">
+                        <span id="match-stats-toggle-icon">&#9654;</span> Test this endpoint
+                    </button>
+                </div>
+
+                <div id="match-stats-test-panel" class="hidden bg-cpl-darker p-5 border-t border-gray-700">
+                    <div class="grid grid-cols-1 gap-4 mb-4">
+                        <div>
+                            <label class="text-gray-400 text-sm block mb-1">Match ID</label>
+                            <input id="match-stats-id" type="text" placeholder="cpl::Football_Match::..." class="bg-cpl-dark text-white px-3 py-2 rounded w-full font-mono text-sm" value="cpl::Football_Match::cf2e47f5b5c74e0189e0c36f7dfe3198">
+                        </div>
+                    </div>
+                    <button onclick="testMatchStatsAPI()" class="bg-cpl-red hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-medium transition">
+                        Test API
+                    </button>
+                    <div id="match-stats-response" class="mt-4 hidden">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <span id="match-stats-status" class="text-sm"></span>
+                                <span id="match-stats-time" class="text-gray-500 text-sm"></span>
+                            </div>
+                            <button onclick="copyResponse('match-stats')" class="text-gray-400 hover:text-white text-sm">Copy</button>
+                        </div>
+                        <pre id="match-stats-json" class="bg-cpl-dark p-4 rounded text-sm font-mono overflow-x-auto max-h-96"></pre>
+                    </div>
+                </div>
+            </div>
+
             <!-- /api/odds - HIDDEN FOR NOW
             <div class="bg-cpl-card rounded-lg mb-4 overflow-hidden border border-dashed border-yellow-600/50">
                 <div class="p-5">
@@ -551,6 +597,17 @@ curl <span class="text-green-400">"https://canpl-analytics.vercel.app/api/teams?
             const activeOnly = document.getElementById('teams-active').checked;
             const url = activeOnly ? '/api/teams?active_only=true' : '/api/teams';
             await fetchAndDisplay('teams', url);
+        }
+
+        // Test /api/match-stats
+        async function testMatchStatsAPI() {
+            const matchId = document.getElementById('match-stats-id').value;
+            if (!matchId) {
+                alert('Please enter a match ID');
+                return;
+            }
+            const url = `/api/match-stats?match_id=${encodeURIComponent(matchId)}`;
+            await fetchAndDisplay('match-stats', url);
         }
 
         // Test /api/odds
