@@ -1236,12 +1236,13 @@ def fetch_from_canpl_api(year: int, data_dir: str) -> pd.DataFrame:
         logger.info(f"Fetching {year} CPL data from official SDP API...")
 
         matches = client.get_matches(season_id)
-        df = client.matches_to_dataframe(matches)
+        df = client.matches_to_dataframe(matches, include_referee_details=True)
 
         if not df.empty:
             # Standardize columns for CSV export
-            df_export = df[['date', 'season', 'home_team', 'away_team',
-                           'home_goals', 'away_goals', 'venue']].copy()
+            export_cols = ['date', 'season', 'home_team', 'away_team',
+                           'home_goals', 'away_goals', 'venue', 'referee']
+            df_export = df[[col for col in export_cols if col in df.columns]].copy()
 
             # Save to CSV
             filepath = os.path.join(data_dir, f"cpl_{year}.csv")
@@ -1308,7 +1309,7 @@ if __name__ == "__main__":
         combined = pd.concat(all_data, ignore_index=True)
 
         # Ensure consistent columns
-        required_cols = ['date', 'season', 'home_team', 'away_team', 'home_goals', 'away_goals', 'venue']
+        required_cols = ['date', 'season', 'home_team', 'away_team', 'home_goals', 'away_goals', 'venue', 'referee']
         for col in required_cols:
             if col not in combined.columns:
                 combined[col] = ''

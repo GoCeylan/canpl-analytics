@@ -38,6 +38,7 @@ private/
 *_key.txt
 *_secret.txt
 credentials.json
+*.har
 
 # Large data files (if needed)
 *.zip
@@ -54,3 +55,7 @@ logs/
 
 # Node PKG
 node_modules/
+.env*.local
+
+# Plans
+*.md

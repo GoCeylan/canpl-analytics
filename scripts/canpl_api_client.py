@@ -96,6 +96,14 @@ class CanPLAPIClient:
         data = self._request(f"seasons/{season_id}/matches", params)
         return data.get('matches', [])
 
+    def get_match_detail(self, match_id: str) -> Dict[str, Any]:
+        """Fetch detailed match data (used for referee extraction when needed)."""
+        return self._request(f"matches/{match_id}")
+
+    def get_match_facts(self, season_id: str, match_id: str) -> Dict[str, Any]:
+        """Fetch match facts (includes referee/officials list)."""
+        return self._request(f"seasons/{season_id}/match/{match_id}/matchfacts")
+
     def get_standings(self, season_id: str, order_by: str = 'rank',
                       direction: str = 'asc') -> List[Dict]:
         """
@@ -182,12 +190,20 @@ class CanPLAPIClient:
         data = self._request(f"seasons/{season_id}/stats/teams", params)
         return data.get('teams', [])
 
-    def matches_to_dataframe(self, matches: List[Dict]) -> pd.DataFrame:
+    def matches_to_dataframe(self, matches: List[Dict], include_referee_details: bool = False) -> pd.DataFrame:
         """Convert matches to a clean pandas DataFrame."""
         rows = []
         for match in matches:
             if match.get('status') != 'FINISHED':
                 continue  # Only include finished matches
+
+            referee = self._extract_referee(match)
+            if include_referee_details and not referee and match.get('matchId'):
+                try:
+                    detail = self.get_match_detail(match.get('matchId'))
+                    referee = self._extract_referee(detail)
+                except Exception:
+                    referee = None
 
             row = {
                 'match_id': match.get('matchId'),
@@ -200,6 +216,7 @@ class CanPLAPIClient:
                 'away_goals': match.get('providerAwayScore', 0),
                 'venue': match.get('stadiumName', ''),
                 'status': match.get('status'),
+                'referee': referee or '',
             }
             rows.append(row)
 
@@ -240,6 +257,35 @@ class CanPLAPIClient:
 
         return pd.DataFrame(rows)
 
+    def _extract_referee(self, match: Dict[str, Any]) -> Optional[str]:
+        """Best-effort extraction of referee name from match payload."""
+        if not isinstance(match, dict):
+            return None
+
+        if isinstance(match.get('referee'), str):
+            return match.get('referee')
+
+        for key in ['officials', 'matchOfficials', 'officialsList']:
+            officials = match.get(key)
+            if isinstance(officials, list):
+                for official in officials:
+                    if not isinstance(official, dict):
+                        continue
+                    role = str(official.get('role') or official.get('type') or '').lower()
+                    if 'ref' in role:
+                        name = official.get('officialName') or official.get('name')
+                        if name:
+                            return name
+
+        # Some APIs nest referee under match info
+        match_info = match.get('match') or match.get('matchInfo') or {}
+        if isinstance(match_info, dict):
+            name = match_info.get('referee') or match_info.get('officialName')
+            if isinstance(name, str):
+                return name
+
+        return None
+
 
 def fetch_season_data(year: int = 2025) -> Dict[str, pd.DataFrame]:
     """
@@ -257,7 +303,7 @@ def fetch_season_data(year: int = 2025) -> Dict[str, pd.DataFrame]:
 
     # Get matches
     matches = client.get_matches(season_id)
-    matches_df = client.matches_to_dataframe(matches)
+    matches_df = client.matches_to_dataframe(matches, include_referee_details=True)
     logger.info(f"  Matches: {len(matches_df)} finished games")
 
     # Get standings
