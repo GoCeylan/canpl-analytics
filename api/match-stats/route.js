@@ -11,8 +11,8 @@ async function matchStatsHandler(req, res, { track, errors }) {
     return errors.badRequest(res, 'match_id is required');
   }
 
-  // Load match data from CSV
-  const matchesPath = join(process.cwd(), 'data', 'matches', 'cpl_2025_api.csv');
+  // Load match data from CSV (now using the combined file with IDs for all seasons)
+  const matchesPath = join(process.cwd(), 'data', 'matches', 'cpl_all_with_ids.csv');
   const refereesPath = join(process.cwd(), 'data', 'matches', 'cpl_referees_2019_2025.csv');
 
   let matchesCsv, refereesCsv;
@@ -81,6 +81,7 @@ async function matchStatsHandler(req, res, { track, errors }) {
   // Build response
   const response = {
     match_id: match.match_id,
+    season_id: match.season_id,
     date: match.date,
     season: match.season,
     matchday: match.matchday,
@@ -100,7 +101,7 @@ async function matchStatsHandler(req, res, { track, errors }) {
 
   // For FINISHED matches, fetch detailed stats and calculate xG
   if (match.status === 'FINISHED') {
-    const stats = await fetchTeamStats(match_id);
+    const stats = await fetchTeamStats(match_id, match.season_id);
     if (stats) {
       if (stats['shots']) {
         response.shots = stats['shots'];

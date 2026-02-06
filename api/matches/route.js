@@ -24,16 +24,16 @@ async function matchesHandler(req, res, { track, errors, validateNumber }) {
     return errors.badRequest(res, offsetValidation.error);
   }
 
-  // Read the combined matches file
-  const dataPath = join(process.cwd(), 'data', 'matches', 'cpl_all.csv');
+  // Read the combined matches file with match_ids
+  const dataPath = join(process.cwd(), 'data', 'matches', 'cpl_all_with_ids.csv');
   const csvData = readFileSync(dataPath, 'utf-8');
 
-  // Parse CSV
-  const lines = csvData.trim().split('\n');
+  // Parse CSV (handle CRLF line endings)
+  const lines = csvData.trim().replace(/\r/g, '').split('\n');
   const headers = lines[0].split(',');
 
   let matches = lines.slice(1).map(line => {
-    const values = line.split(',');
+    const values = parseCSVLine(line);
     const obj = {};
     headers.forEach((header, index) => {
       const value = values[index];
@@ -45,7 +45,7 @@ async function matchesHandler(req, res, { track, errors, validateNumber }) {
       }
     });
     return obj;
-  }).filter(m => m.date); // Filter out empty rows
+  }).filter(m => m.date && m.match_id); // Filter out empty rows
 
   // Filter by season if provided
   if (seasonValidation.value !== undefined) {
@@ -74,6 +74,29 @@ async function matchesHandler(req, res, { track, errors, validateNumber }) {
     limit: limitNum,
     matches: paginatedMatches
   });
+}
+
+/**
+ * Parse a CSV line handling quoted values with commas
+ */
+function parseCSVLine(line) {
+  const values = [];
+  let current = '';
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
+    if (char === '"') {
+      inQuotes = !inQuotes;
+    } else if (char === ',' && !inQuotes) {
+      values.push(current);
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+  values.push(current);
+  return values;
 }
 
 module.exports = withMiddleware(matchesHandler, { endpoint: '/api/matches' });
