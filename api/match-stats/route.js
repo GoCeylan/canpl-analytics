@@ -1,6 +1,7 @@
 const { readFileSync } = require('fs');
 const { join } = require('path');
 const { withMiddleware } = require('../lib/middleware.js');
+const { fetchTeamStats, calculateXG } = require('../lib/cplStats.js');
 
 async function matchStatsHandler(req, res, { track, errors }) {
   const { match_id } = req.query;
@@ -95,6 +96,23 @@ async function matchStatsHandler(req, res, { track, errors }) {
 
   if (referee) {
     response.referee = referee;
+  }
+
+  // For FINISHED matches, fetch detailed stats and calculate xG
+  if (match.status === 'FINISHED') {
+    const stats = await fetchTeamStats(match_id);
+    if (stats) {
+      if (stats['shots']) {
+        response.shots = stats['shots'];
+      }
+      if (stats['shots-on-goal']) {
+        response.shots_on_target = stats['shots-on-goal'];
+      }
+      if (stats['possession-perc']) {
+        response.possession = stats['possession-perc'];
+      }
+      response.xg = calculateXG(stats);
+    }
   }
 
   track(200);
