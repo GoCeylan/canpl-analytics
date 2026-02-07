@@ -28,7 +28,7 @@ import requests
 
 def get_forge_home_wins_2024():
     """Find all Forge FC home wins in the 2024 season."""
-    url = "https://canpl-analytics.vercel.app/api/matches"
+    url = "https://canadasoccerapi.com/api/matches"
     params = {"season": 2024, "team": "Forge", "limit": 500}
 
     response = requests.get(url, params=params)
@@ -56,7 +56,7 @@ wins = get_forge_home_wins_2024()
 
 ```javascript
 async function getForgeHomeWins2024() {
-  const url = 'https://canpl-analytics.vercel.app/api/matches?season=2024&team=Forge&limit=500';
+  const url = 'https://canadasoccerapi.com/api/matches?season=2024&team=Forge&limit=500';
 
   const response = await fetch(url);
   const data = await response.json();
@@ -114,7 +114,7 @@ from collections import defaultdict
 
 def head_to_head(team1: str, team2: str):
     """Calculate head-to-head record between two teams."""
-    url = "https://canpl-analytics.vercel.app/api/matches"
+    url = "https://canadasoccerapi.com/api/matches"
 
     # Get all matches for team1 (includes matches vs team2)
     response = requests.get(url, params={"team": team1, "limit": 500})
@@ -167,7 +167,7 @@ h2h = head_to_head("Forge", "Cavalry")
 
 ```javascript
 async function headToHead(team1, team2) {
-  const url = `https://canpl-analytics.vercel.app/api/matches?team=${team1}&limit=500`;
+  const url = `https://canadasoccerapi.com/api/matches?team=${team1}&limit=500`;
 
   const response = await fetch(url);
   const data = await response.json();
@@ -244,7 +244,7 @@ import requests
 
 def goal_difference_trends(team_name: str):
     """Track a team's goal difference across all seasons."""
-    url = "https://canpl-analytics.vercel.app/api/standings"
+    url = "https://canadasoccerapi.com/api/standings"
     response = requests.get(url)
     data = response.json()
 
@@ -289,7 +289,7 @@ trends = goal_difference_trends("Forge")
 
 ```javascript
 async function goalDifferenceTrends(teamName) {
-  const url = 'https://canpl-analytics.vercel.app/api/standings';
+  const url = 'https://canadasoccerapi.com/api/standings';
   const response = await fetch(url);
   const data = await response.json();
 
@@ -367,7 +367,7 @@ import json
 
 def map_team_locations():
     """Generate GeoJSON for mapping CPL team locations."""
-    url = "https://canpl-analytics.vercel.app/api/teams?active_only=true"
+    url = "https://canadasoccerapi.com/api/teams?active_only=true"
     response = requests.get(url)
     data = response.json()
 
@@ -414,7 +414,7 @@ geojson = map_team_locations()
 
 ```javascript
 async function mapTeamLocations() {
-  const url = 'https://canpl-analytics.vercel.app/api/teams?active_only=true';
+  const url = 'https://canadasoccerapi.com/api/teams?active_only=true';
   const response = await fetch(url);
   const data = await response.json();
 
@@ -495,7 +495,7 @@ from collections import defaultdict
 
 def home_vs_away_analysis(season: int):
     """Analyze home vs away performance for all teams."""
-    url = "https://canpl-analytics.vercel.app/api/matches"
+    url = "https://canadasoccerapi.com/api/matches"
     response = requests.get(url, params={"season": season, "limit": 500})
     matches = response.json()["matches"]
 
@@ -574,7 +574,7 @@ analysis = home_vs_away_analysis(2024)
 
 ```javascript
 async function homeVsAwayAnalysis(season) {
-  const url = `https://canpl-analytics.vercel.app/api/matches?season=${season}&limit=500`;
+  const url = `https://canadasoccerapi.com/api/matches?season=${season}&limit=500`;
   const response = await fetch(url);
   const matches = (await response.json()).matches;
 
@@ -668,7 +668,7 @@ import requests
 
 def find_highest_scoring_matches(top_n: int = 10, season: int = None):
     """Find the highest-scoring matches in CPL history."""
-    url = "https://canpl-analytics.vercel.app/api/matches"
+    url = "https://canadasoccerapi.com/api/matches"
     params = {"limit": 500}
     if season:
         params["season"] = season
@@ -720,7 +720,7 @@ top_2024 = find_highest_scoring_matches(5, season=2024)
 
 ```javascript
 async function findHighestScoringMatches(topN = 10, season = null) {
-  const baseUrl = 'https://canpl-analytics.vercel.app/api/matches';
+  const baseUrl = 'https://canadasoccerapi.com/api/matches';
   let allMatches = [];
   let offset = 0;
 

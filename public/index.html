@@ -444,7 +444,7 @@
 <span class="text-blue-400">import</span> requests
 <span class="text-blue-400">import</span> pandas <span class="text-blue-400">as</span> pd
 
-response = requests.get(<span class="text-green-400">'https://canpl-analytics.vercel.app/api/matches?season=2024'</span>)
+response = requests.get(<span class="text-green-400">'https://canadasoccerapi.com/api/matches?season=2024'</span>)
 df = pd.DataFrame(response.json()[<span class="text-green-400">'matches'</span>])
 
 <span class="text-gray-500"># Analyze home vs away performance</span>
@@ -453,7 +453,7 @@ df = pd.DataFrame(response.json()[<span class="text-green-400">'matches'</span>]
 
                 <div id="code-javascript" class="code-panel p-5">
                     <pre class="text-sm font-mono text-gray-300 overflow-x-auto"><span class="text-gray-500">// Fetch current standings</span>
-<span class="text-blue-400">fetch</span>(<span class="text-green-400">'https://canpl-analytics.vercel.app/api/standings?season=2025'</span>)
+<span class="text-blue-400">fetch</span>(<span class="text-green-400">'https://canadasoccerapi.com/api/standings?season=2025'</span>)
   .then(res => res.json())
   .then(data => {
     console.log(<span class="text-green-400">'Top team:'</span>, data.standings[<span class="text-pink-400">0</span>].team);
@@ -463,13 +463,13 @@ df = pd.DataFrame(response.json()[<span class="text-green-400">'matches'</span>]
 
                 <div id="code-curl" class="code-panel p-5">
                     <pre class="text-sm font-mono text-gray-300 overflow-x-auto"><span class="text-gray-500"># Get Forge FC matches</span>
-curl <span class="text-green-400">"https://canpl-analytics.vercel.app/api/matches?team=Forge&limit=10"</span>
+curl <span class="text-green-400">"https://canadasoccerapi.com/api/matches?team=Forge&limit=10"</span>
 
 <span class="text-gray-500"># Get 2025 standings</span>
-curl <span class="text-green-400">"https://canpl-analytics.vercel.app/api/standings?season=2025"</span>
+curl <span class="text-green-400">"https://canadasoccerapi.com/api/standings?season=2025"</span>
 
 <span class="text-gray-500"># Get all active teams</span>
-curl <span class="text-green-400">"https://canpl-analytics.vercel.app/api/teams?active_only=true"</span></pre>
+curl <span class="text-green-400">"https://canadasoccerapi.com/api/teams?active_only=true"</span></pre>
                 </div>
             </div>
         </section>

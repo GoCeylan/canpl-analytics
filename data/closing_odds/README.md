@@ -126,5 +126,5 @@ When using this data, please cite:
 
 ```
 CPL Analytics - Canadian Premier League Open Data
-https://canpl-analytics.vercel.app
+https://canadasoccerapi.com
 ```

@@ -1,51 +1,71 @@
 /**
- * Fetch all CPL matches with match_ids from the CPL API for seasons 2019-2025
+ * Fetch all CPL, Canadian Championship, and CCL matches with match_ids from the CPL API
  * Outputs: data/matches/cpl_all_with_ids.csv
  */
 
 const fs = require('fs');
 const path = require('path');
 
-// CPL API Season IDs (discovered from API exploration)
-const SEASONS = {
-  2019: 'c8c9bdc288f34aa89073a8bd89d2da3e',
-  2020: '11aa5cc094d0481fa8e73d326763584f',
-  2021: '2f07c39671b84933ad7bb1e1958a7427',
-  2022: '046f0ab31ba641c7b7bf27eb0dda4b9d',
-  2023: 'fc0855108c9044218a84fc5d2bee0000',
-  2024: '6fb9e6fae4f24ce9bf4fa3172616a762',
-  2025: 'fd43e1d61dfe4396a7356bc432de0007',
-  2026: 'c479ab0916a24c3390f1ce2c021ace54',
+// Competition definitions with per-year season IDs
+// Season IDs discovered from API exploration (discovered_canpl_endpoints.json)
+const COMPETITIONS = {
+  cpl: {
+    name: 'Canadian Premier League',
+    seasons: {
+      2019: 'c8c9bdc288f34aa89073a8bd89d2da3e',
+      2020: '11aa5cc094d0481fa8e73d326763584f',
+      2021: '2f07c39671b84933ad7bb1e1958a7427',
+      2022: '046f0ab31ba641c7b7bf27eb0dda4b9d',
+      2023: 'fc0855108c9044218a84fc5d2bee0000',
+      2024: '6fb9e6fae4f24ce9bf4fa3172616a762',
+      2025: 'fd43e1d61dfe4396a7356bc432de0007',
+      2026: 'c479ab0916a24c3390f1ce2c021ace54',
+    },
+  },
+  'canadian-championship': {
+    name: 'Canadian Championship',
+    seasons: {
+      2025: 'fec9d91ba01c4d57999feac75f3b23d1',
+    },
+  },
+  ccl: {
+    name: 'Concacaf Champions Cup',
+    seasons: {
+      2025: '0ba5ca8a4f664c76a1ee9639c4adc04e',
+    },
+  },
 };
 
 /**
  * Fetch all matches for a given season from CPL API
+ * @param {string} competition - Competition key (cpl, canadian-championship, ccl)
  * @param {number} year - Season year
- * @param {string} seasonId - CPL API season ID
+ * @param {string} seasonId - CPL API season ID (UUID portion)
  * @returns {Promise<Array>} Array of match objects
  */
-async function fetchSeasonMatches(year, seasonId) {
+async function fetchSeasonMatches(competition, year, seasonId) {
   const fullSeasonId = `cpl::Football_Season::${seasonId}`;
   const url = `https://api-sdp.canpl.ca/v1/cpl/football/seasons/${fullSeasonId}/matches?locale=en-US`;
 
-  console.log(`Fetching ${year} season matches...`);
+  console.log(`Fetching ${competition} ${year} matches...`);
 
   try {
     const res = await fetch(url);
     if (!res.ok) {
-      console.error(`Failed to fetch ${year}: ${res.status}`);
+      console.error(`Failed to fetch ${competition} ${year}: ${res.status}`);
       return [];
     }
 
     const data = await res.json();
     if (!data.matches || !Array.isArray(data.matches)) {
-      console.error(`No matches found for ${year}`);
+      console.error(`No matches found for ${competition} ${year}`);
       return [];
     }
 
     const matches = data.matches.map(m => ({
       match_id: m.matchId || '',
       season_id: fullSeasonId,
+      competition,
       date: m.matchDateLocal ? m.matchDateLocal.substring(0, 10) : (m.matchDateUtc ? m.matchDateUtc.substring(0, 10) : ''),
       season: year,
       matchday: m.matchdayName || '',
@@ -57,10 +77,10 @@ async function fetchSeasonMatches(year, seasonId) {
       status: m.status || '',
     }));
 
-    console.log(`  Found ${matches.length} matches for ${year}`);
+    console.log(`  Found ${matches.length} matches for ${competition} ${year}`);
     return matches;
   } catch (err) {
-    console.error(`Error fetching ${year}:`, err.message);
+    console.error(`Error fetching ${competition} ${year}:`, err.message);
     return [];
   }
 }
@@ -83,24 +103,26 @@ function escapeCSV(value) {
 async function main() {
   const allMatches = [];
 
-  // Fetch each season sequentially to avoid rate limiting
-  for (const [year, seasonId] of Object.entries(SEASONS)) {
-    const yearNum = parseInt(year, 10);
-    // Only fetch 2019-2025 (skip 2026 which may not have data yet)
-    if (yearNum > 2025) continue;
+  // Fetch each competition and season sequentially to avoid rate limiting
+  for (const [competition, config] of Object.entries(COMPETITIONS)) {
+    for (const [year, seasonId] of Object.entries(config.seasons)) {
+      const yearNum = parseInt(year, 10);
+      // Skip 2026 which may not have data yet
+      if (yearNum > 2025) continue;
 
-    const matches = await fetchSeasonMatches(yearNum, seasonId);
-    allMatches.push(...matches);
+      const matches = await fetchSeasonMatches(competition, yearNum, seasonId);
+      allMatches.push(...matches);
 
-    // Small delay between requests
-    await new Promise(resolve => setTimeout(resolve, 500));
+      // Small delay between requests
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
   }
 
   // Sort by date
   allMatches.sort((a, b) => a.date.localeCompare(b.date));
 
   // Write CSV
-  const headers = ['match_id', 'season_id', 'date', 'season', 'matchday', 'home_team', 'away_team', 'home_goals', 'away_goals', 'venue', 'status'];
+  const headers = ['match_id', 'season_id', 'competition', 'date', 'season', 'matchday', 'home_team', 'away_team', 'home_goals', 'away_goals', 'venue', 'status'];
   const csvLines = [headers.join(',')];
 
   for (const match of allMatches) {

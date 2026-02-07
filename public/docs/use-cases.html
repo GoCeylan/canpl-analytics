@@ -77,7 +77,7 @@
 
 <span class="keyword">def</span> <span class="function">get_forge_home_wins_2024</span>():
     <span class="string">"""Find all Forge FC home wins in the 2024 season."""</span>
-    url = <span class="string">"https://canpl-analytics.vercel.app/api/matches"</span>
+    url = <span class="string">"https://canadasoccerapi.com/api/matches"</span>
     params = {<span class="string">"season"</span>: 2024, <span class="string">"team"</span>: <span class="string">"Forge"</span>, <span class="string">"limit"</span>: 500}
 
     response = requests.get(url, params=params)
@@ -103,7 +103,7 @@ wins = get_forge_home_wins_2024()</code></pre>
 
                 <div id="forge-javascript" class="code-panel p-4">
                     <pre class="text-sm overflow-x-auto"><code><span class="keyword">async function</span> <span class="function">getForgeHomeWins2024</span>() {
-  <span class="keyword">const</span> url = <span class="string">'https://canpl-analytics.vercel.app/api/matches?season=2024&team=Forge&limit=500'</span>;
+  <span class="keyword">const</span> url = <span class="string">'https://canadasoccerapi.com/api/matches?season=2024&team=Forge&limit=500'</span>;
 
   <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(url);
   <span class="keyword">const</span> data = <span class="keyword">await</span> response.json();
@@ -162,7 +162,7 @@ getForgeHomeWins2024();</code></pre>
 
 <span class="keyword">def</span> <span class="function">head_to_head</span>(team1: str, team2: str):
     <span class="string">"""Calculate head-to-head record between two teams."""</span>
-    url = <span class="string">"https://canpl-analytics.vercel.app/api/matches"</span>
+    url = <span class="string">"https://canadasoccerapi.com/api/matches"</span>
     response = requests.get(url, params={<span class="string">"team"</span>: team1, <span class="string">"limit"</span>: 500})
     matches = response.json()[<span class="string">"matches"</span>]
 
@@ -201,7 +201,7 @@ head_to_head(<span class="string">"Forge"</span>, <span class="string">"Cavalry"
 
                 <div id="h2h-javascript" class="code-panel p-4">
                     <pre class="text-sm overflow-x-auto"><code><span class="keyword">async function</span> <span class="function">headToHead</span>(team1, team2) {
-  <span class="keyword">const</span> url = <span class="string">`https://canpl-analytics.vercel.app/api/matches?team=${team1}&limit=500`</span>;
+  <span class="keyword">const</span> url = <span class="string">`https://canadasoccerapi.com/api/matches?team=${team1}&limit=500`</span>;
   <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(url);
   <span class="keyword">const</span> data = <span class="keyword">await</span> response.json();
 
@@ -278,7 +278,7 @@ Draws: 6</code></pre>
 
 <span class="keyword">def</span> <span class="function">goal_difference_trends</span>(team_name: str):
     <span class="string">"""Track a team's goal difference across all seasons."""</span>
-    url = <span class="string">"https://canpl-analytics.vercel.app/api/standings"</span>
+    url = <span class="string">"https://canadasoccerapi.com/api/standings"</span>
     response = requests.get(url)
     data = response.json()
 
@@ -305,7 +305,7 @@ goal_difference_trends(<span class="string">"Forge"</span>)</code></pre>
 
                 <div id="gd-javascript" class="code-panel p-4">
                     <pre class="text-sm overflow-x-auto"><code><span class="keyword">async function</span> <span class="function">goalDifferenceTrends</span>(teamName) {
-  <span class="keyword">const</span> url = <span class="string">'https://canpl-analytics.vercel.app/api/standings'</span>;
+  <span class="keyword">const</span> url = <span class="string">'https://canadasoccerapi.com/api/standings'</span>;
   <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(url);
   <span class="keyword">const</span> data = <span class="keyword">await</span> response.json();
 
@@ -368,7 +368,7 @@ Season  GF    GA    GD     Position
 
 <span class="keyword">def</span> <span class="function">map_team_locations</span>():
     <span class="string">"""Generate GeoJSON for mapping CPL team locations."""</span>
-    url = <span class="string">"https://canpl-analytics.vercel.app/api/teams?active_only=true"</span>
+    url = <span class="string">"https://canadasoccerapi.com/api/teams?active_only=true"</span>
     response = requests.get(url)
     data = response.json()
 
@@ -408,7 +408,7 @@ map_team_locations()</code></pre>
 
                 <div id="map-javascript" class="code-panel p-4">
                     <pre class="text-sm overflow-x-auto"><code><span class="keyword">async function</span> <span class="function">mapTeamLocations</span>() {
-  <span class="keyword">const</span> url = <span class="string">'https://canpl-analytics.vercel.app/api/teams?active_only=true'</span>;
+  <span class="keyword">const</span> url = <span class="string">'https://canadasoccerapi.com/api/teams?active_only=true'</span>;
   <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(url);
   <span class="keyword">const</span> data = <span class="keyword">await</span> response.json();
 
@@ -469,7 +469,7 @@ mapTeamLocations();</code></pre>
 
 <span class="keyword">def</span> <span class="function">home_vs_away_analysis</span>(season: int):
     <span class="string">"""Analyze home vs away performance for all teams."""</span>
-    url = <span class="string">"https://canpl-analytics.vercel.app/api/matches"</span>
+    url = <span class="string">"https://canadasoccerapi.com/api/matches"</span>
     response = requests.get(url, params={<span class="string">"season"</span>: season, <span class="string">"limit"</span>: 500})
     matches = response.json()[<span class="string">"matches"</span>]
 
@@ -524,7 +524,7 @@ home_vs_away_analysis(2024)</code></pre>
 
 <span class="keyword">def</span> <span class="function">find_highest_scoring_matches</span>(top_n=10):
     <span class="string">"""Find the highest-scoring matches in CPL history."""</span>
-    url = <span class="string">"https://canpl-analytics.vercel.app/api/matches"</span>
+    url = <span class="string">"https://canadasoccerapi.com/api/matches"</span>
     all_matches = []
     offset = 0
 

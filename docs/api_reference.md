@@ -24,7 +24,7 @@ The CPL Analytics API provides read-only access to Canadian Premier League match
 ## Base URL
 
 ```
-https://canpl-analytics.vercel.app
+https://canadasoccerapi.com
 ```
 
 For local development:
@@ -65,27 +65,27 @@ Retrieve historical match data with optional filtering and pagination.
 
 **Get all matches:**
 ```bash
-curl "https://canpl-analytics.vercel.app/api/matches"
+curl "https://canadasoccerapi.com/api/matches"
 ```
 
 **Get 2024 season matches:**
 ```bash
-curl "https://canpl-analytics.vercel.app/api/matches?season=2024"
+curl "https://canadasoccerapi.com/api/matches?season=2024"
 ```
 
 **Get Forge FC matches:**
 ```bash
-curl "https://canpl-analytics.vercel.app/api/matches?team=Forge"
+curl "https://canadasoccerapi.com/api/matches?team=Forge"
 ```
 
 **Paginate results:**
 ```bash
-curl "https://canpl-analytics.vercel.app/api/matches?limit=25&offset=50"
+curl "https://canadasoccerapi.com/api/matches?limit=25&offset=50"
 ```
 
 **Combined filters:**
 ```bash
-curl "https://canpl-analytics.vercel.app/api/matches?season=2024&team=Cavalry&limit=10"
+curl "https://canadasoccerapi.com/api/matches?season=2024&team=Cavalry&limit=10"
 ```
 
 #### Example Response
@@ -127,7 +127,7 @@ Use `offset` and `limit` to paginate through large result sets:
 # Python pagination example
 import requests
 
-base_url = "https://canpl-analytics.vercel.app/api/matches"
+base_url = "https://canadasoccerapi.com/api/matches"
 limit = 50
 offset = 0
 all_matches = []
@@ -160,12 +160,12 @@ Get league standings for one or all seasons.
 
 **Get current season standings:**
 ```bash
-curl "https://canpl-analytics.vercel.app/api/standings?season=2024"
+curl "https://canadasoccerapi.com/api/standings?season=2024"
 ```
 
 **Get all seasons:**
 ```bash
-curl "https://canpl-analytics.vercel.app/api/standings"
+curl "https://canadasoccerapi.com/api/standings"
 ```
 
 #### Single Season Response
@@ -253,12 +253,12 @@ Get information about CPL teams.
 
 **Get all teams:**
 ```bash
-curl "https://canpl-analytics.vercel.app/api/teams"
+curl "https://canadasoccerapi.com/api/teams"
 ```
 
 **Get active teams only:**
 ```bash
-curl "https://canpl-analytics.vercel.app/api/teams?active_only=true"
+curl "https://canadasoccerapi.com/api/teams?active_only=true"
 ```
 
 #### Example Response
@@ -345,7 +345,7 @@ curl "https://canpl-analytics.vercel.app/api/teams?active_only=true"
 import requests
 
 def fetch_matches(season=None):
-    url = "https://canpl-analytics.vercel.app/api/matches"
+    url = "https://canadasoccerapi.com/api/matches"
     params = {}
     if season:
         params["season"] = season
@@ -383,7 +383,7 @@ Access-Control-Allow-Headers: Content-Type
 
 ```javascript
 // Works directly in browser without proxy
-fetch('https://canpl-analytics.vercel.app/api/matches')
+fetch('https://canadasoccerapi.com/api/matches')
   .then(response => response.json())
   .then(data => console.log(data.matches));
 ```

@@ -60,7 +60,7 @@
 
             <div class="bg-cpl-card rounded-lg p-5">
                 <h3 class="font-semibold mb-3">Base URL</h3>
-                <code class="bg-cpl-darker px-3 py-2 rounded block text-green-400">https://canpl-analytics.vercel.app</code>
+                <code class="bg-cpl-darker px-3 py-2 rounded block text-green-400">https://canadasoccerapi.com</code>
                 <p class="text-gray-500 text-sm mt-3">For local development: <code class="text-gray-400">http://localhost:3000</code></p>
             </div>
         </section>
@@ -146,15 +146,15 @@
             <div class="space-y-3 mb-6">
                 <div class="bg-cpl-darker rounded p-4">
                     <p class="text-gray-500 text-sm mb-1"># Get all matches</p>
-                    <code class="text-green-400 text-sm">curl "https://canpl-analytics.vercel.app/api/matches"</code>
+                    <code class="text-green-400 text-sm">curl "https://canadasoccerapi.com/api/matches"</code>
                 </div>
                 <div class="bg-cpl-darker rounded p-4">
                     <p class="text-gray-500 text-sm mb-1"># Get 2024 season matches</p>
-                    <code class="text-green-400 text-sm">curl "https://canpl-analytics.vercel.app/api/matches?season=2024"</code>
+                    <code class="text-green-400 text-sm">curl "https://canadasoccerapi.com/api/matches?season=2024"</code>
                 </div>
                 <div class="bg-cpl-darker rounded p-4">
                     <p class="text-gray-500 text-sm mb-1"># Get Forge FC matches with pagination</p>
-                    <code class="text-green-400 text-sm">curl "https://canpl-analytics.vercel.app/api/matches?team=Forge&limit=10&offset=0"</code>
+                    <code class="text-green-400 text-sm">curl "https://canadasoccerapi.com/api/matches?team=Forge&limit=10&offset=0"</code>
                 </div>
             </div>
 
@@ -217,7 +217,7 @@
 
             <h3 class="font-semibold text-cpl-red mb-3">Example Request</h3>
             <div class="bg-cpl-darker rounded p-4 mb-6">
-                <code class="text-green-400 text-sm">curl "https://canpl-analytics.vercel.app/api/standings?season=2024"</code>
+                <code class="text-green-400 text-sm">curl "https://canadasoccerapi.com/api/standings?season=2024"</code>
             </div>
 
             <h3 class="font-semibold text-cpl-red mb-3">Example Response</h3>
@@ -285,7 +285,7 @@
 
             <h3 class="font-semibold text-cpl-red mb-3">Example Request</h3>
             <div class="bg-cpl-darker rounded p-4 mb-6">
-                <code class="text-green-400 text-sm">curl "https://canpl-analytics.vercel.app/api/teams?active_only=true"</code>
+                <code class="text-green-400 text-sm">curl "https://canadasoccerapi.com/api/teams?active_only=true"</code>
             </div>
 
             <h3 class="font-semibold text-cpl-red mb-3">Example Response</h3>
@@ -368,7 +368,7 @@ Access-Control-Allow-Headers: Content-Type</code></pre>
 
             <h3 class="font-semibold mb-3">Browser Usage</h3>
             <pre class="bg-cpl-darker rounded p-4 text-sm overflow-x-auto"><code><span class="text-gray-500">// Works directly in browser without proxy</span>
-<span class="text-blue-400">fetch</span>(<span class="json-string">'https://canpl-analytics.vercel.app/api/matches'</span>)
+<span class="text-blue-400">fetch</span>(<span class="json-string">'https://canadasoccerapi.com/api/matches'</span>)
   .then(response => response.json())
   .then(data => console.log(data.matches));</code></pre>
         </section>

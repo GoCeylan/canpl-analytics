@@ -38,8 +38,20 @@ class CanPLAPIClient:
         2026: "cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54",
     }
 
-    # CPL Competition ID
+    # Competition IDs
     COMPETITION_ID = "cpl::Football_Competition::85e0d583bc894bb592558598d36c1328"
+    CANADIAN_CHAMPIONSHIP_COMPETITION_ID = "cpl::Football_Competition::82ef58851ba44e2b84f202aa2e3cda92"
+    CCL_COMPETITION_ID = "cpl::Football_Competition::5177691f90094a2191354a6bd57b69e7"
+
+    # Canadian Championship season IDs
+    CANADIAN_CHAMPIONSHIP_SEASONS = {
+        2025: "cpl::Football_Season::fec9d91ba01c4d57999feac75f3b23d1",
+    }
+
+    # Concacaf Champions Cup season IDs
+    CCL_SEASONS = {
+        2025: "cpl::Football_Season::0ba5ca8a4f664c76a1ee9639c4adc04e",
+    }
 
     def __init__(self):
         self.session = requests.Session()
@@ -70,9 +82,19 @@ class CanPLAPIClient:
             logger.error(f"API request failed: {e}")
             raise
 
-    def get_season_id(self, year: int) -> Optional[str]:
-        """Get the internal season ID for a given year."""
-        return self.SEASONS.get(year)
+    def get_season_id(self, year: int, competition: str = 'cpl') -> Optional[str]:
+        """Get the internal season ID for a given year and competition.
+
+        Args:
+            year: Season year
+            competition: One of 'cpl', 'canadian-championship', 'ccl'
+        """
+        season_map = {
+            'cpl': self.SEASONS,
+            'canadian-championship': self.CANADIAN_CHAMPIONSHIP_SEASONS,
+            'ccl': self.CCL_SEASONS,
+        }
+        return season_map.get(competition, {}).get(year)
 
     def get_matches(self, season_id: str, start_date: Optional[str] = None,
                     end_date: Optional[str] = None) -> List[Dict]:
@@ -190,8 +212,15 @@ class CanPLAPIClient:
         data = self._request(f"seasons/{season_id}/stats/teams", params)
         return data.get('teams', [])
 
-    def matches_to_dataframe(self, matches: List[Dict], include_referee_details: bool = False) -> pd.DataFrame:
-        """Convert matches to a clean pandas DataFrame."""
+    def matches_to_dataframe(self, matches: List[Dict], include_referee_details: bool = False,
+                             competition: str = 'cpl') -> pd.DataFrame:
+        """Convert matches to a clean pandas DataFrame.
+
+        Args:
+            matches: Raw match dicts from the API
+            include_referee_details: Whether to fetch referee info per match
+            competition: Competition key ('cpl', 'canadian-championship', 'ccl')
+        """
         rows = []
         for match in matches:
             if match.get('status') != 'FINISHED':
@@ -207,6 +236,7 @@ class CanPLAPIClient:
 
             row = {
                 'match_id': match.get('matchId'),
+                'competition': competition,
                 'date': match.get('matchDateUtc', '')[:10],  # YYYY-MM-DD
                 'season': int(match.get('matchDateUtc', '2025')[:4]),
                 'matchday': match.get('matchSet', {}).get('name', ''),

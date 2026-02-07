@@ -70,7 +70,7 @@ h2h = loader.get_head_to_head('Forge FC', 'Cavalry FC')
 
 ## API Endpoints
 
-Base URL: `https://canpl-analytics.vercel.app`
+Base URL: `https://canadasoccerapi.com`
 
 | Endpoint | Description |
 |----------|-------------|
@@ -85,7 +85,7 @@ Base URL: `https://canpl-analytics.vercel.app`
 
 ```bash
 # Get available 2024 playoff odds (limited)
-curl "https://canpl-analytics.vercel.app/api/odds?season=2024"
+curl "https://canadasoccerapi.com/api/odds?season=2024"
 ```
 
 Response includes:
@@ -145,7 +145,7 @@ import pandas as pd
 import requests
 
 # Fetch closing odds from API (limited to 2024 playoff data)
-response = requests.get('https://canpl-analytics.vercel.app/api/odds?season=2024')
+response = requests.get('https://canadasoccerapi.com/api/odds?season=2024')
 odds = pd.DataFrame(response.json()['odds'])
 
 # Only 5 matches currently available
