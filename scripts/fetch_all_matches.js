@@ -45,7 +45,7 @@ const COMPETITIONS = {
  */
 async function fetchSeasonMatches(competition, year, seasonId) {
   const fullSeasonId = `cpl::Football_Season::${seasonId}`;
-  const url = `https://api-sdp.canpl.ca/v1/cpl/football/seasons/${fullSeasonId}/matches?locale=en-US`;
+  const url = `https://api-sdp.cplsoccer.com/v1/cpl/football/seasons/${fullSeasonId}/matches?locale=en-US`;
 
   console.log(`Fetching ${competition} ${year} matches...`);
 

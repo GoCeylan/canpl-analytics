@@ -22,7 +22,7 @@ const SEASONS = {
  * @returns {Object|null} Parsed stats or null if fetch failed
  */
 async function fetchTeamStats(matchId, seasonId) {
-  const url = `https://api-sdp.canpl.ca/v1/cpl/football/seasons/${seasonId}/match/${matchId}/teamstats?locale=en-US`;
+  const url = `https://api-sdp.cplsoccer.com/v1/cpl/football/seasons/${seasonId}/match/${matchId}/teamstats?locale=en-US`;
 
   try {
     const res = await fetch(url);
