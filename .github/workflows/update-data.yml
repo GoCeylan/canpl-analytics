@@ -1,0 +1,51 @@
+name: Update CPL match data
+
+on:
+  schedule:
+    # 07:00 UTC daily (~03:00 ET) — after overnight finish of late ET CPL matches.
+    # Paired with cpl-betting-system .github/workflows/update-model.yml at 08:00 UTC,
+    # which retrains on whatever canpl-analytics committed this morning.
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Sync match IDs (UPCOMING → FINISHED)
+        run: python scripts/sync_match_ids.py
+
+      - name: Update finished matches → cpl_all.csv
+        run: python scripts/update_match_data.py
+
+      - name: Fetch per-match teamstats
+        run: python scripts/fetch_match_stats.py --seasons 2026 --resume
+
+      - name: Commit and push if data changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [[ -z "$(git status --porcelain data/)" ]]; then
+            echo "No data changes — skipping commit."
+            exit 0
+          fi
+          git add data/
+          git commit -m "data: daily CPL refresh ($(date -u +%Y-%m-%d))"
+          git push
