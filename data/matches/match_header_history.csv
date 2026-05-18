@@ -1301,3 +1301,6 @@ cpl::Football_Match::3aa9ccd515064ce7a8b78b7b4b9522fd,cpl::Football_Season::c479
 cpl::Football_Match::6c7ad23e74a847a885c180e4516107fc,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-03,Supra,Cavalry,,FULL_TIME,13,,1,0,,
 cpl::Football_Match::ef319d7477b04cdf94ca6d11e6eca599,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-03,Pacific,Vancouver,3507,FULL_TIME,5,,0,0,Y. Toualy(78),"M. Amissi(37),T. Campbell(60),T. Campbell(82)"
 cpl::Football_Match::43ec08f13ce24a868bf01098044d0f26,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-13,Forge,Supra,,FULL_TIME,7,,0,0,D. Nimick(56),
+cpl::Football_Match::c24160a77fe54771a6015bb3803f07d6,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-17,Atlético,Wanderers,,FULL_TIME,6,,0,0,J. Villal(31),
+cpl::Football_Match::858f337a1f9d433ea5faaf882e8fb6a4,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-17,Pacific,Inter Toronto,2150,FULL_TIME,9,,1,0,,S. Gonzales(70)
+cpl::Football_Match::7f8ef0d5f77e4a19ace1092c6ec07e79,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-17,Vancouver,Cavalry,2298,FULL_TIME,7,,0,0,,"T. Warschewski(70),L. Laing(90)"
