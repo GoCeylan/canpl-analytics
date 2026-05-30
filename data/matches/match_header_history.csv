@@ -1308,3 +1308,4 @@ cpl::Football_Match::3d194e88ab3d4b81a84bbe8f0d9b97cb,cpl::Football_Season::c479
 cpl::Football_Match::3c3b6d55d3ea4b7580b59b8226271cb8,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-23,Vancouver,Supra,1348,FULL_TIME,7,,0,0,M. Amissi(87),M. Chrétien(90)
 cpl::Football_Match::b19baa89272c4f04963ebfa79f0ada79,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-24,Atlético,Forge,,FULL_TIME,9,,0,0,"N. Abatneh(67),J. Coulanges(87)",Ismael Oketokoun(84)
 cpl::Football_Match::b296650891a9410e8b9d5d327b4f80c0,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-24,Cavalry,Pacific,,FULL_TIME,7,,0,0,"S. Camargo(59),A. Đidić(69),T. Warschewski(90)",
+cpl::Football_Match::e610afd5b86a4978821ac897cefcea9e,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-29,Supra,Inter Toronto,1718,FULL_TIME,4,,1,0,"S. Mlah(66),L. Kwemi(69),S. Rea(86)",T. Skublak(71)
