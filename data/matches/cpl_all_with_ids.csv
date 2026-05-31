@@ -27,8 +27,8 @@ cpl::Football_Match::3d194e88ab3d4b81a84bbe8f0d9b97cb,cpl::Football_Season::c479
 cpl::Football_Match::b19baa89272c4f04963ebfa79f0ada79,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-24,FINISHED,Atletico Ottawa,Forge FC,2,1,PRE_MATCH
 cpl::Football_Match::b296650891a9410e8b9d5d327b4f80c0,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-24,FINISHED,Cavalry FC,Pacific FC,3,0,PRE_MATCH
 cpl::Football_Match::e610afd5b86a4978821ac897cefcea9e,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-29,FINISHED,FC Supra,York United FC,3,1,PRE_MATCH
-cpl::Football_Match::3f1a16c057c94b9cacc8a4a58992ee34,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-30,UPCOMING,Pacific FC,Atletico Ottawa,,,PRE_MATCH
-cpl::Football_Match::c1f900c3115c40b2a403d2e8f925ef62,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-30,UPCOMING,HFX Wanderers FC,Vancouver FC,,,PRE_MATCH
+cpl::Football_Match::3f1a16c057c94b9cacc8a4a58992ee34,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-30,FINISHED,Pacific FC,Atletico Ottawa,2,2,PRE_MATCH
+cpl::Football_Match::c1f900c3115c40b2a403d2e8f925ef62,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-30,FINISHED,HFX Wanderers FC,Vancouver FC,1,0,PRE_MATCH
 cpl::Football_Match::f6b776306d6b4f4983f8bac1b51181cb,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-05-31,UPCOMING,Forge FC,Cavalry FC,,,PRE_MATCH
 cpl::Football_Match::449b3c1e56044e3abb3ff0feb8698a75,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-06-06,UPCOMING,Vancouver FC,Atletico Ottawa,,,PRE_MATCH
 cpl::Football_Match::7c45901e99764f98b386dec1f3075c58,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-06-06,UPCOMING,Cavalry FC,HFX Wanderers FC,,,PRE_MATCH
