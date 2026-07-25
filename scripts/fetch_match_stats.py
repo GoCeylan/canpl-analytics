@@ -103,7 +103,9 @@ def fetch_json(url: str) -> dict | None:
 def parse_teamstats(data: dict) -> tuple[dict, dict]:
     """Returns (home_stats, away_stats) dicts keyed by csv column name."""
     home, away = {}, {}
-    stats_by_id = {s["statsId"]: s for s in data.get("stats", [])}
+    # "stats" can be present but null in the SDP payload (seen from Jun 2026);
+    # `or []` guards against that, where a plain .get default would not.
+    stats_by_id = {s["statsId"]: s for s in (data.get("stats") or [])}
     for stats_id, col in TEAMSTATS_FIELDS.items():
         s = stats_by_id.get(stats_id)
         home[f"home_{col}"] = s["statsValueHome"] if s else None

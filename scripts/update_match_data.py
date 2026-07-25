@@ -98,6 +98,19 @@ def main():
         if (date_str, home, away) in existing_keys:
             continue
 
+        # providerScore can be present-but-null on freshly finished matches;
+        # fall back to the pushed score, and skip (retry tomorrow) if neither
+        # is available yet rather than writing a fake 0-0.
+        hg = m.get("providerHomeScore")
+        ag = m.get("providerAwayScore")
+        if hg is None:
+            hg = m.get("homeScorePush")
+        if ag is None:
+            ag = m.get("awayScorePush")
+        if hg is None or ag is None:
+            print(f"  ! no score yet for {date_str} {home} v {away} — skipping")
+            continue
+
         new_rows.append(
             {
                 # Match the existing CSV's datetime format so downstream
@@ -105,8 +118,8 @@ def main():
                 "date": pd.Timestamp(date_str),
                 "home_team": home,
                 "away_team": away,
-                "home_goals": int(m.get("providerHomeScore", 0)),
-                "away_goals": int(m.get("providerAwayScore", 0)),
+                "home_goals": int(hg),
+                "away_goals": int(ag),
                 "season": 2026,
                 "venue": _VENUES.get(home, ""),
             }

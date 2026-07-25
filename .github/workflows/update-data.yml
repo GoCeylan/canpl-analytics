@@ -35,7 +35,11 @@ jobs:
       - name: Update finished matches → cpl_all.csv
         run: python scripts/update_match_data.py
 
+      # continue-on-error: a teamstats hiccup must never block the commit of
+      # cpl_all.csv results — a stats crash silently starved the model of six
+      # weeks of results (Jun 12 - Jul 25, 2026) because the commit step never ran.
       - name: Fetch per-match teamstats
+        continue-on-error: true
         run: python scripts/fetch_match_stats.py --seasons 2026 --resume
 
       - name: Commit and push if data changed
