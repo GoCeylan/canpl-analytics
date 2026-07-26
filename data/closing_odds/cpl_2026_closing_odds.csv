@@ -1,0 +1,5 @@
+match_id,date,home_team,away_team,bookmaker,closing_home,closing_draw,closing_away,closing_over_2.5,closing_under_2.5,closing_ah0_home,closing_ah0_away,scraped_at
+hfx_wanderers_vs_supra_du_quebec_20260724,2026-07-24,HFX Wanderers FC,Supra du Quebec,manual,2.09,3.72,2.91,,,1.61,2.26,2026-07-24T14:41:00Z
+vancouver_vs_cavalry_20260724,2026-07-24,Vancouver FC,Cavalry FC,manual,3.24,3.41,2.04,1.83,1.96,2.44,1.52,2026-07-24T14:41:00Z
+atletico_ottawa_vs_pacific_20260726,2026-07-26,Atletico Ottawa,Pacific FC,manual,1.66,3.92,4.27,,,1.29,3.34,2026-07-24T14:41:00Z
+inter_toronto_vs_forge_20260726,2026-07-26,Inter Toronto FC,Forge FC,manual,4.44,3.74,1.67,1.82,1.97,3.42,1.28,2026-07-24T14:41:00Z
