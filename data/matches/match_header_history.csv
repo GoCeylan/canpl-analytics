@@ -1336,3 +1336,5 @@ cpl::Football_Match::3644bedd575349fc9fd3cfc191c55ac2,cpl::Football_Season::c479
 cpl::Football_Match::f9dc486190464775950f01160eace16b,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-07-26,Inter Toronto,Forge,2985,FULL_TIME,4,,0,0,T. Skublak(44),"N. Ampomah(41),N. Ampomah(56),Ismael Oketokoun(86)"
 cpl::Football_Match::10609d8b12f247968593438e3d467593,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-07-28,Cavalry,Supra,3710,FULL_TIME,14,,0,0,"N. Edwards(3),A. Đidić(90)",K. Ferdinand(55)
 cpl::Football_Match::bbe940b80a184fbf88333a901279d2f6,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-07-31,Pacific,Supra,,FULL_TIME,8,,2,0,M. Bustos(30),"L. Kwemi(45),S. Mlah(84)"
+cpl::Football_Match::a71f29a9c1dc46168cc0a6f4eb9a13db,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-01,Vancouver,Atlético,,FULL_TIME,5,,0,0,"M. Amissi(7),D. Pecile(45)",T. Arnaud(50)
+cpl::Football_Match::47a0053773534bca9fb22618f133beaf,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-01,Cavalry,Inter Toronto,3806,FULL_TIME,3,,0,0,"A. Pearlman(17),O. Antoniuk(51),A. Musse(61),N. Edwards(68),C. Elva(86)",
