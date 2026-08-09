@@ -59,9 +59,9 @@ cpl::Football_Match::a71f29a9c1dc46168cc0a6f4eb9a13db,cpl::Football_Season::c479
 cpl::Football_Match::bbe940b80a184fbf88333a901279d2f6,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-01,FINISHED,Pacific FC,FC Supra,1,2,PRE_MATCH
 cpl::Football_Match::7bd2c9b0fb9e429a90952939898e0d2d,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-02,FINISHED,HFX Wanderers FC,Forge FC,0,0,PRE_MATCH
 cpl::Football_Match::0e3a6c6f54c94fbd9b995724c6a1185a,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-07,FINISHED,Forge FC,Vancouver FC,0,1,PRE_MATCH
-cpl::Football_Match::533e6d1bc3b149069f6f51080b6bb559,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-08,UPCOMING,Atletico Ottawa,HFX Wanderers FC,,,PRE_MATCH
-cpl::Football_Match::8f14d19f7fb741f287239968d078daf6,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-08,UPCOMING,Pacific FC,York United FC,,,PRE_MATCH
-cpl::Football_Match::8ba917afed6a404a96b3f5a713d287fc,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-09,UPCOMING,FC Supra,Cavalry FC,,,PRE_MATCH
+cpl::Football_Match::533e6d1bc3b149069f6f51080b6bb559,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-08,SUSPENDED,Atletico Ottawa,HFX Wanderers FC,,,PRE_MATCH
+cpl::Football_Match::8f14d19f7fb741f287239968d078daf6,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-08,FINISHED,Pacific FC,York United FC,1,1,PRE_MATCH
+cpl::Football_Match::8ba917afed6a404a96b3f5a713d287fc,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-09,FINISHED,FC Supra,Cavalry FC,1,1,PRE_MATCH
 cpl::Football_Match::d441a254394f447483c1960a16ca7dc8,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-15,UPCOMING,Vancouver FC,Pacific FC,,,PRE_MATCH
 cpl::Football_Match::d83408f377924319bd135a2be03ced62,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-15,UPCOMING,Cavalry FC,Forge FC,,,PRE_MATCH
 cpl::Football_Match::486a86e9dc824de4a972515cb77918e0,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-16,UPCOMING,York United FC,HFX Wanderers FC,,,PRE_MATCH
