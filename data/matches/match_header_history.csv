@@ -1345,3 +1345,5 @@ cpl::Football_Match::8ba917afed6a404a96b3f5a713d287fc,cpl::Football_Season::c479
 cpl::Football_Match::533e6d1bc3b149069f6f51080b6bb559,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-08,Atlético,Wanderers,4094,FULL_TIME,7,,0,0,"E. García(62),B. Tabla(79)",Miguel Arilla(39)
 cpl::Football_Match::d441a254394f447483c1960a16ca7dc8,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-14,Vancouver,Pacific,2218,FULL_TIME,8,,0,0,T. Campbell(87),R. Kratt(36)
 cpl::Football_Match::d83408f377924319bd135a2be03ced62,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-15,Cavalry,Forge,4721,FULL_TIME,7,,0,2,"D. Klomp(62),O. Antoniuk(83)",Ismael Oketokoun(20)
+cpl::Football_Match::de297f249daf4940a3b2d3e265a68abe,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-16,Supra,Atlético,,FULL_TIME,6,,1,0,S. Mlah(64),"N. Fleuriau Chateau(83),Ralph Khoury(90)"
+cpl::Football_Match::486a86e9dc824de4a972515cb77918e0,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-16,Inter Toronto,Wanderers,,FULL_TIME,5,,0,0,"A. Almagro(3),S. Yeates(25),J. Altobelli(47)","A. Rampersad(56),I. Johnston(77)"
