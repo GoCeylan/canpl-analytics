@@ -68,9 +68,9 @@ cpl::Football_Match::486a86e9dc824de4a972515cb77918e0,cpl::Football_Season::c479
 cpl::Football_Match::de297f249daf4940a3b2d3e265a68abe,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-16,FINISHED,FC Supra,Atletico Ottawa,1,2,PRE_MATCH
 cpl::Football_Match::9bdcb9b27c0543f386f063abbf424877,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-19,FINISHED,Atletico Ottawa,Vancouver FC,4,0,PRE_MATCH
 cpl::Football_Match::b132fa4c0c3e49f0b4b974e09b176999,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-19,FINISHED,Forge FC,FC Supra,3,2,PRE_MATCH
-cpl::Football_Match::dd0f5e974f374e8d948ab919a98ccf05,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-22,UPCOMING,Cavalry FC,Atletico Ottawa,,,PRE_MATCH
-cpl::Football_Match::ecdd62d6bd1f4a1b8826032037a323cd,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-22,UPCOMING,HFX Wanderers FC,Vancouver FC,,,PRE_MATCH
-cpl::Football_Match::fddfcad2494c4ec79ec04868d0bafa26,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-22,UPCOMING,Forge FC,Pacific FC,,,PRE_MATCH
+cpl::Football_Match::dd0f5e974f374e8d948ab919a98ccf05,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-22,FINISHED,Cavalry FC,Atletico Ottawa,3,1,PRE_MATCH
+cpl::Football_Match::ecdd62d6bd1f4a1b8826032037a323cd,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-22,FINISHED,HFX Wanderers FC,Vancouver FC,1,0,PRE_MATCH
+cpl::Football_Match::fddfcad2494c4ec79ec04868d0bafa26,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-22,SUSPENDED,Forge FC,Pacific FC,,,PRE_MATCH
 cpl::Football_Match::3875578dafea4193bcde68b8ae826506,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-23,UPCOMING,York United FC,FC Supra,,,PRE_MATCH
 cpl::Football_Match::05778a6e146a4d4ebc2728e39264fafe,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-28,UPCOMING,Atletico Ottawa,York United FC,,,PRE_MATCH
 cpl::Football_Match::b3284a7baa924021b5cff094a1a3852f,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-28,UPCOMING,FC Supra,Forge FC,,,PRE_MATCH
