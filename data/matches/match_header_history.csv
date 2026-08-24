@@ -1351,3 +1351,5 @@ cpl::Football_Match::b132fa4c0c3e49f0b4b974e09b176999,cpl::Football_Season::c479
 cpl::Football_Match::9bdcb9b27c0543f386f063abbf424877,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-19,Atlético,Vancouver,3512,FULL_TIME,5,,0,0,"J. Assi(13),J. Assi(59),N. Fleuriau Chateau(63),E. García(73)",
 cpl::Football_Match::ecdd62d6bd1f4a1b8826032037a323cd,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-22,Wanderers,Vancouver,6214,FULL_TIME,5,,0,0,J. Bahamboula(18),
 cpl::Football_Match::dd0f5e974f374e8d948ab919a98ccf05,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-22,Cavalry,Atlético,4429,FULL_TIME,8,,0,0,"N. Edwards(13),T. Warschewski(18),T. Warschewski(53)",N. Fleuriau Chateau(22)
+cpl::Football_Match::fddfcad2494c4ec79ec04868d0bafa26,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-22,Forge,Pacific,,FULL_TIME,5,,0,0,"Ismael Oketokoun(57),A. Sadek(78)",
+cpl::Football_Match::3875578dafea4193bcde68b8ae826506,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-23,Inter Toronto,Supra,1681,FULL_TIME,8,,0,1,J. Altobelli(14),L. Kwemi(61)
