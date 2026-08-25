@@ -1,27 +1,12 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/**/*.js", "use": "@vercel/node" },
+    { "src": "api/router.js", "use": "@vercel/node" },
     { "src": "public/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/api(?:/v1)?/?", "dest": "/api/index/route.js" },
-    { "src": "/api(?:/v1)?/matches", "dest": "/api/matches/route.js" },
-    { "src": "/api(?:/v1)?/live", "dest": "/api/live/route.js" },
-    { "src": "/api(?:/v1)?/standings", "dest": "/api/standings/route.js" },
-    { "src": "/api(?:/v1)?/players", "dest": "/api/players/route.js" },
-    { "src": "/api(?:/v1)?/leaderboards", "dest": "/api/leaderboards/route.js" },
-    { "src": "/api(?:/v1)?/team-stats", "dest": "/api/team-stats/route.js" },
-    { "src": "/api(?:/v1)?/teams", "dest": "/api/teams/route.js" },
-    { "src": "/api(?:/v1)?/match-stats", "dest": "/api/match-stats/route.js" },
-    { "src": "/api(?:/v1)?/referees", "dest": "/api/referees/route.js" },
-    { "src": "/api(?:/v1)?/venues", "dest": "/api/venues/route.js" },
-    { "src": "/api(?:/v1)?/weather", "dest": "/api/weather/route.js" },
-    { "src": "/api(?:/v1)?/odds", "dest": "/api/odds/route.js" },
-    { "src": "/api(?:/v1)?/odds-quotes", "dest": "/api/odds-quotes/route.js" },
-    { "src": "/api(?:/v1)?/seasons", "dest": "/api/seasons/route.js" },
-    { "src": "/api(?:/v1)?/health", "dest": "/api/health/route.js" },
-    { "src": "/api(?:/v1)?/analytics", "dest": "/api/analytics/route.js" },
+    { "src": "/api/v1(?:/(.*))?", "dest": "/api/router.js?resource=$1" },
+    { "src": "/api(?:/(.*))?", "dest": "/api/router.js?resource=$1" },
     { "src": "/(.*)", "dest": "/public/$1" }
   ],
   "github": { "silent": true }

@@ -74,6 +74,15 @@ test('discovery exposes the complete v1 surface', async () => {
   assert.ok(res.body.endpoints['/api/v1/odds-quotes']);
 });
 
+test('single serverless router dispatches v1 resources', async () => {
+  const router = require('../api/router.js');
+  const req = { method: 'GET', url: '/api/router.js?resource=seasons', query: { resource: 'seasons' }, headers: {}, socket: { remoteAddress: 'router-test' } };
+  const res = response();
+  await router(req, res);
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.count, 8);
+});
+
 test('historical match archive and pagination work', async () => {
   const res = await call('matches', { season: '2019', limit: '2' });
   assert.equal(res.statusCode, 200);
