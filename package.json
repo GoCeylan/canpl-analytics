@@ -1,6 +1,6 @@
 {
   "name": "canpl-analytics",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "The most comprehensive open dataset for the Canadian Premier League (CPL).",
   "main": "index.js",
   "directories": {
@@ -8,7 +8,8 @@
     "example": "examples"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test tests/*.test.js",
+    "check": "npm test && node -e \"JSON.parse(require('fs').readFileSync('vercel.json')); JSON.parse(require('fs').readFileSync('public/openapi.json'))\""
   },
   "keywords": [],
   "author": "",

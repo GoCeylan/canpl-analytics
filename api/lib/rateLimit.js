@@ -29,7 +29,7 @@ function cleanupExpiredEntries() {
  */
 const RATE_LIMIT = {
   windowMs: 60 * 60 * 1000, // 1 hour
-  maxRequests: 20,          // 20 requests per hour
+  maxRequests: 300,         // generous public, best-effort hourly limit
 };
 
 /**
@@ -122,7 +122,7 @@ function sendRateLimitExceeded(res, rateLimitInfo) {
 
   return res.status(429).json({
     error: 'Rate limit exceeded',
-    message: `You have exceeded the rate limit of ${rateLimitInfo.limit} requests per hour. Please try again later.`,
+    message: `You have exceeded the best-effort public limit of ${rateLimitInfo.limit} requests per hour. Please try again later.`,
     retryAfter: retryAfter,
     resetTime: resetDate.toISOString(),
   });

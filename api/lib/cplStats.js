@@ -25,7 +25,13 @@ async function fetchTeamStats(matchId, seasonId) {
   const url = `https://api-sdp.cplsoccer.com/v1/cpl/football/seasons/${seasonId}/match/${matchId}/teamstats?locale=en-US`;
 
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, {
+      headers: {
+        Accept: 'application/json',
+        Origin: 'https://www.cplsoccer.com',
+        Referer: 'https://www.cplsoccer.com/',
+      },
+    });
     if (!res.ok) {
       console.error(`Failed to fetch team stats: ${res.status}`);
       return null;

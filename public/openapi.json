@@ -1,0 +1,191 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Canada Soccer API",
+    "version": "2.0.0",
+    "description": "Open Canadian Premier League match, live, table, player, team, advanced-stat, referee, venue, weather, and odds data from 2019 through the current season.",
+    "license": { "name": "CC BY 4.0", "url": "https://creativecommons.org/licenses/by/4.0/" }
+  },
+  "servers": [{ "url": "https://canadasoccerapi.com/api/v1", "description": "Production" }],
+  "tags": [
+    { "name": "Discovery" }, { "name": "Matches" }, { "name": "Competition" },
+    { "name": "Players" }, { "name": "Teams" }, { "name": "Context" }, { "name": "Odds" }
+  ],
+  "paths": {
+    "/": { "get": { "tags": ["Discovery"], "summary": "Discover every endpoint", "responses": { "200": { "$ref": "#/components/responses/Success" } } } },
+    "/seasons": { "get": { "tags": ["Discovery"], "summary": "List season identifiers and dataset coverage", "responses": { "200": { "$ref": "#/components/responses/Success" } } } },
+    "/health": { "get": { "tags": ["Discovery"], "summary": "Check service and dataset health", "responses": { "200": { "$ref": "#/components/responses/Success" } } } },
+    "/matches": {
+      "get": {
+        "tags": ["Matches"], "summary": "Query the complete match archive and live schedule",
+        "parameters": [
+          { "$ref": "#/components/parameters/Season" }, { "$ref": "#/components/parameters/Team" },
+          { "name": "status", "in": "query", "schema": { "type": "string", "enum": ["FINISHED", "UPCOMING", "LIVE", "IN_PLAY", "HALF_TIME", "POSTPONED", "CANCELLED", "SUSPENDED"] } },
+          { "name": "match_id", "in": "query", "schema": { "type": "string" } },
+          { "name": "date", "in": "query", "schema": { "type": "string", "format": "date" } },
+          { "$ref": "#/components/parameters/From" }, { "$ref": "#/components/parameters/To" },
+          { "$ref": "#/components/parameters/Limit" }, { "$ref": "#/components/parameters/Offset" }, { "$ref": "#/components/parameters/Order" }
+        ],
+        "responses": { "200": { "$ref": "#/components/responses/Success" }, "400": { "$ref": "#/components/responses/Error" } }
+      }
+    },
+    "/live": {
+      "get": {
+        "tags": ["Matches"], "summary": "Get live, recently finished, and soon-to-start fixtures",
+        "parameters": [
+          { "$ref": "#/components/parameters/Team" },
+          { "name": "window_hours", "in": "query", "schema": { "type": "integer", "minimum": 1, "maximum": 168, "default": 48 } },
+          { "name": "all", "in": "query", "schema": { "type": "boolean", "default": false } }
+        ],
+        "responses": { "200": { "$ref": "#/components/responses/Success" } }
+      }
+    },
+    "/match-stats": {
+      "get": {
+        "tags": ["Matches"], "summary": "Get match-level advanced team statistics and xG",
+        "parameters": [
+          { "name": "match_id", "in": "query", "description": "Required unless season is supplied", "schema": { "type": "string" } },
+          { "$ref": "#/components/parameters/Season" }
+        ],
+        "responses": { "200": { "$ref": "#/components/responses/Success" }, "400": { "$ref": "#/components/responses/Error" } }
+      }
+    },
+    "/standings": {
+      "get": {
+        "tags": ["Competition"], "summary": "Get official historical or live standings",
+        "parameters": [{ "$ref": "#/components/parameters/Season" }],
+        "responses": { "200": { "$ref": "#/components/responses/Success" } }
+      }
+    },
+    "/players": {
+      "get": {
+        "tags": ["Players"], "summary": "Query current-season players, advanced stats, and ratings",
+        "parameters": [
+          { "$ref": "#/components/parameters/Season" }, { "$ref": "#/components/parameters/Team" },
+          { "name": "position", "in": "query", "schema": { "type": "string", "enum": ["Goalkeeper", "Defender", "Midfielder", "Forward"] } },
+          { "name": "search", "in": "query", "schema": { "type": "string" } },
+          { "name": "min_minutes", "in": "query", "schema": { "type": "integer", "minimum": 0 } },
+          { "name": "eligible", "in": "query", "description": "Only players eligible for the season rating leaderboard", "schema": { "type": "boolean" } },
+          { "name": "sort", "in": "query", "schema": { "type": "string", "default": "rating" } },
+          { "$ref": "#/components/parameters/Order" }, { "$ref": "#/components/parameters/Limit" }, { "$ref": "#/components/parameters/Offset" }
+        ],
+        "responses": { "200": { "$ref": "#/components/responses/Success" }, "400": { "$ref": "#/components/responses/Error" } }
+      }
+    },
+    "/leaderboards": {
+      "get": {
+        "tags": ["Players"], "summary": "Get rating and statistical leaderboards",
+        "parameters": [
+          { "name": "metric", "in": "query", "description": "Comma-separated: rating, goals, assists, goal_involvements, xg, shots, shots_on_target, key_passes, successful_dribbles, tackles, interceptions, recoveries, clearances, saves, pass_accuracy", "schema": { "type": "string" } },
+          { "$ref": "#/components/parameters/Team" },
+          { "name": "position", "in": "query", "schema": { "type": "string" } },
+          { "$ref": "#/components/parameters/Limit" }
+        ],
+        "responses": { "200": { "$ref": "#/components/responses/Success" } }
+      }
+    },
+    "/teams": {
+      "get": {
+        "tags": ["Teams"], "summary": "List current and historical clubs",
+        "parameters": [
+          { "name": "active_only", "in": "query", "schema": { "type": "boolean" } },
+          { "name": "search", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "$ref": "#/components/responses/Success" } }
+      }
+    },
+    "/team-stats": {
+      "get": {
+        "tags": ["Teams"], "summary": "Get official current-season team metrics",
+        "parameters": [
+          { "$ref": "#/components/parameters/Team" },
+          { "name": "sort", "in": "query", "schema": { "type": "string", "default": "points" } },
+          { "$ref": "#/components/parameters/Order" },
+          { "name": "raw", "in": "query", "description": "Include every source stat field", "schema": { "type": "boolean" } }
+        ],
+        "responses": { "200": { "$ref": "#/components/responses/Success" } }
+      }
+    },
+    "/referees": {
+      "get": {
+        "tags": ["Context"], "summary": "Query historical referee assignments or summaries",
+        "parameters": [
+          { "$ref": "#/components/parameters/Season" }, { "$ref": "#/components/parameters/Team" },
+          { "name": "referee", "in": "query", "schema": { "type": "string" } },
+          { "name": "match_id", "in": "query", "schema": { "type": "string" } },
+          { "name": "summary", "in": "query", "schema": { "type": "boolean" } },
+          { "$ref": "#/components/parameters/Limit" }, { "$ref": "#/components/parameters/Offset" }
+        ],
+        "responses": { "200": { "$ref": "#/components/responses/Success" } }
+      }
+    },
+    "/venues": {
+      "get": {
+        "tags": ["Context"], "summary": "List stadium metadata and coordinates",
+        "parameters": [
+          { "$ref": "#/components/parameters/Team" }, { "name": "city", "in": "query", "schema": { "type": "string" } },
+          { "name": "surface", "in": "query", "schema": { "type": "string" } },
+          { "name": "active_only", "in": "query", "schema": { "type": "boolean" } }
+        ],
+        "responses": { "200": { "$ref": "#/components/responses/Success" } }
+      }
+    },
+    "/weather": {
+      "get": {
+        "tags": ["Context"], "summary": "Query historical match weather",
+        "parameters": [
+          { "$ref": "#/components/parameters/Team" }, { "name": "date", "in": "query", "schema": { "type": "string", "format": "date" } },
+          { "$ref": "#/components/parameters/From" }, { "$ref": "#/components/parameters/To" },
+          { "$ref": "#/components/parameters/Limit" }, { "$ref": "#/components/parameters/Offset" }
+        ],
+        "responses": { "200": { "$ref": "#/components/responses/Success" } }
+      }
+    },
+    "/odds": {
+      "get": {
+        "tags": ["Odds"], "summary": "Query recorded closing odds",
+        "parameters": [
+          { "$ref": "#/components/parameters/Season" }, { "$ref": "#/components/parameters/Team" },
+          { "name": "bookmaker", "in": "query", "schema": { "type": "string" } },
+          { "name": "match_id", "in": "query", "schema": { "type": "string" } },
+          { "$ref": "#/components/parameters/Limit" }, { "$ref": "#/components/parameters/Offset" }
+        ],
+        "responses": { "200": { "$ref": "#/components/responses/Success" } }
+      }
+    },
+    "/odds-quotes": {
+      "get": {
+        "tags": ["Odds"], "summary": "Query timestamped bookmaker snapshots",
+        "parameters": [
+          { "$ref": "#/components/parameters/Season" }, { "$ref": "#/components/parameters/Team" },
+          { "name": "bookmaker", "in": "query", "schema": { "type": "string" } },
+          { "name": "market", "in": "query", "schema": { "type": "string" } },
+          { "name": "date", "in": "query", "schema": { "type": "string", "format": "date" } },
+          { "$ref": "#/components/parameters/Limit" }, { "$ref": "#/components/parameters/Offset" }
+        ],
+        "responses": { "200": { "$ref": "#/components/responses/Success" } }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "Season": { "name": "season", "in": "query", "schema": { "type": "integer", "minimum": 2019, "example": 2026 } },
+      "Team": { "name": "team", "in": "query", "schema": { "type": "string", "example": "Forge" } },
+      "Limit": { "name": "limit", "in": "query", "schema": { "type": "integer", "minimum": 1, "maximum": 500, "default": 100 } },
+      "Offset": { "name": "offset", "in": "query", "schema": { "type": "integer", "minimum": 0, "default": 0 } },
+      "Order": { "name": "order", "in": "query", "schema": { "type": "string", "enum": ["asc", "desc"] } },
+      "From": { "name": "from", "in": "query", "schema": { "type": "string", "format": "date" } },
+      "To": { "name": "to", "in": "query", "schema": { "type": "string", "format": "date" } }
+    },
+    "responses": {
+      "Success": { "description": "Successful JSON response", "content": { "application/json": { "schema": { "type": "object", "additionalProperties": true } } } },
+      "Error": { "description": "Standard error response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object", "required": ["error", "message", "status"],
+        "properties": { "error": { "type": "string" }, "message": { "type": "string" }, "status": { "type": "integer" } }
+      }
+    }
+  }
+}

@@ -134,8 +134,8 @@ function withMiddleware(handler, options) {
       }
     }
 
-    // Set cache headers
-    res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
+    // Routes can opt into freshness appropriate for their data source.
+    res.setHeader('Cache-Control', options.cache || 's-maxage=3600, stale-while-revalidate=86400');
 
     try {
       // Call the actual handler

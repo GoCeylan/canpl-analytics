@@ -27,7 +27,8 @@ function handler(req, res) {
   // Optional: Add basic auth for admin access
   // For now, analytics are public but anonymized
   const authHeader = req.headers.authorization;
-  const isAdmin = authHeader === `Basic ${Buffer.from('admin:cplanalytics2025').toString('base64')}`;
+  const expectedAuth = process.env.ANALYTICS_BASIC_AUTH;
+  const isAdmin = expectedAuth && authHeader === `Basic ${Buffer.from(expectedAuth).toString('base64')}`;
 
   try {
     const analytics = getAnalytics();

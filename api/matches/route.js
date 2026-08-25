@@ -1,118 +1,92 @@
-const { readFileSync } = require('fs');
-const { join } = require('path');
 const { withMiddleware } = require('../lib/middleware.js');
+const { includes, paginate, readCsv } = require('../lib/data.js');
+const { CURRENT_SEASON, getOfficialMatches, normalizeTeam } = require('../lib/sdp.js');
 
-const VALID_COMPETITIONS = ['cpl', 'canadian-championship', 'ccl'];
+const VALID_STATUSES = ['FINISHED', 'UPCOMING', 'LIVE', 'IN_PLAY', 'HALF_TIME', 'POSTPONED', 'CANCELLED', 'SUSPENDED'];
 
-async function matchesHandler(req, res, { track, errors, validateNumber }) {
-  const { season, team, competition, limit = '100', offset = '0' } = req.query;
-
-  // Validate parameters
-  const seasonValidation = validateNumber(season, 'season', 2019, 2030);
-  if (!seasonValidation.valid) {
-    track(400);
-    return errors.badRequest(res, seasonValidation.error);
-  }
-
-  if (competition !== undefined && !VALID_COMPETITIONS.includes(competition)) {
-    track(400);
-    return errors.badRequest(res, 'competition must be one of: ' + VALID_COMPETITIONS.join(', '));
-  }
-
-  const limitValidation = validateNumber(limit, 'limit', 1, 500);
-  if (!limitValidation.valid) {
-    track(400);
-    return errors.badRequest(res, limitValidation.error);
-  }
-
-  const offsetValidation = validateNumber(offset, 'offset', 0);
-  if (!offsetValidation.valid) {
-    track(400);
-    return errors.badRequest(res, offsetValidation.error);
-  }
-
-  // Read the combined matches file with match_ids
-  const dataPath = join(process.cwd(), 'data', 'matches', 'cpl_all_with_ids.csv');
-  const csvData = readFileSync(dataPath, 'utf-8');
-
-  // Parse CSV (handle CRLF line endings)
-  const lines = csvData.trim().replace(/\r/g, '').split('\n');
-  const headers = lines[0].split(',');
-
-  let matches = lines.slice(1).map(line => {
-    const values = parseCSVLine(line);
-    const obj = {};
-    headers.forEach((header, index) => {
-      const value = values[index];
-      // Convert numeric fields
-      if (['home_goals', 'away_goals', 'season'].includes(header)) {
-        obj[header] = parseInt(value, 10);
-      } else {
-        obj[header] = value;
-      }
-    });
-    // Backfill competition for rows without it (legacy data)
-    if (!obj.competition) {
-      obj.competition = 'cpl';
-    }
-    return obj;
-  }).filter(m => m.date && m.match_id); // Filter out empty rows
-
-  // Filter by competition if provided
-  if (competition) {
-    matches = matches.filter(m => m.competition === competition);
-  }
-
-  // Filter by season if provided
-  if (seasonValidation.value !== undefined) {
-    matches = matches.filter(m => m.season === seasonValidation.value);
-  }
-
-  // Filter by team if provided
-  if (team) {
-    const teamLower = team.toLowerCase();
-    matches = matches.filter(m =>
-      m.home_team.toLowerCase().includes(teamLower) ||
-      m.away_team.toLowerCase().includes(teamLower)
-    );
-  }
-
-  // Apply pagination
-  const offsetNum = offsetValidation.value || 0;
-  const limitNum = limitValidation.value || 100;
-  const paginatedMatches = matches.slice(offsetNum, offsetNum + limitNum);
-
-  track(200);
-  return res.status(200).json({
-    total: matches.length,
-    count: paginatedMatches.length,
-    offset: offsetNum,
-    limit: limitNum,
-    matches: paginatedMatches
+function historicalMatches() {
+  const headerIndex = new Map();
+  readCsv('data/matches/match_header_history.csv').forEach((row) => {
+    if (row.match_id) headerIndex.set(row.match_id, row);
+  });
+  const unique = new Map();
+  readCsv('data/matches/match_teamstats_history.csv').forEach((row) => {
+    if (row.match_id && row.season) unique.set(row.match_id, row);
+  });
+  return [...unique.values()].map((row) => {
+    const header = headerIndex.get(row.match_id);
+    return {
+      match_id: row.match_id,
+      season_id: row.season_id,
+      season: Number(row.season),
+      date: row.date,
+      kickoff_utc: null,
+      status: 'FINISHED',
+      phase: header?.phase || 'FULL_TIME',
+      home_team: normalizeTeam(row.home_team),
+      away_team: normalizeTeam(row.away_team),
+      home_goals: Number(row.home_goals),
+      away_goals: Number(row.away_goals),
+      stadium: null,
+      attendance: header?.attendance || null,
+      win_reason: header?.win_reason || null,
+      competition: 'cpl',
+      source: 'archive',
+      advanced_stats_available: row.has_data === 1,
+    };
   });
 }
 
-/**
- * Parse a CSV line handling quoted values with commas
- */
-function parseCSVLine(line) {
-  const values = [];
-  let current = '';
-  let inQuotes = false;
-
-  for (let i = 0; i < line.length; i++) {
-    const char = line[i];
-    if (char === '"') {
-      inQuotes = !inQuotes;
-    } else if (char === ',' && !inQuotes) {
-      values.push(current);
-      current = '';
-    } else {
-      current += char;
-    }
-  }
-  values.push(current);
-  return values;
+function fallbackCurrentSchedule() {
+  return readCsv('data/matches/cpl_all_with_ids.csv').map((row) => ({
+    ...row,
+    season: Number(row.season),
+    home_team: normalizeTeam(row.home_team),
+    away_team: normalizeTeam(row.away_team),
+    competition: 'cpl',
+    source: 'repository-snapshot',
+  }));
 }
 
-module.exports = withMiddleware(matchesHandler, { endpoint: '/api/matches' });
+async function loadMatches(requestedSeason) {
+  const archive = historicalMatches();
+  if (requestedSeason && requestedSeason !== CURRENT_SEASON) return archive;
+  let current;
+  try {
+    current = (await getOfficialMatches(CURRENT_SEASON)).map((match) => ({ ...match, competition: 'cpl', source: 'official-cpl-live' }));
+  } catch (error) {
+    console.error('Official schedule unavailable; using repository snapshot:', error.message);
+    current = fallbackCurrentSchedule();
+  }
+  return [...archive.filter((match) => match.season !== CURRENT_SEASON), ...current];
+}
+
+async function matchesHandler(req, res, { track, errors, validateNumber }) {
+  const seasonCheck = validateNumber(req.query.season, 'season', 2019, 2030);
+  if (!seasonCheck.valid) return errors.badRequest(res, seasonCheck.error);
+  const status = req.query.status ? String(req.query.status).toUpperCase() : null;
+  if (status && !VALID_STATUSES.includes(status)) return errors.badRequest(res, `status must be one of: ${VALID_STATUSES.join(', ')}`);
+  if (req.query.from && req.query.to && req.query.from > req.query.to) return errors.badRequest(res, 'from must be before to');
+  const order = String(req.query.order || 'asc').toLowerCase();
+  if (!['asc', 'desc'].includes(order)) return errors.badRequest(res, 'order must be asc or desc');
+
+  let matches = await loadMatches(seasonCheck.value);
+  if (seasonCheck.value) matches = matches.filter((match) => match.season === seasonCheck.value);
+  if (req.query.team) matches = matches.filter((match) => includes(`${match.home_team} ${match.away_team}`, req.query.team));
+  if (req.query.match_id) matches = matches.filter((match) => match.match_id === req.query.match_id || includes(match.match_id, req.query.match_id));
+  if (status) matches = matches.filter((match) => match.status === status);
+  if (req.query.date) matches = matches.filter((match) => match.date === req.query.date);
+  if (req.query.from) matches = matches.filter((match) => match.date >= req.query.from);
+  if (req.query.to) matches = matches.filter((match) => match.date <= req.query.to);
+  matches.sort((a, b) => (order === 'asc' ? 1 : -1) * (`${a.date}${a.kickoff_utc || ''}`.localeCompare(`${b.date}${b.kickoff_utc || ''}`)));
+
+  const page = paginate(matches, req.query);
+  track(200);
+  return res.status(200).json({
+    total: page.total, count: page.count, limit: page.limit, offset: page.offset,
+    has_more: page.has_more, matches: page.items,
+    coverage: { from: '2019-04-27', through: CURRENT_SEASON, current_season_live: true },
+  });
+}
+
+module.exports = withMiddleware(matchesHandler, { endpoint: '/api/matches', cache: 's-maxage=60, stale-while-revalidate=120' });

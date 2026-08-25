@@ -56,7 +56,7 @@
         <section id="data-sources" class="mb-12">
             <h2 class="text-2xl font-bold text-cpl-red mb-4">Data Sources</h2>
 
-            <h3 class="font-semibold mb-3">2025 Season Data</h3>
+            <h3 class="font-semibold mb-3">2026 Live Season Data</h3>
             <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
                 <thead class="bg-cpl-darker">
                     <tr>
@@ -81,15 +81,20 @@
                         <td class="p-4 text-gray-400">Official CanPL sources</td>
                         <td class="p-4 text-green-400">High</td>
                     </tr>
+                    <tr class="border-t border-gray-700">
+                        <td class="p-4">Players, ratings, and team statistics</td>
+                        <td class="p-4 text-gray-400">Official CanPL SDP feeds + documented rating model</td>
+                        <td class="p-4 text-green-400">High</td>
+                    </tr>
                 </tbody>
             </table>
 
             <div class="bg-green-900/20 border border-green-600 rounded-lg p-5 mb-6">
                 <p class="text-green-400 font-semibold">Official API Data</p>
-                <p class="text-gray-400 text-sm mt-1">The 2025 season data is sourced directly from the Canadian Premier League's official Sports Data Platform (SDP) API, providing authoritative match results and standings.</p>
+                <p class="text-gray-400 text-sm mt-1">The 2026 schedule, live state, standings, player statistics, and team statistics are normalized from the Canadian Premier League's public Sports Data Platform feeds and refreshed throughout the season.</p>
             </div>
 
-            <h3 class="font-semibold mb-3">2019-2024 Historical Data</h3>
+            <h3 class="font-semibold mb-3">2019-2025 Historical Data</h3>
             <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
                 <thead class="bg-cpl-darker">
                     <tr>
@@ -262,8 +267,8 @@
                         <td class="p-4 text-gray-400">Directly from CanPL API, excludes playoff matches</td>
                     </tr>
                     <tr class="border-t border-gray-700">
-                        <td class="p-4 font-mono text-yellow-400">"calculated"</td>
-                        <td class="p-4 text-gray-400">Computed from match results, may include playoff matches</td>
+                        <td class="p-4 font-mono text-yellow-400">"repository-snapshot"</td>
+                        <td class="p-4 text-gray-400">Current-season fallback calculated only when the live official table is unavailable</td>
                     </tr>
                 </tbody>
             </table>
@@ -287,8 +292,8 @@
                             <td class="py-2 text-gray-500">"HFX Wanderers", "Halifax Wanderers"</td>
                         </tr>
                         <tr class="border-b border-gray-700">
-                            <td class="py-2">Atletico Ottawa</td>
-                            <td class="py-2 text-gray-500">"Atlético Ottawa" (with accent)</td>
+                            <td class="py-2">Atlético Ottawa</td>
+                            <td class="py-2 text-gray-500">"Atletico Ottawa", "Atlético"</td>
                         </tr>
                         <tr>
                             <td class="py-2">York United FC</td>
@@ -322,9 +327,13 @@
                                 <td class="py-2">FC Edmonton</td>
                                 <td class="py-2 text-gray-500">2019-2023</td>
                             </tr>
-                            <tr>
+                            <tr class="border-b border-gray-700">
                                 <td class="py-2">York United FC</td>
                                 <td class="py-2 text-gray-500">2019-2024</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2">Valour FC</td>
+                                <td class="py-2 text-gray-500">2019-2025</td>
                             </tr>
                         </tbody>
                     </table>
@@ -385,11 +394,19 @@
                 </div>
 
                 <div class="bg-cpl-card rounded-lg p-5">
-                    <h3 class="font-semibold mb-2">2025 - Current Season</h3>
+                    <h3 class="font-semibold mb-2">2025 - Completed Season</h3>
                     <ul class="text-gray-400 text-sm space-y-1">
                         <li>&#8226; Inter Toronto begins play</li>
                         <li>&#8226; 8 active teams</li>
                         <li>&#8226; Data sourced from official SDP API</li>
+                    </ul>
+                </div>
+                <div class="bg-cpl-card rounded-lg p-5">
+                    <h3 class="font-semibold mb-2">2026 - Live Season</h3>
+                    <ul class="text-gray-400 text-sm space-y-1">
+                        <li>&#8226; Supra du Québec joins; Valour leaves the league</li>
+                        <li>&#8226; 8 active teams</li>
+                        <li>&#8226; Live matches, table, players, leaderboards, and team metrics</li>
                     </ul>
                 </div>
             </div>

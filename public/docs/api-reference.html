@@ -1,429 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Reference - CPL Analytics</title>
-    <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cpl: {
-                            red: '#c8102e',
-                            dark: '#1a1a2e',
-                            darker: '#12121f',
-                            card: '#252540'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .json-key { color: #60a5fa; }
-        .json-string { color: #4ade80; }
-        .json-number { color: #f472b6; }
-        html { scroll-behavior: smooth; }
-    </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>API Reference — Canada Soccer API</title>
+  <meta name="description" content="Complete endpoint and query reference for Canada Soccer API v1.">
+  <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{ink:'#07111e',panel:'#0d1b2d',line:'#20334b',accent:'#ff435e',mint:'#37e4b0'}}}}</script>
+  <style>html{scroll-behavior:smooth}body{background:#07111e}.doc h3{scroll-margin-top:6rem}.doc code{font-size:.88em}</style>
 </head>
-<body class="bg-cpl-dark text-gray-100 min-h-screen">
-    <div class="max-w-5xl mx-auto px-4 py-8">
+<body class="text-slate-100 antialiased">
+  <header class="sticky top-0 z-20 border-b border-line bg-ink/90 backdrop-blur"><div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between"><a href="/" class="font-black"><span class="text-accent">CANADA</span>SOCCER<span class="text-mint">API</span></a><div class="flex gap-5 text-sm text-slate-300"><a href="/" class="hover:text-white">Explorer</a><a href="/openapi.json" class="hover:text-white">OpenAPI JSON</a><a href="https://github.com/GoCeylan/canpl-analytics" class="hover:text-white">GitHub</a></div></div></header>
+  <div class="max-w-7xl mx-auto px-5 py-12 grid lg:grid-cols-[240px_1fr] gap-12">
+    <aside class="hidden lg:block"><nav class="sticky top-24 text-sm space-y-2"><div class="font-bold text-slate-200 mb-3">API v1</div><a class="block text-slate-400 hover:text-mint" href="#start">Quick start</a><a class="block text-slate-400 hover:text-mint" href="#conventions">Conventions</a><a class="block text-slate-400 hover:text-mint" href="#resources">Resources</a><a class="block text-slate-400 hover:text-mint" href="#matches">Matches</a><a class="block text-slate-400 hover:text-mint" href="#players">Players &amp; ratings</a><a class="block text-slate-400 hover:text-mint" href="#context">Context data</a><a class="block text-slate-400 hover:text-mint" href="#errors">Errors &amp; limits</a><a class="block text-slate-400 hover:text-mint" href="#attribution">Sources &amp; attribution</a></nav></aside>
+    <main class="doc min-w-0">
+      <div class="border-b border-line pb-10"><p class="text-xs uppercase tracking-[.24em] font-bold text-mint">Reference</p><h1 class="text-4xl sm:text-5xl font-black tracking-tight mt-2">Canada Soccer API v1</h1><p class="mt-5 text-lg text-slate-300 max-w-3xl">Read-only JSON access to CPL matches, live state, tables, player ratings and leaderboards, team and match stats, officials, venues, weather, and odds. No key or registration required.</p></div>
 
-        <!-- Header -->
-        <header class="py-6 border-b border-gray-700 mb-8">
-            <a href="./index.html" class="text-gray-400 hover:text-white text-sm">&larr; Back to Docs</a>
-            <h1 class="text-3xl font-bold mt-2">API Reference</h1>
-            <p class="text-gray-400 mt-1">Complete endpoint documentation for the CPL Analytics API</p>
-        </header>
+      <section id="start" class="py-10 border-b border-line"><h2 class="text-2xl font-black mb-5">Quick start</h2><p class="text-slate-300 mb-4">Production base URL:</p><pre class="rounded-lg border border-line bg-panel p-4 overflow-auto text-mint"><code>https://canadasoccerapi.com/api/v1</code></pre><div class="grid md:grid-cols-2 gap-3 mt-4"><pre class="rounded-lg border border-line bg-panel p-4 overflow-auto text-sm"><code class="text-slate-300">curl "https://canadasoccerapi.com/api/v1/players?eligible=true&amp;limit=10"</code></pre><pre class="rounded-lg border border-line bg-panel p-4 overflow-auto text-sm"><code class="text-slate-300">const data = await fetch(
+  'https://canadasoccerapi.com/api/v1/live'
+).then(r =&gt; r.json());</code></pre></div><p class="text-sm text-slate-400 mt-4">Legacy <code>/api/{resource}</code> URLs remain aliases. New applications should use <code>/api/v1/{resource}</code>.</p></section>
 
-        <!-- Table of Contents -->
-        <nav class="bg-cpl-card rounded-lg p-5 mb-8">
-            <h2 class="font-bold text-cpl-red mb-3">Contents</h2>
-            <ul class="grid md:grid-cols-2 gap-2 text-sm">
-                <li><a href="#overview" class="text-gray-400 hover:text-white">Overview</a></li>
-                <li><a href="#authentication" class="text-gray-400 hover:text-white">Authentication</a></li>
-                <li><a href="#rate-limits" class="text-gray-400 hover:text-white">Rate Limits</a></li>
-                <li><a href="#get-apimatches" class="text-gray-400 hover:text-white">GET /api/matches</a></li>
-                <li><a href="#get-apistandings" class="text-gray-400 hover:text-white">GET /api/standings</a></li>
-                <li><a href="#get-apiteams" class="text-gray-400 hover:text-white">GET /api/teams</a></li>
-                <li><a href="#error-handling" class="text-gray-400 hover:text-white">Error Handling</a></li>
-                <li><a href="#cors" class="text-gray-400 hover:text-white">CORS Support</a></li>
-            </ul>
-        </nav>
+      <section id="conventions" class="py-10 border-b border-line"><h2 class="text-2xl font-black mb-5">Conventions</h2><div class="grid md:grid-cols-3 gap-3"><div class="rounded-lg border border-line bg-panel p-4"><div class="font-bold">Pagination</div><p class="text-sm text-slate-400 mt-2"><code>limit</code> (1–500) and <code>offset</code>. Responses include <code>total</code>, <code>count</code>, and <code>has_more</code>.</p></div><div class="rounded-lg border border-line bg-panel p-4"><div class="font-bold">Filtering</div><p class="text-sm text-slate-400 mt-2">Team/name searches are case-insensitive partial matches. Dates use <code>YYYY-MM-DD</code>.</p></div><div class="rounded-lg border border-line bg-panel p-4"><div class="font-bold">Caching</div><p class="text-sm text-slate-400 mt-2">Live match state caches 15 seconds; live season stats 60 seconds; stable archives longer.</p></div></div></section>
 
-        <!-- Overview -->
-        <section id="overview" class="mb-12">
-            <h2 class="text-2xl font-bold text-cpl-red mb-4">Overview</h2>
-            <p class="text-gray-300 mb-4">The CPL Analytics API provides read-only access to Canadian Premier League match data, standings, and team information. All endpoints return JSON responses.</p>
+      <section id="resources" class="py-10 border-b border-line"><h2 class="text-2xl font-black mb-5">Resource index</h2><div class="overflow-x-auto rounded-lg border border-line"><table class="w-full text-sm"><thead class="bg-panel text-slate-400"><tr><th class="text-left p-3">Resource</th><th class="text-left p-3">What it returns</th><th class="text-left p-3">Key parameters</th></tr></thead><tbody id="resource-rows"></tbody></table></div><p class="text-sm text-slate-400 mt-4">Machine-readable definitions: <a class="text-mint hover:underline" href="/openapi.json">OpenAPI 3.1 JSON</a>. Live discovery: <a class="text-mint hover:underline" href="/api/v1">GET /api/v1</a>.</p></section>
 
-            <div class="bg-cpl-card rounded-lg p-5">
-                <h3 class="font-semibold mb-3">Base URL</h3>
-                <code class="bg-cpl-darker px-3 py-2 rounded block text-green-400">https://canadasoccerapi.com</code>
-                <p class="text-gray-500 text-sm mt-3">For local development: <code class="text-gray-400">http://localhost:3000</code></p>
-            </div>
-        </section>
+      <section id="matches" class="py-10 border-b border-line"><h2 class="text-2xl font-black mb-6">Matches and competition</h2>
+        <div class="space-y-7">
+          <article><h3 class="text-lg font-bold"><span class="text-xs bg-green-600 rounded px-2 py-1 mr-2">GET</span><code class="text-mint">/matches</code></h3><p class="text-slate-400 mt-3">The complete 2019–2026 result archive plus the official live current-season schedule. Filter with <code>season</code>, <code>team</code>, <code>status</code>, <code>match_id</code>, <code>date</code>, <code>from</code>, <code>to</code>, <code>order</code>, <code>limit</code>, and <code>offset</code>.</p><pre class="mt-3 rounded-lg bg-panel border border-line p-4 text-sm overflow-auto"><code class="text-slate-300">GET /api/v1/matches?season=2026&amp;team=Forge&amp;status=FINISHED&amp;limit=10</code></pre></article>
+          <article><h3 class="text-lg font-bold"><span class="text-xs bg-green-600 rounded px-2 py-1 mr-2">GET</span><code class="text-mint">/live</code></h3><p class="text-slate-400 mt-3">Live fixtures and matches within a configurable 1–168 hour window. Use <code>all=true</code> for the whole current schedule, or filter by <code>team</code>.</p></article>
+          <article><h3 class="text-lg font-bold"><span class="text-xs bg-green-600 rounded px-2 py-1 mr-2">GET</span><code class="text-mint">/match-stats</code></h3><p class="text-slate-400 mt-3">Advanced stats for one <code>match_id</code>, or all available matches in a <code>season</code>: possession, shots, xG, passes, duels, cards, scorers, and attendance.</p></article>
+          <article><h3 class="text-lg font-bold"><span class="text-xs bg-green-600 rounded px-2 py-1 mr-2">GET</span><code class="text-mint">/standings</code></h3><p class="text-slate-400 mt-3">Official live 2026 standings with form, movement, and qualification; archived official tables for 2019–2025. Omit <code>season</code> to return every table.</p></article>
+        </div>
+      </section>
 
-        <!-- Authentication -->
-        <section id="authentication" class="mb-12">
-            <h2 class="text-2xl font-bold text-cpl-red mb-4">Authentication</h2>
-            <div class="bg-green-900/20 border border-green-600 rounded-lg p-5">
-                <p class="text-green-400 font-semibold">No authentication required</p>
-                <p class="text-gray-400 text-sm mt-1">The API is publicly accessible for educational and research purposes.</p>
-            </div>
-        </section>
+      <section id="players" class="py-10 border-b border-line"><h2 class="text-2xl font-black mb-6">Players, ratings, and teams</h2>
+        <div class="space-y-7"><article><h3 class="text-lg font-bold"><span class="text-xs bg-green-600 rounded px-2 py-1 mr-2">GET</span><code class="text-mint">/players</code></h3><p class="text-slate-400 mt-3">Current player identities plus appearances, minutes, goals, assists, xG, shooting, creation, passing, carrying, duels, defending, goalkeeping, discipline, overall rating, rank, and five-area rating breakdown.</p><div class="mt-3 text-sm text-slate-400">Filters: <code>team</code>, <code>position</code>, <code>search</code>, <code>min_minutes</code>, <code>eligible</code>. Sorting: <code>sort</code> accepts any documented player metric; <code>order=asc|desc</code>.</div></article>
+          <article><h3 class="text-lg font-bold"><span class="text-xs bg-green-600 rounded px-2 py-1 mr-2">GET</span><code class="text-mint">/leaderboards</code></h3><p class="text-slate-400 mt-3">Request one or multiple comma-separated metrics: <code>rating</code>, <code>goals</code>, <code>assists</code>, <code>goal_involvements</code>, <code>xg</code>, <code>shots</code>, <code>shots_on_target</code>, <code>key_passes</code>, <code>successful_dribbles</code>, <code>tackles</code>, <code>interceptions</code>, <code>recoveries</code>, <code>clearances</code>, <code>saves</code>, <code>pass_accuracy</code>.</p></article>
+          <div class="rounded-lg border border-mint/30 bg-mint/5 p-5"><h3 class="font-bold text-mint">Rating methodology</h3><p class="text-sm text-slate-300 mt-2 leading-6">Each player is percentile-scored against positional peers in attack, creativity, possession, defending, and discipline. Role-specific weights produce a 0–10 rating. Samples shrink toward league average through 720 minutes; 270 minutes is the public leaderboard threshold. The complete area breakdown is returned for transparency.</p></div>
+          <article><h3 class="text-lg font-bold"><span class="text-xs bg-green-600 rounded px-2 py-1 mr-2">GET</span><code class="text-mint">/team-stats</code> and <code class="text-mint">/teams</code></h3><p class="text-slate-400 mt-3">Season-long advanced team metrics and a normalized current/historical club directory. Set <code>raw=true</code> on team stats to include every source metric.</p></article>
+        </div>
+      </section>
 
-        <!-- Rate Limits -->
-        <section id="rate-limits" class="mb-12">
-            <h2 class="text-2xl font-bold text-cpl-red mb-4">Rate Limits</h2>
-            <table class="w-full bg-cpl-card rounded-lg overflow-hidden">
-                <thead class="bg-cpl-darker">
-                    <tr>
-                        <th class="text-left p-4 text-cpl-red">Tier</th>
-                        <th class="text-left p-4 text-cpl-red">Limit</th>
-                        <th class="text-left p-4 text-cpl-red">Window</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4">Public (testing)</td>
-                        <td class="p-4 text-yellow-400">20 requests</td>
-                        <td class="p-4">per hour per IP</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="text-gray-500 text-sm mt-3">When rate limited, the API returns HTTP 429 with a <code class="text-gray-400">Retry-After</code> header.</p>
-        </section>
+      <section id="context" class="py-10 border-b border-line"><h2 class="text-2xl font-black mb-5">Context and market data</h2><div class="grid md:grid-cols-2 gap-3"><div class="rounded-lg border border-line bg-panel p-5"><code class="text-mint">/referees</code><p class="text-sm text-slate-400 mt-2">Officials by match, team, season, or name. <code>summary=true</code> aggregates assignments.</p></div><div class="rounded-lg border border-line bg-panel p-5"><code class="text-mint">/venues</code><p class="text-sm text-slate-400 mt-2">Capacity, surface, founding year, city, and coordinates.</p></div><div class="rounded-lg border border-line bg-panel p-5"><code class="text-mint">/weather</code><p class="text-sm text-slate-400 mt-2">Historical temperature, wind, and precipitation observations.</p></div><div class="rounded-lg border border-line bg-panel p-5"><code class="text-mint">/odds</code> · <code class="text-mint">/odds-quotes</code><p class="text-sm text-slate-400 mt-2">Recorded closing prices and timestamped bookmaker snapshots. Coverage varies by season.</p></div></div></section>
 
-        <!-- GET /api/matches -->
-        <section id="get-apimatches" class="mb-12">
-            <div class="flex items-center gap-3 mb-4">
-                <span class="bg-green-600 text-white text-sm font-bold px-3 py-1 rounded">GET</span>
-                <h2 class="text-2xl font-bold">/api/matches</h2>
-            </div>
-            <p class="text-gray-300 mb-6">Retrieve historical match data with optional filtering and pagination.</p>
+      <section id="errors" class="py-10 border-b border-line"><h2 class="text-2xl font-black mb-5">Errors and limits</h2><p class="text-slate-300">Errors use HTTP status codes and a stable JSON body:</p><pre class="mt-4 rounded-lg border border-line bg-panel p-4 overflow-auto text-sm"><code class="text-slate-300">{
+  "error": "Bad Request",
+  "message": "order must be asc or desc",
+  "status": 400
+}</code></pre><p class="text-slate-400 text-sm mt-4">The best-effort public limit is 300 requests per IP per hour. Responses include <code>X-RateLimit-Limit</code>, <code>X-RateLimit-Remaining</code>, and <code>X-RateLimit-Reset</code>. CORS is enabled for all origins.</p></section>
 
-            <h3 class="font-semibold text-cpl-red mb-3">Parameters</h3>
-            <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
-                <thead class="bg-cpl-darker">
-                    <tr>
-                        <th class="text-left p-4 text-cpl-red">Parameter</th>
-                        <th class="text-left p-4 text-cpl-red">Type</th>
-                        <th class="text-left p-4 text-cpl-red">Required</th>
-                        <th class="text-left p-4 text-cpl-red">Description</th>
-                    </tr>
-                </thead>
-                <tbody class="text-sm">
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4 font-mono text-blue-400">season</td>
-                        <td class="p-4">Integer</td>
-                        <td class="p-4">No</td>
-                        <td class="p-4 text-gray-400">Filter by season year (2019-2025)</td>
-                    </tr>
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4 font-mono text-blue-400">team</td>
-                        <td class="p-4">String</td>
-                        <td class="p-4">No</td>
-                        <td class="p-4 text-gray-400">Filter by team name (case-insensitive, partial match)</td>
-                    </tr>
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4 font-mono text-blue-400">limit</td>
-                        <td class="p-4">Integer</td>
-                        <td class="p-4">No</td>
-                        <td class="p-4 text-gray-400">Maximum results per page (default: 100, max: 500)</td>
-                    </tr>
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4 font-mono text-blue-400">offset</td>
-                        <td class="p-4">Integer</td>
-                        <td class="p-4">No</td>
-                        <td class="p-4 text-gray-400">Number of results to skip (default: 0)</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3 class="font-semibold text-cpl-red mb-3">Example Requests</h3>
-            <div class="space-y-3 mb-6">
-                <div class="bg-cpl-darker rounded p-4">
-                    <p class="text-gray-500 text-sm mb-1"># Get all matches</p>
-                    <code class="text-green-400 text-sm">curl "https://canadasoccerapi.com/api/matches"</code>
-                </div>
-                <div class="bg-cpl-darker rounded p-4">
-                    <p class="text-gray-500 text-sm mb-1"># Get 2024 season matches</p>
-                    <code class="text-green-400 text-sm">curl "https://canadasoccerapi.com/api/matches?season=2024"</code>
-                </div>
-                <div class="bg-cpl-darker rounded p-4">
-                    <p class="text-gray-500 text-sm mb-1"># Get Forge FC matches with pagination</p>
-                    <code class="text-green-400 text-sm">curl "https://canadasoccerapi.com/api/matches?team=Forge&limit=10&offset=0"</code>
-                </div>
-            </div>
-
-            <h3 class="font-semibold text-cpl-red mb-3">Example Response</h3>
-            <pre class="bg-cpl-darker rounded p-4 text-sm overflow-x-auto"><code>{
-  <span class="json-key">"total"</span>: <span class="json-number">156</span>,
-  <span class="json-key">"count"</span>: <span class="json-number">2</span>,
-  <span class="json-key">"offset"</span>: <span class="json-number">0</span>,
-  <span class="json-key">"limit"</span>: <span class="json-number">2</span>,
-  <span class="json-key">"matches"</span>: [
-    {
-      <span class="json-key">"date"</span>: <span class="json-string">"2024-04-13"</span>,
-      <span class="json-key">"home_team"</span>: <span class="json-string">"Forge FC"</span>,
-      <span class="json-key">"away_team"</span>: <span class="json-string">"Atletico Ottawa"</span>,
-      <span class="json-key">"home_goals"</span>: <span class="json-number">3</span>,
-      <span class="json-key">"away_goals"</span>: <span class="json-number">1</span>,
-      <span class="json-key">"season"</span>: <span class="json-number">2024</span>,
-      <span class="json-key">"venue"</span>: <span class="json-string">"Tim Hortons Field"</span>
-    },
-    {
-      <span class="json-key">"date"</span>: <span class="json-string">"2024-04-14"</span>,
-      <span class="json-key">"home_team"</span>: <span class="json-string">"Cavalry FC"</span>,
-      <span class="json-key">"away_team"</span>: <span class="json-string">"Pacific FC"</span>,
-      <span class="json-key">"home_goals"</span>: <span class="json-number">2</span>,
-      <span class="json-key">"away_goals"</span>: <span class="json-number">2</span>,
-      <span class="json-key">"season"</span>: <span class="json-number">2024</span>,
-      <span class="json-key">"venue"</span>: <span class="json-string">"ATCO Field"</span>
-    }
-  ]
-}</code></pre>
-        </section>
-
-        <!-- GET /api/standings -->
-        <section id="get-apistandings" class="mb-12">
-            <div class="flex items-center gap-3 mb-4">
-                <span class="bg-green-600 text-white text-sm font-bold px-3 py-1 rounded">GET</span>
-                <h2 class="text-2xl font-bold">/api/standings</h2>
-            </div>
-            <p class="text-gray-300 mb-6">Get league standings for one or all seasons.</p>
-
-            <h3 class="font-semibold text-cpl-red mb-3">Parameters</h3>
-            <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
-                <thead class="bg-cpl-darker">
-                    <tr>
-                        <th class="text-left p-4 text-cpl-red">Parameter</th>
-                        <th class="text-left p-4 text-cpl-red">Type</th>
-                        <th class="text-left p-4 text-cpl-red">Required</th>
-                        <th class="text-left p-4 text-cpl-red">Description</th>
-                    </tr>
-                </thead>
-                <tbody class="text-sm">
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4 font-mono text-blue-400">season</td>
-                        <td class="p-4">Integer</td>
-                        <td class="p-4">No</td>
-                        <td class="p-4 text-gray-400">Specific season year (omit for all seasons)</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3 class="font-semibold text-cpl-red mb-3">Example Request</h3>
-            <div class="bg-cpl-darker rounded p-4 mb-6">
-                <code class="text-green-400 text-sm">curl "https://canadasoccerapi.com/api/standings?season=2024"</code>
-            </div>
-
-            <h3 class="font-semibold text-cpl-red mb-3">Example Response</h3>
-            <pre class="bg-cpl-darker rounded p-4 text-sm overflow-x-auto"><code>{
-  <span class="json-key">"season"</span>: <span class="json-number">2024</span>,
-  <span class="json-key">"standings"</span>: [
-    {
-      <span class="json-key">"position"</span>: <span class="json-number">1</span>,
-      <span class="json-key">"team"</span>: <span class="json-string">"Forge FC"</span>,
-      <span class="json-key">"played"</span>: <span class="json-number">28</span>,
-      <span class="json-key">"wins"</span>: <span class="json-number">18</span>,
-      <span class="json-key">"draws"</span>: <span class="json-number">5</span>,
-      <span class="json-key">"losses"</span>: <span class="json-number">5</span>,
-      <span class="json-key">"goals_for"</span>: <span class="json-number">52</span>,
-      <span class="json-key">"goals_against"</span>: <span class="json-number">28</span>,
-      <span class="json-key">"goal_difference"</span>: <span class="json-number">24</span>,
-      <span class="json-key">"points"</span>: <span class="json-number">59</span>
-    }
-  ],
-  <span class="json-key">"source"</span>: <span class="json-string">"official"</span>
-}</code></pre>
-
-            <div class="bg-cpl-card rounded-lg p-5 mt-6">
-                <h4 class="font-semibold mb-2">Data Source Field</h4>
-                <table class="w-full text-sm">
-                    <tr class="border-b border-gray-700">
-                        <td class="py-2 font-mono text-green-400">"official"</td>
-                        <td class="py-2 text-gray-400">From official CanPL SDP API (excludes playoffs)</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 font-mono text-yellow-400">"calculated"</td>
-                        <td class="py-2 text-gray-400">Calculated from match results</td>
-                    </tr>
-                </table>
-            </div>
-        </section>
-
-        <!-- GET /api/teams -->
-        <section id="get-apiteams" class="mb-12">
-            <div class="flex items-center gap-3 mb-4">
-                <span class="bg-green-600 text-white text-sm font-bold px-3 py-1 rounded">GET</span>
-                <h2 class="text-2xl font-bold">/api/teams</h2>
-            </div>
-            <p class="text-gray-300 mb-6">Get information about CPL teams including metadata.</p>
-
-            <h3 class="font-semibold text-cpl-red mb-3">Parameters</h3>
-            <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
-                <thead class="bg-cpl-darker">
-                    <tr>
-                        <th class="text-left p-4 text-cpl-red">Parameter</th>
-                        <th class="text-left p-4 text-cpl-red">Type</th>
-                        <th class="text-left p-4 text-cpl-red">Required</th>
-                        <th class="text-left p-4 text-cpl-red">Description</th>
-                    </tr>
-                </thead>
-                <tbody class="text-sm">
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4 font-mono text-blue-400">active_only</td>
-                        <td class="p-4">String</td>
-                        <td class="p-4">No</td>
-                        <td class="p-4 text-gray-400">Set to "true" to exclude inactive teams</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3 class="font-semibold text-cpl-red mb-3">Example Request</h3>
-            <div class="bg-cpl-darker rounded p-4 mb-6">
-                <code class="text-green-400 text-sm">curl "https://canadasoccerapi.com/api/teams?active_only=true"</code>
-            </div>
-
-            <h3 class="font-semibold text-cpl-red mb-3">Example Response</h3>
-            <pre class="bg-cpl-darker rounded p-4 text-sm overflow-x-auto"><code>{
-  <span class="json-key">"count"</span>: <span class="json-number">8</span>,
-  <span class="json-key">"teams"</span>: [
-    {
-      <span class="json-key">"name"</span>: <span class="json-string">"Forge FC"</span>,
-      <span class="json-key">"city"</span>: <span class="json-string">"Hamilton"</span>,
-      <span class="json-key">"stadium"</span>: <span class="json-string">"Tim Hortons Field"</span>,
-      <span class="json-key">"founded"</span>: <span class="json-number">2018</span>,
-      <span class="json-key">"latitude"</span>: <span class="json-number">43.2557</span>,
-      <span class="json-key">"longitude"</span>: <span class="json-number">-79.8711</span>,
-      <span class="json-key">"surface"</span>: <span class="json-string">"grass"</span>,
-      <span class="json-key">"status"</span>: <span class="json-string">"active"</span>
-    }
-  ]
-}</code></pre>
-        </section>
-
-        <!-- Error Handling -->
-        <section id="error-handling" class="mb-12">
-            <h2 class="text-2xl font-bold text-cpl-red mb-4">Error Handling</h2>
-
-            <h3 class="font-semibold mb-3">HTTP Status Codes</h3>
-            <table class="w-full bg-cpl-card rounded-lg overflow-hidden mb-6">
-                <thead class="bg-cpl-darker">
-                    <tr>
-                        <th class="text-left p-4 text-cpl-red">Code</th>
-                        <th class="text-left p-4 text-cpl-red">Meaning</th>
-                        <th class="text-left p-4 text-cpl-red">Description</th>
-                    </tr>
-                </thead>
-                <tbody class="text-sm">
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4 text-green-400">200</td>
-                        <td class="p-4">OK</td>
-                        <td class="p-4 text-gray-400">Request successful</td>
-                    </tr>
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4 text-yellow-400">400</td>
-                        <td class="p-4">Bad Request</td>
-                        <td class="p-4 text-gray-400">Invalid parameters</td>
-                    </tr>
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4 text-yellow-400">404</td>
-                        <td class="p-4">Not Found</td>
-                        <td class="p-4 text-gray-400">Endpoint does not exist</td>
-                    </tr>
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4 text-red-400">429</td>
-                        <td class="p-4">Too Many Requests</td>
-                        <td class="p-4 text-gray-400">Rate limit exceeded</td>
-                    </tr>
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4 text-red-400">500</td>
-                        <td class="p-4">Server Error</td>
-                        <td class="p-4 text-gray-400">Internal server error</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3 class="font-semibold mb-3">Error Response Format</h3>
-            <pre class="bg-cpl-darker rounded p-4 text-sm"><code>{
-  <span class="json-key">"error"</span>: <span class="json-string">"Failed to load matches data"</span>
-}</code></pre>
-        </section>
-
-        <!-- CORS -->
-        <section id="cors" class="mb-12">
-            <h2 class="text-2xl font-bold text-cpl-red mb-4">CORS Support</h2>
-            <p class="text-gray-300 mb-4">The API supports Cross-Origin Resource Sharing (CORS) for browser-based applications.</p>
-
-            <div class="bg-cpl-card rounded-lg p-5 mb-6">
-                <h3 class="font-semibold mb-3">CORS Headers</h3>
-                <pre class="text-sm text-gray-400"><code>Access-Control-Allow-Origin: *
-Access-Control-Allow-Methods: GET, OPTIONS
-Access-Control-Allow-Headers: Content-Type</code></pre>
-            </div>
-
-            <h3 class="font-semibold mb-3">Browser Usage</h3>
-            <pre class="bg-cpl-darker rounded p-4 text-sm overflow-x-auto"><code><span class="text-gray-500">// Works directly in browser without proxy</span>
-<span class="text-blue-400">fetch</span>(<span class="json-string">'https://canadasoccerapi.com/api/matches'</span>)
-  .then(response => response.json())
-  .then(data => console.log(data.matches));</code></pre>
-        </section>
-
-        <!-- Caching -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold text-cpl-red mb-4">Caching</h2>
-            <table class="w-full bg-cpl-card rounded-lg overflow-hidden">
-                <thead class="bg-cpl-darker">
-                    <tr>
-                        <th class="text-left p-4 text-cpl-red">Endpoint</th>
-                        <th class="text-left p-4 text-cpl-red">Cache Duration</th>
-                    </tr>
-                </thead>
-                <tbody class="text-sm">
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4 font-mono">/api/matches</td>
-                        <td class="p-4 text-gray-400">1 hour</td>
-                    </tr>
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4 font-mono">/api/standings</td>
-                        <td class="p-4 text-gray-400">1 hour</td>
-                    </tr>
-                    <tr class="border-t border-gray-700">
-                        <td class="p-4 font-mono">/api/teams</td>
-                        <td class="p-4 text-gray-400">24 hours</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Related Docs -->
-        <section class="bg-cpl-card rounded-lg p-6">
-            <h3 class="font-bold text-cpl-red mb-4">Related Documentation</h3>
-            <div class="grid md:grid-cols-3 gap-4">
-                <a href="./data-dictionary.html" class="text-gray-400 hover:text-white">Data Dictionary &rarr;</a>
-                <a href="./use-cases.html" class="text-gray-400 hover:text-white">Use Cases &rarr;</a>
-                <a href="./data-sources.html" class="text-gray-400 hover:text-white">Data Sources &rarr;</a>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center py-8 border-t border-gray-700 mt-12">
-            <p class="text-gray-400">
-                <a href="/" class="text-cpl-red hover:underline">API Home</a>
-                <span class="mx-2">|</span>
-                <a href="./index.html" class="text-cpl-red hover:underline">Docs Index</a>
-                <span class="mx-2">|</span>
-                <a href="https://github.com/GoCeylan/canpl-analytics" target="_blank" class="text-cpl-red hover:underline">GitHub</a>
-            </p>
-        </footer>
-    </div>
-</body>
-</html>
+      <section id="attribution" class="py-10"><h2 class="text-2xl font-black mb-5">Sources and attribution</h2><p class="text-slate-300 leading-7">Live competition data is normalized from the official CPL public site feeds. Archived match/context files and derived rating fields are maintained by this independent project. The API is not affiliated with or endorsed by the Canadian Premier League or Canada Soccer. When publishing results, attribute <strong>Canada Soccer API</strong> and preserve source fields returned by each resource.</p></section>
+    </main>
+  </div>
+  <script>
+    const rows=[['matches','Results + official live schedule','season, team, status, match_id, dates, paging'],['live','Live and near-term match centre','team, window_hours, all'],['standings','Official historical/live tables','season'],['players','30+ metrics, ratings, player search','team, position, search, minutes, sort, paging'],['leaderboards','15 season leaderboards','metric, team, position, limit'],['team-stats','Advanced current team metrics','team, sort, order, raw'],['teams','Current and historical clubs','active_only, search'],['match-stats','Advanced match metrics and xG','match_id or season'],['referees','Assignments and summaries','season, referee, team, match_id, summary'],['venues','Stadium metadata','team, city, surface, active_only'],['weather','Historical match conditions','team, date/from/to, paging'],['odds','Closing prices','season, team, bookmaker, match_id, paging'],['odds-quotes','Timestamped price snapshots','season, team, bookmaker, market, date, paging'],['seasons','Coverage manifest','—'],['health','Service diagnostics','—']];
+    document.getElementById('resource-rows').innerHTML=rows.map(r=>`<tr class="border-t border-line"><td class="p-3"><a class="text-mint hover:underline" href="/api/v1/${r[0]}"><code>/${r[0]}</code></a></td><td class="p-3 text-slate-300">${r[1]}</td><td class="p-3 text-slate-400"><code>${r[2]}</code></td></tr>`).join('');
+  </script>
+</body></html>

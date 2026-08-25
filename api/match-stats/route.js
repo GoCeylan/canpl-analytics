@@ -37,8 +37,8 @@ function parseCsvToMap(filePath, keyField) {
     headers.forEach((h, idx) => {
       const v = values[idx];
       // Coerce numeric fields
-      const num = parseFloat(v);
-      obj[h] = (v !== '' && v !== undefined && !isNaN(num)) ? num : (v || null);
+      const isNumeric = v !== '' && v !== undefined && /^-?(?:\d+|\d*\.\d+)$/.test(v);
+      obj[h] = isNumeric ? Number(v) : (v || null);
     });
     if (obj[keyField]) map[obj[keyField]] = obj;
   }
@@ -123,12 +123,11 @@ async function fetchLiveStats(matchId, seasonId) {
   const data = await fetchTeamStats(matchId, seasonId);
   if (!data) return null;
 
-  const statsById = {};
-  (data.stats || []).forEach(s => { statsById[s.statsId] = s; });
+  const statsById = data;
 
   function val(id, side) {
     const s = statsById[id];
-    return s ? (side === 'home' ? s.statsValueHome : s.statsValueAway) : null;
+    return s ? s[side] : null;
   }
 
   return {

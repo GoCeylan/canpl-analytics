@@ -1,711 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPL Analytics API - Canadian Premier League Open Data</title>
-    <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cpl: {
-                            red: '#c8102e',
-                            dark: '#1a1a2e',
-                            darker: '#12121f',
-                            card: '#252540'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .json-key { color: #60a5fa; }
-        .json-string { color: #4ade80; }
-        .json-number { color: #f472b6; }
-        .json-boolean { color: #fbbf24; }
-        .json-null { color: #94a3b8; }
-        .code-tab.active { background: #1e1e3f; border-bottom: 2px solid #c8102e; }
-        .code-panel { display: none; }
-        .code-panel.active { display: block; }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Canada Soccer API — Live &amp; Historical CPL Data</title>
+  <meta name="description" content="Free Canadian Premier League API: live matches, standings, player ratings, leaderboards, team and match stats, referees, venues, weather, and odds.">
+  <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={theme:{extend:{colors:{ink:'#07111e',panel:'#0d1b2d',line:'#20334b',accent:'#ff435e',mint:'#37e4b0'}}}}
+  </script>
+  <style>
+    html{scroll-behavior:smooth} body{background:radial-gradient(circle at 85% 0,#182d46 0,transparent 34%),#07111e}
+    .grid-bg{background-image:linear-gradient(rgba(55,228,176,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(55,228,176,.035) 1px,transparent 1px);background-size:28px 28px}
+    .endpoint{transition:transform .16s ease,border-color .16s ease}.endpoint:hover{transform:translateY(-2px);border-color:#37e4b0}
+  </style>
 </head>
-<body class="bg-cpl-dark text-gray-100 min-h-screen">
-    <div class="max-w-5xl mx-auto px-4 py-8">
-
-        <!-- Header -->
-        <header class="text-center py-12 border-b-2 border-cpl-red">
-            <h1 class="text-4xl md:text-5xl font-bold mb-2">
-                <span class="text-cpl-red">CPL</span> Analytics API
-            </h1>
-            <p class="text-gray-400 text-lg">Canadian Premier League Open Data</p>
-            <p class="text-gray-500 text-sm mt-2">Free REST API - No authentication required</p>
-        </header>
-
-        <!-- Stats Cards -->
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 my-8">
-            <div class="bg-cpl-red/10 border border-cpl-red rounded-lg p-6 text-center">
-                <div class="text-3xl font-bold text-cpl-red">309</div>
-                <div class="text-gray-400 text-sm">Matches</div>
-            </div>
-            <div class="bg-cpl-red/10 border border-cpl-red rounded-lg p-6 text-center">
-                <div class="text-3xl font-bold text-cpl-red">7</div>
-                <div class="text-gray-400 text-sm">Seasons</div>
-            </div>
-            <div class="bg-cpl-red/10 border border-cpl-red rounded-lg p-6 text-center">
-                <div class="text-3xl font-bold text-cpl-red">8</div>
-                <div class="text-gray-400 text-sm">Teams</div>
-            </div>
-            <div class="bg-gray-700/30 border border-gray-600 rounded-lg p-6 text-center opacity-60">
-                <div class="text-3xl font-bold text-gray-400">--</div>
-                <div class="text-gray-500 text-sm">Odds (Coming Soon)</div>
-            </div>
-            <div class="bg-cpl-red/10 border border-cpl-red rounded-lg p-6 text-center">
-                <div class="text-3xl font-bold text-cpl-red">2019-25</div>
-                <div class="text-gray-400 text-sm">Coverage</div>
-            </div>
-        </div>
-
-        <!-- Features Section -->
-        <section class="my-12">
-            <h2 class="text-2xl font-bold text-cpl-red mb-6">Features</h2>
-            <div class="grid md:grid-cols-3 gap-4">
-                <div class="bg-cpl-card rounded-lg p-5">
-                    <div class="text-2xl mb-2">&#128202;</div>
-                    <h3 class="font-semibold mb-1">Historical Data</h3>
-                    <p class="text-gray-400 text-sm">309+ matches from 2019-2025 with full results and venue information</p>
-                </div>
-                <div class="bg-cpl-card rounded-lg p-5 border border-dashed border-gray-600">
-                    <div class="text-2xl mb-2">&#128176;</div>
-                    <h3 class="font-semibold mb-1">Closing Odds <span class="text-xs bg-yellow-600/30 text-yellow-400 px-2 py-0.5 rounded ml-1">Coming Soon</span></h3>
-                    <p class="text-gray-500 text-sm">Historical betting odds - limited sample data available for the 2024 playoffs.</p>
-                </div>
-                <div class="bg-cpl-card rounded-lg p-5">
-                    <div class="text-2xl mb-2">&#9989;</div>
-                    <h3 class="font-semibold mb-1">Official Standings</h3>
-                    <p class="text-gray-400 text-sm">2025 standings sourced directly from official CanPL API</p>
-                </div>
-                <div class="bg-cpl-card rounded-lg p-5">
-                    <div class="text-2xl mb-2">&#127969;</div>
-                    <h3 class="font-semibold mb-1">Team Metadata</h3>
-                    <p class="text-gray-400 text-sm">Stadium coordinates, surface type, and founding year for all teams</p>
-                </div>
-                <div class="bg-cpl-card rounded-lg p-5">
-                    <div class="text-2xl mb-2">&#128279;</div>
-                    <h3 class="font-semibold mb-1">RESTful JSON API</h3>
-                    <p class="text-gray-400 text-sm">Clean REST endpoints returning structured JSON data</p>
-                </div>
-                <div class="bg-cpl-card rounded-lg p-5">
-                    <div class="text-2xl mb-2">&#128275;</div>
-                    <h3 class="font-semibold mb-1">No Auth Required</h3>
-                    <p class="text-gray-400 text-sm">Free and open access - no API keys or registration needed</p>
-                </div>
-                <div class="bg-cpl-card rounded-lg p-5">
-                    <div class="text-2xl mb-2">&#128196;</div>
-                    <h3 class="font-semibold mb-1">CC-BY-4.0 License</h3>
-                    <p class="text-gray-400 text-sm">Open data license - use freely with attribution</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- API Endpoints Section -->
-        <section class="my-12">
-            <h2 class="text-2xl font-bold text-cpl-red mb-6">API Endpoints</h2>
-
-            <!-- /api/matches -->
-            <div class="bg-cpl-card rounded-lg mb-4 overflow-hidden">
-                <div class="p-5">
-                    <div class="flex items-center gap-3 mb-3">
-                        <span class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
-                        <code class="text-green-400 font-mono">/api/matches</code>
-                    </div>
-                    <p class="text-gray-400 mb-4">Get CPL match results with optional filtering by season, team, and pagination.</p>
-
-                    <div class="space-y-2 text-sm mb-4">
-                        <div class="flex gap-4 py-2 border-b border-gray-700">
-                            <span class="text-blue-400 font-mono w-24">season</span>
-                            <span class="text-gray-400">Filter by season year (e.g., <code class="bg-cpl-darker px-2 py-0.5 rounded">2024</code>)</span>
-                        </div>
-                        <div class="flex gap-4 py-2 border-b border-gray-700">
-                            <span class="text-blue-400 font-mono w-24">team</span>
-                            <span class="text-gray-400">Filter by team name (e.g., <code class="bg-cpl-darker px-2 py-0.5 rounded">Forge</code>)</span>
-                        </div>
-                        <div class="flex gap-4 py-2 border-b border-gray-700">
-                            <span class="text-blue-400 font-mono w-24">limit</span>
-                            <span class="text-gray-400">Max results to return (default: 100)</span>
-                        </div>
-                        <div class="flex gap-4 py-2">
-                            <span class="text-blue-400 font-mono w-24">offset</span>
-                            <span class="text-gray-400">Skip first N results for pagination (default: 0)</span>
-                        </div>
-                    </div>
-
-                    <button onclick="toggleTestPanel('matches')" class="text-cpl-red hover:text-red-400 text-sm font-medium flex items-center gap-1">
-                        <span id="matches-toggle-icon">&#9654;</span> Test this endpoint
-                    </button>
-                </div>
-
-                <!-- Test Panel -->
-                <div id="matches-test-panel" class="hidden bg-cpl-darker p-5 border-t border-gray-700">
-                    <div class="grid md:grid-cols-4 gap-4 mb-4">
-                        <div>
-                            <label class="block text-gray-400 text-sm mb-1">Season</label>
-                            <select id="matches-season" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
-                                <option value="">All seasons</option>
-                                <option value="2025">2025</option>
-                                <option value="2024">2024</option>
-                                <option value="2023">2023</option>
-                                <option value="2022">2022</option>
-                                <option value="2021">2021</option>
-                                <option value="2020">2020</option>
-                                <option value="2019">2019</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-gray-400 text-sm mb-1">Team</label>
-                            <input id="matches-team" type="text" placeholder="e.g., Forge" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
-                        </div>
-                        <div>
-                            <label class="block text-gray-400 text-sm mb-1">Limit</label>
-                            <input id="matches-limit" type="number" value="5" min="1" max="100" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
-                        </div>
-                        <div>
-                            <label class="block text-gray-400 text-sm mb-1">Offset</label>
-                            <input id="matches-offset" type="number" value="0" min="0" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
-                        </div>
-                    </div>
-                    <button onclick="testMatchesAPI()" class="bg-cpl-red hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-medium transition">
-                        Test API
-                    </button>
-                    <div id="matches-response" class="mt-4 hidden">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="flex items-center gap-3">
-                                <span id="matches-status" class="text-sm"></span>
-                                <span id="matches-time" class="text-gray-500 text-sm"></span>
-                            </div>
-                            <button onclick="copyResponse('matches')" class="text-gray-400 hover:text-white text-sm">Copy</button>
-                        </div>
-                        <pre id="matches-json" class="bg-cpl-dark p-4 rounded text-sm font-mono overflow-x-auto max-h-96"></pre>
-                    </div>
-                </div>
-            </div>
-
-            <!-- /api/standings -->
-            <div class="bg-cpl-card rounded-lg mb-4 overflow-hidden">
-                <div class="p-5">
-                    <div class="flex items-center gap-3 mb-3">
-                        <span class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
-                        <code class="text-green-400 font-mono">/api/standings</code>
-                    </div>
-                    <p class="text-gray-400 mb-4">Get league standings for a season. 2025 uses official CanPL data; other seasons are calculated from match results.</p>
-
-                    <div class="space-y-2 text-sm mb-4">
-                        <div class="flex gap-4 py-2">
-                            <span class="text-blue-400 font-mono w-24">season</span>
-                            <span class="text-gray-400">Season year (omit for all seasons)</span>
-                        </div>
-                    </div>
-
-                    <button onclick="toggleTestPanel('standings')" class="text-cpl-red hover:text-red-400 text-sm font-medium flex items-center gap-1">
-                        <span id="standings-toggle-icon">&#9654;</span> Test this endpoint
-                    </button>
-                </div>
-
-                <div id="standings-test-panel" class="hidden bg-cpl-darker p-5 border-t border-gray-700">
-                    <div class="mb-4">
-                        <label class="block text-gray-400 text-sm mb-1">Season</label>
-                        <select id="standings-season" class="bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
-                            <option value="2025">2025</option>
-                            <option value="2024">2024</option>
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
-                            <option value="2021">2021</option>
-                            <option value="2020">2020</option>
-                            <option value="2019">2019</option>
-                        </select>
-                    </div>
-                    <button onclick="testStandingsAPI()" class="bg-cpl-red hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-medium transition">
-                        Test API
-                    </button>
-                    <div id="standings-response" class="mt-4 hidden">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="flex items-center gap-3">
-                                <span id="standings-status" class="text-sm"></span>
-                                <span id="standings-time" class="text-gray-500 text-sm"></span>
-                            </div>
-                            <button onclick="copyResponse('standings')" class="text-gray-400 hover:text-white text-sm">Copy</button>
-                        </div>
-                        <pre id="standings-json" class="bg-cpl-dark p-4 rounded text-sm font-mono overflow-x-auto max-h-96"></pre>
-                    </div>
-                </div>
-            </div>
-
-            <!-- /api/teams -->
-            <div class="bg-cpl-card rounded-lg mb-4 overflow-hidden">
-                <div class="p-5">
-                    <div class="flex items-center gap-3 mb-3">
-                        <span class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
-                        <code class="text-green-400 font-mono">/api/teams</code>
-                    </div>
-                    <p class="text-gray-400 mb-4">Get all CPL teams with metadata including city, stadium, coordinates, and surface type.</p>
-
-                    <div class="space-y-2 text-sm mb-4">
-                        <div class="flex gap-4 py-2">
-                            <span class="text-blue-400 font-mono w-24">active_only</span>
-                            <span class="text-gray-400">Set to <code class="bg-cpl-darker px-2 py-0.5 rounded">true</code> to exclude inactive teams (FC Edmonton, York United)</span>
-                        </div>
-                    </div>
-
-                    <p class="text-gray-500 text-xs mb-4">Note: Coordinates, stadium, and surface data are curated metadata, not from the official API.</p>
-
-                    <button onclick="toggleTestPanel('teams')" class="text-cpl-red hover:text-red-400 text-sm font-medium flex items-center gap-1">
-                        <span id="teams-toggle-icon">&#9654;</span> Test this endpoint
-                    </button>
-                </div>
-
-                <div id="teams-test-panel" class="hidden bg-cpl-darker p-5 border-t border-gray-700">
-                    <div class="mb-4">
-                        <label class="flex items-center gap-2 text-sm">
-                            <input id="teams-active" type="checkbox" class="rounded">
-                            <span class="text-gray-400">Active teams only</span>
-                        </label>
-                    </div>
-                    <button onclick="testTeamsAPI()" class="bg-cpl-red hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-medium transition">
-                        Test API
-                    </button>
-                    <div id="teams-response" class="mt-4 hidden">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="flex items-center gap-3">
-                                <span id="teams-status" class="text-sm"></span>
-                                <span id="teams-time" class="text-gray-500 text-sm"></span>
-                            </div>
-                            <button onclick="copyResponse('teams')" class="text-gray-400 hover:text-white text-sm">Copy</button>
-                        </div>
-                        <pre id="teams-json" class="bg-cpl-dark p-4 rounded text-sm font-mono overflow-x-auto max-h-96"></pre>
-                    </div>
-                </div>
-            </div>
-
-            <!-- /api/match-stats -->
-            <div class="bg-cpl-card rounded-lg mb-4 overflow-hidden">
-                <div class="p-5">
-                    <div class="flex items-center gap-3 mb-3">
-                        <span class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
-                        <code class="text-green-400 font-mono">/api/match-stats</code>
-                    </div>
-                    <p class="text-gray-400 mb-4">Get detailed statistics for a specific match including shots, possession, xG estimates, and referee data.</p>
-
-                    <div class="space-y-2 text-sm mb-4">
-                        <div class="flex gap-4 py-2 border-b border-gray-700">
-                            <span class="text-blue-400 font-mono w-24">match_id</span>
-                            <span class="text-gray-400"><span class="text-red-400">*required</span> Full CPL match ID (get from <code class="bg-cpl-darker px-2 py-0.5 rounded">/api/matches</code>)</span>
-                        </div>
-                    </div>
-
-                    <p class="text-gray-500 text-xs mb-4">Returns: score, shots, shots on target, possession, estimated xG, referee info. Stats available for finished matches 2019-2025.</p>
-
-                    <button onclick="toggleTestPanel('match-stats')" class="text-cpl-red hover:text-red-400 text-sm font-medium flex items-center gap-1">
-                        <span id="match-stats-toggle-icon">&#9654;</span> Test this endpoint
-                    </button>
-                </div>
-
-                <div id="match-stats-test-panel" class="hidden bg-cpl-darker p-5 border-t border-gray-700">
-                    <div class="grid grid-cols-1 gap-4 mb-4">
-                        <div>
-                            <label class="text-gray-400 text-sm block mb-1">Match ID</label>
-                            <input id="match-stats-id" type="text" placeholder="cpl::Football_Match::..." class="bg-cpl-dark text-white px-3 py-2 rounded w-full font-mono text-sm" value="cpl::Football_Match::cf2e47f5b5c74e0189e0c36f7dfe3198">
-                        </div>
-                    </div>
-                    <button onclick="testMatchStatsAPI()" class="bg-cpl-red hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-medium transition">
-                        Test API
-                    </button>
-                    <div id="match-stats-response" class="mt-4 hidden">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="flex items-center gap-3">
-                                <span id="match-stats-status" class="text-sm"></span>
-                                <span id="match-stats-time" class="text-gray-500 text-sm"></span>
-                            </div>
-                            <button onclick="copyResponse('match-stats')" class="text-gray-400 hover:text-white text-sm">Copy</button>
-                        </div>
-                        <pre id="match-stats-json" class="bg-cpl-dark p-4 rounded text-sm font-mono overflow-x-auto max-h-96"></pre>
-                    </div>
-                </div>
-            </div>
-
-            <!-- /api/odds - HIDDEN FOR NOW
-            <div class="bg-cpl-card rounded-lg mb-4 overflow-hidden border border-dashed border-yellow-600/50">
-                <div class="p-5">
-                    <div class="flex items-center gap-3 mb-3">
-                        <span class="bg-gray-600 text-white text-xs font-bold px-2 py-1 rounded">GET</span>
-                        <code class="text-gray-400 font-mono">/api/odds</code>
-                        <span class="bg-yellow-600/30 text-yellow-400 text-xs font-medium px-2 py-1 rounded">PREVIEW</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">Historical closing odds for CPL matches. <strong class="text-yellow-400">Currently limited to 2024 playoff matches only.</strong></p>
-
-                    <div class="bg-yellow-900/20 border border-yellow-600/30 rounded p-3 mb-4">
-                        <p class="text-yellow-400 text-sm font-medium mb-1">&#9888; Limited Data Available</p>
-                        <p class="text-gray-400 text-xs">Currently only 5 matches from the 2024 CPL playoffs are available as sample data. Full historical odds (2019-2025) will be added in a future update.</p>
-                    </div>
-
-                    <div class="space-y-2 text-sm mb-4">
-                        <div class="flex gap-4 py-2 border-b border-gray-700">
-                            <span class="text-blue-400 font-mono w-24">season</span>
-                            <span class="text-gray-400">Filter by season year (only <code class="bg-cpl-darker px-2 py-0.5 rounded">2024</code> has data)</span>
-                        </div>
-                        <div class="flex gap-4 py-2 border-b border-gray-700">
-                            <span class="text-blue-400 font-mono w-24">team</span>
-                            <span class="text-gray-400">Filter by team name (e.g., <code class="bg-cpl-darker px-2 py-0.5 rounded">Forge</code>)</span>
-                        </div>
-                        <div class="flex gap-4 py-2 border-b border-gray-700">
-                            <span class="text-blue-400 font-mono w-24">bookmaker</span>
-                            <span class="text-gray-400">Filter by bookmaker (currently only <code class="bg-cpl-darker px-2 py-0.5 rounded">betexplorer_avg</code>)</span>
-                        </div>
-                        <div class="flex gap-4 py-2 border-b border-gray-700">
-                            <span class="text-blue-400 font-mono w-24">limit</span>
-                            <span class="text-gray-400">Max results to return (default: 100)</span>
-                        </div>
-                        <div class="flex gap-4 py-2">
-                            <span class="text-blue-400 font-mono w-24">offset</span>
-                            <span class="text-gray-400">Skip first N results for pagination (default: 0)</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-cpl-darker/50 border border-gray-700 rounded p-3 mb-4">
-                        <p class="text-gray-400 text-xs"><strong class="text-yellow-400">Note:</strong> These are <em>closing odds</em> only (final odds before kickoff). Full historical data coming soon.</p>
-                    </div>
-
-                    <button onclick="toggleTestPanel('odds')" class="text-cpl-red hover:text-red-400 text-sm font-medium flex items-center gap-1">
-                        <span id="odds-toggle-icon">&#9654;</span> Test this endpoint
-                    </button>
-                </div>
-
-                <div id="odds-test-panel" class="hidden bg-cpl-darker p-5 border-t border-gray-700">
-                    <div class="grid md:grid-cols-4 gap-4 mb-4">
-                        <div>
-                            <label class="block text-gray-400 text-sm mb-1">Season</label>
-                            <select id="odds-season" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
-                                <option value="2024">2024</option>
-                                <option value="2023">2023</option>
-                                <option value="2022">2022</option>
-                                <option value="2021">2021</option>
-                                <option value="2020">2020</option>
-                                <option value="2019">2019</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-gray-400 text-sm mb-1">Team</label>
-                            <input id="odds-team" type="text" placeholder="e.g., Forge" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
-                        </div>
-                        <div>
-                            <label class="block text-gray-400 text-sm mb-1">Bookmaker</label>
-                            <select id="odds-bookmaker" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
-                                <option value="">All</option>
-                                <option value="bet365">Bet365</option>
-                                <option value="sportsinteraction">Sports Interaction</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-gray-400 text-sm mb-1">Limit</label>
-                            <input id="odds-limit" type="number" value="10" min="1" max="100" class="w-full bg-cpl-dark border border-gray-600 rounded px-3 py-2 text-sm">
-                        </div>
-                    </div>
-                    <button onclick="testOddsAPI()" class="bg-cpl-red hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-medium transition">
-                        Test API
-                    </button>
-                    <div id="odds-response" class="mt-4 hidden">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="flex items-center gap-3">
-                                <span id="odds-status" class="text-sm"></span>
-                                <span id="odds-time" class="text-gray-500 text-sm"></span>
-                            </div>
-                            <button onclick="copyResponse('odds')" class="text-gray-400 hover:text-white text-sm">Copy</button>
-                        </div>
-                        <pre id="odds-json" class="bg-cpl-dark p-4 rounded text-sm font-mono overflow-x-auto max-h-96"></pre>
-                    </div>
-                </div>
-            </div>
-            -->
-        </section>
-
-        <!-- Quick Start Section -->
-        <section class="my-12">
-            <h2 class="text-2xl font-bold text-cpl-red mb-6">Quick Start</h2>
-            <div class="bg-cpl-card rounded-lg overflow-hidden">
-                <div class="flex border-b border-gray-700">
-                    <button onclick="switchCodeTab('python')" id="tab-python" class="code-tab active px-4 py-3 text-sm font-medium hover:bg-cpl-darker transition">Python</button>
-                    <button onclick="switchCodeTab('javascript')" id="tab-javascript" class="code-tab px-4 py-3 text-sm font-medium hover:bg-cpl-darker transition">JavaScript</button>
-                    <button onclick="switchCodeTab('curl')" id="tab-curl" class="code-tab px-4 py-3 text-sm font-medium hover:bg-cpl-darker transition">cURL</button>
-                </div>
-
-                <div id="code-python" class="code-panel active p-5">
-                    <pre class="text-sm font-mono text-gray-300 overflow-x-auto"><span class="text-gray-500"># Get all 2024 matches</span>
-<span class="text-blue-400">import</span> requests
-<span class="text-blue-400">import</span> pandas <span class="text-blue-400">as</span> pd
-
-response = requests.get(<span class="text-green-400">'https://canadasoccerapi.com/api/matches?season=2024'</span>)
-df = pd.DataFrame(response.json()[<span class="text-green-400">'matches'</span>])
-
-<span class="text-gray-500"># Analyze home vs away performance</span>
-<span class="text-blue-400">print</span>(df.groupby(<span class="text-green-400">'home_team'</span>)[<span class="text-green-400">'home_goals'</span>].mean())</pre>
-                </div>
-
-                <div id="code-javascript" class="code-panel p-5">
-                    <pre class="text-sm font-mono text-gray-300 overflow-x-auto"><span class="text-gray-500">// Fetch current standings</span>
-<span class="text-blue-400">fetch</span>(<span class="text-green-400">'https://canadasoccerapi.com/api/standings?season=2025'</span>)
-  .then(res => res.json())
-  .then(data => {
-    console.log(<span class="text-green-400">'Top team:'</span>, data.standings[<span class="text-pink-400">0</span>].team);
-    console.log(<span class="text-green-400">'Points:'</span>, data.standings[<span class="text-pink-400">0</span>].points);
-  });</pre>
-                </div>
-
-                <div id="code-curl" class="code-panel p-5">
-                    <pre class="text-sm font-mono text-gray-300 overflow-x-auto"><span class="text-gray-500"># Get Forge FC matches</span>
-curl <span class="text-green-400">"https://canadasoccerapi.com/api/matches?team=Forge&limit=10"</span>
-
-<span class="text-gray-500"># Get 2025 standings</span>
-curl <span class="text-green-400">"https://canadasoccerapi.com/api/standings?season=2025"</span>
-
-<span class="text-gray-500"># Get all active teams</span>
-curl <span class="text-green-400">"https://canadasoccerapi.com/api/teams?active_only=true"</span></pre>
-                </div>
-            </div>
-        </section>
-
-        <!-- Live 2025 Standings -->
-        <section class="my-12">
-            <h2 class="text-2xl font-bold text-cpl-red mb-6">2025 Standings</h2>
-            <div class="bg-cpl-card rounded-lg overflow-hidden">
-                <table class="w-full text-sm">
-                    <thead class="bg-cpl-darker">
-                        <tr>
-                            <th class="text-left p-4 text-cpl-red font-semibold">#</th>
-                            <th class="text-left p-4 text-cpl-red font-semibold">Team</th>
-                            <th class="text-center p-4 text-cpl-red font-semibold">P</th>
-                            <th class="text-center p-4 text-cpl-red font-semibold">W</th>
-                            <th class="text-center p-4 text-cpl-red font-semibold">D</th>
-                            <th class="text-center p-4 text-cpl-red font-semibold">L</th>
-                            <th class="text-center p-4 text-cpl-red font-semibold">GD</th>
-                            <th class="text-center p-4 text-cpl-red font-semibold">Pts</th>
-                        </tr>
-                    </thead>
-                    <tbody id="standings-body">
-                        <tr><td colspan="8" class="p-4 text-center text-gray-400">Loading...</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="text-gray-500 text-xs mt-2">Source: Official CanPL API (regular season only)</p>
-        </section>
-
-        <!-- Documentation Links -->
-        <section class="my-12">
-            <h2 class="text-2xl font-bold text-cpl-red mb-6">Documentation</h2>
-            <div class="grid md:grid-cols-4 gap-4">
-                <a href="./docs/api-reference.html" class="bg-cpl-card rounded-lg p-4 hover:bg-cpl-red/10 transition border border-transparent hover:border-cpl-red">
-                    <div class="text-xl mb-2">&#128214;</div>
-                    <h3 class="font-semibold text-sm">API Reference</h3>
-                    <p class="text-gray-500 text-xs mt-1">Endpoints, parameters, examples</p>
-                </a>
-                <a href="./docs/data-dictionary.html" class="bg-cpl-card rounded-lg p-4 hover:bg-cpl-red/10 transition border border-transparent hover:border-cpl-red">
-                    <div class="text-xl mb-2">&#128209;</div>
-                    <h3 class="font-semibold text-sm">Data Dictionary</h3>
-                    <p class="text-gray-500 text-xs mt-1">Field definitions, types</p>
-                </a>
-                <a href="./docs/use-cases.html" class="bg-cpl-card rounded-lg p-4 hover:bg-cpl-red/10 transition border border-transparent hover:border-cpl-red">
-                    <div class="text-xl mb-2">&#128187;</div>
-                    <h3 class="font-semibold text-sm">Use Cases</h3>
-                    <p class="text-gray-500 text-xs mt-1">Code examples, analysis</p>
-                </a>
-                <a href="./docs/data-sources.html" class="bg-cpl-card rounded-lg p-4 hover:bg-cpl-red/10 transition border border-transparent hover:border-cpl-red">
-                    <div class="text-xl mb-2">&#128202;</div>
-                    <h3 class="font-semibold text-sm">Data Sources</h3>
-                    <p class="text-gray-500 text-xs mt-1">Provenance, quality, updates</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center py-8 border-t border-gray-700 mt-12">
-            <p class="text-gray-400">
-                <a href="https://github.com/GoCeylan/canpl-analytics" target="_blank" class="text-cpl-red hover:underline">GitHub</a>
-                <span class="mx-2">|</span>
-                <a href="./docs/index.html" class="text-cpl-red hover:underline">Documentation</a>
-                <span class="mx-2">|</span>
-                Data sourced from CanPL.ca
-            </p>
-            <p class="text-gray-500 text-sm mt-2">CC-BY-4.0 License</p>
-        </footer>
+<body class="grid-bg min-h-screen text-slate-100 antialiased">
+  <nav class="border-b border-line/80 bg-ink/80 backdrop-blur sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+      <a href="/" class="font-black tracking-tight text-lg"><span class="text-accent">CANADA</span>SOCCER<span class="text-mint">API</span></a>
+      <div class="flex items-center gap-5 text-sm text-slate-300">
+        <a href="#explorer" class="hover:text-white">Explorer</a>
+        <a href="/docs/api-reference.html" class="hover:text-white">Docs</a>
+        <a href="/openapi.json" class="hover:text-white">OpenAPI</a>
+        <a href="https://github.com/GoCeylan/canpl-analytics" class="hidden sm:inline-flex rounded-md border border-line px-3 py-1.5 hover:border-mint">GitHub</a>
+      </div>
     </div>
+  </nav>
 
-    <script>
-        // Toggle test panels
-        function toggleTestPanel(endpoint) {
-            const panel = document.getElementById(`${endpoint}-test-panel`);
-            const icon = document.getElementById(`${endpoint}-toggle-icon`);
-            panel.classList.toggle('hidden');
-            icon.textContent = panel.classList.contains('hidden') ? '\u25B6' : '\u25BC';
-        }
+  <main>
+    <section class="max-w-6xl mx-auto px-5 pt-20 pb-16">
+      <div class="inline-flex items-center gap-2 rounded-full border border-mint/30 bg-mint/10 px-3 py-1 text-xs font-semibold text-mint mb-6">
+        <span class="h-2 w-2 rounded-full bg-mint animate-pulse"></span> 2026 LIVE DATA · NO API KEY
+      </div>
+      <div class="max-w-4xl">
+        <h1 class="text-5xl sm:text-7xl font-black tracking-[-.04em] leading-[.96]">The complete data layer for <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-orange-400">Canadian soccer.</span></h1>
+        <p class="mt-7 text-lg sm:text-xl leading-8 text-slate-300 max-w-3xl">One free API for every CPL season: live fixtures, the official table, player ratings, statistical leaderboards, deep match and team metrics, officials, venues, weather, and market odds.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#explorer" class="rounded-lg bg-accent px-5 py-3 font-bold text-white hover:bg-rose-500">Try the API</a>
+          <a href="/docs/api-reference.html" class="rounded-lg border border-line bg-panel px-5 py-3 font-bold hover:border-mint">Read the docs</a>
+        </div>
+      </div>
 
-        // Syntax highlight JSON
-        function highlightJSON(json) {
-            const str = JSON.stringify(json, null, 2);
-            return str.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
-                let cls = 'json-number';
-                if (/^"/.test(match)) {
-                    if (/:$/.test(match)) {
-                        cls = 'json-key';
-                    } else {
-                        cls = 'json-string';
-                    }
-                } else if (/true|false/.test(match)) {
-                    cls = 'json-boolean';
-                } else if (/null/.test(match)) {
-                    cls = 'json-null';
-                }
-                return '<span class="' + cls + '">' + match + '</span>';
-            });
-        }
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-14">
+        <div class="rounded-xl border border-line bg-panel/80 p-5"><div class="text-3xl font-black text-mint">15</div><div class="text-sm text-slate-400 mt-1">public resources</div></div>
+        <div class="rounded-xl border border-line bg-panel/80 p-5"><div class="text-3xl font-black text-mint">2019–26</div><div class="text-sm text-slate-400 mt-1">season coverage</div></div>
+        <div class="rounded-xl border border-line bg-panel/80 p-5"><div class="text-3xl font-black text-mint">30+</div><div class="text-sm text-slate-400 mt-1">player metrics</div></div>
+        <div class="rounded-xl border border-line bg-panel/80 p-5"><div class="text-3xl font-black text-mint">300/hr</div><div class="text-sm text-slate-400 mt-1">free public limit</div></div>
+      </div>
+    </section>
 
-        // Store raw responses for copying
-        const rawResponses = {};
+    <section id="explorer" class="border-y border-line bg-panel/65">
+      <div class="max-w-6xl mx-auto px-5 py-16">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-7">
+          <div><p class="text-xs uppercase tracking-[.24em] font-bold text-mint">Live API explorer</p><h2 class="text-3xl font-black mt-2">Ask the data yourself</h2></div>
+          <div class="text-sm text-slate-400">Responses come directly from production.</div>
+        </div>
+        <div class="rounded-xl border border-line overflow-hidden bg-ink shadow-2xl">
+          <div class="grid lg:grid-cols-[220px_1fr_auto] gap-3 p-4 border-b border-line">
+            <select id="endpoint" class="rounded-md border border-line bg-panel px-3 py-3 font-mono text-sm"></select>
+            <input id="query" class="rounded-md border border-line bg-panel px-3 py-3 font-mono text-sm" value="limit=5" aria-label="Query string" placeholder="team=Forge&amp;limit=5">
+            <button id="run" class="rounded-md bg-mint text-ink px-6 py-3 font-black hover:bg-emerald-300">Run GET</button>
+          </div>
+          <div class="flex justify-between items-center px-4 py-3 text-xs border-b border-line">
+            <code id="request-url" class="text-mint break-all"></code><span id="status" class="text-slate-400 ml-4"></span>
+          </div>
+          <pre id="response" class="p-5 overflow-auto min-h-72 max-h-[34rem] text-sm text-slate-300"><code>Select a resource and run it.</code></pre>
+        </div>
+      </div>
+    </section>
 
-        // Test /api/matches
-        async function testMatchesAPI() {
-            const season = document.getElementById('matches-season').value;
-            const team = document.getElementById('matches-team').value;
-            const limit = document.getElementById('matches-limit').value;
-            const offset = document.getElementById('matches-offset').value;
+    <section class="max-w-6xl mx-auto px-5 py-16">
+      <p class="text-xs uppercase tracking-[.24em] font-bold text-accent">Coverage</p>
+      <h2 class="text-3xl font-black mt-2 mb-8">Every layer of the game</h2>
+      <div id="endpoint-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+    </section>
 
-            let url = '/api/matches?';
-            if (season) url += `season=${season}&`;
-            if (team) url += `team=${encodeURIComponent(team)}&`;
-            url += `limit=${limit}&offset=${offset}`;
+    <section class="border-y border-line bg-panel/55">
+      <div class="max-w-6xl mx-auto px-5 py-16 grid lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="text-xs uppercase tracking-[.24em] font-bold text-mint">Season ratings</p>
+          <h2 class="text-3xl font-black mt-2">Player impact, in context</h2>
+          <p class="text-slate-300 leading-7 mt-4">Ratings compare players against others in their position across five weighted areas: attack, creativity, possession, defending, and discipline. Early samples are pulled toward league average until 720 minutes; 270 minutes qualifies a player for the leaderboard.</p>
+          <a href="/api/v1/leaderboards?metric=rating&amp;limit=10" class="inline-block mt-5 text-mint font-bold hover:underline">Open the rating leaderboard →</a>
+        </div>
+        <div class="rounded-xl border border-line bg-ink p-5">
+          <div class="flex items-center gap-2 text-xs text-slate-400 mb-4"><span class="bg-green-600 px-2 py-1 rounded font-bold text-white">GET</span><code>/api/v1/players?eligible=true&amp;limit=3</code></div>
+          <pre class="overflow-auto text-xs sm:text-sm text-slate-300"><code>{
+  "sort": "rating",
+  "rating_methodology": {
+    "scale": "0-10",
+    "eligible_minutes": 270,
+    "peer_group": "position"
+  },
+  "players": [ ... ]
+}</code></pre>
+        </div>
+      </div>
+    </section>
 
-            await fetchAndDisplay('matches', url);
-        }
+    <section class="max-w-6xl mx-auto px-5 py-16">
+      <div class="flex items-end justify-between gap-4 mb-7"><div><p class="text-xs uppercase tracking-[.24em] font-bold text-accent">Official live table</p><h2 class="text-3xl font-black mt-2">2026 standings</h2></div><a href="/api/v1/standings?season=2026" class="text-sm text-mint hover:underline">JSON →</a></div>
+      <div class="overflow-x-auto rounded-xl border border-line bg-panel/80">
+        <table class="w-full text-sm"><thead class="text-xs uppercase tracking-wider text-slate-400 border-b border-line"><tr><th class="text-left p-4">#</th><th class="text-left p-4">Club</th><th class="p-4">P</th><th class="p-4">W</th><th class="p-4">D</th><th class="p-4">L</th><th class="p-4">GD</th><th class="p-4 text-mint">PTS</th></tr></thead><tbody id="standings"><tr><td colspan="8" class="p-6 text-center text-slate-400">Loading live standings…</td></tr></tbody></table>
+      </div>
+    </section>
+  </main>
 
-        // Test /api/standings
-        async function testStandingsAPI() {
-            const season = document.getElementById('standings-season').value;
-            await fetchAndDisplay('standings', `/api/standings?season=${season}`);
-        }
+  <footer class="border-t border-line">
+    <div class="max-w-6xl mx-auto px-5 py-8 flex flex-col sm:flex-row justify-between gap-3 text-sm text-slate-400"><span>Canada Soccer API · Independent open-data project</span><span><a href="/docs/" class="hover:text-white">Docs</a> · <a href="/api/v1/health" class="hover:text-white">Status</a> · CC BY 4.0</span></div>
+  </footer>
 
-        // Test /api/teams
-        async function testTeamsAPI() {
-            const activeOnly = document.getElementById('teams-active').checked;
-            const url = activeOnly ? '/api/teams?active_only=true' : '/api/teams';
-            await fetchAndDisplay('teams', url);
-        }
-
-        // Test /api/match-stats
-        async function testMatchStatsAPI() {
-            const matchId = document.getElementById('match-stats-id').value;
-            if (!matchId) {
-                alert('Please enter a match ID');
-                return;
-            }
-            const url = `/api/match-stats?match_id=${encodeURIComponent(matchId)}`;
-            await fetchAndDisplay('match-stats', url);
-        }
-
-        // Test /api/odds
-        async function testOddsAPI() {
-            const season = document.getElementById('odds-season').value;
-            const team = document.getElementById('odds-team').value;
-            const bookmaker = document.getElementById('odds-bookmaker').value;
-            const limit = document.getElementById('odds-limit').value;
-
-            let url = `/api/odds?season=${season}&limit=${limit}`;
-            if (team) url += `&team=${encodeURIComponent(team)}`;
-            if (bookmaker) url += `&bookmaker=${encodeURIComponent(bookmaker)}`;
-
-            await fetchAndDisplay('odds', url);
-        }
-
-        // Generic fetch and display
-        async function fetchAndDisplay(endpoint, url) {
-            const responseDiv = document.getElementById(`${endpoint}-response`);
-            const statusSpan = document.getElementById(`${endpoint}-status`);
-            const timeSpan = document.getElementById(`${endpoint}-time`);
-            const jsonPre = document.getElementById(`${endpoint}-json`);
-
-            responseDiv.classList.remove('hidden');
-            jsonPre.innerHTML = '<span class="text-gray-400">Loading...</span>';
-            statusSpan.textContent = '';
-            timeSpan.textContent = '';
-
-            const startTime = performance.now();
-
-            try {
-                const res = await fetch(url);
-                const endTime = performance.now();
-                const data = await res.json();
-
-                rawResponses[endpoint] = JSON.stringify(data, null, 2);
-
-                statusSpan.innerHTML = `<span class="${res.ok ? 'text-green-400' : 'text-red-400'}">${res.status} ${res.statusText}</span>`;
-                timeSpan.textContent = `${Math.round(endTime - startTime)}ms`;
-                jsonPre.innerHTML = highlightJSON(data);
-            } catch (error) {
-                const endTime = performance.now();
-                statusSpan.innerHTML = '<span class="text-red-400">Error</span>';
-                timeSpan.textContent = `${Math.round(endTime - startTime)}ms`;
-                jsonPre.innerHTML = `<span class="text-red-400">${error.message}</span>`;
-                rawResponses[endpoint] = error.message;
-            }
-        }
-
-        // Copy response to clipboard
-        async function copyResponse(endpoint) {
-            const text = rawResponses[endpoint] || '';
-            try {
-                await navigator.clipboard.writeText(text);
-                alert('Copied to clipboard!');
-            } catch (err) {
-                console.error('Failed to copy:', err);
-            }
-        }
-
-        // Switch code tabs
-        function switchCodeTab(tab) {
-            document.querySelectorAll('.code-tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.code-panel').forEach(p => p.classList.remove('active'));
-            document.getElementById(`tab-${tab}`).classList.add('active');
-            document.getElementById(`code-${tab}`).classList.add('active');
-        }
-
-        // Load standings on page load
-        async function loadStandings() {
-            try {
-                const res = await fetch('/api/standings?season=2025');
-                const data = await res.json();
-                const standings = data.standings;
-                const tbody = document.getElementById('standings-body');
-                tbody.innerHTML = standings.map((t, i) => `
-                    <tr class="border-t border-gray-700 hover:bg-cpl-red/5 transition">
-                        <td class="p-4 ${i === 0 ? 'text-yellow-400 font-bold' : ''}">${t.position}</td>
-                        <td class="p-4 font-medium">${t.team}</td>
-                        <td class="p-4 text-center text-gray-400">${t.played}</td>
-                        <td class="p-4 text-center text-green-400">${t.wins}</td>
-                        <td class="p-4 text-center text-gray-400">${t.draws}</td>
-                        <td class="p-4 text-center text-red-400">${t.losses}</td>
-                        <td class="p-4 text-center ${t.goal_difference > 0 ? 'text-green-400' : t.goal_difference < 0 ? 'text-red-400' : 'text-gray-400'}">${t.goal_difference > 0 ? '+' : ''}${t.goal_difference}</td>
-                        <td class="p-4 text-center font-bold">${t.points}</td>
-                    </tr>
-                `).join('');
-            } catch (e) {
-                document.getElementById('standings-body').innerHTML =
-                    '<tr><td colspan="8" class="p-4 text-center text-red-400">Failed to load standings</td></tr>';
-            }
-        }
-
-        loadStandings();
-    </script>
+  <script>
+    const resources=[
+      ['matches','Complete results + schedule','season, team, status, date range, match ID'],
+      ['live','Live match centre','scores, clock, broadcasters, near-term fixtures'],
+      ['standings','Official table','rank, points, form, movement, qualification'],
+      ['players','Player database + ratings','30+ fields, search, filters, sort, pagination'],
+      ['leaderboards','Season leaderboards','rating, goals, assists, xG, passing, defending'],
+      ['team-stats','Advanced team profiles','attack, possession, passing, defence, raw feed'],
+      ['teams','Club directory','IDs, status, city, stadium, coordinates'],
+      ['match-stats','Match deep dives','shots, possession, xG, passing, cards, attendance'],
+      ['referees','Officials archive','assignments, filters, career summaries'],
+      ['venues','Stadium directory','capacity, surface, location, coordinates'],
+      ['weather','Match conditions','temperature, wind, precipitation'],
+      ['odds','Closing prices','1X2 and totals where recorded'],
+      ['odds-quotes','Market snapshots','bookmaker, market, handicap, captured time'],
+      ['seasons','Coverage manifest','season IDs, counts, resource availability'],
+      ['health','Service diagnostics','version, data files, rate limits']
+    ];
+    const select=document.getElementById('endpoint');
+    resources.forEach(([name])=>select.add(new Option('/api/v1/'+name,name)));
+    document.getElementById('endpoint-grid').innerHTML=resources.map(([name,title,detail])=>`<a class="endpoint rounded-xl border border-line bg-panel/80 p-5" href="/api/v1/${name}"><div class="flex items-center gap-2"><span class="rounded bg-green-600 px-2 py-1 text-[10px] font-black">GET</span><code class="text-mint">/api/v1/${name}</code></div><h3 class="font-bold mt-4">${title}</h3><p class="text-sm text-slate-400 mt-1">${detail}</p></a>`).join('');
+    const endpointDefaults={matches:'season=2026&limit=5',live:'window_hours=72',standings:'season=2026',players:'eligible=true&limit=5',leaderboards:'metric=rating,goals,assists&limit=5','team-stats':'sort=goals',teams:'active_only=true','match-stats':'season=2026',referees:'season=2025&summary=true',venues:'active_only=true',weather:'team=Forge&limit=5',odds:'season=2024', 'odds-quotes':'season=2026&limit=5',seasons:'',health:''};
+    function updateUrl(){const q=document.getElementById('query').value.trim().replace(/^\?/,'');document.getElementById('request-url').textContent=`${location.origin}/api/v1/${select.value}${q?'?'+q:''}`}
+    select.addEventListener('change',()=>{document.getElementById('query').value=endpointDefaults[select.value]||'';updateUrl()});document.getElementById('query').addEventListener('input',updateUrl);updateUrl();
+    document.getElementById('run').addEventListener('click',async()=>{const url=document.getElementById('request-url').textContent;const output=document.getElementById('response');const status=document.getElementById('status');output.textContent='Loading…';status.textContent='';const start=performance.now();try{const res=await fetch(url);const json=await res.json();status.textContent=`${res.status} · ${Math.round(performance.now()-start)} ms`;status.className=res.ok?'text-mint ml-4':'text-accent ml-4';output.textContent=JSON.stringify(json,null,2)}catch(error){status.textContent='Request failed';output.textContent=error.message}});
+    fetch('/api/v1/standings?season=2026').then(r=>r.json()).then(data=>{document.getElementById('standings').innerHTML=data.standings.map(t=>`<tr class="border-b border-line/60 last:border-0"><td class="p-4 text-slate-400">${t.position}</td><td class="p-4 font-bold">${t.team}</td><td class="p-4 text-center">${t.played}</td><td class="p-4 text-center">${t.wins}</td><td class="p-4 text-center">${t.draws}</td><td class="p-4 text-center">${t.losses}</td><td class="p-4 text-center">${t.goal_difference>0?'+':''}${t.goal_difference}</td><td class="p-4 text-center font-black text-mint">${t.points}</td></tr>`).join('')}).catch(()=>{document.getElementById('standings').innerHTML='<tr><td colspan="8" class="p-6 text-center text-accent">Standings temporarily unavailable</td></tr>'});
+  </script>
 </body>
 </html>

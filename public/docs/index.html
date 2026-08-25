@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation - CPL Analytics API</title>
+    <title>Documentation - Canada Soccer API</title>
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -35,7 +35,7 @@
                 <div>
                     <a href="/" class="text-gray-400 hover:text-white text-sm">&larr; Back to API</a>
                     <h1 class="text-3xl font-bold mt-2">
-                        <span class="text-cpl-red">CPL Analytics</span> Documentation
+                        <span class="text-cpl-red">Canada Soccer API</span> Documentation
                     </h1>
                 </div>
             </div>
@@ -63,10 +63,10 @@
                 <h2 class="text-xl font-bold text-cpl-red mb-2">Data Dictionary</h2>
                 <p class="text-gray-400 text-sm mb-4">Detailed field definitions for all API response objects including types, formats, and example values.</p>
                 <ul class="text-gray-500 text-xs space-y-1">
-                    <li>&#8226; Match object fields</li>
-                    <li>&#8226; Standings object fields</li>
-                    <li>&#8226; Team object fields</li>
-                    <li>&#8226; Data types reference</li>
+                    <li>&#8226; Match, player, team and table fields</li>
+                    <li>&#8226; Rating methodology</li>
+                    <li>&#8226; Context and odds data</li>
+                    <li>&#8226; OpenAPI 3.1 schema</li>
                 </ul>
             </a>
 
@@ -105,9 +105,9 @@
                 <div>
                     <h4 class="font-semibold mb-2">Endpoints</h4>
                     <ul class="space-y-1 text-gray-400">
-                        <li><a href="./api-reference.html#get-apimatches" class="hover:text-cpl-red">GET /api/matches</a></li>
-                        <li><a href="./api-reference.html#get-apistandings" class="hover:text-cpl-red">GET /api/standings</a></li>
-                        <li><a href="./api-reference.html#get-apiteams" class="hover:text-cpl-red">GET /api/teams</a></li>
+                        <li><a href="./api-reference.html#matches" class="hover:text-cpl-red">Matches &amp; live data</a></li>
+                        <li><a href="./api-reference.html#players" class="hover:text-cpl-red">Players &amp; leaderboards</a></li>
+                        <li><a href="./api-reference.html#context" class="hover:text-cpl-red">Context &amp; odds</a></li>
                     </ul>
                 </div>
                 <div>
@@ -124,6 +124,7 @@
                         <li><a href="https://github.com/GoCeylan/canpl-analytics" target="_blank" class="hover:text-cpl-red">GitHub Repository</a></li>
                         <li><a href="https://github.com/GoCeylan/canpl-analytics/issues" target="_blank" class="hover:text-cpl-red">Report Issues</a></li>
                         <li><a href="/" class="hover:text-cpl-red">Try the API</a></li>
+                        <li><a href="/openapi.json" class="hover:text-cpl-red">OpenAPI JSON</a></li>
                     </ul>
                 </div>
             </div>

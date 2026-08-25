@@ -30,17 +30,24 @@ function handler(req, res) {
 
   try {
     // Check if data files exist
-    const dataPath = join(process.cwd(), 'data', 'matches', 'cpl_all.csv');
-    const dataExists = existsSync(dataPath);
+    const requiredFiles = [
+      'data/matches/cpl_all_with_ids.csv',
+      'data/matches/match_teamstats_history.csv',
+      'data/matches/cpl_referees_2019_2025.csv',
+      'data/venues/stadium_info.csv',
+    ];
+    const fileChecks = Object.fromEntries(requiredFiles.map((file) => [file, existsSync(join(process.cwd(), file))]));
+    const dataExists = Object.values(fileChecks).every(Boolean);
 
     const health = {
       status: dataExists ? 'healthy' : 'degraded',
       timestamp: new Date().toISOString(),
-      version: '1.0.0',
+      version: '2.0.0',
       checks: {
         data: {
           status: dataExists ? 'ok' : 'error',
           message: dataExists ? 'Data files accessible' : 'Data files not found',
+          files: fileChecks,
         },
         api: {
           status: 'ok',
@@ -48,14 +55,13 @@ function handler(req, res) {
         },
       },
       endpoints: [
-        '/api/matches',
-        '/api/standings',
-        '/api/teams',
-        '/api/analytics',
-        '/api/health',
+        '/api/v1/matches', '/api/v1/live', '/api/v1/standings', '/api/v1/players',
+        '/api/v1/leaderboards', '/api/v1/team-stats', '/api/v1/teams', '/api/v1/match-stats',
+        '/api/v1/referees', '/api/v1/venues', '/api/v1/weather', '/api/v1/odds',
+        '/api/v1/odds-quotes', '/api/v1/seasons', '/api/v1/health',
       ],
       rateLimit: {
-        limit: 20,
+        limit: 300,
         window: '1 hour',
         scope: 'per IP',
       },

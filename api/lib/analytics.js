@@ -89,12 +89,13 @@ function trackRequest({ endpoint, ip, responseTime, statusCode, country, query }
   resetCountersIfNeeded();
 
   // Update endpoint stats
-  if (analyticsStore.endpoints[endpoint]) {
-    analyticsStore.endpoints[endpoint].calls += 1;
-    analyticsStore.endpoints[endpoint].totalTime += responseTime;
-    if (statusCode >= 400) {
-      analyticsStore.endpoints[endpoint].errors += 1;
-    }
+  if (!analyticsStore.endpoints[endpoint]) {
+    analyticsStore.endpoints[endpoint] = { calls: 0, totalTime: 0, errors: 0 };
+  }
+  analyticsStore.endpoints[endpoint].calls += 1;
+  analyticsStore.endpoints[endpoint].totalTime += responseTime;
+  if (statusCode >= 400) {
+    analyticsStore.endpoints[endpoint].errors += 1;
   }
 
   // Update counters
