@@ -1,5 +1,19 @@
 const { setCorsHeaders } = require('./lib/middleware.js');
 
+// These stable datasets use dynamic year/path selection at runtime. Explicit
+// resolution keeps them in Vercel's traced single-function bundle.
+const bundledDataFiles = [
+  require.resolve('../data/venues/stadium_info.csv'),
+  require.resolve('../data/standings_2019_api.csv'),
+  require.resolve('../data/standings_2020_api.csv'),
+  require.resolve('../data/standings_2021_api.csv'),
+  require.resolve('../data/standings_2022_api.csv'),
+  require.resolve('../data/standings_2023_api.csv'),
+  require.resolve('../data/standings_2024_api.csv'),
+  require.resolve('../data/standings_2025_api.csv'),
+];
+void bundledDataFiles;
+
 const handlers = {
   '': require('./index/route.js'),
   matches: require('./matches/route.js'),
