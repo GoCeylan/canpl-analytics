@@ -1353,3 +1353,5 @@ cpl::Football_Match::ecdd62d6bd1f4a1b8826032037a323cd,cpl::Football_Season::c479
 cpl::Football_Match::dd0f5e974f374e8d948ab919a98ccf05,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-22,Cavalry,Atlético,4429,FULL_TIME,8,,0,0,"N. Edwards(13),T. Warschewski(18),T. Warschewski(53)",N. Fleuriau Chateau(22)
 cpl::Football_Match::fddfcad2494c4ec79ec04868d0bafa26,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-22,Forge,Pacific,,FULL_TIME,5,,0,0,"Ismael Oketokoun(57),A. Sadek(78)",
 cpl::Football_Match::3875578dafea4193bcde68b8ae826506,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-23,Inter Toronto,Supra,1681,FULL_TIME,8,,0,1,J. Altobelli(14),L. Kwemi(61)
+cpl::Football_Match::05778a6e146a4d4ebc2728e39264fafe,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-28,Atlético,Inter Toronto,4503,FULL_TIME,12,,0,1,"B. Tabla(73),N. Fleuriau Chateau(90)",S. Yeates(5)
+cpl::Football_Match::b3284a7baa924021b5cff094a1a3852f,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-28,Supra,Forge,,FULL_TIME,8,,0,0,,
