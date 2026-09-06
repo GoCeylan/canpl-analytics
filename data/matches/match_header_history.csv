@@ -1357,3 +1357,5 @@ cpl::Football_Match::05778a6e146a4d4ebc2728e39264fafe,cpl::Football_Season::c479
 cpl::Football_Match::b3284a7baa924021b5cff094a1a3852f,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-28,Supra,Forge,,FULL_TIME,8,,0,0,,
 cpl::Football_Match::cdb5400d7f6049b9b88e7c25319756d5,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-29,Cavalry,Vancouver,4510,FULL_TIME,6,,0,0,B. Kamdem(58),
 cpl::Football_Match::b9fad00dae0b49b78e51236554f727a1,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-08-30,Pacific,Wanderers,2606,FULL_TIME,9,,0,0,"T. Gomulka(34),K. Chung(56),D. Konincks(85),D. Konincks(90)","L. Callegari(53),R. Telfer(75)"
+cpl::Football_Match::3e1c766c3b534ed58dad40c2b3ef6988,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-05,Atlético,Pacific,,FULL_TIME,8,,0,0,,
+cpl::Football_Match::9791ef4d975948738f9d5b02cd0930c6,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-05,Forge,Inter Toronto,,FULL_TIME,5,,0,0,H. Massunda(70),T. Clarke(12)
