@@ -1362,3 +1362,5 @@ cpl::Football_Match::9791ef4d975948738f9d5b02cd0930c6,cpl::Football_Season::c479
 cpl::Football_Match::fdf3de57309c4fa28ea7041339d06d3a,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-06,Vancouver,Supra,,FULL_TIME,4,,0,0,"L. Mousset(43),T. Bah(72)","M. Chrétien(10),I. Condé(14)"
 cpl::Football_Match::8f6bd4e6731a4d32b8b85c77c01fb63d,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-07,Wanderers,Cavalry,,FULL_TIME,8,,0,0,,"N. Edwards(48),T. Warschewski(64),S. Camargo(75)"
 cpl::Football_Match::ebe549f527eb4aaca9e62a38a23e310f,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-09,Inter Toronto,Pacific,,FULL_TIME,8,,0,0,"K. Kibato(55),L. Accettola(59),L. Singh(87)","R. Kratt(14),Y. Toualy(57)"
+cpl::Football_Match::6f574d212b4042a2863f98b73386266a,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-12,Supra,Wanderers,2270,FULL_TIME,6,,0,0,,"J. Bahamboula(40),I. Johnston(45)"
+cpl::Football_Match::6e9000ab2e9245d1974b271afb6d611b,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-12,Forge,Atlético,3810,FULL_TIME,5,,0,0,"K. Bekker(60),M. Bourgeois(79),M. Bourgeois(90)",
