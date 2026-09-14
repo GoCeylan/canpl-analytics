@@ -1364,3 +1364,5 @@ cpl::Football_Match::8f6bd4e6731a4d32b8b85c77c01fb63d,cpl::Football_Season::c479
 cpl::Football_Match::ebe549f527eb4aaca9e62a38a23e310f,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-09,Inter Toronto,Pacific,,FULL_TIME,8,,0,0,"K. Kibato(55),L. Accettola(59),L. Singh(87)","R. Kratt(14),Y. Toualy(57)"
 cpl::Football_Match::6f574d212b4042a2863f98b73386266a,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-12,Supra,Wanderers,2270,FULL_TIME,6,,0,0,,"J. Bahamboula(40),I. Johnston(45)"
 cpl::Football_Match::6e9000ab2e9245d1974b271afb6d611b,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-12,Forge,Atlético,3810,FULL_TIME,5,,0,0,"K. Bekker(60),M. Bourgeois(79),M. Bourgeois(90)",
+cpl::Football_Match::d7b4ea327d45424db24c237af4dd7b9f,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-13,Inter Toronto,Vancouver,,FULL_TIME,7,,0,0,"L. Accettola(39),T. Skublak(50)",T. Bah(72)
+cpl::Football_Match::d8e74189d3a5481dbf13a66b4ea7f506,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-13,Pacific,Cavalry,2067,FULL_TIME,3,,0,0,,D. Klomp(81)
