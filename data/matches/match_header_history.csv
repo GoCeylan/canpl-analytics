@@ -1368,3 +1368,5 @@ cpl::Football_Match::d7b4ea327d45424db24c237af4dd7b9f,cpl::Football_Season::c479
 cpl::Football_Match::d8e74189d3a5481dbf13a66b4ea7f506,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-13,Pacific,Cavalry,2067,FULL_TIME,3,,0,0,,D. Klomp(81)
 cpl::Football_Match::9fdc806eb8994b5f9a7bbc3e76cc2b0b,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-19,Cavalry,Forge,,FULL_TIME,12,,1,0,O. Antoniuk(90),N. Jensen(80)
 cpl::Football_Match::1352cc4daf1c47ef92d621bb1beed737,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-19,Pacific,Vancouver,2646,FULL_TIME,3,,0,0,Y. Toualy(45),L. Toomey(10)
+cpl::Football_Match::95e3c0ebe0734543b65ceec31d3c91ae,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-20,Atlético,Supra,4912,FULL_TIME,6,,0,0,,"S. Rea(56),L. Kwemi(75)"
+cpl::Football_Match::838fed9cee42411ba81d0eda78b791b0,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-20,Wanderers,Inter Toronto,5538,FULL_TIME,4,,0,0,"I. Johnston(9),L. Callegari(24),J. Bahamboula(73)",R. López(3)
