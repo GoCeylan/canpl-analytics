@@ -92,7 +92,7 @@ cpl::Football_Match::95e3c0ebe0734543b65ceec31d3c91ae,cpl::Football_Season::c479
 cpl::Football_Match::2b431c71383d46be9560d8c3b632815b,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-24,FINISHED,Vancouver FC,York United FC,3,3,PRE_MATCH
 cpl::Football_Match::27e278095e854f75a8c180d86e8f4bd1,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-26,UPCOMING,Vancouver FC,Forge FC,,,PRE_MATCH
 cpl::Football_Match::46285954953e44538515814c9475096b,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-26,UPCOMING,HFX Wanderers FC,Atletico Ottawa,,,PRE_MATCH
-cpl::Football_Match::f018c3caa70d4b6280254b09e927be15,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-26,UPCOMING,Cavalry FC,FC Supra,,,PRE_MATCH
+cpl::Football_Match::f018c3caa70d4b6280254b09e927be15,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-26,FINISHED,Cavalry FC,FC Supra,6,0,PRE_MATCH
 cpl::Football_Match::14240d8c2cc44be49336e29327a7ff16,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-27,UPCOMING,York United FC,Pacific FC,,,PRE_MATCH
 cpl::Football_Match::0fef81da3c7744cea6cbd5cc32676339,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-30,UPCOMING,Atletico Ottawa,Cavalry FC,,,PRE_MATCH
 cpl::Football_Match::3375f21c239b4b0c95b17bdefd7838b1,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-03,UPCOMING,Forge FC,HFX Wanderers FC,,,PRE_MATCH
