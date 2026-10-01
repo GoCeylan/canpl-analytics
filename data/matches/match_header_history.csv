@@ -1375,3 +1375,4 @@ cpl::Football_Match::f018c3caa70d4b6280254b09e927be15,cpl::Football_Season::c479
 cpl::Football_Match::46285954953e44538515814c9475096b,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-26,Wanderers,Atlético,,FULL_TIME,3,,0,0,,B. Tabla(5)
 cpl::Football_Match::27e278095e854f75a8c180d86e8f4bd1,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-26,Vancouver,Forge,,FULL_TIME,8,,0,0,M. Doner(64),M. James(16)
 cpl::Football_Match::14240d8c2cc44be49336e29327a7ff16,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-27,Inter Toronto,Pacific,,FULL_TIME,6,,1,0,"J. Córdova(15),L. Accettola(28)","T. Gomulka(41),R. Kratt(44)"
+cpl::Football_Match::0fef81da3c7744cea6cbd5cc32676339,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-09-30,Atlético,Cavalry,,FULL_TIME,15,,0,1,"K. Habibullah(59),K. Habibullah(73),G. Antinoro(90)","E. Kobza(9),T. Warschewski(90)"
