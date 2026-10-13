@@ -1383,3 +1383,5 @@ cpl::Football_Match::19c95e4b96984f0d880d99fe9a506b59,cpl::Football_Season::c479
 cpl::Football_Match::342abe9561194411b419b4a4443c74b5,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-07,Forge,Pacific,,FULL_TIME,4,,0,0,"N. Jensen(43),B. Paton(90)",
 cpl::Football_Match::dfbbb2ad940c49b6922fa996e2b212a5,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-10,Supra,Vancouver,,FULL_TIME,6,,0,0,"L. Kwemi(7),S. Mlah(88)","T. Campbell(59),M. Campagna(90)"
 cpl::Football_Match::b2e8de7ec2c54a74905d4acc6dc54607,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-11,Pacific,Atlético,2236,FULL_TIME,4,,0,0,,"N. Fleuriau Chateau(1),B. Tabla(64)"
+cpl::Football_Match::125597be9e91454ba92b20aedaa70edc,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-12,Forge,Inter Toronto,,FULL_TIME,2,,0,0,"N. Jensen(4),N. Ampomah(9),A. Batisse(28),M. Jevremović(46),B. Paton(89)",
+cpl::Football_Match::d7f9d668a10d40b2acc3f3a07abd413e,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-12,Wanderers,Cavalry,,FULL_TIME,7,,0,1,"J. Bahamboula(6),T. Meilleur-Giguère(90)","C. Elva(40),A. Musse(55)"
