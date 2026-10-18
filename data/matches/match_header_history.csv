@@ -1387,3 +1387,5 @@ cpl::Football_Match::125597be9e91454ba92b20aedaa70edc,cpl::Football_Season::c479
 cpl::Football_Match::d7f9d668a10d40b2acc3f3a07abd413e,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-12,Wanderers,Cavalry,,FULL_TIME,7,,0,1,"J. Bahamboula(6),T. Meilleur-Giguère(90)","C. Elva(40),A. Musse(55)"
 cpl::Football_Match::ef51fb745e3b4ba483f4b60222e48842,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-16,Supra,Inter Toronto,,FULL_TIME,1,,0,1,"S. Rea(62),Noah Santos(87)",
 cpl::Football_Match::5342140bbc63412681dead1ab53b31b7,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-16,Vancouver,Wanderers,,FULL_TIME,2,,0,0,"T. Bah(24),M. Campagna(76)",L. Olguin(44)
+cpl::Football_Match::590a90897700431fa1a65c2e238dcff6,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-17,Atlético,Forge,,FULL_TIME,8,,1,0,,"A. Aromatario(33),L. Johnson(54)"
+cpl::Football_Match::1b4b89a1b8b14c23bad477754fa1a33a,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-17,Cavalry,Pacific,,FULL_TIME,4,,0,0,"D. Klomp(12),B. Kamdem(45)",M. Vales(9)
