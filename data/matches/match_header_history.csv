@@ -1389,3 +1389,7 @@ cpl::Football_Match::ef51fb745e3b4ba483f4b60222e48842,cpl::Football_Season::c479
 cpl::Football_Match::5342140bbc63412681dead1ab53b31b7,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-16,Vancouver,Wanderers,,FULL_TIME,2,,0,0,"T. Bah(24),M. Campagna(76)",L. Olguin(44)
 cpl::Football_Match::590a90897700431fa1a65c2e238dcff6,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-17,Atlético,Forge,,FULL_TIME,8,,1,0,,"A. Aromatario(33),L. Johnson(54)"
 cpl::Football_Match::1b4b89a1b8b14c23bad477754fa1a33a,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-17,Cavalry,Pacific,,FULL_TIME,4,,0,0,"D. Klomp(12),B. Kamdem(45)",M. Vales(9)
+cpl::Football_Match::73cf2bcb89774898b9cb821374b5fca6,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-25,Pacific,Forge,3311,FULL_TIME,7,,0,0,R. Kratt(72),T. Borges(12)
+cpl::Football_Match::6f931a0b898c4f47b13486f30bb11ffb,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-25,Inter Toronto,Atlético,,FULL_TIME,7,,0,0,"A. Almagro(36),J. Altobelli(90)",
+cpl::Football_Match::9d352bc380024e80bcb87aa48db2fbf3,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-25,Cavalry,Vancouver,,FULL_TIME,10,,0,1,A. Musse(29),
+cpl::Football_Match::87afa4cad0a241b8aee28e176af209db,cpl::Football_Season::c479ab0916a24c3390f1ce2c021ace54,2026,2026-10-25,Wanderers,Supra,4580,FULL_TIME,8,,0,0,"A. Reid(45),K. Sow(69)","I. Condé(6),I. Condé(40),S. Rea(71)"
